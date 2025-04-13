@@ -180,6 +180,8 @@ public class ProductUpdate {
   private List<String> materials = null;
   @SerializedName("auto_renew")
   private Boolean autoRenew = false;
+  @SerializedName("on_sale")
+  private Boolean onSale = false;
 
   /**
    * Defines product id that has to be updated
@@ -1048,6 +1050,17 @@ public class ProductUpdate {
     this.autoRenew = autoRenew;
   }
 
+  /**
+   * Set whether the product on sale
+   **/
+  @ApiModelProperty(value = "Set whether the product on sale")
+  public Boolean getOnSale() {
+    return onSale;
+  }
+  public void setOnSale(Boolean onSale) {
+    this.onSale = onSale;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -1136,7 +1149,8 @@ public class ProductUpdate {
         (this.isSupply == null ? productUpdate.isSupply == null : this.isSupply.equals(productUpdate.isSupply)) &&
         (this.downloadable == null ? productUpdate.downloadable == null : this.downloadable.equals(productUpdate.downloadable)) &&
         (this.materials == null ? productUpdate.materials == null : this.materials.equals(productUpdate.materials)) &&
-        (this.autoRenew == null ? productUpdate.autoRenew == null : this.autoRenew.equals(productUpdate.autoRenew));
+        (this.autoRenew == null ? productUpdate.autoRenew == null : this.autoRenew.equals(productUpdate.autoRenew)) &&
+        (this.onSale == null ? productUpdate.onSale == null : this.onSale.equals(productUpdate.onSale));
   }
 
   @Override
@@ -1221,6 +1235,7 @@ public class ProductUpdate {
     result = 31 * result + (this.downloadable == null ? 0: this.downloadable.hashCode());
     result = 31 * result + (this.materials == null ? 0: this.materials.hashCode());
     result = 31 * result + (this.autoRenew == null ? 0: this.autoRenew.hashCode());
+    result = 31 * result + (this.onSale == null ? 0: this.onSale.hashCode());
     return result;
   }
 
@@ -1308,6 +1323,7 @@ public class ProductUpdate {
     sb.append("  downloadable: ").append(downloadable).append("\n");
     sb.append("  materials: ").append(materials).append("\n");
     sb.append("  autoRenew: ").append(autoRenew).append("\n");
+    sb.append("  onSale: ").append(onSale).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

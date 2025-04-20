@@ -283,6 +283,7 @@ docs/ProductAddCertificationsInnerFilesInner.md
 docs/ProductAddCertificationsInnerImagesInner.md
 docs/ProductAddFilesInner.md
 docs/ProductAddGroupPricesInner.md
+docs/ProductAddLogisticInfoInner.md
 docs/ProductAddManufacturerInfo.md
 docs/ProductAddPackageDetails.md
 docs/ProductAddSalesTax.md
@@ -754,6 +755,7 @@ src/main/java/org/openapitools/client/model/ProductAddCertificationsInnerFilesIn
 src/main/java/org/openapitools/client/model/ProductAddCertificationsInnerImagesInner.java
 src/main/java/org/openapitools/client/model/ProductAddFilesInner.java
 src/main/java/org/openapitools/client/model/ProductAddGroupPricesInner.java
+src/main/java/org/openapitools/client/model/ProductAddLogisticInfoInner.java
 src/main/java/org/openapitools/client/model/ProductAddManufacturerInfo.java
 src/main/java/org/openapitools/client/model/ProductAddPackageDetails.java
 src/main/java/org/openapitools/client/model/ProductAddSalesTax.java

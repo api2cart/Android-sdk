@@ -849,6 +849,7 @@ public class ProductApi {
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param brandIds Retrieves brands specified by brand ids
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param categoryId Retrieves product brands specified by category id
    * @param storeId Store Id
    * @param langId Language id
    * @param createdFrom Retrieve entities from their creation date
@@ -861,7 +862,7 @@ public class ProductApi {
    * @param findValue Entity search that is specified by some value
    * @return ModelResponseProductBrandList
   */
-  public ModelResponseProductBrandList productBrandList (Integer start, Integer count, String pageCursor, String params, String brandIds, String exclude, String storeId, String langId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String parentId, String responseFields, String findWhere, String findValue) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseProductBrandList productBrandList (Integer start, Integer count, String pageCursor, String params, String brandIds, String exclude, String categoryId, String storeId, String langId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String parentId, String responseFields, String findWhere, String findValue) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -879,6 +880,7 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_ids", brandIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
@@ -931,9 +933,9 @@ public class ProductApi {
       /**
    * product.brand.list
    * Get list of brands from your store.
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param brandIds Retrieves brands specified by brand ids   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param storeId Store Id   * @param langId Language id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param parentId Retrieves brands specified by parent id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param findWhere Entity search that is specified by the comma-separated unique fields   * @param findValue Entity search that is specified by some value
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param brandIds Retrieves brands specified by brand ids   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param categoryId Retrieves product brands specified by category id   * @param storeId Store Id   * @param langId Language id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param parentId Retrieves brands specified by parent id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param findWhere Entity search that is specified by the comma-separated unique fields   * @param findValue Entity search that is specified by some value
   */
-  public void productBrandList (Integer start, Integer count, String pageCursor, String params, String brandIds, String exclude, String storeId, String langId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String parentId, String responseFields, String findWhere, String findValue, final Response.Listener<ModelResponseProductBrandList> responseListener, final Response.ErrorListener errorListener) {
+  public void productBrandList (Integer start, Integer count, String pageCursor, String params, String brandIds, String exclude, String categoryId, String storeId, String langId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String parentId, String responseFields, String findWhere, String findValue, final Response.Listener<ModelResponseProductBrandList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -953,6 +955,7 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_ids", brandIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));

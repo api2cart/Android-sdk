@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 
 ## productBrandList
 
-> ModelResponseProductBrandList productBrandList(start, count, pageCursor, params, brandIds, exclude, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue)
+> ModelResponseProductBrandList productBrandList(start, count, pageCursor, params, brandIds, exclude, categoryId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue)
 
 product.brand.list
 
@@ -362,6 +362,7 @@ String pageCursor = ; // String | Used to retrieve entities via cursor-based pag
 String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String brandIds = 4,5; // String | Retrieves brands specified by brand ids
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+String categoryId = 6; // String | Retrieves product brands specified by category id
 String storeId = 1; // String | Store Id
 String langId = 3; // String | Language id
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
@@ -373,7 +374,7 @@ String responseFields = {return_code,return_message,pagination,result}; // Strin
 String findWhere = name; // String | Entity search that is specified by the comma-separated unique fields
 String findValue = Phone; // String | Entity search that is specified by some value
 try {
-    ModelResponseProductBrandList result = apiInstance.productBrandList(start, count, pageCursor, params, brandIds, exclude, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue);
+    ModelResponseProductBrandList result = apiInstance.productBrandList(start, count, pageCursor, params, brandIds, exclude, categoryId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productBrandList");
@@ -392,6 +393,7 @@ Name | Type | Description  | Notes
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,short_description,active,url]
  **brandIds** | **String**| Retrieves brands specified by brand ids | [optional] [default to null]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
+ **categoryId** | **String**| Retrieves product brands specified by category id | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]

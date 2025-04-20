@@ -13,11 +13,13 @@
 package org.openapitools.client.model;
 
 import java.math.BigDecimal;
+import java.net.URI;
 import java.util.*;
 import org.openapitools.client.model.ProductAddBestOffer;
 import org.openapitools.client.model.ProductAddCertificationsInner;
 import org.openapitools.client.model.ProductAddFilesInner;
 import org.openapitools.client.model.ProductAddGroupPricesInner;
+import org.openapitools.client.model.ProductAddLogisticInfoInner;
 import org.openapitools.client.model.ProductAddManufacturerInfo;
 import org.openapitools.client.model.ProductAddPackageDetails;
 import org.openapitools.client.model.ProductAddSalesTax;
@@ -168,6 +170,8 @@ public class ProductAdd {
   private String imageUrl = null;
   @SerializedName("image_name")
   private String imageName = null;
+  @SerializedName("additional_image_urls")
+  private List<URI> additionalImageUrls = null;
   @SerializedName("reserve_price")
   private BigDecimal reservePrice = null;
   @SerializedName("buyitnow_price")
@@ -176,6 +180,8 @@ public class ProductAdd {
   private String conditionDescription = null;
   @SerializedName("auction_confidentiality_level")
   private String auctionConfidentialityLevel = null;
+  @SerializedName("logistic_info")
+  private List<ProductAddLogisticInfoInner> logisticInfo = null;
   @SerializedName("avail_from")
   private String availFrom = null;
   @SerializedName("tags")
@@ -998,6 +1004,17 @@ public class ProductAdd {
   }
 
   /**
+   * Image Url
+   **/
+  @ApiModelProperty(value = "Image Url")
+  public List<URI> getAdditionalImageUrls() {
+    return additionalImageUrls;
+  }
+  public void setAdditionalImageUrls(List<URI> additionalImageUrls) {
+    this.additionalImageUrls = additionalImageUrls;
+  }
+
+  /**
    * Defines reserve price value
    **/
   @ApiModelProperty(value = "Defines reserve price value")
@@ -1039,6 +1056,17 @@ public class ProductAdd {
   }
   public void setAuctionConfidentialityLevel(String auctionConfidentialityLevel) {
     this.auctionConfidentialityLevel = auctionConfidentialityLevel;
+  }
+
+  /**
+   * Defines product's logistic channel settings
+   **/
+  @ApiModelProperty(value = "Defines product's logistic channel settings")
+  public List<ProductAddLogisticInfoInner> getLogisticInfo() {
+    return logisticInfo;
+  }
+  public void setLogisticInfo(List<ProductAddLogisticInfoInner> logisticInfo) {
+    this.logisticInfo = logisticInfo;
   }
 
   /**
@@ -1535,10 +1563,12 @@ public class ProductAdd {
         (this.specifics == null ? productAdd.specifics == null : this.specifics.equals(productAdd.specifics)) &&
         (this.imageUrl == null ? productAdd.imageUrl == null : this.imageUrl.equals(productAdd.imageUrl)) &&
         (this.imageName == null ? productAdd.imageName == null : this.imageName.equals(productAdd.imageName)) &&
+        (this.additionalImageUrls == null ? productAdd.additionalImageUrls == null : this.additionalImageUrls.equals(productAdd.additionalImageUrls)) &&
         (this.reservePrice == null ? productAdd.reservePrice == null : this.reservePrice.equals(productAdd.reservePrice)) &&
         (this.buyitnowPrice == null ? productAdd.buyitnowPrice == null : this.buyitnowPrice.equals(productAdd.buyitnowPrice)) &&
         (this.conditionDescription == null ? productAdd.conditionDescription == null : this.conditionDescription.equals(productAdd.conditionDescription)) &&
         (this.auctionConfidentialityLevel == null ? productAdd.auctionConfidentialityLevel == null : this.auctionConfidentialityLevel.equals(productAdd.auctionConfidentialityLevel)) &&
+        (this.logisticInfo == null ? productAdd.logisticInfo == null : this.logisticInfo.equals(productAdd.logisticInfo)) &&
         (this.availFrom == null ? productAdd.availFrom == null : this.availFrom.equals(productAdd.availFrom)) &&
         (this.tags == null ? productAdd.tags == null : this.tags.equals(productAdd.tags)) &&
         (this.clearCache == null ? productAdd.clearCache == null : this.clearCache.equals(productAdd.clearCache)) &&
@@ -1650,10 +1680,12 @@ public class ProductAdd {
     result = 31 * result + (this.specifics == null ? 0: this.specifics.hashCode());
     result = 31 * result + (this.imageUrl == null ? 0: this.imageUrl.hashCode());
     result = 31 * result + (this.imageName == null ? 0: this.imageName.hashCode());
+    result = 31 * result + (this.additionalImageUrls == null ? 0: this.additionalImageUrls.hashCode());
     result = 31 * result + (this.reservePrice == null ? 0: this.reservePrice.hashCode());
     result = 31 * result + (this.buyitnowPrice == null ? 0: this.buyitnowPrice.hashCode());
     result = 31 * result + (this.conditionDescription == null ? 0: this.conditionDescription.hashCode());
     result = 31 * result + (this.auctionConfidentialityLevel == null ? 0: this.auctionConfidentialityLevel.hashCode());
+    result = 31 * result + (this.logisticInfo == null ? 0: this.logisticInfo.hashCode());
     result = 31 * result + (this.availFrom == null ? 0: this.availFrom.hashCode());
     result = 31 * result + (this.tags == null ? 0: this.tags.hashCode());
     result = 31 * result + (this.clearCache == null ? 0: this.clearCache.hashCode());
@@ -1768,10 +1800,12 @@ public class ProductAdd {
     sb.append("  specifics: ").append(specifics).append("\n");
     sb.append("  imageUrl: ").append(imageUrl).append("\n");
     sb.append("  imageName: ").append(imageName).append("\n");
+    sb.append("  additionalImageUrls: ").append(additionalImageUrls).append("\n");
     sb.append("  reservePrice: ").append(reservePrice).append("\n");
     sb.append("  buyitnowPrice: ").append(buyitnowPrice).append("\n");
     sb.append("  conditionDescription: ").append(conditionDescription).append("\n");
     sb.append("  auctionConfidentialityLevel: ").append(auctionConfidentialityLevel).append("\n");
+    sb.append("  logisticInfo: ").append(logisticInfo).append("\n");
     sb.append("  availFrom: ").append(availFrom).append("\n");
     sb.append("  tags: ").append(tags).append("\n");
     sb.append("  clearCache: ").append(clearCache).append("\n");

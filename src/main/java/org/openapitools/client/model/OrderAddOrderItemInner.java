@@ -38,6 +38,8 @@ public class OrderAddOrderItemInner {
   private String orderItemVariantId = null;
   @SerializedName("order_item_tax")
   private BigDecimal orderItemTax = 0;
+  @SerializedName("order_item_price_includes_tax")
+  private Boolean orderItemPriceIncludesTax = false;
   @SerializedName("order_item_parent")
   private Integer orderItemParent = null;
   @SerializedName("order_item_parent_option_name")
@@ -46,8 +48,6 @@ public class OrderAddOrderItemInner {
   private Boolean orderItemAllowRefundItemsSeparately = null;
   @SerializedName("order_item_allow_ship_items_separately")
   private Boolean orderItemAllowShipItemsSeparately = null;
-  @SerializedName("order_item_price_includes_tax")
-  private Boolean orderItemPriceIncludesTax = false;
   @SerializedName("order_item_option")
   private List<OrderAddOrderItemInnerOrderItemOptionInner> orderItemOption = null;
   @SerializedName("order_item_property")
@@ -142,6 +142,17 @@ public class OrderAddOrderItemInner {
   }
 
   /**
+   * Defines if item price includes tax
+   **/
+  @ApiModelProperty(value = "Defines if item price includes tax")
+  public Boolean getOrderItemPriceIncludesTax() {
+    return orderItemPriceIncludesTax;
+  }
+  public void setOrderItemPriceIncludesTax(Boolean orderItemPriceIncludesTax) {
+    this.orderItemPriceIncludesTax = orderItemPriceIncludesTax;
+  }
+
+  /**
    * Index of the parent grouped/bundle product
    **/
   @ApiModelProperty(value = "Index of the parent grouped/bundle product")
@@ -186,17 +197,6 @@ public class OrderAddOrderItemInner {
   }
 
   /**
-   * Defines if item price includes tax
-   **/
-  @ApiModelProperty(value = "Defines if item price includes tax")
-  public Boolean getOrderItemPriceIncludesTax() {
-    return orderItemPriceIncludesTax;
-  }
-  public void setOrderItemPriceIncludesTax(Boolean orderItemPriceIncludesTax) {
-    this.orderItemPriceIncludesTax = orderItemPriceIncludesTax;
-  }
-
-  /**
    **/
   @ApiModelProperty(value = "")
   public List<OrderAddOrderItemInnerOrderItemOptionInner> getOrderItemOption() {
@@ -234,11 +234,11 @@ public class OrderAddOrderItemInner {
         (this.orderItemWeight == null ? orderAddOrderItemInner.orderItemWeight == null : this.orderItemWeight.equals(orderAddOrderItemInner.orderItemWeight)) &&
         (this.orderItemVariantId == null ? orderAddOrderItemInner.orderItemVariantId == null : this.orderItemVariantId.equals(orderAddOrderItemInner.orderItemVariantId)) &&
         (this.orderItemTax == null ? orderAddOrderItemInner.orderItemTax == null : this.orderItemTax.equals(orderAddOrderItemInner.orderItemTax)) &&
+        (this.orderItemPriceIncludesTax == null ? orderAddOrderItemInner.orderItemPriceIncludesTax == null : this.orderItemPriceIncludesTax.equals(orderAddOrderItemInner.orderItemPriceIncludesTax)) &&
         (this.orderItemParent == null ? orderAddOrderItemInner.orderItemParent == null : this.orderItemParent.equals(orderAddOrderItemInner.orderItemParent)) &&
         (this.orderItemParentOptionName == null ? orderAddOrderItemInner.orderItemParentOptionName == null : this.orderItemParentOptionName.equals(orderAddOrderItemInner.orderItemParentOptionName)) &&
         (this.orderItemAllowRefundItemsSeparately == null ? orderAddOrderItemInner.orderItemAllowRefundItemsSeparately == null : this.orderItemAllowRefundItemsSeparately.equals(orderAddOrderItemInner.orderItemAllowRefundItemsSeparately)) &&
         (this.orderItemAllowShipItemsSeparately == null ? orderAddOrderItemInner.orderItemAllowShipItemsSeparately == null : this.orderItemAllowShipItemsSeparately.equals(orderAddOrderItemInner.orderItemAllowShipItemsSeparately)) &&
-        (this.orderItemPriceIncludesTax == null ? orderAddOrderItemInner.orderItemPriceIncludesTax == null : this.orderItemPriceIncludesTax.equals(orderAddOrderItemInner.orderItemPriceIncludesTax)) &&
         (this.orderItemOption == null ? orderAddOrderItemInner.orderItemOption == null : this.orderItemOption.equals(orderAddOrderItemInner.orderItemOption)) &&
         (this.orderItemProperty == null ? orderAddOrderItemInner.orderItemProperty == null : this.orderItemProperty.equals(orderAddOrderItemInner.orderItemProperty));
   }
@@ -254,11 +254,11 @@ public class OrderAddOrderItemInner {
     result = 31 * result + (this.orderItemWeight == null ? 0: this.orderItemWeight.hashCode());
     result = 31 * result + (this.orderItemVariantId == null ? 0: this.orderItemVariantId.hashCode());
     result = 31 * result + (this.orderItemTax == null ? 0: this.orderItemTax.hashCode());
+    result = 31 * result + (this.orderItemPriceIncludesTax == null ? 0: this.orderItemPriceIncludesTax.hashCode());
     result = 31 * result + (this.orderItemParent == null ? 0: this.orderItemParent.hashCode());
     result = 31 * result + (this.orderItemParentOptionName == null ? 0: this.orderItemParentOptionName.hashCode());
     result = 31 * result + (this.orderItemAllowRefundItemsSeparately == null ? 0: this.orderItemAllowRefundItemsSeparately.hashCode());
     result = 31 * result + (this.orderItemAllowShipItemsSeparately == null ? 0: this.orderItemAllowShipItemsSeparately.hashCode());
-    result = 31 * result + (this.orderItemPriceIncludesTax == null ? 0: this.orderItemPriceIncludesTax.hashCode());
     result = 31 * result + (this.orderItemOption == null ? 0: this.orderItemOption.hashCode());
     result = 31 * result + (this.orderItemProperty == null ? 0: this.orderItemProperty.hashCode());
     return result;
@@ -277,11 +277,11 @@ public class OrderAddOrderItemInner {
     sb.append("  orderItemWeight: ").append(orderItemWeight).append("\n");
     sb.append("  orderItemVariantId: ").append(orderItemVariantId).append("\n");
     sb.append("  orderItemTax: ").append(orderItemTax).append("\n");
+    sb.append("  orderItemPriceIncludesTax: ").append(orderItemPriceIncludesTax).append("\n");
     sb.append("  orderItemParent: ").append(orderItemParent).append("\n");
     sb.append("  orderItemParentOptionName: ").append(orderItemParentOptionName).append("\n");
     sb.append("  orderItemAllowRefundItemsSeparately: ").append(orderItemAllowRefundItemsSeparately).append("\n");
     sb.append("  orderItemAllowShipItemsSeparately: ").append(orderItemAllowShipItemsSeparately).append("\n");
-    sb.append("  orderItemPriceIncludesTax: ").append(orderItemPriceIncludesTax).append("\n");
     sb.append("  orderItemOption: ").append(orderItemOption).append("\n");
     sb.append("  orderItemProperty: ").append(orderItemProperty).append("\n");
     sb.append("}\n");

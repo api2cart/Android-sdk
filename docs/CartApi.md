@@ -123,7 +123,7 @@ This endpoint does not need any parameter.
 
 ## cartCatalogPriceRulesList
 
-> ModelResponseCartCatalogPriceRulesList cartCatalogPriceRulesList(pageCursor, start, count, ids, params, responseFields, exclude)
+> ModelResponseCartCatalogPriceRulesList cartCatalogPriceRulesList(start, count, pageCursor, ids, responseFields, params, exclude)
 
 cart.catalog_price_rules.list
 
@@ -136,15 +136,15 @@ Get cart catalog price rules discounts.
 //import org.openapitools.client.api.CartApi;
 
 CartApi apiInstance = new CartApi();
-String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 String ids = 24,25; // String | Retrieves  catalog_price_rules by ids
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String responseFields = {result{catalog_price_rules_count,catalog_price_rules{id,type,name,avail,usage_count,actions,conditions}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseCartCatalogPriceRulesList result = apiInstance.cartCatalogPriceRulesList(pageCursor, start, count, ids, params, responseFields, exclude);
+    ModelResponseCartCatalogPriceRulesList result = apiInstance.cartCatalogPriceRulesList(start, count, pageCursor, ids, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CartApi#cartCatalogPriceRulesList");
@@ -157,12 +157,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **ids** | **String**| Retrieves  catalog_price_rules by ids | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 ## cartCouponConditionAdd
 
-> BasketLiveShippingServiceDelete200Response cartCouponConditionAdd(couponId, entity, key, operator, value, storeId, target, includeTax, includeShipping)
+> BasketLiveShippingServiceDelete200Response cartCouponConditionAdd(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId)
 
 cart.coupon.condition.add
 
@@ -385,12 +385,12 @@ String entity = order; // String | Defines condition entity type
 String key = subtotal; // String | Defines condition entity attribute key
 String operator = ==; // String | Defines condition operator
 String value = 2; // String | Defines condition value, can be comma separated according to the operator.
-String storeId = 1; // String | Store Id
 String target = coupon_action; // String | Defines condition operator
 Boolean includeTax = true; // Boolean | Indicates whether to apply a discount for taxes.
 Boolean includeShipping = true; // Boolean | Indicates whether to apply a discount for shipping.
+String storeId = 1; // String | Store Id
 try {
-    BasketLiveShippingServiceDelete200Response result = apiInstance.cartCouponConditionAdd(couponId, entity, key, operator, value, storeId, target, includeTax, includeShipping);
+    BasketLiveShippingServiceDelete200Response result = apiInstance.cartCouponConditionAdd(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CartApi#cartCouponConditionAdd");
@@ -408,10 +408,10 @@ Name | Type | Description  | Notes
  **key** | **String**| Defines condition entity attribute key | [default to null] [enum: total, subtotal, shipping_total, total_quantity, total_weight, country, product_id, variant_id, category_id, customer_id, item_price, item_total_price, item_quantity, carrier_id]
  **operator** | **String**| Defines condition operator | [default to null]
  **value** | **String**| Defines condition value, can be comma separated according to the operator. | [default to null]
- **storeId** | **String**| Store Id | [optional] [default to null]
  **target** | **String**| Defines condition operator | [optional] [default to coupon_prerequisite]
  **includeTax** | **Boolean**| Indicates whether to apply a discount for taxes. | [optional] [default to false]
  **includeShipping** | **Boolean**| Indicates whether to apply a discount for shipping. | [optional] [default to false]
+ **storeId** | **String**| Store Id | [optional] [default to null]
 
 ### Return type
 
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 
 ## cartCouponCount
 
-> CartCouponCount200Response cartCouponCount(storeId, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, avail)
+> CartCouponCount200Response cartCouponCount(storeId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo)
 
 cart.coupon.count
 
@@ -443,13 +443,13 @@ This method allows you to get the number of coupons. On some platforms, you can 
 
 CartApi apiInstance = new CartApi();
 String storeId = 1; // String | Store Id
+Boolean avail = false; // Boolean | Defines category's visibility status
 String dateStartFrom = 2016-12-29 16:44:30; // String | Filter entity by date_start (greater or equal)
 String dateStartTo = 2016-12-29 16:44:30; // String | Filter entity by date_start (less or equal)
 String dateEndFrom = 2016-12-29 16:44:30; // String | Filter entity by date_end (greater or equal)
 String dateEndTo = 2016-12-29 16:44:30; // String | Filter entity by date_end (less or equal)
-Boolean avail = false; // Boolean | Defines category's visibility status
 try {
-    CartCouponCount200Response result = apiInstance.cartCouponCount(storeId, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, avail);
+    CartCouponCount200Response result = apiInstance.cartCouponCount(storeId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CartApi#cartCouponCount");
@@ -463,11 +463,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storeId** | **String**| Store Id | [optional] [default to null]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
  **dateStartFrom** | **String**| Filter entity by date_start (greater or equal) | [optional] [default to null]
  **dateStartTo** | **String**| Filter entity by date_start (less or equal) | [optional] [default to null]
  **dateEndFrom** | **String**| Filter entity by date_end (greater or equal) | [optional] [default to null]
  **dateEndTo** | **String**| Filter entity by date_end (less or equal) | [optional] [default to null]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
 
 ### Return type
 
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 ## cartCouponList
 
-> ModelResponseCartCouponList cartCouponList(pageCursor, start, count, couponsIds, storeId, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, avail, langId, params, responseFields, exclude)
+> ModelResponseCartCouponList cartCouponList(start, count, pageCursor, couponsIds, storeId, langId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, responseFields, params, exclude)
 
 cart.coupon.list
 
@@ -546,22 +546,22 @@ Get cart coupon discounts.
 //import org.openapitools.client.api.CartApi;
 
 CartApi apiInstance = new CartApi();
-String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 String couponsIds = 1,2,3; // String | Filter coupons by ids
 String storeId = 1; // String | Filter coupons by store id
+String langId = 3; // String | Language id
+Boolean avail = false; // Boolean | Filter coupons by avail status
 String dateStartFrom = 2016-12-29 16:44:30; // String | Filter entity by date_start (greater or equal)
 String dateStartTo = 2016-12-29 16:44:30; // String | Filter entity by date_start (less or equal)
 String dateEndFrom = 2016-12-29 16:44:30; // String | Filter entity by date_end (greater or equal)
 String dateEndTo = 2016-12-29 16:44:30; // String | Filter entity by date_end (less or equal)
-Boolean avail = false; // Boolean | Filter coupons by avail status
-String langId = 3; // String | Language id
-String params = id,code,type,amount; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String responseFields = {pagination,result{coupon_count,coupon{id,code,name,conditions,actions{scope,amount,conditions{id,value,sub-conditions}},date_start,avail}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,code,type,amount; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = usage_history,type; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseCartCouponList result = apiInstance.cartCouponList(pageCursor, start, count, couponsIds, storeId, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, avail, langId, params, responseFields, exclude);
+    ModelResponseCartCouponList result = apiInstance.cartCouponList(start, count, pageCursor, couponsIds, storeId, langId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CartApi#cartCouponList");
@@ -574,19 +574,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **couponsIds** | **String**| Filter coupons by ids | [optional] [default to null]
  **storeId** | **String**| Filter coupons by store id | [optional] [default to null]
+ **langId** | **String**| Language id | [optional] [default to null]
+ **avail** | **Boolean**| Filter coupons by avail status | [optional] [default to null]
  **dateStartFrom** | **String**| Filter entity by date_start (greater or equal) | [optional] [default to null]
  **dateStartTo** | **String**| Filter entity by date_start (less or equal) | [optional] [default to null]
  **dateEndFrom** | **String**| Filter entity by date_end (greater or equal) | [optional] [default to null]
  **dateEndTo** | **String**| Filter entity by date_end (less or equal) | [optional] [default to null]
- **avail** | **Boolean**| Filter coupons by avail status | [optional] [default to null]
- **langId** | **String**| Language id | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,code,name,description]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,code,name,description]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
@@ -891,7 +891,7 @@ Name | Type | Description  | Notes
 
 ## cartGiftcardList
 
-> ModelResponseCartGiftCardList cartGiftcardList(pageCursor, start, count, storeId, params, responseFields, exclude)
+> ModelResponseCartGiftCardList cartGiftcardList(start, count, pageCursor, storeId, responseFields, params, exclude)
 
 cart.giftcard.list
 
@@ -904,15 +904,15 @@ Get gift cards list.
 //import org.openapitools.client.api.CartApi;
 
 CartApi apiInstance = new CartApi();
-String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 String storeId = 1; // String | Store Id
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String responseFields = {pagination,result{gift_card{id,code,amount,status}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseCartGiftCardList result = apiInstance.cartGiftcardList(pageCursor, start, count, storeId, params, responseFields, exclude);
+    ModelResponseCartGiftCardList result = apiInstance.cartGiftcardList(start, count, pageCursor, storeId, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CartApi#cartGiftcardList");
@@ -925,12 +925,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,code,name]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,code,name]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
@@ -949,7 +949,7 @@ Name | Type | Description  | Notes
 
 ## cartInfo
 
-> CartInfo200Response cartInfo(params, responseFields, exclude, storeId)
+> CartInfo200Response cartInfo(storeId, responseFields, params, exclude)
 
 cart.info
 
@@ -962,12 +962,12 @@ This method allows you to get various information about the store, including a l
 //import org.openapitools.client.api.CartApi;
 
 CartApi apiInstance = new CartApi();
-String params = name,url; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String responseFields = {result{name,url,stores_info{store_id,name,currency{id,iso3},store_owner_info}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = name,url; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String storeId = 1; // String | Store Id
+String responseFields = {result{name,url,stores_info{store_id,name,currency{id,iso3},store_owner_info}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = name,url; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = name,url; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    CartInfo200Response result = apiInstance.cartInfo(params, responseFields, exclude, storeId);
+    CartInfo200Response result = apiInstance.cartInfo(storeId, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CartApi#cartInfo");
@@ -980,10 +980,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to store_name,store_url,db_prefix]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to store_name,store_url,db_prefix]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
 
@@ -1043,7 +1043,7 @@ This endpoint does not need any parameter.
 
 ## cartMetaDataList
 
-> ModelResponseCartMetaDataList cartMetaDataList(entityId, entity, storeId, langId, key, count, pageCursor, params, responseFields, exclude)
+> ModelResponseCartMetaDataList cartMetaDataList(entityId, count, pageCursor, entity, storeId, langId, key, responseFields, params, exclude)
 
 cart.meta_data.list
 
@@ -1057,17 +1057,17 @@ Using this method, you can get a list of metadata for various entities (products
 
 CartApi apiInstance = new CartApi();
 String entityId = 1; // String | Entity Id
+Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 String entity = order; // String | Entity
 String storeId = 1; // String | Store Id
 String langId = 3; // String | Language id
 String key = subtotal; // String | Key
-Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String responseFields = {result{items{key,value}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseCartMetaDataList result = apiInstance.cartMetaDataList(entityId, entity, storeId, langId, key, count, pageCursor, params, responseFields, exclude);
+    ModelResponseCartMetaDataList result = apiInstance.cartMetaDataList(entityId, count, pageCursor, entity, storeId, langId, key, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CartApi#cartMetaDataList");
@@ -1081,14 +1081,14 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entityId** | **String**| Entity Id | [default to null]
+ **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **entity** | **String**| Entity | [optional] [default to product]
  **storeId** | **String**| Store Id | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
  **key** | **String**| Key | [optional] [default to null]
- **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to key,value]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to key,value]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
@@ -1261,7 +1261,7 @@ This endpoint does not need any parameter.
 
 ## cartPluginList
 
-> CartPluginList200Response cartPluginList(storeId, start, count)
+> CartPluginList200Response cartPluginList(start, count, storeId)
 
 cart.plugin.list
 
@@ -1274,11 +1274,11 @@ Get a list of third-party plugins installed on the store.
 //import org.openapitools.client.api.CartApi;
 
 CartApi apiInstance = new CartApi();
-String storeId = 1; // String | Store Id
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String storeId = 1; // String | Store Id
 try {
-    CartPluginList200Response result = apiInstance.cartPluginList(storeId, start, count);
+    CartPluginList200Response result = apiInstance.cartPluginList(start, count, storeId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CartApi#cartPluginList");
@@ -1291,9 +1291,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | **String**| Store Id | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **storeId** | **String**| Store Id | [optional] [default to null]
 
 ### Return type
 
@@ -1419,7 +1419,7 @@ Name | Type | Description  | Notes
 
 ## cartScriptList
 
-> ModelResponseCartScriptList cartScriptList(pageCursor, start, count, createdFrom, createdTo, modifiedFrom, modifiedTo, scriptIds, storeId, params, responseFields, exclude)
+> ModelResponseCartScriptList cartScriptList(start, count, pageCursor, scriptIds, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude)
 
 cart.script.list
 
@@ -1432,20 +1432,20 @@ Get scripts installed to the storefront
 //import org.openapitools.client.api.CartApi;
 
 CartApi apiInstance = new CartApi();
-String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+String scriptIds = 34023324,34024032; // String | Retrieves only scripts with specific ids
+String storeId = 1; // String | Store Id
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-String scriptIds = 34023324,34024032; // String | Retrieves only scripts with specific ids
-String storeId = 1; // String | Store Id
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String responseFields = {pagination,result{total_count,scripts{id,name,src,created_time{value}}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseCartScriptList result = apiInstance.cartScriptList(pageCursor, start, count, createdFrom, createdTo, modifiedFrom, modifiedTo, scriptIds, storeId, params, responseFields, exclude);
+    ModelResponseCartScriptList result = apiInstance.cartScriptList(start, count, pageCursor, scriptIds, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CartApi#cartScriptList");
@@ -1458,17 +1458,17 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
+ **scriptIds** | **String**| Retrieves only scripts with specific ids | [optional] [default to null]
+ **storeId** | **String**| Store Id | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **scriptIds** | **String**| Retrieves only scripts with specific ids | [optional] [default to null]
- **storeId** | **String**| Store Id | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
@@ -1487,7 +1487,7 @@ Name | Type | Description  | Notes
 
 ## cartShippingZonesList
 
-> ModelResponseCartShippingZonesList cartShippingZonesList(storeId, start, count, params, responseFields, exclude)
+> ModelResponseCartShippingZonesList cartShippingZonesList(start, count, storeId, responseFields, params, exclude)
 
 cart.shipping_zones.list
 
@@ -1500,14 +1500,14 @@ Get list of shipping zones
 //import org.openapitools.client.api.CartApi;
 
 CartApi apiInstance = new CartApi();
-String storeId = 1; // String | Store Id
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String storeId = 1; // String | Store Id
 String responseFields = {result{id,name,enabled,countries,shipping_methods{name,rates}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseCartShippingZonesList result = apiInstance.cartShippingZonesList(storeId, start, count, params, responseFields, exclude);
+    ModelResponseCartShippingZonesList result = apiInstance.cartShippingZonesList(start, count, storeId, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CartApi#cartShippingZonesList");
@@ -1520,11 +1520,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | **String**| Store Id | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,enabled]
+ **storeId** | **String**| Store Id | [optional] [default to null]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,enabled]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type

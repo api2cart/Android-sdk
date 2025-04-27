@@ -590,16 +590,16 @@ public class WebhookApi {
   /**
   * webhook.list
   * List registered webhook on the store.
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
    * @param entity The entity you want to filter webhooks by (e.g. order or product)
    * @param action The action you want to filter webhooks by (e.g. add, update, or delete)
    * @param active The webhook status you want to filter webhooks by
    * @param ids List of сomma-separated webhook ids
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @return WebhookList200Response
   */
-  public WebhookList200Response webhookList (String params, Integer start, Integer count, String entity, String action, Boolean active, String ids) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public WebhookList200Response webhookList (Integer start, Integer count, String entity, String action, Boolean active, String ids, String params) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -611,13 +611,13 @@ public class WebhookApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "action", action));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "active", active));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -660,9 +660,9 @@ public class WebhookApi {
       /**
    * webhook.list
    * List registered webhook on the store.
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param entity The entity you want to filter webhooks by (e.g. order or product)   * @param action The action you want to filter webhooks by (e.g. add, update, or delete)   * @param active The webhook status you want to filter webhooks by   * @param ids List of сomma-separated webhook ids
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param entity The entity you want to filter webhooks by (e.g. order or product)   * @param action The action you want to filter webhooks by (e.g. add, update, or delete)   * @param active The webhook status you want to filter webhooks by   * @param ids List of сomma-separated webhook ids   * @param params Set this parameter in order to choose which entity fields you want to retrieve
   */
-  public void webhookList (String params, Integer start, Integer count, String entity, String action, Boolean active, String ids, final Response.Listener<WebhookList200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void webhookList (Integer start, Integer count, String entity, String action, Boolean active, String ids, String params, final Response.Listener<WebhookList200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -676,13 +676,13 @@ public class WebhookApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "action", action));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "active", active));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
 
 
     String[] contentTypes = {

@@ -333,12 +333,12 @@ public class CustomerApi {
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param storeId Store Id
    * @param langId Language id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @return ModelResponseCustomerAttributeList
   */
-  public ModelResponseCustomerAttributeList customerAttributeList (String customerId, Integer count, String pageCursor, String storeId, String langId, String params, String exclude, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCustomerAttributeList customerAttributeList (String customerId, Integer count, String pageCursor, String storeId, String langId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'customerId' is set
     if (customerId == null) {
@@ -360,9 +360,9 @@ public class CustomerApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -405,9 +405,9 @@ public class CustomerApi {
       /**
    * customer.attribute.list
    * Get attributes for specific customer
-   * @param customerId Retrieves orders specified by customer id   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param storeId Store Id   * @param langId Language id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param customerId Retrieves orders specified by customer id   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param storeId Store Id   * @param langId Language id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void customerAttributeList (String customerId, Integer count, String pageCursor, String storeId, String langId, String params, String exclude, String responseFields, final Response.Listener<ModelResponseCustomerAttributeList> responseListener, final Response.ErrorListener errorListener) {
+  public void customerAttributeList (String customerId, Integer count, String pageCursor, String storeId, String langId, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCustomerAttributeList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'customerId' is set
@@ -431,9 +431,9 @@ public class CustomerApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
 
 
     String[] contentTypes = {
@@ -478,21 +478,21 @@ public class CustomerApi {
   /**
   * customer.count
   * Get number of customers from store.
+   * @param ids Counts customers specified by ids
+   * @param sinceId Retrieve entities starting from the specified id.
+   * @param customerListId The numeric ID of the customer list in Demandware.
    * @param groupId Customer group_id
+   * @param storeId Counts customer specified by store id
+   * @param avail Defines category&#39;s visibility status
+   * @param findValue Entity search that is specified by some value
+   * @param findWhere Counts customers that are searched specified by field
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param storeId Counts customer specified by store id
-   * @param customerListId The numeric ID of the customer list in Demandware.
-   * @param avail Defines category&#39;s visibility status
-   * @param findValue Entity search that is specified by some value
-   * @param findWhere Counts customers that are searched specified by field
-   * @param ids Counts customers specified by ids
-   * @param sinceId Retrieve entities starting from the specified id.
    * @return CustomerCount200Response
   */
-  public CustomerCount200Response customerCount (String groupId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String storeId, String customerListId, Boolean avail, String findValue, String findWhere, String ids, String sinceId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CustomerCount200Response customerCount (String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -504,18 +504,18 @@ public class CustomerApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_list_id", customerListId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "group_id", groupId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_list_id", customerListId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -558,9 +558,9 @@ public class CustomerApi {
       /**
    * customer.count
    * Get number of customers from store.
-   * @param groupId Customer group_id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param storeId Counts customer specified by store id   * @param customerListId The numeric ID of the customer list in Demandware.   * @param avail Defines category&#39;s visibility status   * @param findValue Entity search that is specified by some value   * @param findWhere Counts customers that are searched specified by field   * @param ids Counts customers specified by ids   * @param sinceId Retrieve entities starting from the specified id.
+   * @param ids Counts customers specified by ids   * @param sinceId Retrieve entities starting from the specified id.   * @param customerListId The numeric ID of the customer list in Demandware.   * @param groupId Customer group_id   * @param storeId Counts customer specified by store id   * @param avail Defines category&#39;s visibility status   * @param findValue Entity search that is specified by some value   * @param findWhere Counts customers that are searched specified by field   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date
   */
-  public void customerCount (String groupId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String storeId, String customerListId, Boolean avail, String findValue, String findWhere, String ids, String sinceId, final Response.Listener<CustomerCount200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void customerCount (String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, final Response.Listener<CustomerCount200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -574,18 +574,18 @@ public class CustomerApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_list_id", customerListId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "group_id", groupId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_list_id", customerListId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
 
 
     String[] contentTypes = {
@@ -1032,19 +1032,19 @@ public class CustomerApi {
   /**
   * customer.group.list
   * Get list of customers groups.
-   * @param disableCache Disable cache for current request
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
+   * @param groupIds Groups that will be assigned to a customer
    * @param storeId Store Id
    * @param langId Language id
-   * @param groupIds Groups that will be assigned to a customer
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param disableCache Disable cache for current request
    * @return ModelResponseCustomerGroupList
   */
-  public ModelResponseCustomerGroupList customerGroupList (Boolean disableCache, String pageCursor, Integer start, Integer count, String storeId, String langId, String groupIds, String params, String exclude, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCustomerGroupList customerGroupList (Integer start, Integer count, String pageCursor, String groupIds, String storeId, String langId, String responseFields, String params, String exclude, Boolean disableCache) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1056,16 +1056,16 @@ public class CustomerApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_cache", disableCache));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "group_ids", groupIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "group_ids", groupIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_cache", disableCache));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1108,9 +1108,9 @@ public class CustomerApi {
       /**
    * customer.group.list
    * Get list of customers groups.
-   * @param disableCache Disable cache for current request   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param storeId Store Id   * @param langId Language id   * @param groupIds Groups that will be assigned to a customer   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param groupIds Groups that will be assigned to a customer   * @param storeId Store Id   * @param langId Language id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param disableCache Disable cache for current request
   */
-  public void customerGroupList (Boolean disableCache, String pageCursor, Integer start, Integer count, String storeId, String langId, String groupIds, String params, String exclude, String responseFields, final Response.Listener<ModelResponseCustomerGroupList> responseListener, final Response.ErrorListener errorListener) {
+  public void customerGroupList (Integer start, Integer count, String pageCursor, String groupIds, String storeId, String langId, String responseFields, String params, String exclude, Boolean disableCache, final Response.Listener<ModelResponseCustomerGroupList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1124,16 +1124,16 @@ public class CustomerApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_cache", disableCache));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "group_ids", groupIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "group_ids", groupIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_cache", disableCache));
 
 
     String[] contentTypes = {
@@ -1179,13 +1179,13 @@ public class CustomerApi {
   * customer.info
   * Get customers&#39; details from store.
    * @param id Retrieves customer&#39;s info specified by customer id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param storeId Retrieves customer info specified by store id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return CustomerInfo200Response
   */
-  public CustomerInfo200Response customerInfo (String id, String params, String responseFields, String exclude, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CustomerInfo200Response customerInfo (String id, String storeId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1203,10 +1203,10 @@ public class CustomerApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1249,9 +1249,9 @@ public class CustomerApi {
       /**
    * customer.info
    * Get customers&#39; details from store.
-   * @param id Retrieves customer&#39;s info specified by customer id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param storeId Retrieves customer info specified by store id
+   * @param id Retrieves customer&#39;s info specified by customer id   * @param storeId Retrieves customer info specified by store id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void customerInfo (String id, String params, String responseFields, String exclude, String storeId, final Response.Listener<CustomerInfo200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void customerInfo (String id, String storeId, String responseFields, String params, String exclude, final Response.Listener<CustomerInfo200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -1271,10 +1271,10 @@ public class CustomerApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {
@@ -1319,29 +1319,29 @@ public class CustomerApi {
   /**
   * customer.list
   * Get list of customers from store.
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
+   * @param ids Retrieves customers specified by ids
+   * @param sinceId Retrieve entities starting from the specified id.
+   * @param customerListId The numeric ID of the customer list in Demandware.
+   * @param groupId Customer group_id
+   * @param storeId Retrieves customers specified by store id
+   * @param avail Defines category&#39;s visibility status
+   * @param findValue Entity search that is specified by some value
+   * @param findWhere Customer search that is specified by field
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param groupId Customer group_id
-   * @param storeId Retrieves customers specified by store id
-   * @param customerListId The numeric ID of the customer list in Demandware.
-   * @param avail Defines category&#39;s visibility status
-   * @param findValue Entity search that is specified by some value
-   * @param findWhere Customer search that is specified by field
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
-   * @param ids Retrieves customers specified by ids
-   * @param sinceId Retrieve entities starting from the specified id.
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseCustomerList
   */
-  public ModelResponseCustomerList customerList (String pageCursor, Integer start, Integer count, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String params, String responseFields, String exclude, String groupId, String storeId, String customerListId, Boolean avail, String findValue, String findWhere, String sortBy, String sortDirection, String ids, String sinceId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCustomerList customerList (Integer start, Integer count, String pageCursor, String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sortBy, String sortDirection, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1353,26 +1353,26 @@ public class CustomerApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_list_id", customerListId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "group_id", groupId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "group_id", groupId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_list_id", customerListId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1415,9 +1415,9 @@ public class CustomerApi {
       /**
    * customer.list
    * Get list of customers from store.
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param groupId Customer group_id   * @param storeId Retrieves customers specified by store id   * @param customerListId The numeric ID of the customer list in Demandware.   * @param avail Defines category&#39;s visibility status   * @param findValue Entity search that is specified by some value   * @param findWhere Customer search that is specified by field   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param ids Retrieves customers specified by ids   * @param sinceId Retrieve entities starting from the specified id.
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param ids Retrieves customers specified by ids   * @param sinceId Retrieve entities starting from the specified id.   * @param customerListId The numeric ID of the customer list in Demandware.   * @param groupId Customer group_id   * @param storeId Retrieves customers specified by store id   * @param avail Defines category&#39;s visibility status   * @param findValue Entity search that is specified by some value   * @param findWhere Customer search that is specified by field   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void customerList (String pageCursor, Integer start, Integer count, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String params, String responseFields, String exclude, String groupId, String storeId, String customerListId, Boolean avail, String findValue, String findWhere, String sortBy, String sortDirection, String ids, String sinceId, final Response.Listener<ModelResponseCustomerList> responseListener, final Response.ErrorListener errorListener) {
+  public void customerList (Integer start, Integer count, String pageCursor, String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sortBy, String sortDirection, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCustomerList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1431,26 +1431,26 @@ public class CustomerApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_list_id", customerListId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "group_id", groupId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "group_id", groupId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_list_id", customerListId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {
@@ -1624,15 +1624,15 @@ public class CustomerApi {
   * customer.wishlist.list
   * Get a Wish List of customer from the store.
    * @param customerId Retrieves orders specified by customer id
-   * @param id Entity id
-   * @param storeId Store Id
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
+   * @param id Entity id
+   * @param storeId Store Id
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @return ModelResponseCustomerWishlistList
   */
-  public ModelResponseCustomerWishlistList customerWishlistList (String customerId, String id, String storeId, Integer start, Integer count, String pageCursor, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCustomerWishlistList customerWishlistList (String customerId, Integer start, Integer count, String pageCursor, String id, String storeId, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'customerId' is set
     if (customerId == null) {
@@ -1649,12 +1649,12 @@ public class CustomerApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     String[] contentTypes = {
     };
@@ -1698,9 +1698,9 @@ public class CustomerApi {
       /**
    * customer.wishlist.list
    * Get a Wish List of customer from the store.
-   * @param customerId Retrieves orders specified by customer id   * @param id Entity id   * @param storeId Store Id   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param customerId Retrieves orders specified by customer id   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param id Entity id   * @param storeId Store Id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
   */
-  public void customerWishlistList (String customerId, String id, String storeId, Integer start, Integer count, String pageCursor, String responseFields, final Response.Listener<ModelResponseCustomerWishlistList> responseListener, final Response.ErrorListener errorListener) {
+  public void customerWishlistList (String customerId, Integer start, Integer count, String pageCursor, String id, String storeId, String responseFields, final Response.Listener<ModelResponseCustomerWishlistList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'customerId' is set
@@ -1719,12 +1719,12 @@ public class CustomerApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
 
 

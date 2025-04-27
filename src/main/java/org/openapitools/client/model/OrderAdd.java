@@ -32,66 +32,12 @@ public class OrderAdd {
   private String channelId = null;
   @SerializedName("order_status")
   private String orderStatus = null;
-  @SerializedName("send_notifications")
-  private Boolean sendNotifications = false;
-  @SerializedName("send_admin_notifications")
-  private Boolean sendAdminNotifications = false;
+  @SerializedName("fulfillment_status")
+  private String fulfillmentStatus = null;
+  @SerializedName("financial_status")
+  private String financialStatus = null;
   @SerializedName("customer_email")
   private String customerEmail = null;
-  @SerializedName("bill_first_name")
-  private String billFirstName = null;
-  @SerializedName("bill_last_name")
-  private String billLastName = null;
-  @SerializedName("bill_address_1")
-  private String billAddress1 = null;
-  @SerializedName("bill_city")
-  private String billCity = null;
-  @SerializedName("bill_postcode")
-  private String billPostcode = null;
-  @SerializedName("bill_state")
-  private String billState = null;
-  @SerializedName("bill_country")
-  private String billCountry = null;
-  @SerializedName("shipp_first_name")
-  private String shippFirstName = null;
-  @SerializedName("shipp_last_name")
-  private String shippLastName = null;
-  @SerializedName("shipp_address_1")
-  private String shippAddress1 = null;
-  @SerializedName("shipp_city")
-  private String shippCity = null;
-  @SerializedName("shipp_postcode")
-  private String shippPostcode = null;
-  @SerializedName("shipp_state")
-  private String shippState = null;
-  @SerializedName("shipp_country")
-  private String shippCountry = null;
-  @SerializedName("total_price")
-  private BigDecimal totalPrice = null;
-  @SerializedName("date")
-  private String date = null;
-  @SerializedName("order_payment_method")
-  private String orderPaymentMethod = null;
-  @SerializedName("transaction_id")
-  private String transactionId = null;
-  @SerializedName("order_shipping_method")
-  private String orderShippingMethod = null;
-  @SerializedName("currency")
-  private String currency = null;
-  @SerializedName("bill_address_2")
-  private String billAddress2 = null;
-  @SerializedName("bill_company")
-  private String billCompany = null;
-  @SerializedName("bill_phone")
-  private String billPhone = null;
-  @SerializedName("bill_fax")
-  private String billFax = null;
-  @SerializedName("comment")
-  private String comment = null;
-  @SerializedName("admin_comment")
-  private String adminComment = null;
-  @SerializedName("admin_private_comment")
-  private String adminPrivateComment = null;
   @SerializedName("customer_first_name")
   private String customerFirstName = null;
   @SerializedName("customer_last_name")
@@ -104,58 +50,112 @@ public class OrderAdd {
   private String customerBirthday = null;
   @SerializedName("customer_fax")
   private String customerFax = null;
+  @SerializedName("order_payment_method")
+  private String orderPaymentMethod = null;
+  @SerializedName("transaction_id")
+  private String transactionId = null;
+  @SerializedName("currency")
+  private String currency = null;
+  @SerializedName("date")
+  private String date = null;
+  @SerializedName("date_modified")
+  private String dateModified = null;
+  @SerializedName("date_finished")
+  private String dateFinished = null;
+  @SerializedName("bill_first_name")
+  private String billFirstName = null;
+  @SerializedName("bill_last_name")
+  private String billLastName = null;
+  @SerializedName("bill_address_1")
+  private String billAddress1 = null;
+  @SerializedName("bill_address_2")
+  private String billAddress2 = null;
+  @SerializedName("bill_city")
+  private String billCity = null;
+  @SerializedName("bill_postcode")
+  private String billPostcode = null;
+  @SerializedName("bill_state")
+  private String billState = null;
+  @SerializedName("bill_country")
+  private String billCountry = null;
+  @SerializedName("bill_company")
+  private String billCompany = null;
+  @SerializedName("bill_phone")
+  private String billPhone = null;
+  @SerializedName("bill_fax")
+  private String billFax = null;
+  @SerializedName("shipp_first_name")
+  private String shippFirstName = null;
+  @SerializedName("shipp_last_name")
+  private String shippLastName = null;
+  @SerializedName("shipp_address_1")
+  private String shippAddress1 = null;
   @SerializedName("shipp_address_2")
   private String shippAddress2 = null;
+  @SerializedName("shipp_city")
+  private String shippCity = null;
+  @SerializedName("shipp_postcode")
+  private String shippPostcode = null;
+  @SerializedName("shipp_state")
+  private String shippState = null;
+  @SerializedName("shipp_country")
+  private String shippCountry = null;
   @SerializedName("shipp_company")
   private String shippCompany = null;
   @SerializedName("shipp_phone")
   private String shippPhone = null;
   @SerializedName("shipp_fax")
   private String shippFax = null;
-  @SerializedName("date_modified")
-  private String dateModified = null;
-  @SerializedName("date_finished")
-  private String dateFinished = null;
   @SerializedName("subtotal_price")
   private BigDecimal subtotalPrice = null;
   @SerializedName("tax_price")
   private BigDecimal taxPrice = 0;
+  @SerializedName("total_price")
+  private BigDecimal totalPrice = null;
+  @SerializedName("total_paid")
+  private BigDecimal totalPaid = null;
+  @SerializedName("total_weight")
+  private Integer totalWeight = null;
   @SerializedName("prices_inc_tax")
   private Boolean pricesIncTax = false;
   @SerializedName("shipping_price")
   private BigDecimal shippingPrice = 0;
   @SerializedName("shipping_tax")
   private BigDecimal shippingTax = null;
-  @SerializedName("carrier_id")
-  private String carrierId = null;
-  @SerializedName("warehouse_id")
-  private String warehouseId = null;
   @SerializedName("discount")
   private BigDecimal discount = null;
   @SerializedName("coupon_discount")
   private BigDecimal couponDiscount = null;
-  @SerializedName("coupons")
-  private List<String> coupons = null;
   @SerializedName("gift_certificate_discount")
   private BigDecimal giftCertificateDiscount = null;
-  @SerializedName("fulfillment_status")
-  private String fulfillmentStatus = null;
-  @SerializedName("financial_status")
-  private String financialStatus = null;
-  @SerializedName("total_paid")
-  private BigDecimal totalPaid = null;
-  @SerializedName("external_source")
-  private String externalSource = null;
+  @SerializedName("order_shipping_method")
+  private String orderShippingMethod = null;
+  @SerializedName("carrier_id")
+  private String carrierId = null;
+  @SerializedName("warehouse_id")
+  private String warehouseId = null;
+  @SerializedName("coupons")
+  private List<String> coupons = null;
   @SerializedName("tags")
   private String tags = null;
+  @SerializedName("comment")
+  private String comment = null;
+  @SerializedName("admin_comment")
+  private String adminComment = null;
+  @SerializedName("admin_private_comment")
+  private String adminPrivateComment = null;
+  @SerializedName("send_notifications")
+  private Boolean sendNotifications = false;
+  @SerializedName("send_admin_notifications")
+  private Boolean sendAdminNotifications = false;
+  @SerializedName("external_source")
+  private String externalSource = null;
   @SerializedName("inventory_behaviour")
   private String inventoryBehaviour = bypass;
   @SerializedName("create_invoice")
   private Boolean createInvoice = false;
   @SerializedName("note_attributes")
   private List<OrderAddNoteAttributesInner> noteAttributes = null;
-  @SerializedName("total_weight")
-  private Integer totalWeight = null;
   @SerializedName("clear_cache")
   private Boolean clearCache = true;
   @SerializedName("origin")
@@ -219,25 +219,25 @@ public class OrderAdd {
   }
 
   /**
-   * Send notifications to customer after order was created
+   * Create order with fulfillment status
    **/
-  @ApiModelProperty(value = "Send notifications to customer after order was created")
-  public Boolean getSendNotifications() {
-    return sendNotifications;
+  @ApiModelProperty(value = "Create order with fulfillment status")
+  public String getFulfillmentStatus() {
+    return fulfillmentStatus;
   }
-  public void setSendNotifications(Boolean sendNotifications) {
-    this.sendNotifications = sendNotifications;
+  public void setFulfillmentStatus(String fulfillmentStatus) {
+    this.fulfillmentStatus = fulfillmentStatus;
   }
 
   /**
-   * Notify admin when new order was created.
+   * Create order with financial status
    **/
-  @ApiModelProperty(value = "Notify admin when new order was created.")
-  public Boolean getSendAdminNotifications() {
-    return sendAdminNotifications;
+  @ApiModelProperty(value = "Create order with financial status")
+  public String getFinancialStatus() {
+    return financialStatus;
   }
-  public void setSendAdminNotifications(Boolean sendAdminNotifications) {
-    this.sendAdminNotifications = sendAdminNotifications;
+  public void setFinancialStatus(String financialStatus) {
+    this.financialStatus = financialStatus;
   }
 
   /**
@@ -249,303 +249,6 @@ public class OrderAdd {
   }
   public void setCustomerEmail(String customerEmail) {
     this.customerEmail = customerEmail;
-  }
-
-  /**
-   * Specifies billing first name
-   **/
-  @ApiModelProperty(required = true, value = "Specifies billing first name")
-  public String getBillFirstName() {
-    return billFirstName;
-  }
-  public void setBillFirstName(String billFirstName) {
-    this.billFirstName = billFirstName;
-  }
-
-  /**
-   * Specifies billing last name
-   **/
-  @ApiModelProperty(required = true, value = "Specifies billing last name")
-  public String getBillLastName() {
-    return billLastName;
-  }
-  public void setBillLastName(String billLastName) {
-    this.billLastName = billLastName;
-  }
-
-  /**
-   * Specifies first billing address
-   **/
-  @ApiModelProperty(required = true, value = "Specifies first billing address")
-  public String getBillAddress1() {
-    return billAddress1;
-  }
-  public void setBillAddress1(String billAddress1) {
-    this.billAddress1 = billAddress1;
-  }
-
-  /**
-   * Specifies billing city
-   **/
-  @ApiModelProperty(required = true, value = "Specifies billing city")
-  public String getBillCity() {
-    return billCity;
-  }
-  public void setBillCity(String billCity) {
-    this.billCity = billCity;
-  }
-
-  /**
-   * Specifies billing postcode
-   **/
-  @ApiModelProperty(required = true, value = "Specifies billing postcode")
-  public String getBillPostcode() {
-    return billPostcode;
-  }
-  public void setBillPostcode(String billPostcode) {
-    this.billPostcode = billPostcode;
-  }
-
-  /**
-   * Specifies billing state code
-   **/
-  @ApiModelProperty(required = true, value = "Specifies billing state code")
-  public String getBillState() {
-    return billState;
-  }
-  public void setBillState(String billState) {
-    this.billState = billState;
-  }
-
-  /**
-   * Specifies billing country code
-   **/
-  @ApiModelProperty(required = true, value = "Specifies billing country code")
-  public String getBillCountry() {
-    return billCountry;
-  }
-  public void setBillCountry(String billCountry) {
-    this.billCountry = billCountry;
-  }
-
-  /**
-   * Specifies shipping first name
-   **/
-  @ApiModelProperty(value = "Specifies shipping first name")
-  public String getShippFirstName() {
-    return shippFirstName;
-  }
-  public void setShippFirstName(String shippFirstName) {
-    this.shippFirstName = shippFirstName;
-  }
-
-  /**
-   * Specifies shipping last name
-   **/
-  @ApiModelProperty(value = "Specifies shipping last name")
-  public String getShippLastName() {
-    return shippLastName;
-  }
-  public void setShippLastName(String shippLastName) {
-    this.shippLastName = shippLastName;
-  }
-
-  /**
-   * Specifies first shipping address
-   **/
-  @ApiModelProperty(value = "Specifies first shipping address")
-  public String getShippAddress1() {
-    return shippAddress1;
-  }
-  public void setShippAddress1(String shippAddress1) {
-    this.shippAddress1 = shippAddress1;
-  }
-
-  /**
-   * Specifies shipping city
-   **/
-  @ApiModelProperty(value = "Specifies shipping city")
-  public String getShippCity() {
-    return shippCity;
-  }
-  public void setShippCity(String shippCity) {
-    this.shippCity = shippCity;
-  }
-
-  /**
-   * Specifies shipping postcode
-   **/
-  @ApiModelProperty(value = "Specifies shipping postcode")
-  public String getShippPostcode() {
-    return shippPostcode;
-  }
-  public void setShippPostcode(String shippPostcode) {
-    this.shippPostcode = shippPostcode;
-  }
-
-  /**
-   * Specifies shipping state code
-   **/
-  @ApiModelProperty(value = "Specifies shipping state code")
-  public String getShippState() {
-    return shippState;
-  }
-  public void setShippState(String shippState) {
-    this.shippState = shippState;
-  }
-
-  /**
-   * Specifies shipping country code
-   **/
-  @ApiModelProperty(value = "Specifies shipping country code")
-  public String getShippCountry() {
-    return shippCountry;
-  }
-  public void setShippCountry(String shippCountry) {
-    this.shippCountry = shippCountry;
-  }
-
-  /**
-   * Defines order's total price
-   **/
-  @ApiModelProperty(value = "Defines order's total price")
-  public BigDecimal getTotalPrice() {
-    return totalPrice;
-  }
-  public void setTotalPrice(BigDecimal totalPrice) {
-    this.totalPrice = totalPrice;
-  }
-
-  /**
-   * Specifies an order creation date in format Y-m-d H:i:s
-   **/
-  @ApiModelProperty(value = "Specifies an order creation date in format Y-m-d H:i:s")
-  public String getDate() {
-    return date;
-  }
-  public void setDate(String date) {
-    this.date = date;
-  }
-
-  /**
-   * Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid'
-   **/
-  @ApiModelProperty(value = "Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid'")
-  public String getOrderPaymentMethod() {
-    return orderPaymentMethod;
-  }
-  public void setOrderPaymentMethod(String orderPaymentMethod) {
-    this.orderPaymentMethod = orderPaymentMethod;
-  }
-
-  /**
-   * Payment transaction id
-   **/
-  @ApiModelProperty(value = "Payment transaction id")
-  public String getTransactionId() {
-    return transactionId;
-  }
-  public void setTransactionId(String transactionId) {
-    this.transactionId = transactionId;
-  }
-
-  /**
-   * Defines order shipping method
-   **/
-  @ApiModelProperty(value = "Defines order shipping method")
-  public String getOrderShippingMethod() {
-    return orderShippingMethod;
-  }
-  public void setOrderShippingMethod(String orderShippingMethod) {
-    this.orderShippingMethod = orderShippingMethod;
-  }
-
-  /**
-   * Currency code of order
-   **/
-  @ApiModelProperty(value = "Currency code of order")
-  public String getCurrency() {
-    return currency;
-  }
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
-
-  /**
-   * Specifies second billing address
-   **/
-  @ApiModelProperty(value = "Specifies second billing address")
-  public String getBillAddress2() {
-    return billAddress2;
-  }
-  public void setBillAddress2(String billAddress2) {
-    this.billAddress2 = billAddress2;
-  }
-
-  /**
-   * Specifies billing company
-   **/
-  @ApiModelProperty(value = "Specifies billing company")
-  public String getBillCompany() {
-    return billCompany;
-  }
-  public void setBillCompany(String billCompany) {
-    this.billCompany = billCompany;
-  }
-
-  /**
-   * Specifies billing phone
-   **/
-  @ApiModelProperty(value = "Specifies billing phone")
-  public String getBillPhone() {
-    return billPhone;
-  }
-  public void setBillPhone(String billPhone) {
-    this.billPhone = billPhone;
-  }
-
-  /**
-   * Specifies billing fax
-   **/
-  @ApiModelProperty(value = "Specifies billing fax")
-  public String getBillFax() {
-    return billFax;
-  }
-  public void setBillFax(String billFax) {
-    this.billFax = billFax;
-  }
-
-  /**
-   * Specifies order comment
-   **/
-  @ApiModelProperty(value = "Specifies order comment")
-  public String getComment() {
-    return comment;
-  }
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
-
-  /**
-   * Specifies admin's order comment
-   **/
-  @ApiModelProperty(value = "Specifies admin's order comment")
-  public String getAdminComment() {
-    return adminComment;
-  }
-  public void setAdminComment(String adminComment) {
-    this.adminComment = adminComment;
-  }
-
-  /**
-   * Specifies private admin's order comment
-   **/
-  @ApiModelProperty(value = "Specifies private admin's order comment")
-  public String getAdminPrivateComment() {
-    return adminPrivateComment;
-  }
-  public void setAdminPrivateComment(String adminPrivateComment) {
-    this.adminPrivateComment = adminPrivateComment;
   }
 
   /**
@@ -615,6 +318,226 @@ public class OrderAdd {
   }
 
   /**
+   * Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid'
+   **/
+  @ApiModelProperty(value = "Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to 'paid'")
+  public String getOrderPaymentMethod() {
+    return orderPaymentMethod;
+  }
+  public void setOrderPaymentMethod(String orderPaymentMethod) {
+    this.orderPaymentMethod = orderPaymentMethod;
+  }
+
+  /**
+   * Payment transaction id
+   **/
+  @ApiModelProperty(value = "Payment transaction id")
+  public String getTransactionId() {
+    return transactionId;
+  }
+  public void setTransactionId(String transactionId) {
+    this.transactionId = transactionId;
+  }
+
+  /**
+   * Currency code of order
+   **/
+  @ApiModelProperty(value = "Currency code of order")
+  public String getCurrency() {
+    return currency;
+  }
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+  /**
+   * Specifies an order creation date in format Y-m-d H:i:s
+   **/
+  @ApiModelProperty(value = "Specifies an order creation date in format Y-m-d H:i:s")
+  public String getDate() {
+    return date;
+  }
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  /**
+   * Specifies order's  modification date
+   **/
+  @ApiModelProperty(value = "Specifies order's  modification date")
+  public String getDateModified() {
+    return dateModified;
+  }
+  public void setDateModified(String dateModified) {
+    this.dateModified = dateModified;
+  }
+
+  /**
+   * Specifies order's  finished date
+   **/
+  @ApiModelProperty(value = "Specifies order's  finished date")
+  public String getDateFinished() {
+    return dateFinished;
+  }
+  public void setDateFinished(String dateFinished) {
+    this.dateFinished = dateFinished;
+  }
+
+  /**
+   * Specifies billing first name
+   **/
+  @ApiModelProperty(required = true, value = "Specifies billing first name")
+  public String getBillFirstName() {
+    return billFirstName;
+  }
+  public void setBillFirstName(String billFirstName) {
+    this.billFirstName = billFirstName;
+  }
+
+  /**
+   * Specifies billing last name
+   **/
+  @ApiModelProperty(required = true, value = "Specifies billing last name")
+  public String getBillLastName() {
+    return billLastName;
+  }
+  public void setBillLastName(String billLastName) {
+    this.billLastName = billLastName;
+  }
+
+  /**
+   * Specifies first billing address
+   **/
+  @ApiModelProperty(required = true, value = "Specifies first billing address")
+  public String getBillAddress1() {
+    return billAddress1;
+  }
+  public void setBillAddress1(String billAddress1) {
+    this.billAddress1 = billAddress1;
+  }
+
+  /**
+   * Specifies second billing address
+   **/
+  @ApiModelProperty(value = "Specifies second billing address")
+  public String getBillAddress2() {
+    return billAddress2;
+  }
+  public void setBillAddress2(String billAddress2) {
+    this.billAddress2 = billAddress2;
+  }
+
+  /**
+   * Specifies billing city
+   **/
+  @ApiModelProperty(required = true, value = "Specifies billing city")
+  public String getBillCity() {
+    return billCity;
+  }
+  public void setBillCity(String billCity) {
+    this.billCity = billCity;
+  }
+
+  /**
+   * Specifies billing postcode
+   **/
+  @ApiModelProperty(required = true, value = "Specifies billing postcode")
+  public String getBillPostcode() {
+    return billPostcode;
+  }
+  public void setBillPostcode(String billPostcode) {
+    this.billPostcode = billPostcode;
+  }
+
+  /**
+   * Specifies billing state code
+   **/
+  @ApiModelProperty(required = true, value = "Specifies billing state code")
+  public String getBillState() {
+    return billState;
+  }
+  public void setBillState(String billState) {
+    this.billState = billState;
+  }
+
+  /**
+   * Specifies billing country code
+   **/
+  @ApiModelProperty(required = true, value = "Specifies billing country code")
+  public String getBillCountry() {
+    return billCountry;
+  }
+  public void setBillCountry(String billCountry) {
+    this.billCountry = billCountry;
+  }
+
+  /**
+   * Specifies billing company
+   **/
+  @ApiModelProperty(value = "Specifies billing company")
+  public String getBillCompany() {
+    return billCompany;
+  }
+  public void setBillCompany(String billCompany) {
+    this.billCompany = billCompany;
+  }
+
+  /**
+   * Specifies billing phone
+   **/
+  @ApiModelProperty(value = "Specifies billing phone")
+  public String getBillPhone() {
+    return billPhone;
+  }
+  public void setBillPhone(String billPhone) {
+    this.billPhone = billPhone;
+  }
+
+  /**
+   * Specifies billing fax
+   **/
+  @ApiModelProperty(value = "Specifies billing fax")
+  public String getBillFax() {
+    return billFax;
+  }
+  public void setBillFax(String billFax) {
+    this.billFax = billFax;
+  }
+
+  /**
+   * Specifies shipping first name
+   **/
+  @ApiModelProperty(value = "Specifies shipping first name")
+  public String getShippFirstName() {
+    return shippFirstName;
+  }
+  public void setShippFirstName(String shippFirstName) {
+    this.shippFirstName = shippFirstName;
+  }
+
+  /**
+   * Specifies shipping last name
+   **/
+  @ApiModelProperty(value = "Specifies shipping last name")
+  public String getShippLastName() {
+    return shippLastName;
+  }
+  public void setShippLastName(String shippLastName) {
+    this.shippLastName = shippLastName;
+  }
+
+  /**
+   * Specifies first shipping address
+   **/
+  @ApiModelProperty(value = "Specifies first shipping address")
+  public String getShippAddress1() {
+    return shippAddress1;
+  }
+  public void setShippAddress1(String shippAddress1) {
+    this.shippAddress1 = shippAddress1;
+  }
+
+  /**
    * Specifies second address line of a shipping street address
    **/
   @ApiModelProperty(value = "Specifies second address line of a shipping street address")
@@ -623,6 +546,50 @@ public class OrderAdd {
   }
   public void setShippAddress2(String shippAddress2) {
     this.shippAddress2 = shippAddress2;
+  }
+
+  /**
+   * Specifies shipping city
+   **/
+  @ApiModelProperty(value = "Specifies shipping city")
+  public String getShippCity() {
+    return shippCity;
+  }
+  public void setShippCity(String shippCity) {
+    this.shippCity = shippCity;
+  }
+
+  /**
+   * Specifies shipping postcode
+   **/
+  @ApiModelProperty(value = "Specifies shipping postcode")
+  public String getShippPostcode() {
+    return shippPostcode;
+  }
+  public void setShippPostcode(String shippPostcode) {
+    this.shippPostcode = shippPostcode;
+  }
+
+  /**
+   * Specifies shipping state code
+   **/
+  @ApiModelProperty(value = "Specifies shipping state code")
+  public String getShippState() {
+    return shippState;
+  }
+  public void setShippState(String shippState) {
+    this.shippState = shippState;
+  }
+
+  /**
+   * Specifies shipping country code
+   **/
+  @ApiModelProperty(value = "Specifies shipping country code")
+  public String getShippCountry() {
+    return shippCountry;
+  }
+  public void setShippCountry(String shippCountry) {
+    this.shippCountry = shippCountry;
   }
 
   /**
@@ -659,28 +626,6 @@ public class OrderAdd {
   }
 
   /**
-   * Specifies order's  modification date
-   **/
-  @ApiModelProperty(value = "Specifies order's  modification date")
-  public String getDateModified() {
-    return dateModified;
-  }
-  public void setDateModified(String dateModified) {
-    this.dateModified = dateModified;
-  }
-
-  /**
-   * Specifies order's  finished date
-   **/
-  @ApiModelProperty(value = "Specifies order's  finished date")
-  public String getDateFinished() {
-    return dateFinished;
-  }
-  public void setDateFinished(String dateFinished) {
-    this.dateFinished = dateFinished;
-  }
-
-  /**
    * Total price of all ordered products multiplied by their number, excluding tax, shipping price and discounts
    **/
   @ApiModelProperty(value = "Total price of all ordered products multiplied by their number, excluding tax, shipping price and discounts")
@@ -700,6 +645,39 @@ public class OrderAdd {
   }
   public void setTaxPrice(BigDecimal taxPrice) {
     this.taxPrice = taxPrice;
+  }
+
+  /**
+   * Defines order's total price
+   **/
+  @ApiModelProperty(value = "Defines order's total price")
+  public BigDecimal getTotalPrice() {
+    return totalPrice;
+  }
+  public void setTotalPrice(BigDecimal totalPrice) {
+    this.totalPrice = totalPrice;
+  }
+
+  /**
+   * Defines total paid amount for the order
+   **/
+  @ApiModelProperty(value = "Defines total paid amount for the order")
+  public BigDecimal getTotalPaid() {
+    return totalPaid;
+  }
+  public void setTotalPaid(BigDecimal totalPaid) {
+    this.totalPaid = totalPaid;
+  }
+
+  /**
+   * Defines the sum of all line item weights in grams for the order
+   **/
+  @ApiModelProperty(value = "Defines the sum of all line item weights in grams for the order")
+  public Integer getTotalWeight() {
+    return totalWeight;
+  }
+  public void setTotalWeight(Integer totalWeight) {
+    this.totalWeight = totalWeight;
   }
 
   /**
@@ -736,28 +714,6 @@ public class OrderAdd {
   }
 
   /**
-   * Defines tracking carrier id
-   **/
-  @ApiModelProperty(value = "Defines tracking carrier id")
-  public String getCarrierId() {
-    return carrierId;
-  }
-  public void setCarrierId(String carrierId) {
-    this.carrierId = carrierId;
-  }
-
-  /**
-   * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
-   **/
-  @ApiModelProperty(value = "This parameter is used for selecting a warehouse where you need to set/modify a product quantity.")
-  public String getWarehouseId() {
-    return warehouseId;
-  }
-  public void setWarehouseId(String warehouseId) {
-    this.warehouseId = warehouseId;
-  }
-
-  /**
    * Specifies order's discount
    **/
   @ApiModelProperty(value = "Specifies order's discount")
@@ -780,17 +736,6 @@ public class OrderAdd {
   }
 
   /**
-   * Coupons that will be applied to order
-   **/
-  @ApiModelProperty(value = "Coupons that will be applied to order")
-  public List<String> getCoupons() {
-    return coupons;
-  }
-  public void setCoupons(List<String> coupons) {
-    this.coupons = coupons;
-  }
-
-  /**
    * Discounts for order with gift certificates
    **/
   @ApiModelProperty(value = "Discounts for order with gift certificates")
@@ -802,47 +747,47 @@ public class OrderAdd {
   }
 
   /**
-   * Create order with fulfillment status
+   * Defines order shipping method
    **/
-  @ApiModelProperty(value = "Create order with fulfillment status")
-  public String getFulfillmentStatus() {
-    return fulfillmentStatus;
+  @ApiModelProperty(value = "Defines order shipping method")
+  public String getOrderShippingMethod() {
+    return orderShippingMethod;
   }
-  public void setFulfillmentStatus(String fulfillmentStatus) {
-    this.fulfillmentStatus = fulfillmentStatus;
+  public void setOrderShippingMethod(String orderShippingMethod) {
+    this.orderShippingMethod = orderShippingMethod;
   }
 
   /**
-   * Create order with financial status
+   * Defines tracking carrier id
    **/
-  @ApiModelProperty(value = "Create order with financial status")
-  public String getFinancialStatus() {
-    return financialStatus;
+  @ApiModelProperty(value = "Defines tracking carrier id")
+  public String getCarrierId() {
+    return carrierId;
   }
-  public void setFinancialStatus(String financialStatus) {
-    this.financialStatus = financialStatus;
+  public void setCarrierId(String carrierId) {
+    this.carrierId = carrierId;
   }
 
   /**
-   * Defines total paid amount for the order
+   * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
    **/
-  @ApiModelProperty(value = "Defines total paid amount for the order")
-  public BigDecimal getTotalPaid() {
-    return totalPaid;
+  @ApiModelProperty(value = "This parameter is used for selecting a warehouse where you need to set/modify a product quantity.")
+  public String getWarehouseId() {
+    return warehouseId;
   }
-  public void setTotalPaid(BigDecimal totalPaid) {
-    this.totalPaid = totalPaid;
+  public void setWarehouseId(String warehouseId) {
+    this.warehouseId = warehouseId;
   }
 
   /**
-   * Identifying the system used to generate the order
+   * Coupons that will be applied to order
    **/
-  @ApiModelProperty(value = "Identifying the system used to generate the order")
-  public String getExternalSource() {
-    return externalSource;
+  @ApiModelProperty(value = "Coupons that will be applied to order")
+  public List<String> getCoupons() {
+    return coupons;
   }
-  public void setExternalSource(String externalSource) {
-    this.externalSource = externalSource;
+  public void setCoupons(List<String> coupons) {
+    this.coupons = coupons;
   }
 
   /**
@@ -854,6 +799,72 @@ public class OrderAdd {
   }
   public void setTags(String tags) {
     this.tags = tags;
+  }
+
+  /**
+   * Specifies order comment
+   **/
+  @ApiModelProperty(value = "Specifies order comment")
+  public String getComment() {
+    return comment;
+  }
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  /**
+   * Specifies admin's order comment
+   **/
+  @ApiModelProperty(value = "Specifies admin's order comment")
+  public String getAdminComment() {
+    return adminComment;
+  }
+  public void setAdminComment(String adminComment) {
+    this.adminComment = adminComment;
+  }
+
+  /**
+   * Specifies private admin's order comment
+   **/
+  @ApiModelProperty(value = "Specifies private admin's order comment")
+  public String getAdminPrivateComment() {
+    return adminPrivateComment;
+  }
+  public void setAdminPrivateComment(String adminPrivateComment) {
+    this.adminPrivateComment = adminPrivateComment;
+  }
+
+  /**
+   * Send notifications to customer after order was created
+   **/
+  @ApiModelProperty(value = "Send notifications to customer after order was created")
+  public Boolean getSendNotifications() {
+    return sendNotifications;
+  }
+  public void setSendNotifications(Boolean sendNotifications) {
+    this.sendNotifications = sendNotifications;
+  }
+
+  /**
+   * Notify admin when new order was created.
+   **/
+  @ApiModelProperty(value = "Notify admin when new order was created.")
+  public Boolean getSendAdminNotifications() {
+    return sendAdminNotifications;
+  }
+  public void setSendAdminNotifications(Boolean sendAdminNotifications) {
+    this.sendAdminNotifications = sendAdminNotifications;
+  }
+
+  /**
+   * Identifying the system used to generate the order
+   **/
+  @ApiModelProperty(value = "Identifying the system used to generate the order")
+  public String getExternalSource() {
+    return externalSource;
+  }
+  public void setExternalSource(String externalSource) {
+    this.externalSource = externalSource;
   }
 
   /**
@@ -887,17 +898,6 @@ public class OrderAdd {
   }
   public void setNoteAttributes(List<OrderAddNoteAttributesInner> noteAttributes) {
     this.noteAttributes = noteAttributes;
-  }
-
-  /**
-   * Defines the sum of all line item weights in grams for the order
-   **/
-  @ApiModelProperty(value = "Defines the sum of all line item weights in grams for the order")
-  public Integer getTotalWeight() {
-    return totalWeight;
-  }
-  public void setTotalWeight(Integer totalWeight) {
-    this.totalWeight = totalWeight;
   }
 
   /**
@@ -947,68 +947,68 @@ public class OrderAdd {
         (this.storeId == null ? orderAdd.storeId == null : this.storeId.equals(orderAdd.storeId)) &&
         (this.channelId == null ? orderAdd.channelId == null : this.channelId.equals(orderAdd.channelId)) &&
         (this.orderStatus == null ? orderAdd.orderStatus == null : this.orderStatus.equals(orderAdd.orderStatus)) &&
-        (this.sendNotifications == null ? orderAdd.sendNotifications == null : this.sendNotifications.equals(orderAdd.sendNotifications)) &&
-        (this.sendAdminNotifications == null ? orderAdd.sendAdminNotifications == null : this.sendAdminNotifications.equals(orderAdd.sendAdminNotifications)) &&
+        (this.fulfillmentStatus == null ? orderAdd.fulfillmentStatus == null : this.fulfillmentStatus.equals(orderAdd.fulfillmentStatus)) &&
+        (this.financialStatus == null ? orderAdd.financialStatus == null : this.financialStatus.equals(orderAdd.financialStatus)) &&
         (this.customerEmail == null ? orderAdd.customerEmail == null : this.customerEmail.equals(orderAdd.customerEmail)) &&
-        (this.billFirstName == null ? orderAdd.billFirstName == null : this.billFirstName.equals(orderAdd.billFirstName)) &&
-        (this.billLastName == null ? orderAdd.billLastName == null : this.billLastName.equals(orderAdd.billLastName)) &&
-        (this.billAddress1 == null ? orderAdd.billAddress1 == null : this.billAddress1.equals(orderAdd.billAddress1)) &&
-        (this.billCity == null ? orderAdd.billCity == null : this.billCity.equals(orderAdd.billCity)) &&
-        (this.billPostcode == null ? orderAdd.billPostcode == null : this.billPostcode.equals(orderAdd.billPostcode)) &&
-        (this.billState == null ? orderAdd.billState == null : this.billState.equals(orderAdd.billState)) &&
-        (this.billCountry == null ? orderAdd.billCountry == null : this.billCountry.equals(orderAdd.billCountry)) &&
-        (this.shippFirstName == null ? orderAdd.shippFirstName == null : this.shippFirstName.equals(orderAdd.shippFirstName)) &&
-        (this.shippLastName == null ? orderAdd.shippLastName == null : this.shippLastName.equals(orderAdd.shippLastName)) &&
-        (this.shippAddress1 == null ? orderAdd.shippAddress1 == null : this.shippAddress1.equals(orderAdd.shippAddress1)) &&
-        (this.shippCity == null ? orderAdd.shippCity == null : this.shippCity.equals(orderAdd.shippCity)) &&
-        (this.shippPostcode == null ? orderAdd.shippPostcode == null : this.shippPostcode.equals(orderAdd.shippPostcode)) &&
-        (this.shippState == null ? orderAdd.shippState == null : this.shippState.equals(orderAdd.shippState)) &&
-        (this.shippCountry == null ? orderAdd.shippCountry == null : this.shippCountry.equals(orderAdd.shippCountry)) &&
-        (this.totalPrice == null ? orderAdd.totalPrice == null : this.totalPrice.equals(orderAdd.totalPrice)) &&
-        (this.date == null ? orderAdd.date == null : this.date.equals(orderAdd.date)) &&
-        (this.orderPaymentMethod == null ? orderAdd.orderPaymentMethod == null : this.orderPaymentMethod.equals(orderAdd.orderPaymentMethod)) &&
-        (this.transactionId == null ? orderAdd.transactionId == null : this.transactionId.equals(orderAdd.transactionId)) &&
-        (this.orderShippingMethod == null ? orderAdd.orderShippingMethod == null : this.orderShippingMethod.equals(orderAdd.orderShippingMethod)) &&
-        (this.currency == null ? orderAdd.currency == null : this.currency.equals(orderAdd.currency)) &&
-        (this.billAddress2 == null ? orderAdd.billAddress2 == null : this.billAddress2.equals(orderAdd.billAddress2)) &&
-        (this.billCompany == null ? orderAdd.billCompany == null : this.billCompany.equals(orderAdd.billCompany)) &&
-        (this.billPhone == null ? orderAdd.billPhone == null : this.billPhone.equals(orderAdd.billPhone)) &&
-        (this.billFax == null ? orderAdd.billFax == null : this.billFax.equals(orderAdd.billFax)) &&
-        (this.comment == null ? orderAdd.comment == null : this.comment.equals(orderAdd.comment)) &&
-        (this.adminComment == null ? orderAdd.adminComment == null : this.adminComment.equals(orderAdd.adminComment)) &&
-        (this.adminPrivateComment == null ? orderAdd.adminPrivateComment == null : this.adminPrivateComment.equals(orderAdd.adminPrivateComment)) &&
         (this.customerFirstName == null ? orderAdd.customerFirstName == null : this.customerFirstName.equals(orderAdd.customerFirstName)) &&
         (this.customerLastName == null ? orderAdd.customerLastName == null : this.customerLastName.equals(orderAdd.customerLastName)) &&
         (this.customerPhone == null ? orderAdd.customerPhone == null : this.customerPhone.equals(orderAdd.customerPhone)) &&
         (this.customerCountry == null ? orderAdd.customerCountry == null : this.customerCountry.equals(orderAdd.customerCountry)) &&
         (this.customerBirthday == null ? orderAdd.customerBirthday == null : this.customerBirthday.equals(orderAdd.customerBirthday)) &&
         (this.customerFax == null ? orderAdd.customerFax == null : this.customerFax.equals(orderAdd.customerFax)) &&
+        (this.orderPaymentMethod == null ? orderAdd.orderPaymentMethod == null : this.orderPaymentMethod.equals(orderAdd.orderPaymentMethod)) &&
+        (this.transactionId == null ? orderAdd.transactionId == null : this.transactionId.equals(orderAdd.transactionId)) &&
+        (this.currency == null ? orderAdd.currency == null : this.currency.equals(orderAdd.currency)) &&
+        (this.date == null ? orderAdd.date == null : this.date.equals(orderAdd.date)) &&
+        (this.dateModified == null ? orderAdd.dateModified == null : this.dateModified.equals(orderAdd.dateModified)) &&
+        (this.dateFinished == null ? orderAdd.dateFinished == null : this.dateFinished.equals(orderAdd.dateFinished)) &&
+        (this.billFirstName == null ? orderAdd.billFirstName == null : this.billFirstName.equals(orderAdd.billFirstName)) &&
+        (this.billLastName == null ? orderAdd.billLastName == null : this.billLastName.equals(orderAdd.billLastName)) &&
+        (this.billAddress1 == null ? orderAdd.billAddress1 == null : this.billAddress1.equals(orderAdd.billAddress1)) &&
+        (this.billAddress2 == null ? orderAdd.billAddress2 == null : this.billAddress2.equals(orderAdd.billAddress2)) &&
+        (this.billCity == null ? orderAdd.billCity == null : this.billCity.equals(orderAdd.billCity)) &&
+        (this.billPostcode == null ? orderAdd.billPostcode == null : this.billPostcode.equals(orderAdd.billPostcode)) &&
+        (this.billState == null ? orderAdd.billState == null : this.billState.equals(orderAdd.billState)) &&
+        (this.billCountry == null ? orderAdd.billCountry == null : this.billCountry.equals(orderAdd.billCountry)) &&
+        (this.billCompany == null ? orderAdd.billCompany == null : this.billCompany.equals(orderAdd.billCompany)) &&
+        (this.billPhone == null ? orderAdd.billPhone == null : this.billPhone.equals(orderAdd.billPhone)) &&
+        (this.billFax == null ? orderAdd.billFax == null : this.billFax.equals(orderAdd.billFax)) &&
+        (this.shippFirstName == null ? orderAdd.shippFirstName == null : this.shippFirstName.equals(orderAdd.shippFirstName)) &&
+        (this.shippLastName == null ? orderAdd.shippLastName == null : this.shippLastName.equals(orderAdd.shippLastName)) &&
+        (this.shippAddress1 == null ? orderAdd.shippAddress1 == null : this.shippAddress1.equals(orderAdd.shippAddress1)) &&
         (this.shippAddress2 == null ? orderAdd.shippAddress2 == null : this.shippAddress2.equals(orderAdd.shippAddress2)) &&
+        (this.shippCity == null ? orderAdd.shippCity == null : this.shippCity.equals(orderAdd.shippCity)) &&
+        (this.shippPostcode == null ? orderAdd.shippPostcode == null : this.shippPostcode.equals(orderAdd.shippPostcode)) &&
+        (this.shippState == null ? orderAdd.shippState == null : this.shippState.equals(orderAdd.shippState)) &&
+        (this.shippCountry == null ? orderAdd.shippCountry == null : this.shippCountry.equals(orderAdd.shippCountry)) &&
         (this.shippCompany == null ? orderAdd.shippCompany == null : this.shippCompany.equals(orderAdd.shippCompany)) &&
         (this.shippPhone == null ? orderAdd.shippPhone == null : this.shippPhone.equals(orderAdd.shippPhone)) &&
         (this.shippFax == null ? orderAdd.shippFax == null : this.shippFax.equals(orderAdd.shippFax)) &&
-        (this.dateModified == null ? orderAdd.dateModified == null : this.dateModified.equals(orderAdd.dateModified)) &&
-        (this.dateFinished == null ? orderAdd.dateFinished == null : this.dateFinished.equals(orderAdd.dateFinished)) &&
         (this.subtotalPrice == null ? orderAdd.subtotalPrice == null : this.subtotalPrice.equals(orderAdd.subtotalPrice)) &&
         (this.taxPrice == null ? orderAdd.taxPrice == null : this.taxPrice.equals(orderAdd.taxPrice)) &&
+        (this.totalPrice == null ? orderAdd.totalPrice == null : this.totalPrice.equals(orderAdd.totalPrice)) &&
+        (this.totalPaid == null ? orderAdd.totalPaid == null : this.totalPaid.equals(orderAdd.totalPaid)) &&
+        (this.totalWeight == null ? orderAdd.totalWeight == null : this.totalWeight.equals(orderAdd.totalWeight)) &&
         (this.pricesIncTax == null ? orderAdd.pricesIncTax == null : this.pricesIncTax.equals(orderAdd.pricesIncTax)) &&
         (this.shippingPrice == null ? orderAdd.shippingPrice == null : this.shippingPrice.equals(orderAdd.shippingPrice)) &&
         (this.shippingTax == null ? orderAdd.shippingTax == null : this.shippingTax.equals(orderAdd.shippingTax)) &&
-        (this.carrierId == null ? orderAdd.carrierId == null : this.carrierId.equals(orderAdd.carrierId)) &&
-        (this.warehouseId == null ? orderAdd.warehouseId == null : this.warehouseId.equals(orderAdd.warehouseId)) &&
         (this.discount == null ? orderAdd.discount == null : this.discount.equals(orderAdd.discount)) &&
         (this.couponDiscount == null ? orderAdd.couponDiscount == null : this.couponDiscount.equals(orderAdd.couponDiscount)) &&
-        (this.coupons == null ? orderAdd.coupons == null : this.coupons.equals(orderAdd.coupons)) &&
         (this.giftCertificateDiscount == null ? orderAdd.giftCertificateDiscount == null : this.giftCertificateDiscount.equals(orderAdd.giftCertificateDiscount)) &&
-        (this.fulfillmentStatus == null ? orderAdd.fulfillmentStatus == null : this.fulfillmentStatus.equals(orderAdd.fulfillmentStatus)) &&
-        (this.financialStatus == null ? orderAdd.financialStatus == null : this.financialStatus.equals(orderAdd.financialStatus)) &&
-        (this.totalPaid == null ? orderAdd.totalPaid == null : this.totalPaid.equals(orderAdd.totalPaid)) &&
-        (this.externalSource == null ? orderAdd.externalSource == null : this.externalSource.equals(orderAdd.externalSource)) &&
+        (this.orderShippingMethod == null ? orderAdd.orderShippingMethod == null : this.orderShippingMethod.equals(orderAdd.orderShippingMethod)) &&
+        (this.carrierId == null ? orderAdd.carrierId == null : this.carrierId.equals(orderAdd.carrierId)) &&
+        (this.warehouseId == null ? orderAdd.warehouseId == null : this.warehouseId.equals(orderAdd.warehouseId)) &&
+        (this.coupons == null ? orderAdd.coupons == null : this.coupons.equals(orderAdd.coupons)) &&
         (this.tags == null ? orderAdd.tags == null : this.tags.equals(orderAdd.tags)) &&
+        (this.comment == null ? orderAdd.comment == null : this.comment.equals(orderAdd.comment)) &&
+        (this.adminComment == null ? orderAdd.adminComment == null : this.adminComment.equals(orderAdd.adminComment)) &&
+        (this.adminPrivateComment == null ? orderAdd.adminPrivateComment == null : this.adminPrivateComment.equals(orderAdd.adminPrivateComment)) &&
+        (this.sendNotifications == null ? orderAdd.sendNotifications == null : this.sendNotifications.equals(orderAdd.sendNotifications)) &&
+        (this.sendAdminNotifications == null ? orderAdd.sendAdminNotifications == null : this.sendAdminNotifications.equals(orderAdd.sendAdminNotifications)) &&
+        (this.externalSource == null ? orderAdd.externalSource == null : this.externalSource.equals(orderAdd.externalSource)) &&
         (this.inventoryBehaviour == null ? orderAdd.inventoryBehaviour == null : this.inventoryBehaviour.equals(orderAdd.inventoryBehaviour)) &&
         (this.createInvoice == null ? orderAdd.createInvoice == null : this.createInvoice.equals(orderAdd.createInvoice)) &&
         (this.noteAttributes == null ? orderAdd.noteAttributes == null : this.noteAttributes.equals(orderAdd.noteAttributes)) &&
-        (this.totalWeight == null ? orderAdd.totalWeight == null : this.totalWeight.equals(orderAdd.totalWeight)) &&
         (this.clearCache == null ? orderAdd.clearCache == null : this.clearCache.equals(orderAdd.clearCache)) &&
         (this.origin == null ? orderAdd.origin == null : this.origin.equals(orderAdd.origin)) &&
         (this.orderItem == null ? orderAdd.orderItem == null : this.orderItem.equals(orderAdd.orderItem));
@@ -1022,68 +1022,68 @@ public class OrderAdd {
     result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.channelId == null ? 0: this.channelId.hashCode());
     result = 31 * result + (this.orderStatus == null ? 0: this.orderStatus.hashCode());
-    result = 31 * result + (this.sendNotifications == null ? 0: this.sendNotifications.hashCode());
-    result = 31 * result + (this.sendAdminNotifications == null ? 0: this.sendAdminNotifications.hashCode());
+    result = 31 * result + (this.fulfillmentStatus == null ? 0: this.fulfillmentStatus.hashCode());
+    result = 31 * result + (this.financialStatus == null ? 0: this.financialStatus.hashCode());
     result = 31 * result + (this.customerEmail == null ? 0: this.customerEmail.hashCode());
-    result = 31 * result + (this.billFirstName == null ? 0: this.billFirstName.hashCode());
-    result = 31 * result + (this.billLastName == null ? 0: this.billLastName.hashCode());
-    result = 31 * result + (this.billAddress1 == null ? 0: this.billAddress1.hashCode());
-    result = 31 * result + (this.billCity == null ? 0: this.billCity.hashCode());
-    result = 31 * result + (this.billPostcode == null ? 0: this.billPostcode.hashCode());
-    result = 31 * result + (this.billState == null ? 0: this.billState.hashCode());
-    result = 31 * result + (this.billCountry == null ? 0: this.billCountry.hashCode());
-    result = 31 * result + (this.shippFirstName == null ? 0: this.shippFirstName.hashCode());
-    result = 31 * result + (this.shippLastName == null ? 0: this.shippLastName.hashCode());
-    result = 31 * result + (this.shippAddress1 == null ? 0: this.shippAddress1.hashCode());
-    result = 31 * result + (this.shippCity == null ? 0: this.shippCity.hashCode());
-    result = 31 * result + (this.shippPostcode == null ? 0: this.shippPostcode.hashCode());
-    result = 31 * result + (this.shippState == null ? 0: this.shippState.hashCode());
-    result = 31 * result + (this.shippCountry == null ? 0: this.shippCountry.hashCode());
-    result = 31 * result + (this.totalPrice == null ? 0: this.totalPrice.hashCode());
-    result = 31 * result + (this.date == null ? 0: this.date.hashCode());
-    result = 31 * result + (this.orderPaymentMethod == null ? 0: this.orderPaymentMethod.hashCode());
-    result = 31 * result + (this.transactionId == null ? 0: this.transactionId.hashCode());
-    result = 31 * result + (this.orderShippingMethod == null ? 0: this.orderShippingMethod.hashCode());
-    result = 31 * result + (this.currency == null ? 0: this.currency.hashCode());
-    result = 31 * result + (this.billAddress2 == null ? 0: this.billAddress2.hashCode());
-    result = 31 * result + (this.billCompany == null ? 0: this.billCompany.hashCode());
-    result = 31 * result + (this.billPhone == null ? 0: this.billPhone.hashCode());
-    result = 31 * result + (this.billFax == null ? 0: this.billFax.hashCode());
-    result = 31 * result + (this.comment == null ? 0: this.comment.hashCode());
-    result = 31 * result + (this.adminComment == null ? 0: this.adminComment.hashCode());
-    result = 31 * result + (this.adminPrivateComment == null ? 0: this.adminPrivateComment.hashCode());
     result = 31 * result + (this.customerFirstName == null ? 0: this.customerFirstName.hashCode());
     result = 31 * result + (this.customerLastName == null ? 0: this.customerLastName.hashCode());
     result = 31 * result + (this.customerPhone == null ? 0: this.customerPhone.hashCode());
     result = 31 * result + (this.customerCountry == null ? 0: this.customerCountry.hashCode());
     result = 31 * result + (this.customerBirthday == null ? 0: this.customerBirthday.hashCode());
     result = 31 * result + (this.customerFax == null ? 0: this.customerFax.hashCode());
+    result = 31 * result + (this.orderPaymentMethod == null ? 0: this.orderPaymentMethod.hashCode());
+    result = 31 * result + (this.transactionId == null ? 0: this.transactionId.hashCode());
+    result = 31 * result + (this.currency == null ? 0: this.currency.hashCode());
+    result = 31 * result + (this.date == null ? 0: this.date.hashCode());
+    result = 31 * result + (this.dateModified == null ? 0: this.dateModified.hashCode());
+    result = 31 * result + (this.dateFinished == null ? 0: this.dateFinished.hashCode());
+    result = 31 * result + (this.billFirstName == null ? 0: this.billFirstName.hashCode());
+    result = 31 * result + (this.billLastName == null ? 0: this.billLastName.hashCode());
+    result = 31 * result + (this.billAddress1 == null ? 0: this.billAddress1.hashCode());
+    result = 31 * result + (this.billAddress2 == null ? 0: this.billAddress2.hashCode());
+    result = 31 * result + (this.billCity == null ? 0: this.billCity.hashCode());
+    result = 31 * result + (this.billPostcode == null ? 0: this.billPostcode.hashCode());
+    result = 31 * result + (this.billState == null ? 0: this.billState.hashCode());
+    result = 31 * result + (this.billCountry == null ? 0: this.billCountry.hashCode());
+    result = 31 * result + (this.billCompany == null ? 0: this.billCompany.hashCode());
+    result = 31 * result + (this.billPhone == null ? 0: this.billPhone.hashCode());
+    result = 31 * result + (this.billFax == null ? 0: this.billFax.hashCode());
+    result = 31 * result + (this.shippFirstName == null ? 0: this.shippFirstName.hashCode());
+    result = 31 * result + (this.shippLastName == null ? 0: this.shippLastName.hashCode());
+    result = 31 * result + (this.shippAddress1 == null ? 0: this.shippAddress1.hashCode());
     result = 31 * result + (this.shippAddress2 == null ? 0: this.shippAddress2.hashCode());
+    result = 31 * result + (this.shippCity == null ? 0: this.shippCity.hashCode());
+    result = 31 * result + (this.shippPostcode == null ? 0: this.shippPostcode.hashCode());
+    result = 31 * result + (this.shippState == null ? 0: this.shippState.hashCode());
+    result = 31 * result + (this.shippCountry == null ? 0: this.shippCountry.hashCode());
     result = 31 * result + (this.shippCompany == null ? 0: this.shippCompany.hashCode());
     result = 31 * result + (this.shippPhone == null ? 0: this.shippPhone.hashCode());
     result = 31 * result + (this.shippFax == null ? 0: this.shippFax.hashCode());
-    result = 31 * result + (this.dateModified == null ? 0: this.dateModified.hashCode());
-    result = 31 * result + (this.dateFinished == null ? 0: this.dateFinished.hashCode());
     result = 31 * result + (this.subtotalPrice == null ? 0: this.subtotalPrice.hashCode());
     result = 31 * result + (this.taxPrice == null ? 0: this.taxPrice.hashCode());
+    result = 31 * result + (this.totalPrice == null ? 0: this.totalPrice.hashCode());
+    result = 31 * result + (this.totalPaid == null ? 0: this.totalPaid.hashCode());
+    result = 31 * result + (this.totalWeight == null ? 0: this.totalWeight.hashCode());
     result = 31 * result + (this.pricesIncTax == null ? 0: this.pricesIncTax.hashCode());
     result = 31 * result + (this.shippingPrice == null ? 0: this.shippingPrice.hashCode());
     result = 31 * result + (this.shippingTax == null ? 0: this.shippingTax.hashCode());
-    result = 31 * result + (this.carrierId == null ? 0: this.carrierId.hashCode());
-    result = 31 * result + (this.warehouseId == null ? 0: this.warehouseId.hashCode());
     result = 31 * result + (this.discount == null ? 0: this.discount.hashCode());
     result = 31 * result + (this.couponDiscount == null ? 0: this.couponDiscount.hashCode());
-    result = 31 * result + (this.coupons == null ? 0: this.coupons.hashCode());
     result = 31 * result + (this.giftCertificateDiscount == null ? 0: this.giftCertificateDiscount.hashCode());
-    result = 31 * result + (this.fulfillmentStatus == null ? 0: this.fulfillmentStatus.hashCode());
-    result = 31 * result + (this.financialStatus == null ? 0: this.financialStatus.hashCode());
-    result = 31 * result + (this.totalPaid == null ? 0: this.totalPaid.hashCode());
-    result = 31 * result + (this.externalSource == null ? 0: this.externalSource.hashCode());
+    result = 31 * result + (this.orderShippingMethod == null ? 0: this.orderShippingMethod.hashCode());
+    result = 31 * result + (this.carrierId == null ? 0: this.carrierId.hashCode());
+    result = 31 * result + (this.warehouseId == null ? 0: this.warehouseId.hashCode());
+    result = 31 * result + (this.coupons == null ? 0: this.coupons.hashCode());
     result = 31 * result + (this.tags == null ? 0: this.tags.hashCode());
+    result = 31 * result + (this.comment == null ? 0: this.comment.hashCode());
+    result = 31 * result + (this.adminComment == null ? 0: this.adminComment.hashCode());
+    result = 31 * result + (this.adminPrivateComment == null ? 0: this.adminPrivateComment.hashCode());
+    result = 31 * result + (this.sendNotifications == null ? 0: this.sendNotifications.hashCode());
+    result = 31 * result + (this.sendAdminNotifications == null ? 0: this.sendAdminNotifications.hashCode());
+    result = 31 * result + (this.externalSource == null ? 0: this.externalSource.hashCode());
     result = 31 * result + (this.inventoryBehaviour == null ? 0: this.inventoryBehaviour.hashCode());
     result = 31 * result + (this.createInvoice == null ? 0: this.createInvoice.hashCode());
     result = 31 * result + (this.noteAttributes == null ? 0: this.noteAttributes.hashCode());
-    result = 31 * result + (this.totalWeight == null ? 0: this.totalWeight.hashCode());
     result = 31 * result + (this.clearCache == null ? 0: this.clearCache.hashCode());
     result = 31 * result + (this.origin == null ? 0: this.origin.hashCode());
     result = 31 * result + (this.orderItem == null ? 0: this.orderItem.hashCode());
@@ -1100,68 +1100,68 @@ public class OrderAdd {
     sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  channelId: ").append(channelId).append("\n");
     sb.append("  orderStatus: ").append(orderStatus).append("\n");
-    sb.append("  sendNotifications: ").append(sendNotifications).append("\n");
-    sb.append("  sendAdminNotifications: ").append(sendAdminNotifications).append("\n");
+    sb.append("  fulfillmentStatus: ").append(fulfillmentStatus).append("\n");
+    sb.append("  financialStatus: ").append(financialStatus).append("\n");
     sb.append("  customerEmail: ").append(customerEmail).append("\n");
-    sb.append("  billFirstName: ").append(billFirstName).append("\n");
-    sb.append("  billLastName: ").append(billLastName).append("\n");
-    sb.append("  billAddress1: ").append(billAddress1).append("\n");
-    sb.append("  billCity: ").append(billCity).append("\n");
-    sb.append("  billPostcode: ").append(billPostcode).append("\n");
-    sb.append("  billState: ").append(billState).append("\n");
-    sb.append("  billCountry: ").append(billCountry).append("\n");
-    sb.append("  shippFirstName: ").append(shippFirstName).append("\n");
-    sb.append("  shippLastName: ").append(shippLastName).append("\n");
-    sb.append("  shippAddress1: ").append(shippAddress1).append("\n");
-    sb.append("  shippCity: ").append(shippCity).append("\n");
-    sb.append("  shippPostcode: ").append(shippPostcode).append("\n");
-    sb.append("  shippState: ").append(shippState).append("\n");
-    sb.append("  shippCountry: ").append(shippCountry).append("\n");
-    sb.append("  totalPrice: ").append(totalPrice).append("\n");
-    sb.append("  date: ").append(date).append("\n");
-    sb.append("  orderPaymentMethod: ").append(orderPaymentMethod).append("\n");
-    sb.append("  transactionId: ").append(transactionId).append("\n");
-    sb.append("  orderShippingMethod: ").append(orderShippingMethod).append("\n");
-    sb.append("  currency: ").append(currency).append("\n");
-    sb.append("  billAddress2: ").append(billAddress2).append("\n");
-    sb.append("  billCompany: ").append(billCompany).append("\n");
-    sb.append("  billPhone: ").append(billPhone).append("\n");
-    sb.append("  billFax: ").append(billFax).append("\n");
-    sb.append("  comment: ").append(comment).append("\n");
-    sb.append("  adminComment: ").append(adminComment).append("\n");
-    sb.append("  adminPrivateComment: ").append(adminPrivateComment).append("\n");
     sb.append("  customerFirstName: ").append(customerFirstName).append("\n");
     sb.append("  customerLastName: ").append(customerLastName).append("\n");
     sb.append("  customerPhone: ").append(customerPhone).append("\n");
     sb.append("  customerCountry: ").append(customerCountry).append("\n");
     sb.append("  customerBirthday: ").append(customerBirthday).append("\n");
     sb.append("  customerFax: ").append(customerFax).append("\n");
+    sb.append("  orderPaymentMethod: ").append(orderPaymentMethod).append("\n");
+    sb.append("  transactionId: ").append(transactionId).append("\n");
+    sb.append("  currency: ").append(currency).append("\n");
+    sb.append("  date: ").append(date).append("\n");
+    sb.append("  dateModified: ").append(dateModified).append("\n");
+    sb.append("  dateFinished: ").append(dateFinished).append("\n");
+    sb.append("  billFirstName: ").append(billFirstName).append("\n");
+    sb.append("  billLastName: ").append(billLastName).append("\n");
+    sb.append("  billAddress1: ").append(billAddress1).append("\n");
+    sb.append("  billAddress2: ").append(billAddress2).append("\n");
+    sb.append("  billCity: ").append(billCity).append("\n");
+    sb.append("  billPostcode: ").append(billPostcode).append("\n");
+    sb.append("  billState: ").append(billState).append("\n");
+    sb.append("  billCountry: ").append(billCountry).append("\n");
+    sb.append("  billCompany: ").append(billCompany).append("\n");
+    sb.append("  billPhone: ").append(billPhone).append("\n");
+    sb.append("  billFax: ").append(billFax).append("\n");
+    sb.append("  shippFirstName: ").append(shippFirstName).append("\n");
+    sb.append("  shippLastName: ").append(shippLastName).append("\n");
+    sb.append("  shippAddress1: ").append(shippAddress1).append("\n");
     sb.append("  shippAddress2: ").append(shippAddress2).append("\n");
+    sb.append("  shippCity: ").append(shippCity).append("\n");
+    sb.append("  shippPostcode: ").append(shippPostcode).append("\n");
+    sb.append("  shippState: ").append(shippState).append("\n");
+    sb.append("  shippCountry: ").append(shippCountry).append("\n");
     sb.append("  shippCompany: ").append(shippCompany).append("\n");
     sb.append("  shippPhone: ").append(shippPhone).append("\n");
     sb.append("  shippFax: ").append(shippFax).append("\n");
-    sb.append("  dateModified: ").append(dateModified).append("\n");
-    sb.append("  dateFinished: ").append(dateFinished).append("\n");
     sb.append("  subtotalPrice: ").append(subtotalPrice).append("\n");
     sb.append("  taxPrice: ").append(taxPrice).append("\n");
+    sb.append("  totalPrice: ").append(totalPrice).append("\n");
+    sb.append("  totalPaid: ").append(totalPaid).append("\n");
+    sb.append("  totalWeight: ").append(totalWeight).append("\n");
     sb.append("  pricesIncTax: ").append(pricesIncTax).append("\n");
     sb.append("  shippingPrice: ").append(shippingPrice).append("\n");
     sb.append("  shippingTax: ").append(shippingTax).append("\n");
-    sb.append("  carrierId: ").append(carrierId).append("\n");
-    sb.append("  warehouseId: ").append(warehouseId).append("\n");
     sb.append("  discount: ").append(discount).append("\n");
     sb.append("  couponDiscount: ").append(couponDiscount).append("\n");
-    sb.append("  coupons: ").append(coupons).append("\n");
     sb.append("  giftCertificateDiscount: ").append(giftCertificateDiscount).append("\n");
-    sb.append("  fulfillmentStatus: ").append(fulfillmentStatus).append("\n");
-    sb.append("  financialStatus: ").append(financialStatus).append("\n");
-    sb.append("  totalPaid: ").append(totalPaid).append("\n");
-    sb.append("  externalSource: ").append(externalSource).append("\n");
+    sb.append("  orderShippingMethod: ").append(orderShippingMethod).append("\n");
+    sb.append("  carrierId: ").append(carrierId).append("\n");
+    sb.append("  warehouseId: ").append(warehouseId).append("\n");
+    sb.append("  coupons: ").append(coupons).append("\n");
     sb.append("  tags: ").append(tags).append("\n");
+    sb.append("  comment: ").append(comment).append("\n");
+    sb.append("  adminComment: ").append(adminComment).append("\n");
+    sb.append("  adminPrivateComment: ").append(adminPrivateComment).append("\n");
+    sb.append("  sendNotifications: ").append(sendNotifications).append("\n");
+    sb.append("  sendAdminNotifications: ").append(sendAdminNotifications).append("\n");
+    sb.append("  externalSource: ").append(externalSource).append("\n");
     sb.append("  inventoryBehaviour: ").append(inventoryBehaviour).append("\n");
     sb.append("  createInvoice: ").append(createInvoice).append("\n");
     sb.append("  noteAttributes: ").append(noteAttributes).append("\n");
-    sb.append("  totalWeight: ").append(totalWeight).append("\n");
     sb.append("  clearCache: ").append(clearCache).append("\n");
     sb.append("  origin: ").append(origin).append("\n");
     sb.append("  orderItem: ").append(orderItem).append("\n");

@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ## returnInfo
 
-> ReturnInfo200Response returnInfo(id, orderId, storeId, params, exclude, responseFields)
+> ReturnInfo200Response returnInfo(id, orderId, storeId, responseFields, params, exclude)
 
 return.info
 
@@ -139,11 +139,11 @@ ReturnApi apiInstance = new ReturnApi();
 String id = 10; // String | Entity id
 String orderId = 25; // String | Defines the order id
 String storeId = 1; // String | Store Id
+String responseFields = {return_code,return_message,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String params = id,order_products; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = id,order_id; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {return_code,return_message,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 try {
-    ReturnInfo200Response result = apiInstance.returnInfo(id, orderId, storeId, params, exclude, responseFields);
+    ReturnInfo200Response result = apiInstance.returnInfo(id, orderId, storeId, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReturnApi#returnInfo");
@@ -159,9 +159,9 @@ Name | Type | Description  | Notes
  **id** | **String**| Entity id | [default to null]
  **orderId** | **String**| Defines the order id | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,order_products]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
 
 ### Return type
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ## returnList
 
-> ModelResponseReturnList returnList(start, count, pageCursor, params, exclude, responseFields, orderId, orderIds, customerId, storeId, status, returnType, createdFrom, createdTo, modifiedFrom, modifiedTo, reportRequestId, disableReportCache)
+> ModelResponseReturnList returnList(start, count, pageCursor, orderId, orderIds, customerId, storeId, status, returnType, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, reportRequestId, disableReportCache)
 
 return.list
 
@@ -195,9 +195,6 @@ ReturnApi apiInstance = new ReturnApi();
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-String params = id,order_products; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = id,order_id; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String orderId = 25; // String | Defines the order id
 String orderIds = 24,25; // String | Retrieves return requests specified by order ids
 String customerId = 5; // String | Retrieves return requests specified by customer id
@@ -208,10 +205,13 @@ String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from the
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
+String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,order_products; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = id,order_id; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String reportRequestId = 105245017661; // String | Report request id
 Boolean disableReportCache = false; // Boolean | Disable report cache for current request
 try {
-    ModelResponseReturnList result = apiInstance.returnList(start, count, pageCursor, params, exclude, responseFields, orderId, orderIds, customerId, storeId, status, returnType, createdFrom, createdTo, modifiedFrom, modifiedTo, reportRequestId, disableReportCache);
+    ModelResponseReturnList result = apiInstance.returnList(start, count, pageCursor, orderId, orderIds, customerId, storeId, status, returnType, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, reportRequestId, disableReportCache);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReturnApi#returnList");
@@ -227,9 +227,6 @@ Name | Type | Description  | Notes
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,order_products]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **orderId** | **String**| Defines the order id | [optional] [default to null]
  **orderIds** | **String**| Retrieves return requests specified by order ids | [optional] [default to null]
  **customerId** | **String**| Retrieves return requests specified by customer id | [optional] [default to null]
@@ -240,6 +237,9 @@ Name | Type | Description  | Notes
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,order_products]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **reportRequestId** | **String**| Report request id | [optional] [default to null]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional] [default to false]
 

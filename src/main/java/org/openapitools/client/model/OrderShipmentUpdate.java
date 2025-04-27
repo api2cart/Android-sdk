@@ -20,35 +20,24 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class OrderShipmentUpdate {
   
-  @SerializedName("store_id")
-  private String storeId = null;
   @SerializedName("shipment_id")
   private String shipmentId = null;
   @SerializedName("order_id")
   private String orderId = null;
-  @SerializedName("tracking_numbers")
-  private List<OrderShipmentAddTrackingNumbersInner> trackingNumbers = null;
-  @SerializedName("replace")
-  private Boolean replace = true;
-  @SerializedName("is_shipped")
-  private Boolean isShipped = true;
-  @SerializedName("tracking_link")
-  private String trackingLink = null;
-  @SerializedName("delivered_at")
-  private String deliveredAt = null;
+  @SerializedName("store_id")
+  private String storeId = null;
   @SerializedName("shipment_provider")
   private String shipmentProvider = null;
-
-  /**
-   * Store Id
-   **/
-  @ApiModelProperty(value = "Store Id")
-  public String getStoreId() {
-    return storeId;
-  }
-  public void setStoreId(String storeId) {
-    this.storeId = storeId;
-  }
+  @SerializedName("tracking_numbers")
+  private List<OrderShipmentAddTrackingNumbersInner> trackingNumbers = null;
+  @SerializedName("tracking_link")
+  private String trackingLink = null;
+  @SerializedName("is_shipped")
+  private Boolean isShipped = true;
+  @SerializedName("delivered_at")
+  private String deliveredAt = null;
+  @SerializedName("replace")
+  private Boolean replace = true;
 
   /**
    * Shipment id indicates the number of delivery
@@ -73,6 +62,28 @@ public class OrderShipmentUpdate {
   }
 
   /**
+   * Store Id
+   **/
+  @ApiModelProperty(value = "Store Id")
+  public String getStoreId() {
+    return storeId;
+  }
+  public void setStoreId(String storeId) {
+    this.storeId = storeId;
+  }
+
+  /**
+   * Defines company name that provide tracking of shipment
+   **/
+  @ApiModelProperty(value = "Defines company name that provide tracking of shipment")
+  public String getShipmentProvider() {
+    return shipmentProvider;
+  }
+  public void setShipmentProvider(String shipmentProvider) {
+    this.shipmentProvider = shipmentProvider;
+  }
+
+  /**
    * Defines shipment's tracking numbers that have to be added</br> How set tracking numbers to appropriate carrier:<ul><li>tracking_numbers[]=a2c.demo1,a2c.demo2 - set default carrier</li><li>tracking_numbers[<b>carrier_id</b>]=a2c.demo - set appropriate carrier</li></ul>To get the list of carriers IDs that are available in your store, use the <a href = \"https://api2cart.com/docs/#/cart/CartInfo\">cart.info</a > method
    **/
   @ApiModelProperty(value = "Defines shipment's tracking numbers that have to be added</br> How set tracking numbers to appropriate carrier:<ul><li>tracking_numbers[]=a2c.demo1,a2c.demo2 - set default carrier</li><li>tracking_numbers[<b>carrier_id</b>]=a2c.demo - set appropriate carrier</li></ul>To get the list of carriers IDs that are available in your store, use the <a href = \"https://api2cart.com/docs/#/cart/CartInfo\">cart.info</a > method")
@@ -81,28 +92,6 @@ public class OrderShipmentUpdate {
   }
   public void setTrackingNumbers(List<OrderShipmentAddTrackingNumbersInner> trackingNumbers) {
     this.trackingNumbers = trackingNumbers;
-  }
-
-  /**
-   * Allows rewrite tracking numbers
-   **/
-  @ApiModelProperty(value = "Allows rewrite tracking numbers")
-  public Boolean getReplace() {
-    return replace;
-  }
-  public void setReplace(Boolean replace) {
-    this.replace = replace;
-  }
-
-  /**
-   * Defines shipment's status
-   **/
-  @ApiModelProperty(value = "Defines shipment's status")
-  public Boolean getIsShipped() {
-    return isShipped;
-  }
-  public void setIsShipped(Boolean isShipped) {
-    this.isShipped = isShipped;
   }
 
   /**
@@ -117,6 +106,17 @@ public class OrderShipmentUpdate {
   }
 
   /**
+   * Defines shipment's status
+   **/
+  @ApiModelProperty(value = "Defines shipment's status")
+  public Boolean getIsShipped() {
+    return isShipped;
+  }
+  public void setIsShipped(Boolean isShipped) {
+    this.isShipped = isShipped;
+  }
+
+  /**
    * Defines the date of delivery
    **/
   @ApiModelProperty(value = "Defines the date of delivery")
@@ -128,14 +128,14 @@ public class OrderShipmentUpdate {
   }
 
   /**
-   * Defines company name that provide tracking of shipment
+   * Allows rewrite tracking numbers
    **/
-  @ApiModelProperty(value = "Defines company name that provide tracking of shipment")
-  public String getShipmentProvider() {
-    return shipmentProvider;
+  @ApiModelProperty(value = "Allows rewrite tracking numbers")
+  public Boolean getReplace() {
+    return replace;
   }
-  public void setShipmentProvider(String shipmentProvider) {
-    this.shipmentProvider = shipmentProvider;
+  public void setReplace(Boolean replace) {
+    this.replace = replace;
   }
 
 
@@ -148,29 +148,29 @@ public class OrderShipmentUpdate {
       return false;
     }
     OrderShipmentUpdate orderShipmentUpdate = (OrderShipmentUpdate) o;
-    return (this.storeId == null ? orderShipmentUpdate.storeId == null : this.storeId.equals(orderShipmentUpdate.storeId)) &&
-        (this.shipmentId == null ? orderShipmentUpdate.shipmentId == null : this.shipmentId.equals(orderShipmentUpdate.shipmentId)) &&
+    return (this.shipmentId == null ? orderShipmentUpdate.shipmentId == null : this.shipmentId.equals(orderShipmentUpdate.shipmentId)) &&
         (this.orderId == null ? orderShipmentUpdate.orderId == null : this.orderId.equals(orderShipmentUpdate.orderId)) &&
+        (this.storeId == null ? orderShipmentUpdate.storeId == null : this.storeId.equals(orderShipmentUpdate.storeId)) &&
+        (this.shipmentProvider == null ? orderShipmentUpdate.shipmentProvider == null : this.shipmentProvider.equals(orderShipmentUpdate.shipmentProvider)) &&
         (this.trackingNumbers == null ? orderShipmentUpdate.trackingNumbers == null : this.trackingNumbers.equals(orderShipmentUpdate.trackingNumbers)) &&
-        (this.replace == null ? orderShipmentUpdate.replace == null : this.replace.equals(orderShipmentUpdate.replace)) &&
-        (this.isShipped == null ? orderShipmentUpdate.isShipped == null : this.isShipped.equals(orderShipmentUpdate.isShipped)) &&
         (this.trackingLink == null ? orderShipmentUpdate.trackingLink == null : this.trackingLink.equals(orderShipmentUpdate.trackingLink)) &&
+        (this.isShipped == null ? orderShipmentUpdate.isShipped == null : this.isShipped.equals(orderShipmentUpdate.isShipped)) &&
         (this.deliveredAt == null ? orderShipmentUpdate.deliveredAt == null : this.deliveredAt.equals(orderShipmentUpdate.deliveredAt)) &&
-        (this.shipmentProvider == null ? orderShipmentUpdate.shipmentProvider == null : this.shipmentProvider.equals(orderShipmentUpdate.shipmentProvider));
+        (this.replace == null ? orderShipmentUpdate.replace == null : this.replace.equals(orderShipmentUpdate.replace));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.shipmentId == null ? 0: this.shipmentId.hashCode());
     result = 31 * result + (this.orderId == null ? 0: this.orderId.hashCode());
-    result = 31 * result + (this.trackingNumbers == null ? 0: this.trackingNumbers.hashCode());
-    result = 31 * result + (this.replace == null ? 0: this.replace.hashCode());
-    result = 31 * result + (this.isShipped == null ? 0: this.isShipped.hashCode());
-    result = 31 * result + (this.trackingLink == null ? 0: this.trackingLink.hashCode());
-    result = 31 * result + (this.deliveredAt == null ? 0: this.deliveredAt.hashCode());
+    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.shipmentProvider == null ? 0: this.shipmentProvider.hashCode());
+    result = 31 * result + (this.trackingNumbers == null ? 0: this.trackingNumbers.hashCode());
+    result = 31 * result + (this.trackingLink == null ? 0: this.trackingLink.hashCode());
+    result = 31 * result + (this.isShipped == null ? 0: this.isShipped.hashCode());
+    result = 31 * result + (this.deliveredAt == null ? 0: this.deliveredAt.hashCode());
+    result = 31 * result + (this.replace == null ? 0: this.replace.hashCode());
     return result;
   }
 
@@ -179,15 +179,15 @@ public class OrderShipmentUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderShipmentUpdate {\n");
     
-    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  shipmentId: ").append(shipmentId).append("\n");
     sb.append("  orderId: ").append(orderId).append("\n");
-    sb.append("  trackingNumbers: ").append(trackingNumbers).append("\n");
-    sb.append("  replace: ").append(replace).append("\n");
-    sb.append("  isShipped: ").append(isShipped).append("\n");
-    sb.append("  trackingLink: ").append(trackingLink).append("\n");
-    sb.append("  deliveredAt: ").append(deliveredAt).append("\n");
+    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  shipmentProvider: ").append(shipmentProvider).append("\n");
+    sb.append("  trackingNumbers: ").append(trackingNumbers).append("\n");
+    sb.append("  trackingLink: ").append(trackingLink).append("\n");
+    sb.append("  isShipped: ").append(isShipped).append("\n");
+    sb.append("  deliveredAt: ").append(deliveredAt).append("\n");
+    sb.append("  replace: ").append(replace).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

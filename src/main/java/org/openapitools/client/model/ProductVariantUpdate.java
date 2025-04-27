@@ -21,12 +21,50 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class ProductVariantUpdate {
   
-  @SerializedName("store_id")
-  private String storeId = null;
   @SerializedName("id")
   private String id = null;
   @SerializedName("product_id")
   private String productId = null;
+  @SerializedName("store_id")
+  private String storeId = null;
+  @SerializedName("lang_id")
+  private String langId = null;
+  @SerializedName("options")
+  private List<ProductVariantUpdateOptionsInner> options = null;
+  @SerializedName("name")
+  private String name = null;
+  @SerializedName("description")
+  private String description = null;
+  @SerializedName("short_description")
+  private String shortDescription = null;
+  @SerializedName("model")
+  private String model = null;
+  @SerializedName("sku")
+  private String sku = null;
+  @SerializedName("visible")
+  private String visible = null;
+  @SerializedName("status")
+  private String status = null;
+  @SerializedName("backorder_status")
+  private String backorderStatus = null;
+  @SerializedName("available_for_sale")
+  private Boolean availableForSale = true;
+  @SerializedName("avail")
+  private Boolean avail = true;
+  @SerializedName("is_default")
+  private Boolean isDefault = null;
+  @SerializedName("is_free_shipping")
+  private Boolean isFreeShipping = null;
+  @SerializedName("taxable")
+  private Boolean taxable = true;
+  @SerializedName("tax_class_id")
+  private String taxClassId = null;
+  @SerializedName("is_virtual")
+  private Boolean isVirtual = false;
+  @SerializedName("manage_stock")
+  private Boolean manageStock = null;
+  @SerializedName("in_stock")
+  private Boolean inStock = null;
   @SerializedName("warehouse_id")
   private String warehouseId = null;
   @SerializedName("reserve_quantity")
@@ -53,44 +91,10 @@ public class ProductVariantUpdate {
   private String spriceCreate = null;
   @SerializedName("sprice_expire")
   private String spriceExpire = null;
-  @SerializedName("manage_stock")
-  private Boolean manageStock = null;
-  @SerializedName("in_stock")
-  private Boolean inStock = null;
-  @SerializedName("name")
-  private String name = null;
-  @SerializedName("description")
-  private String description = null;
-  @SerializedName("sku")
-  private String sku = null;
-  @SerializedName("meta_title")
-  private String metaTitle = null;
-  @SerializedName("meta_description")
-  private String metaDescription = null;
-  @SerializedName("meta_keywords")
-  private String metaKeywords = null;
-  @SerializedName("short_description")
-  private String shortDescription = null;
-  @SerializedName("visible")
-  private String visible = null;
-  @SerializedName("status")
-  private String status = null;
-  @SerializedName("backorder_status")
-  private String backorderStatus = null;
   @SerializedName("weight")
   private BigDecimal weight = 0;
   @SerializedName("barcode")
   private String barcode = null;
-  @SerializedName("reindex")
-  private Boolean reindex = true;
-  @SerializedName("taxable")
-  private Boolean taxable = true;
-  @SerializedName("options")
-  private List<ProductVariantUpdateOptionsInner> options = null;
-  @SerializedName("harmonized_system_code")
-  private String harmonizedSystemCode = null;
-  @SerializedName("country_of_origin")
-  private String countryOfOrigin = null;
   @SerializedName("width")
   private BigDecimal width = null;
   @SerializedName("weight_unit")
@@ -101,14 +105,6 @@ public class ProductVariantUpdate {
   private BigDecimal length = null;
   @SerializedName("gtin")
   private String gtin = null;
-  @SerializedName("clear_cache")
-  private Boolean clearCache = true;
-  @SerializedName("lang_id")
-  private String langId = null;
-  @SerializedName("model")
-  private String model = null;
-  @SerializedName("available_for_sale")
-  private Boolean availableForSale = true;
   @SerializedName("upc")
   private String upc = null;
   @SerializedName("mpn")
@@ -117,27 +113,20 @@ public class ProductVariantUpdate {
   private String ean = null;
   @SerializedName("isbn")
   private String isbn = null;
-  @SerializedName("avail")
-  private Boolean avail = true;
-  @SerializedName("is_default")
-  private Boolean isDefault = null;
-  @SerializedName("is_free_shipping")
-  private Boolean isFreeShipping = null;
-  @SerializedName("tax_class_id")
-  private String taxClassId = null;
-  @SerializedName("is_virtual")
-  private Boolean isVirtual = false;
-
-  /**
-   * Defines store id where the variant should be found
-   **/
-  @ApiModelProperty(value = "Defines store id where the variant should be found")
-  public String getStoreId() {
-    return storeId;
-  }
-  public void setStoreId(String storeId) {
-    this.storeId = storeId;
-  }
+  @SerializedName("harmonized_system_code")
+  private String harmonizedSystemCode = null;
+  @SerializedName("country_of_origin")
+  private String countryOfOrigin = null;
+  @SerializedName("meta_title")
+  private String metaTitle = null;
+  @SerializedName("meta_description")
+  private String metaDescription = null;
+  @SerializedName("meta_keywords")
+  private String metaKeywords = null;
+  @SerializedName("reindex")
+  private Boolean reindex = true;
+  @SerializedName("clear_cache")
+  private Boolean clearCache = true;
 
   /**
    * Defines variant update specified by variant id
@@ -159,6 +148,226 @@ public class ProductVariantUpdate {
   }
   public void setProductId(String productId) {
     this.productId = productId;
+  }
+
+  /**
+   * Defines store id where the variant should be found
+   **/
+  @ApiModelProperty(value = "Defines store id where the variant should be found")
+  public String getStoreId() {
+    return storeId;
+  }
+  public void setStoreId(String storeId) {
+    this.storeId = storeId;
+  }
+
+  /**
+   * Language id
+   **/
+  @ApiModelProperty(value = "Language id")
+  public String getLangId() {
+    return langId;
+  }
+  public void setLangId(String langId) {
+    this.langId = langId;
+  }
+
+  /**
+   * Defines variant's options list
+   **/
+  @ApiModelProperty(value = "Defines variant's options list")
+  public List<ProductVariantUpdateOptionsInner> getOptions() {
+    return options;
+  }
+  public void setOptions(List<ProductVariantUpdateOptionsInner> options) {
+    this.options = options;
+  }
+
+  /**
+   * Defines variant's name that has to be updated
+   **/
+  @ApiModelProperty(value = "Defines variant's name that has to be updated")
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /**
+   * Specifies variant's description
+   **/
+  @ApiModelProperty(value = "Specifies variant's description")
+  public String getDescription() {
+    return description;
+  }
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  /**
+   * Defines short description
+   **/
+  @ApiModelProperty(value = "Defines short description")
+  public String getShortDescription() {
+    return shortDescription;
+  }
+  public void setShortDescription(String shortDescription) {
+    this.shortDescription = shortDescription;
+  }
+
+  /**
+   * Specifies variant's model that has to be added
+   **/
+  @ApiModelProperty(value = "Specifies variant's model that has to be added")
+  public String getModel() {
+    return model;
+  }
+  public void setModel(String model) {
+    this.model = model;
+  }
+
+  /**
+   * Defines new product's variant sku
+   **/
+  @ApiModelProperty(value = "Defines new product's variant sku")
+  public String getSku() {
+    return sku;
+  }
+  public void setSku(String sku) {
+    this.sku = sku;
+  }
+
+  /**
+   * Set visibility status
+   **/
+  @ApiModelProperty(value = "Set visibility status")
+  public String getVisible() {
+    return visible;
+  }
+  public void setVisible(String visible) {
+    this.visible = visible;
+  }
+
+  /**
+   * Defines product variant's status
+   **/
+  @ApiModelProperty(value = "Defines product variant's status")
+  public String getStatus() {
+    return status;
+  }
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  /**
+   * Set backorder status
+   **/
+  @ApiModelProperty(value = "Set backorder status")
+  public String getBackorderStatus() {
+    return backorderStatus;
+  }
+  public void setBackorderStatus(String backorderStatus) {
+    this.backorderStatus = backorderStatus;
+  }
+
+  /**
+   * Specifies the set of visible/invisible product's variants for sale
+   **/
+  @ApiModelProperty(value = "Specifies the set of visible/invisible product's variants for sale")
+  public Boolean getAvailableForSale() {
+    return availableForSale;
+  }
+  public void setAvailableForSale(Boolean availableForSale) {
+    this.availableForSale = availableForSale;
+  }
+
+  /**
+   * Defines category's visibility status
+   **/
+  @ApiModelProperty(value = "Defines category's visibility status")
+  public Boolean getAvail() {
+    return avail;
+  }
+  public void setAvail(Boolean avail) {
+    this.avail = avail;
+  }
+
+  /**
+   * Defines as a default variant
+   **/
+  @ApiModelProperty(value = "Defines as a default variant")
+  public Boolean getIsDefault() {
+    return isDefault;
+  }
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+  }
+
+  /**
+   * Specifies variant's free shipping flag that has to be added
+   **/
+  @ApiModelProperty(value = "Specifies variant's free shipping flag that has to be added")
+  public Boolean getIsFreeShipping() {
+    return isFreeShipping;
+  }
+  public void setIsFreeShipping(Boolean isFreeShipping) {
+    this.isFreeShipping = isFreeShipping;
+  }
+
+  /**
+   * Specifies whether a tax is charged
+   **/
+  @ApiModelProperty(value = "Specifies whether a tax is charged")
+  public Boolean getTaxable() {
+    return taxable;
+  }
+  public void setTaxable(Boolean taxable) {
+    this.taxable = taxable;
+  }
+
+  /**
+   * Defines tax classes where entity has to be added
+   **/
+  @ApiModelProperty(value = "Defines tax classes where entity has to be added")
+  public String getTaxClassId() {
+    return taxClassId;
+  }
+  public void setTaxClassId(String taxClassId) {
+    this.taxClassId = taxClassId;
+  }
+
+  /**
+   * Defines whether the product is virtual
+   **/
+  @ApiModelProperty(value = "Defines whether the product is virtual")
+  public Boolean getIsVirtual() {
+    return isVirtual;
+  }
+  public void setIsVirtual(Boolean isVirtual) {
+    this.isVirtual = isVirtual;
+  }
+
+  /**
+   * Defines inventory tracking for product variant
+   **/
+  @ApiModelProperty(value = "Defines inventory tracking for product variant")
+  public Boolean getManageStock() {
+    return manageStock;
+  }
+  public void setManageStock(Boolean manageStock) {
+    this.manageStock = manageStock;
+  }
+
+  /**
+   * Set stock status
+   **/
+  @ApiModelProperty(value = "Set stock status")
+  public Boolean getInStock() {
+    return inStock;
+  }
+  public void setInStock(Boolean inStock) {
+    this.inStock = inStock;
   }
 
   /**
@@ -305,138 +514,6 @@ public class ProductVariantUpdate {
   }
 
   /**
-   * Defines inventory tracking for product variant
-   **/
-  @ApiModelProperty(value = "Defines inventory tracking for product variant")
-  public Boolean getManageStock() {
-    return manageStock;
-  }
-  public void setManageStock(Boolean manageStock) {
-    this.manageStock = manageStock;
-  }
-
-  /**
-   * Set stock status
-   **/
-  @ApiModelProperty(value = "Set stock status")
-  public Boolean getInStock() {
-    return inStock;
-  }
-  public void setInStock(Boolean inStock) {
-    this.inStock = inStock;
-  }
-
-  /**
-   * Defines variant's name that has to be updated
-   **/
-  @ApiModelProperty(value = "Defines variant's name that has to be updated")
-  public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /**
-   * Specifies variant's description
-   **/
-  @ApiModelProperty(value = "Specifies variant's description")
-  public String getDescription() {
-    return description;
-  }
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  /**
-   * Defines new product's variant sku
-   **/
-  @ApiModelProperty(value = "Defines new product's variant sku")
-  public String getSku() {
-    return sku;
-  }
-  public void setSku(String sku) {
-    this.sku = sku;
-  }
-
-  /**
-   * Defines unique meta title for each entity
-   **/
-  @ApiModelProperty(value = "Defines unique meta title for each entity")
-  public String getMetaTitle() {
-    return metaTitle;
-  }
-  public void setMetaTitle(String metaTitle) {
-    this.metaTitle = metaTitle;
-  }
-
-  /**
-   * Defines unique meta description of a entity
-   **/
-  @ApiModelProperty(value = "Defines unique meta description of a entity")
-  public String getMetaDescription() {
-    return metaDescription;
-  }
-  public void setMetaDescription(String metaDescription) {
-    this.metaDescription = metaDescription;
-  }
-
-  /**
-   * Defines unique meta keywords for each entity
-   **/
-  @ApiModelProperty(value = "Defines unique meta keywords for each entity")
-  public String getMetaKeywords() {
-    return metaKeywords;
-  }
-  public void setMetaKeywords(String metaKeywords) {
-    this.metaKeywords = metaKeywords;
-  }
-
-  /**
-   * Defines short description
-   **/
-  @ApiModelProperty(value = "Defines short description")
-  public String getShortDescription() {
-    return shortDescription;
-  }
-  public void setShortDescription(String shortDescription) {
-    this.shortDescription = shortDescription;
-  }
-
-  /**
-   * Set visibility status
-   **/
-  @ApiModelProperty(value = "Set visibility status")
-  public String getVisible() {
-    return visible;
-  }
-  public void setVisible(String visible) {
-    this.visible = visible;
-  }
-
-  /**
-   * Defines product variant's status
-   **/
-  @ApiModelProperty(value = "Defines product variant's status")
-  public String getStatus() {
-    return status;
-  }
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  /**
-   * Set backorder status
-   **/
-  @ApiModelProperty(value = "Set backorder status")
-  public String getBackorderStatus() {
-    return backorderStatus;
-  }
-  public void setBackorderStatus(String backorderStatus) {
-    this.backorderStatus = backorderStatus;
-  }
-
-  /**
    * Weight
    **/
   @ApiModelProperty(value = "Weight")
@@ -456,61 +533,6 @@ public class ProductVariantUpdate {
   }
   public void setBarcode(String barcode) {
     this.barcode = barcode;
-  }
-
-  /**
-   * Is reindex required
-   **/
-  @ApiModelProperty(value = "Is reindex required")
-  public Boolean getReindex() {
-    return reindex;
-  }
-  public void setReindex(Boolean reindex) {
-    this.reindex = reindex;
-  }
-
-  /**
-   * Specifies whether a tax is charged
-   **/
-  @ApiModelProperty(value = "Specifies whether a tax is charged")
-  public Boolean getTaxable() {
-    return taxable;
-  }
-  public void setTaxable(Boolean taxable) {
-    this.taxable = taxable;
-  }
-
-  /**
-   * Defines variant's options list
-   **/
-  @ApiModelProperty(value = "Defines variant's options list")
-  public List<ProductVariantUpdateOptionsInner> getOptions() {
-    return options;
-  }
-  public void setOptions(List<ProductVariantUpdateOptionsInner> options) {
-    this.options = options;
-  }
-
-  /**
-   * Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
-   **/
-  @ApiModelProperty(value = "Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes")
-  public String getHarmonizedSystemCode() {
-    return harmonizedSystemCode;
-  }
-  public void setHarmonizedSystemCode(String harmonizedSystemCode) {
-    this.harmonizedSystemCode = harmonizedSystemCode;
-  }
-
-  /**
-   * The country where the inventory item was made
-   **/
-  @ApiModelProperty(value = "The country where the inventory item was made")
-  public String getCountryOfOrigin() {
-    return countryOfOrigin;
-  }
-  public void setCountryOfOrigin(String countryOfOrigin) {
-    this.countryOfOrigin = countryOfOrigin;
   }
 
   /**
@@ -569,50 +591,6 @@ public class ProductVariantUpdate {
   }
 
   /**
-   * Is cache clear required
-   **/
-  @ApiModelProperty(value = "Is cache clear required")
-  public Boolean getClearCache() {
-    return clearCache;
-  }
-  public void setClearCache(Boolean clearCache) {
-    this.clearCache = clearCache;
-  }
-
-  /**
-   * Language id
-   **/
-  @ApiModelProperty(value = "Language id")
-  public String getLangId() {
-    return langId;
-  }
-  public void setLangId(String langId) {
-    this.langId = langId;
-  }
-
-  /**
-   * Specifies variant's model that has to be added
-   **/
-  @ApiModelProperty(value = "Specifies variant's model that has to be added")
-  public String getModel() {
-    return model;
-  }
-  public void setModel(String model) {
-    this.model = model;
-  }
-
-  /**
-   * Specifies the set of visible/invisible product's variants for sale
-   **/
-  @ApiModelProperty(value = "Specifies the set of visible/invisible product's variants for sale")
-  public Boolean getAvailableForSale() {
-    return availableForSale;
-  }
-  public void setAvailableForSale(Boolean availableForSale) {
-    this.availableForSale = availableForSale;
-  }
-
-  /**
    * Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
    **/
   @ApiModelProperty(value = "Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.")
@@ -657,58 +635,80 @@ public class ProductVariantUpdate {
   }
 
   /**
-   * Defines category's visibility status
+   * Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
    **/
-  @ApiModelProperty(value = "Defines category's visibility status")
-  public Boolean getAvail() {
-    return avail;
+  @ApiModelProperty(value = "Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes")
+  public String getHarmonizedSystemCode() {
+    return harmonizedSystemCode;
   }
-  public void setAvail(Boolean avail) {
-    this.avail = avail;
+  public void setHarmonizedSystemCode(String harmonizedSystemCode) {
+    this.harmonizedSystemCode = harmonizedSystemCode;
   }
 
   /**
-   * Defines as a default variant
+   * The country where the inventory item was made
    **/
-  @ApiModelProperty(value = "Defines as a default variant")
-  public Boolean getIsDefault() {
-    return isDefault;
+  @ApiModelProperty(value = "The country where the inventory item was made")
+  public String getCountryOfOrigin() {
+    return countryOfOrigin;
   }
-  public void setIsDefault(Boolean isDefault) {
-    this.isDefault = isDefault;
+  public void setCountryOfOrigin(String countryOfOrigin) {
+    this.countryOfOrigin = countryOfOrigin;
   }
 
   /**
-   * Specifies variant's free shipping flag that has to be added
+   * Defines unique meta title for each entity
    **/
-  @ApiModelProperty(value = "Specifies variant's free shipping flag that has to be added")
-  public Boolean getIsFreeShipping() {
-    return isFreeShipping;
+  @ApiModelProperty(value = "Defines unique meta title for each entity")
+  public String getMetaTitle() {
+    return metaTitle;
   }
-  public void setIsFreeShipping(Boolean isFreeShipping) {
-    this.isFreeShipping = isFreeShipping;
+  public void setMetaTitle(String metaTitle) {
+    this.metaTitle = metaTitle;
   }
 
   /**
-   * Defines tax classes where entity has to be added
+   * Defines unique meta description of a entity
    **/
-  @ApiModelProperty(value = "Defines tax classes where entity has to be added")
-  public String getTaxClassId() {
-    return taxClassId;
+  @ApiModelProperty(value = "Defines unique meta description of a entity")
+  public String getMetaDescription() {
+    return metaDescription;
   }
-  public void setTaxClassId(String taxClassId) {
-    this.taxClassId = taxClassId;
+  public void setMetaDescription(String metaDescription) {
+    this.metaDescription = metaDescription;
   }
 
   /**
-   * Defines whether the product is virtual
+   * Defines unique meta keywords for each entity
    **/
-  @ApiModelProperty(value = "Defines whether the product is virtual")
-  public Boolean getIsVirtual() {
-    return isVirtual;
+  @ApiModelProperty(value = "Defines unique meta keywords for each entity")
+  public String getMetaKeywords() {
+    return metaKeywords;
   }
-  public void setIsVirtual(Boolean isVirtual) {
-    this.isVirtual = isVirtual;
+  public void setMetaKeywords(String metaKeywords) {
+    this.metaKeywords = metaKeywords;
+  }
+
+  /**
+   * Is reindex required
+   **/
+  @ApiModelProperty(value = "Is reindex required")
+  public Boolean getReindex() {
+    return reindex;
+  }
+  public void setReindex(Boolean reindex) {
+    this.reindex = reindex;
+  }
+
+  /**
+   * Is cache clear required
+   **/
+  @ApiModelProperty(value = "Is cache clear required")
+  public Boolean getClearCache() {
+    return clearCache;
+  }
+  public void setClearCache(Boolean clearCache) {
+    this.clearCache = clearCache;
   }
 
 
@@ -721,9 +721,28 @@ public class ProductVariantUpdate {
       return false;
     }
     ProductVariantUpdate productVariantUpdate = (ProductVariantUpdate) o;
-    return (this.storeId == null ? productVariantUpdate.storeId == null : this.storeId.equals(productVariantUpdate.storeId)) &&
-        (this.id == null ? productVariantUpdate.id == null : this.id.equals(productVariantUpdate.id)) &&
+    return (this.id == null ? productVariantUpdate.id == null : this.id.equals(productVariantUpdate.id)) &&
         (this.productId == null ? productVariantUpdate.productId == null : this.productId.equals(productVariantUpdate.productId)) &&
+        (this.storeId == null ? productVariantUpdate.storeId == null : this.storeId.equals(productVariantUpdate.storeId)) &&
+        (this.langId == null ? productVariantUpdate.langId == null : this.langId.equals(productVariantUpdate.langId)) &&
+        (this.options == null ? productVariantUpdate.options == null : this.options.equals(productVariantUpdate.options)) &&
+        (this.name == null ? productVariantUpdate.name == null : this.name.equals(productVariantUpdate.name)) &&
+        (this.description == null ? productVariantUpdate.description == null : this.description.equals(productVariantUpdate.description)) &&
+        (this.shortDescription == null ? productVariantUpdate.shortDescription == null : this.shortDescription.equals(productVariantUpdate.shortDescription)) &&
+        (this.model == null ? productVariantUpdate.model == null : this.model.equals(productVariantUpdate.model)) &&
+        (this.sku == null ? productVariantUpdate.sku == null : this.sku.equals(productVariantUpdate.sku)) &&
+        (this.visible == null ? productVariantUpdate.visible == null : this.visible.equals(productVariantUpdate.visible)) &&
+        (this.status == null ? productVariantUpdate.status == null : this.status.equals(productVariantUpdate.status)) &&
+        (this.backorderStatus == null ? productVariantUpdate.backorderStatus == null : this.backorderStatus.equals(productVariantUpdate.backorderStatus)) &&
+        (this.availableForSale == null ? productVariantUpdate.availableForSale == null : this.availableForSale.equals(productVariantUpdate.availableForSale)) &&
+        (this.avail == null ? productVariantUpdate.avail == null : this.avail.equals(productVariantUpdate.avail)) &&
+        (this.isDefault == null ? productVariantUpdate.isDefault == null : this.isDefault.equals(productVariantUpdate.isDefault)) &&
+        (this.isFreeShipping == null ? productVariantUpdate.isFreeShipping == null : this.isFreeShipping.equals(productVariantUpdate.isFreeShipping)) &&
+        (this.taxable == null ? productVariantUpdate.taxable == null : this.taxable.equals(productVariantUpdate.taxable)) &&
+        (this.taxClassId == null ? productVariantUpdate.taxClassId == null : this.taxClassId.equals(productVariantUpdate.taxClassId)) &&
+        (this.isVirtual == null ? productVariantUpdate.isVirtual == null : this.isVirtual.equals(productVariantUpdate.isVirtual)) &&
+        (this.manageStock == null ? productVariantUpdate.manageStock == null : this.manageStock.equals(productVariantUpdate.manageStock)) &&
+        (this.inStock == null ? productVariantUpdate.inStock == null : this.inStock.equals(productVariantUpdate.inStock)) &&
         (this.warehouseId == null ? productVariantUpdate.warehouseId == null : this.warehouseId.equals(productVariantUpdate.warehouseId)) &&
         (this.reserveQuantity == null ? productVariantUpdate.reserveQuantity == null : this.reserveQuantity.equals(productVariantUpdate.reserveQuantity)) &&
         (this.quantity == null ? productVariantUpdate.quantity == null : this.quantity.equals(productVariantUpdate.quantity)) &&
@@ -737,51 +756,51 @@ public class ProductVariantUpdate {
         (this.fixedCostShippingPrice == null ? productVariantUpdate.fixedCostShippingPrice == null : this.fixedCostShippingPrice.equals(productVariantUpdate.fixedCostShippingPrice)) &&
         (this.spriceCreate == null ? productVariantUpdate.spriceCreate == null : this.spriceCreate.equals(productVariantUpdate.spriceCreate)) &&
         (this.spriceExpire == null ? productVariantUpdate.spriceExpire == null : this.spriceExpire.equals(productVariantUpdate.spriceExpire)) &&
-        (this.manageStock == null ? productVariantUpdate.manageStock == null : this.manageStock.equals(productVariantUpdate.manageStock)) &&
-        (this.inStock == null ? productVariantUpdate.inStock == null : this.inStock.equals(productVariantUpdate.inStock)) &&
-        (this.name == null ? productVariantUpdate.name == null : this.name.equals(productVariantUpdate.name)) &&
-        (this.description == null ? productVariantUpdate.description == null : this.description.equals(productVariantUpdate.description)) &&
-        (this.sku == null ? productVariantUpdate.sku == null : this.sku.equals(productVariantUpdate.sku)) &&
-        (this.metaTitle == null ? productVariantUpdate.metaTitle == null : this.metaTitle.equals(productVariantUpdate.metaTitle)) &&
-        (this.metaDescription == null ? productVariantUpdate.metaDescription == null : this.metaDescription.equals(productVariantUpdate.metaDescription)) &&
-        (this.metaKeywords == null ? productVariantUpdate.metaKeywords == null : this.metaKeywords.equals(productVariantUpdate.metaKeywords)) &&
-        (this.shortDescription == null ? productVariantUpdate.shortDescription == null : this.shortDescription.equals(productVariantUpdate.shortDescription)) &&
-        (this.visible == null ? productVariantUpdate.visible == null : this.visible.equals(productVariantUpdate.visible)) &&
-        (this.status == null ? productVariantUpdate.status == null : this.status.equals(productVariantUpdate.status)) &&
-        (this.backorderStatus == null ? productVariantUpdate.backorderStatus == null : this.backorderStatus.equals(productVariantUpdate.backorderStatus)) &&
         (this.weight == null ? productVariantUpdate.weight == null : this.weight.equals(productVariantUpdate.weight)) &&
         (this.barcode == null ? productVariantUpdate.barcode == null : this.barcode.equals(productVariantUpdate.barcode)) &&
-        (this.reindex == null ? productVariantUpdate.reindex == null : this.reindex.equals(productVariantUpdate.reindex)) &&
-        (this.taxable == null ? productVariantUpdate.taxable == null : this.taxable.equals(productVariantUpdate.taxable)) &&
-        (this.options == null ? productVariantUpdate.options == null : this.options.equals(productVariantUpdate.options)) &&
-        (this.harmonizedSystemCode == null ? productVariantUpdate.harmonizedSystemCode == null : this.harmonizedSystemCode.equals(productVariantUpdate.harmonizedSystemCode)) &&
-        (this.countryOfOrigin == null ? productVariantUpdate.countryOfOrigin == null : this.countryOfOrigin.equals(productVariantUpdate.countryOfOrigin)) &&
         (this.width == null ? productVariantUpdate.width == null : this.width.equals(productVariantUpdate.width)) &&
         (this.weightUnit == null ? productVariantUpdate.weightUnit == null : this.weightUnit.equals(productVariantUpdate.weightUnit)) &&
         (this.height == null ? productVariantUpdate.height == null : this.height.equals(productVariantUpdate.height)) &&
         (this.length == null ? productVariantUpdate.length == null : this.length.equals(productVariantUpdate.length)) &&
         (this.gtin == null ? productVariantUpdate.gtin == null : this.gtin.equals(productVariantUpdate.gtin)) &&
-        (this.clearCache == null ? productVariantUpdate.clearCache == null : this.clearCache.equals(productVariantUpdate.clearCache)) &&
-        (this.langId == null ? productVariantUpdate.langId == null : this.langId.equals(productVariantUpdate.langId)) &&
-        (this.model == null ? productVariantUpdate.model == null : this.model.equals(productVariantUpdate.model)) &&
-        (this.availableForSale == null ? productVariantUpdate.availableForSale == null : this.availableForSale.equals(productVariantUpdate.availableForSale)) &&
         (this.upc == null ? productVariantUpdate.upc == null : this.upc.equals(productVariantUpdate.upc)) &&
         (this.mpn == null ? productVariantUpdate.mpn == null : this.mpn.equals(productVariantUpdate.mpn)) &&
         (this.ean == null ? productVariantUpdate.ean == null : this.ean.equals(productVariantUpdate.ean)) &&
         (this.isbn == null ? productVariantUpdate.isbn == null : this.isbn.equals(productVariantUpdate.isbn)) &&
-        (this.avail == null ? productVariantUpdate.avail == null : this.avail.equals(productVariantUpdate.avail)) &&
-        (this.isDefault == null ? productVariantUpdate.isDefault == null : this.isDefault.equals(productVariantUpdate.isDefault)) &&
-        (this.isFreeShipping == null ? productVariantUpdate.isFreeShipping == null : this.isFreeShipping.equals(productVariantUpdate.isFreeShipping)) &&
-        (this.taxClassId == null ? productVariantUpdate.taxClassId == null : this.taxClassId.equals(productVariantUpdate.taxClassId)) &&
-        (this.isVirtual == null ? productVariantUpdate.isVirtual == null : this.isVirtual.equals(productVariantUpdate.isVirtual));
+        (this.harmonizedSystemCode == null ? productVariantUpdate.harmonizedSystemCode == null : this.harmonizedSystemCode.equals(productVariantUpdate.harmonizedSystemCode)) &&
+        (this.countryOfOrigin == null ? productVariantUpdate.countryOfOrigin == null : this.countryOfOrigin.equals(productVariantUpdate.countryOfOrigin)) &&
+        (this.metaTitle == null ? productVariantUpdate.metaTitle == null : this.metaTitle.equals(productVariantUpdate.metaTitle)) &&
+        (this.metaDescription == null ? productVariantUpdate.metaDescription == null : this.metaDescription.equals(productVariantUpdate.metaDescription)) &&
+        (this.metaKeywords == null ? productVariantUpdate.metaKeywords == null : this.metaKeywords.equals(productVariantUpdate.metaKeywords)) &&
+        (this.reindex == null ? productVariantUpdate.reindex == null : this.reindex.equals(productVariantUpdate.reindex)) &&
+        (this.clearCache == null ? productVariantUpdate.clearCache == null : this.clearCache.equals(productVariantUpdate.clearCache));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.productId == null ? 0: this.productId.hashCode());
+    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
+    result = 31 * result + (this.langId == null ? 0: this.langId.hashCode());
+    result = 31 * result + (this.options == null ? 0: this.options.hashCode());
+    result = 31 * result + (this.name == null ? 0: this.name.hashCode());
+    result = 31 * result + (this.description == null ? 0: this.description.hashCode());
+    result = 31 * result + (this.shortDescription == null ? 0: this.shortDescription.hashCode());
+    result = 31 * result + (this.model == null ? 0: this.model.hashCode());
+    result = 31 * result + (this.sku == null ? 0: this.sku.hashCode());
+    result = 31 * result + (this.visible == null ? 0: this.visible.hashCode());
+    result = 31 * result + (this.status == null ? 0: this.status.hashCode());
+    result = 31 * result + (this.backorderStatus == null ? 0: this.backorderStatus.hashCode());
+    result = 31 * result + (this.availableForSale == null ? 0: this.availableForSale.hashCode());
+    result = 31 * result + (this.avail == null ? 0: this.avail.hashCode());
+    result = 31 * result + (this.isDefault == null ? 0: this.isDefault.hashCode());
+    result = 31 * result + (this.isFreeShipping == null ? 0: this.isFreeShipping.hashCode());
+    result = 31 * result + (this.taxable == null ? 0: this.taxable.hashCode());
+    result = 31 * result + (this.taxClassId == null ? 0: this.taxClassId.hashCode());
+    result = 31 * result + (this.isVirtual == null ? 0: this.isVirtual.hashCode());
+    result = 31 * result + (this.manageStock == null ? 0: this.manageStock.hashCode());
+    result = 31 * result + (this.inStock == null ? 0: this.inStock.hashCode());
     result = 31 * result + (this.warehouseId == null ? 0: this.warehouseId.hashCode());
     result = 31 * result + (this.reserveQuantity == null ? 0: this.reserveQuantity.hashCode());
     result = 31 * result + (this.quantity == null ? 0: this.quantity.hashCode());
@@ -795,43 +814,24 @@ public class ProductVariantUpdate {
     result = 31 * result + (this.fixedCostShippingPrice == null ? 0: this.fixedCostShippingPrice.hashCode());
     result = 31 * result + (this.spriceCreate == null ? 0: this.spriceCreate.hashCode());
     result = 31 * result + (this.spriceExpire == null ? 0: this.spriceExpire.hashCode());
-    result = 31 * result + (this.manageStock == null ? 0: this.manageStock.hashCode());
-    result = 31 * result + (this.inStock == null ? 0: this.inStock.hashCode());
-    result = 31 * result + (this.name == null ? 0: this.name.hashCode());
-    result = 31 * result + (this.description == null ? 0: this.description.hashCode());
-    result = 31 * result + (this.sku == null ? 0: this.sku.hashCode());
-    result = 31 * result + (this.metaTitle == null ? 0: this.metaTitle.hashCode());
-    result = 31 * result + (this.metaDescription == null ? 0: this.metaDescription.hashCode());
-    result = 31 * result + (this.metaKeywords == null ? 0: this.metaKeywords.hashCode());
-    result = 31 * result + (this.shortDescription == null ? 0: this.shortDescription.hashCode());
-    result = 31 * result + (this.visible == null ? 0: this.visible.hashCode());
-    result = 31 * result + (this.status == null ? 0: this.status.hashCode());
-    result = 31 * result + (this.backorderStatus == null ? 0: this.backorderStatus.hashCode());
     result = 31 * result + (this.weight == null ? 0: this.weight.hashCode());
     result = 31 * result + (this.barcode == null ? 0: this.barcode.hashCode());
-    result = 31 * result + (this.reindex == null ? 0: this.reindex.hashCode());
-    result = 31 * result + (this.taxable == null ? 0: this.taxable.hashCode());
-    result = 31 * result + (this.options == null ? 0: this.options.hashCode());
-    result = 31 * result + (this.harmonizedSystemCode == null ? 0: this.harmonizedSystemCode.hashCode());
-    result = 31 * result + (this.countryOfOrigin == null ? 0: this.countryOfOrigin.hashCode());
     result = 31 * result + (this.width == null ? 0: this.width.hashCode());
     result = 31 * result + (this.weightUnit == null ? 0: this.weightUnit.hashCode());
     result = 31 * result + (this.height == null ? 0: this.height.hashCode());
     result = 31 * result + (this.length == null ? 0: this.length.hashCode());
     result = 31 * result + (this.gtin == null ? 0: this.gtin.hashCode());
-    result = 31 * result + (this.clearCache == null ? 0: this.clearCache.hashCode());
-    result = 31 * result + (this.langId == null ? 0: this.langId.hashCode());
-    result = 31 * result + (this.model == null ? 0: this.model.hashCode());
-    result = 31 * result + (this.availableForSale == null ? 0: this.availableForSale.hashCode());
     result = 31 * result + (this.upc == null ? 0: this.upc.hashCode());
     result = 31 * result + (this.mpn == null ? 0: this.mpn.hashCode());
     result = 31 * result + (this.ean == null ? 0: this.ean.hashCode());
     result = 31 * result + (this.isbn == null ? 0: this.isbn.hashCode());
-    result = 31 * result + (this.avail == null ? 0: this.avail.hashCode());
-    result = 31 * result + (this.isDefault == null ? 0: this.isDefault.hashCode());
-    result = 31 * result + (this.isFreeShipping == null ? 0: this.isFreeShipping.hashCode());
-    result = 31 * result + (this.taxClassId == null ? 0: this.taxClassId.hashCode());
-    result = 31 * result + (this.isVirtual == null ? 0: this.isVirtual.hashCode());
+    result = 31 * result + (this.harmonizedSystemCode == null ? 0: this.harmonizedSystemCode.hashCode());
+    result = 31 * result + (this.countryOfOrigin == null ? 0: this.countryOfOrigin.hashCode());
+    result = 31 * result + (this.metaTitle == null ? 0: this.metaTitle.hashCode());
+    result = 31 * result + (this.metaDescription == null ? 0: this.metaDescription.hashCode());
+    result = 31 * result + (this.metaKeywords == null ? 0: this.metaKeywords.hashCode());
+    result = 31 * result + (this.reindex == null ? 0: this.reindex.hashCode());
+    result = 31 * result + (this.clearCache == null ? 0: this.clearCache.hashCode());
     return result;
   }
 
@@ -840,9 +840,28 @@ public class ProductVariantUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductVariantUpdate {\n");
     
-    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  id: ").append(id).append("\n");
     sb.append("  productId: ").append(productId).append("\n");
+    sb.append("  storeId: ").append(storeId).append("\n");
+    sb.append("  langId: ").append(langId).append("\n");
+    sb.append("  options: ").append(options).append("\n");
+    sb.append("  name: ").append(name).append("\n");
+    sb.append("  description: ").append(description).append("\n");
+    sb.append("  shortDescription: ").append(shortDescription).append("\n");
+    sb.append("  model: ").append(model).append("\n");
+    sb.append("  sku: ").append(sku).append("\n");
+    sb.append("  visible: ").append(visible).append("\n");
+    sb.append("  status: ").append(status).append("\n");
+    sb.append("  backorderStatus: ").append(backorderStatus).append("\n");
+    sb.append("  availableForSale: ").append(availableForSale).append("\n");
+    sb.append("  avail: ").append(avail).append("\n");
+    sb.append("  isDefault: ").append(isDefault).append("\n");
+    sb.append("  isFreeShipping: ").append(isFreeShipping).append("\n");
+    sb.append("  taxable: ").append(taxable).append("\n");
+    sb.append("  taxClassId: ").append(taxClassId).append("\n");
+    sb.append("  isVirtual: ").append(isVirtual).append("\n");
+    sb.append("  manageStock: ").append(manageStock).append("\n");
+    sb.append("  inStock: ").append(inStock).append("\n");
     sb.append("  warehouseId: ").append(warehouseId).append("\n");
     sb.append("  reserveQuantity: ").append(reserveQuantity).append("\n");
     sb.append("  quantity: ").append(quantity).append("\n");
@@ -856,43 +875,24 @@ public class ProductVariantUpdate {
     sb.append("  fixedCostShippingPrice: ").append(fixedCostShippingPrice).append("\n");
     sb.append("  spriceCreate: ").append(spriceCreate).append("\n");
     sb.append("  spriceExpire: ").append(spriceExpire).append("\n");
-    sb.append("  manageStock: ").append(manageStock).append("\n");
-    sb.append("  inStock: ").append(inStock).append("\n");
-    sb.append("  name: ").append(name).append("\n");
-    sb.append("  description: ").append(description).append("\n");
-    sb.append("  sku: ").append(sku).append("\n");
-    sb.append("  metaTitle: ").append(metaTitle).append("\n");
-    sb.append("  metaDescription: ").append(metaDescription).append("\n");
-    sb.append("  metaKeywords: ").append(metaKeywords).append("\n");
-    sb.append("  shortDescription: ").append(shortDescription).append("\n");
-    sb.append("  visible: ").append(visible).append("\n");
-    sb.append("  status: ").append(status).append("\n");
-    sb.append("  backorderStatus: ").append(backorderStatus).append("\n");
     sb.append("  weight: ").append(weight).append("\n");
     sb.append("  barcode: ").append(barcode).append("\n");
-    sb.append("  reindex: ").append(reindex).append("\n");
-    sb.append("  taxable: ").append(taxable).append("\n");
-    sb.append("  options: ").append(options).append("\n");
-    sb.append("  harmonizedSystemCode: ").append(harmonizedSystemCode).append("\n");
-    sb.append("  countryOfOrigin: ").append(countryOfOrigin).append("\n");
     sb.append("  width: ").append(width).append("\n");
     sb.append("  weightUnit: ").append(weightUnit).append("\n");
     sb.append("  height: ").append(height).append("\n");
     sb.append("  length: ").append(length).append("\n");
     sb.append("  gtin: ").append(gtin).append("\n");
-    sb.append("  clearCache: ").append(clearCache).append("\n");
-    sb.append("  langId: ").append(langId).append("\n");
-    sb.append("  model: ").append(model).append("\n");
-    sb.append("  availableForSale: ").append(availableForSale).append("\n");
     sb.append("  upc: ").append(upc).append("\n");
     sb.append("  mpn: ").append(mpn).append("\n");
     sb.append("  ean: ").append(ean).append("\n");
     sb.append("  isbn: ").append(isbn).append("\n");
-    sb.append("  avail: ").append(avail).append("\n");
-    sb.append("  isDefault: ").append(isDefault).append("\n");
-    sb.append("  isFreeShipping: ").append(isFreeShipping).append("\n");
-    sb.append("  taxClassId: ").append(taxClassId).append("\n");
-    sb.append("  isVirtual: ").append(isVirtual).append("\n");
+    sb.append("  harmonizedSystemCode: ").append(harmonizedSystemCode).append("\n");
+    sb.append("  countryOfOrigin: ").append(countryOfOrigin).append("\n");
+    sb.append("  metaTitle: ").append(metaTitle).append("\n");
+    sb.append("  metaDescription: ").append(metaDescription).append("\n");
+    sb.append("  metaKeywords: ").append(metaKeywords).append("\n");
+    sb.append("  reindex: ").append(reindex).append("\n");
+    sb.append("  clearCache: ").append(clearCache).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

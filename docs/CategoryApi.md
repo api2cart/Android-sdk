@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## categoryAdd
 
-> CategoryAdd200Response categoryAdd(name, parentId, storesIds, storeId, langId, avail, sortOrder, createdTime, modifiedTime, description, shortDescription, metaTitle, metaDescription, metaKeywords, seoUrl)
+> CategoryAdd200Response categoryAdd(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId)
 
 category.add
 
@@ -35,22 +35,22 @@ Add new category in store
 
 CategoryApi apiInstance = new CategoryApi();
 String name = Shoes; // String | Defines category's name that has to be added
-String parentId = 6; // String | Adds categories specified by parent id
-String storesIds = 1,2; // String | Create category in the stores that is specified by comma-separated stores' id
-String storeId = 1; // String | Store Id
-String langId = 3; // String | Language id
-Boolean avail = false; // Boolean | Defines category's visibility status
-Integer sortOrder = 2; // Integer | Sort number in the list
-String createdTime = 2014-01-30 15:58:41; // String | Entity's date creation
-String modifiedTime = 2014-07-30 15:58:41; // String | Entity's date modification
 String description = Test category; // String | Defines category's description
 String shortDescription = Short description. This is very short description; // String | Defines short description
+String parentId = 6; // String | Adds categories specified by parent id
+Boolean avail = false; // Boolean | Defines category's visibility status
+String createdTime = 2014-01-30 15:58:41; // String | Entity's date creation
+String modifiedTime = 2014-07-30 15:58:41; // String | Entity's date modification
+Integer sortOrder = 2; // Integer | Sort number in the list
 String metaTitle = category,test; // String | Defines unique meta title for each entity
 String metaDescription = category,test; // String | Defines unique meta description of a entity
 String metaKeywords = category,test; // String | Defines unique meta keywords for each entity
 String seoUrl = category,test; // String | Defines unique category's URL for SEO
+String storeId = 1; // String | Store Id
+String storesIds = 1,2; // String | Create category in the stores that is specified by comma-separated stores' id
+String langId = 3; // String | Language id
 try {
-    CategoryAdd200Response result = apiInstance.categoryAdd(name, parentId, storesIds, storeId, langId, avail, sortOrder, createdTime, modifiedTime, description, shortDescription, metaTitle, metaDescription, metaKeywords, seoUrl);
+    CategoryAdd200Response result = apiInstance.categoryAdd(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoryApi#categoryAdd");
@@ -64,20 +64,20 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Defines category&#39;s name that has to be added | [default to null]
- **parentId** | **String**| Adds categories specified by parent id | [optional] [default to null]
- **storesIds** | **String**| Create category in the stores that is specified by comma-separated stores&#39; id | [optional] [default to null]
- **storeId** | **String**| Store Id | [optional] [default to null]
- **langId** | **String**| Language id | [optional] [default to null]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
- **sortOrder** | **Integer**| Sort number in the list | [optional] [default to 0]
- **createdTime** | **String**| Entity&#39;s date creation | [optional] [default to null]
- **modifiedTime** | **String**| Entity&#39;s date modification | [optional] [default to null]
  **description** | **String**| Defines category&#39;s description | [optional] [default to null]
  **shortDescription** | **String**| Defines short description | [optional] [default to null]
+ **parentId** | **String**| Adds categories specified by parent id | [optional] [default to null]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
+ **createdTime** | **String**| Entity&#39;s date creation | [optional] [default to null]
+ **modifiedTime** | **String**| Entity&#39;s date modification | [optional] [default to null]
+ **sortOrder** | **Integer**| Sort number in the list | [optional] [default to 0]
  **metaTitle** | **String**| Defines unique meta title for each entity | [optional] [default to null]
  **metaDescription** | **String**| Defines unique meta description of a entity | [optional] [default to null]
  **metaKeywords** | **String**| Defines unique meta keywords for each entity | [optional] [default to null]
  **seoUrl** | **String**| Defines unique category&#39;s URL for SEO | [optional] [default to null]
+ **storeId** | **String**| Store Id | [optional] [default to null]
+ **storesIds** | **String**| Create category in the stores that is specified by comma-separated stores&#39; id | [optional] [default to null]
+ **langId** | **String**| Language id | [optional] [default to null]
 
 ### Return type
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ## categoryAssign
 
-> CartConfigUpdate200Response categoryAssign(productId, categoryId, storeId)
+> CartConfigUpdate200Response categoryAssign(categoryId, productId, storeId)
 
 category.assign
 
@@ -154,11 +154,11 @@ Assign category to product
 //import org.openapitools.client.api.CategoryApi;
 
 CategoryApi apiInstance = new CategoryApi();
-String productId = 10; // String | Defines category assign to the product, specified by product id
 String categoryId = 6; // String | Defines category assign, specified by category id
+String productId = 10; // String | Defines category assign to the product, specified by product id
 String storeId = 1; // String | Store Id
 try {
-    CartConfigUpdate200Response result = apiInstance.categoryAssign(productId, categoryId, storeId);
+    CartConfigUpdate200Response result = apiInstance.categoryAssign(categoryId, productId, storeId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoryApi#categoryAssign");
@@ -171,8 +171,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **productId** | **String**| Defines category assign to the product, specified by product id | [default to null]
  **categoryId** | **String**| Defines category assign, specified by category id | [default to null]
+ **productId** | **String**| Defines category assign to the product, specified by product id | [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
 
 ### Return type
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ## categoryCount
 
-> CategoryCount200Response categoryCount(parentId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, productType, findValue, findWhere, reportRequestId, disableReportCache)
+> CategoryCount200Response categoryCount(parentId, storeId, langId, avail, createdFrom, createdTo, modifiedFrom, modifiedTo, productType, findValue, findWhere, reportRequestId, disableReportCache)
 
 category.count
 
@@ -207,18 +207,18 @@ CategoryApi apiInstance = new CategoryApi();
 String parentId = 6; // String | Counts categories specified by parent id
 String storeId = 1; // String | Counts category specified by store id
 String langId = 3; // String | Counts category specified by language id
+Boolean avail = false; // Boolean | Defines category's visibility status
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-Boolean avail = false; // Boolean | Defines category's visibility status
 String productType = BICYCLE; // String | A categorization for the product
 String findValue = Demo category 1; // String | Entity search that is specified by some value
 String findWhere = email; // String | Counts categories that are searched specified by field
 String reportRequestId = 105245017661; // String | Report request id
 Boolean disableReportCache = false; // Boolean | Disable report cache for current request
 try {
-    CategoryCount200Response result = apiInstance.categoryCount(parentId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, productType, findValue, findWhere, reportRequestId, disableReportCache);
+    CategoryCount200Response result = apiInstance.categoryCount(parentId, storeId, langId, avail, createdFrom, createdTo, modifiedFrom, modifiedTo, productType, findValue, findWhere, reportRequestId, disableReportCache);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoryApi#categoryCount");
@@ -234,11 +234,11 @@ Name | Type | Description  | Notes
  **parentId** | **String**| Counts categories specified by parent id | [optional] [default to null]
  **storeId** | **String**| Counts category specified by store id | [optional] [default to null]
  **langId** | **String**| Counts category specified by language id | [optional] [default to null]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
  **productType** | **String**| A categorization for the product | [optional] [default to null]
  **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
  **findWhere** | **String**| Counts categories that are searched specified by field | [optional] [default to null]
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 
 ## categoryImageAdd
 
-> CategoryImageAdd200Response categoryImageAdd(categoryId, imageName, url, type, label, mime, position, storeId)
+> CategoryImageAdd200Response categoryImageAdd(categoryId, imageName, url, type, storeId, label, mime, position)
 
 category.image.add
 
@@ -380,12 +380,12 @@ String categoryId = 6; // String | Defines category id where the image should be
 String imageName = bag-gray.png; // String | Defines image's name
 String url = http://docs.api2cart.com/img/logo.png; // String | Defines URL of the image that has to be added
 String type = base; // String | Defines image's types that are specified by comma-separated list
+String storeId = 1; // String | Store Id
 String label = This cool image; // String | Defines alternative text that has to be attached to the picture
 String mime = image/jpeg; // String | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
 Integer position = 5; // Integer | Defines image’s position in the list
-String storeId = 1; // String | Store Id
 try {
-    CategoryImageAdd200Response result = apiInstance.categoryImageAdd(categoryId, imageName, url, type, label, mime, position, storeId);
+    CategoryImageAdd200Response result = apiInstance.categoryImageAdd(categoryId, imageName, url, type, storeId, label, mime, position);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoryApi#categoryImageAdd");
@@ -402,10 +402,10 @@ Name | Type | Description  | Notes
  **imageName** | **String**| Defines image&#39;s name | [default to null]
  **url** | **String**| Defines URL of the image that has to be added | [default to null]
  **type** | **String**| Defines image&#39;s types that are specified by comma-separated list | [default to null] [enum: base, thumbnail]
+ **storeId** | **String**| Store Id | [optional] [default to null]
  **label** | **String**| Defines alternative text that has to be attached to the picture | [optional] [default to null]
  **mime** | **String**| Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | [optional] [default to null]
  **position** | **Integer**| Defines image’s position in the list | [optional] [default to 0]
- **storeId** | **String**| Store Id | [optional] [default to null]
 
 ### Return type
 
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 
 ## categoryInfo
 
-> CategoryInfo200Response categoryInfo(id, params, responseFields, exclude, storeId, langId, schemaType, reportRequestId, disableReportCache)
+> CategoryInfo200Response categoryInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache)
 
 category.info
 
@@ -487,16 +487,16 @@ Get category info about category ID*** or specify other category ID.
 
 CategoryApi apiInstance = new CategoryApi();
 String id = 10; // String | Retrieves category's info specified by category id
-String params = id,parent_id,name; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String responseFields = {result{id,name,parent_id,modified_at{value},images}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = id,parent_id,name; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String storeId = 1; // String | Retrieves category info  specified by store id
 String langId = 3; // String | Retrieves category info  specified by language id
 String schemaType = LISTING; // String | The name of the requirements set for the provided schema.
+String responseFields = {result{id,name,parent_id,modified_at{value},images}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,parent_id,name; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = id,parent_id,name; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String reportRequestId = 105245017661; // String | Report request id
 Boolean disableReportCache = false; // Boolean | Disable report cache for current request
 try {
-    CategoryInfo200Response result = apiInstance.categoryInfo(id, params, responseFields, exclude, storeId, langId, schemaType, reportRequestId, disableReportCache);
+    CategoryInfo200Response result = apiInstance.categoryInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoryApi#categoryInfo");
@@ -510,12 +510,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Retrieves category&#39;s info specified by category id | [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,parent_id,name,description]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **storeId** | **String**| Retrieves category info  specified by store id | [optional] [default to null]
  **langId** | **String**| Retrieves category info  specified by language id | [optional] [default to null]
  **schemaType** | **String**| The name of the requirements set for the provided schema. | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,parent_id,name,description]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **reportRequestId** | **String**| Report request id | [optional] [default to null]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional] [default to false]
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ## categoryList
 
-> ModelResponseCategoryList categoryList(start, count, pageCursor, parentId, params, responseFields, exclude, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, productType, findValue, findWhere, reportRequestId, disableReportCache, disableCache)
+> ModelResponseCategoryList categoryList(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache)
 
 category.list
 
@@ -551,25 +551,25 @@ CategoryApi apiInstance = new CategoryApi();
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-String parentId = 6; // String | Retrieves categories specified by parent id
-String params = id,parent_id,name; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String responseFields = {result{categories_count,category{id,parent_id,modified_at{value},images}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = id,parent_id,name; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String storeId = 1; // String | Retrieves categories specified by store id
 String langId = 3; // String | Retrieves categorys specified by language id
+String parentId = 6; // String | Retrieves categories specified by parent id
+Boolean avail = false; // Boolean | Defines category's visibility status
+String productType = BICYCLE; // String | A categorization for the product
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-Boolean avail = false; // Boolean | Defines category's visibility status
-String productType = BICYCLE; // String | A categorization for the product
 String findValue = Demo category 1; // String | Entity search that is specified by some value
 String findWhere = name; // String | Category search that is specified by field
+String responseFields = {result{categories_count,category{id,parent_id,modified_at{value},images}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,parent_id,name; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = id,parent_id,name; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String reportRequestId = 105245017661; // String | Report request id
 Boolean disableReportCache = false; // Boolean | Disable report cache for current request
 Boolean disableCache = false; // Boolean | Disable cache for current request
 try {
-    ModelResponseCategoryList result = apiInstance.categoryList(start, count, pageCursor, parentId, params, responseFields, exclude, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, productType, findValue, findWhere, reportRequestId, disableReportCache, disableCache);
+    ModelResponseCategoryList result = apiInstance.categoryList(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoryApi#categoryList");
@@ -585,20 +585,20 @@ Name | Type | Description  | Notes
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
- **parentId** | **String**| Retrieves categories specified by parent id | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,parent_id,name,description]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **storeId** | **String**| Retrieves categories specified by store id | [optional] [default to null]
  **langId** | **String**| Retrieves categorys specified by language id | [optional] [default to null]
+ **parentId** | **String**| Retrieves categories specified by parent id | [optional] [default to null]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
+ **productType** | **String**| A categorization for the product | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
- **productType** | **String**| A categorization for the product | [optional] [default to null]
  **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
  **findWhere** | **String**| Category search that is specified by field | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,parent_id,name,description]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **reportRequestId** | **String**| Report request id | [optional] [default to null]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional] [default to false]
  **disableCache** | **Boolean**| Disable cache for current request | [optional] [default to false]
@@ -669,7 +669,7 @@ Name | Type | Description  | Notes
 
 ## categoryUpdate
 
-> AccountConfigUpdate200Response categoryUpdate(id, name, parentId, storesIds, avail, sortOrder, modifiedTime, description, shortDescription, metaTitle, metaDescription, metaKeywords, seoUrl, langId, storeId)
+> AccountConfigUpdate200Response categoryUpdate(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId)
 
 category.update
 
@@ -684,21 +684,21 @@ Update category in store
 CategoryApi apiInstance = new CategoryApi();
 String id = 10; // String | Defines category update specified by category id
 String name = NEW Shoes; // String | Defines new category’s name
+String description = New test category; // String | Defines new category's description
+String shortDescription = Short description. This is very short description; // String | Defines short description
 String parentId = 6; // String | Defines new parent category id
-String storesIds = 1,2; // String | Update category in the stores that is specified by comma-separated stores' id
 Boolean avail = false; // Boolean | Defines category's visibility status
 Integer sortOrder = 2; // Integer | Sort number in the list
 String modifiedTime = 2014-07-30 15:58:41; // String | Entity's date modification
-String description = New test category; // String | Defines new category's description
-String shortDescription = Short description. This is very short description; // String | Defines short description
 String metaTitle = category,test; // String | Defines unique meta title for each entity
 String metaDescription = category,test; // String | Defines unique meta description of a entity
 String metaKeywords = category,test; // String | Defines unique meta keywords for each entity
 String seoUrl = category,test; // String | Defines unique category's URL for SEO
-String langId = 3; // String | Language id
 String storeId = 1; // String | Store Id
+String storesIds = 1,2; // String | Update category in the stores that is specified by comma-separated stores' id
+String langId = 3; // String | Language id
 try {
-    AccountConfigUpdate200Response result = apiInstance.categoryUpdate(id, name, parentId, storesIds, avail, sortOrder, modifiedTime, description, shortDescription, metaTitle, metaDescription, metaKeywords, seoUrl, langId, storeId);
+    AccountConfigUpdate200Response result = apiInstance.categoryUpdate(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoryApi#categoryUpdate");
@@ -713,19 +713,19 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Defines category update specified by category id | [default to null]
  **name** | **String**| Defines new category’s name | [optional] [default to null]
+ **description** | **String**| Defines new category&#39;s description | [optional] [default to null]
+ **shortDescription** | **String**| Defines short description | [optional] [default to null]
  **parentId** | **String**| Defines new parent category id | [optional] [default to null]
- **storesIds** | **String**| Update category in the stores that is specified by comma-separated stores&#39; id | [optional] [default to null]
  **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to null]
  **sortOrder** | **Integer**| Sort number in the list | [optional] [default to null]
  **modifiedTime** | **String**| Entity&#39;s date modification | [optional] [default to null]
- **description** | **String**| Defines new category&#39;s description | [optional] [default to null]
- **shortDescription** | **String**| Defines short description | [optional] [default to null]
  **metaTitle** | **String**| Defines unique meta title for each entity | [optional] [default to null]
  **metaDescription** | **String**| Defines unique meta description of a entity | [optional] [default to null]
  **metaKeywords** | **String**| Defines unique meta keywords for each entity | [optional] [default to null]
  **seoUrl** | **String**| Defines unique category&#39;s URL for SEO | [optional] [default to null]
- **langId** | **String**| Language id | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
+ **storesIds** | **String**| Update category in the stores that is specified by comma-separated stores&#39; id | [optional] [default to null]
+ **langId** | **String**| Language id | [optional] [default to null]
 
 ### Return type
 

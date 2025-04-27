@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ## attributeAttributesetList
 
-> ModelResponseAttributeAttributesetList attributeAttributesetList(start, count, params, exclude, responseFields)
+> ModelResponseAttributeAttributesetList attributeAttributesetList(start, count, responseFields, params, exclude)
 
 attribute.attributeset.list
 
@@ -226,11 +226,11 @@ Get attribute_set list
 AttributeApi apiInstance = new AttributeApi();
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String responseFields = {result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String params = id,name; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = id,name; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 try {
-    ModelResponseAttributeAttributesetList result = apiInstance.attributeAttributesetList(start, count, params, exclude, responseFields);
+    ModelResponseAttributeAttributesetList result = apiInstance.attributeAttributesetList(start, count, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AttributeApi#attributeAttributesetList");
@@ -245,9 +245,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
 
 ### Return type
 
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ## attributeGroupList
 
-> ModelResponseAttributeGroupList attributeGroupList(start, count, langId, params, exclude, responseFields, attributeSetId)
+> ModelResponseAttributeGroupList attributeGroupList(start, count, attributeSetId, langId, responseFields, params, exclude)
 
 attribute.group.list
 
@@ -386,13 +386,13 @@ Get attribute group list
 AttributeApi apiInstance = new AttributeApi();
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String attributeSetId = 4; // String | Attribute set id
 String langId = 3; // String | Language id
+String responseFields = {result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String params = id,name; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = id,name; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String attributeSetId = 4; // String | Attribute set id
 try {
-    ModelResponseAttributeGroupList result = apiInstance.attributeGroupList(start, count, langId, params, exclude, responseFields, attributeSetId);
+    ModelResponseAttributeGroupList result = apiInstance.attributeGroupList(start, count, attributeSetId, langId, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AttributeApi#attributeGroupList");
@@ -407,11 +407,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **attributeSetId** | **String**| Attribute set id | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
- **attributeSetId** | **String**| Attribute set id | [optional] [default to null]
 
 ### Return type
 
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 
 ## attributeInfo
 
-> AttributeInfo200Response attributeInfo(id, attributeSetId, storeId, langId, params, exclude, responseFields)
+> AttributeInfo200Response attributeInfo(id, attributeSetId, storeId, langId, responseFields, params, exclude)
 
 attribute.info
 
@@ -446,11 +446,11 @@ String id = 10; // String | Entity id
 String attributeSetId = 4; // String | Attribute set id
 String storeId = 1; // String | Store Id
 String langId = 3; // String | Language id
+String responseFields = {result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String params = force_all; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = name; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 try {
-    AttributeInfo200Response result = apiInstance.attributeInfo(id, attributeSetId, storeId, langId, params, exclude, responseFields);
+    AttributeInfo200Response result = apiInstance.attributeInfo(id, attributeSetId, storeId, langId, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AttributeApi#attributeInfo");
@@ -467,9 +467,9 @@ Name | Type | Description  | Notes
  **attributeSetId** | **String**| Attribute set id | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to force_all]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
 
 ### Return type
 
@@ -487,7 +487,7 @@ Name | Type | Description  | Notes
 
 ## attributeList
 
-> ModelResponseAttributeList attributeList(start, count, type, attributeIds, attributeSetId, storeId, langId, params, exclude, responseFields, visible, required, system)
+> ModelResponseAttributeList attributeList(start, count, attributeIds, attributeSetId, storeId, langId, type, visible, required, system, responseFields, params, exclude)
 
 attribute.list
 
@@ -502,19 +502,19 @@ Get a list of global attributes.
 AttributeApi apiInstance = new AttributeApi();
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-String type = text; // String | Defines attribute's type
 String attributeIds = 1,2,3; // String | Filter attributes by ids
 String attributeSetId = 4; // String | Filter items by attribute set id
 String storeId = 1; // String | Store Id
 String langId = 3; // String | Retrieves attributes on specified language id
-String params = id,name; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = id,name; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String type = text; // String | Defines attribute's type
 Boolean visible = true; // Boolean | Filter items by visibility status
 Boolean required = true; // Boolean | Defines if the option is required
 Boolean system = false; // Boolean | True if attribute is system
+String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,name; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = id,name; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseAttributeList result = apiInstance.attributeList(start, count, type, attributeIds, attributeSetId, storeId, langId, params, exclude, responseFields, visible, required, system);
+    ModelResponseAttributeList result = apiInstance.attributeList(start, count, attributeIds, attributeSetId, storeId, langId, type, visible, required, system, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling AttributeApi#attributeList");
@@ -529,17 +529,17 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **type** | **String**| Defines attribute&#39;s type | [optional] [default to null]
  **attributeIds** | **String**| Filter attributes by ids | [optional] [default to null]
  **attributeSetId** | **String**| Filter items by attribute set id | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
  **langId** | **String**| Retrieves attributes on specified language id | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,code,type]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **type** | **String**| Defines attribute&#39;s type | [optional] [default to null]
  **visible** | **Boolean**| Filter items by visibility status | [optional] [default to null]
  **required** | **Boolean**| Defines if the option is required | [optional] [default to null]
  **system** | **Boolean**| True if attribute is system | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,code,type]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
 

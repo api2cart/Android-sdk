@@ -115,8 +115,8 @@ public class AttributeApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "code", code));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "name", name));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "code", code));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "visible", visible));
@@ -204,8 +204,8 @@ public class AttributeApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "code", code));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "name", name));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "code", code));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "visible", visible));
@@ -560,12 +560,12 @@ public class AttributeApi {
   * Get attribute_set list
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @return ModelResponseAttributeAttributesetList
   */
-  public ModelResponseAttributeAttributesetList attributeAttributesetList (Integer start, Integer count, String params, String exclude, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseAttributeAttributesetList attributeAttributesetList (Integer start, Integer count, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -579,9 +579,9 @@ public class AttributeApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -624,9 +624,9 @@ public class AttributeApi {
       /**
    * attribute.attributeset.list
    * Get attribute_set list
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void attributeAttributesetList (Integer start, Integer count, String params, String exclude, String responseFields, final Response.Listener<ModelResponseAttributeAttributesetList> responseListener, final Response.ErrorListener errorListener) {
+  public void attributeAttributesetList (Integer start, Integer count, String responseFields, String params, String exclude, final Response.Listener<ModelResponseAttributeAttributesetList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -642,9 +642,9 @@ public class AttributeApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
 
 
     String[] contentTypes = {
@@ -847,8 +847,8 @@ public class AttributeApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -912,8 +912,8 @@ public class AttributeApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
 
 
     String[] contentTypes = {
@@ -960,14 +960,14 @@ public class AttributeApi {
   * Get attribute group list
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param attributeSetId Attribute set id
    * @param langId Language id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param attributeSetId Attribute set id
    * @return ModelResponseAttributeGroupList
   */
-  public ModelResponseAttributeGroupList attributeGroupList (Integer start, Integer count, String langId, String params, String exclude, String responseFields, String attributeSetId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseAttributeGroupList attributeGroupList (Integer start, Integer count, String attributeSetId, String langId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -981,11 +981,11 @@ public class AttributeApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_set_id", attributeSetId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_set_id", attributeSetId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1028,9 +1028,9 @@ public class AttributeApi {
       /**
    * attribute.group.list
    * Get attribute group list
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param langId Language id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param attributeSetId Attribute set id
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param attributeSetId Attribute set id   * @param langId Language id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void attributeGroupList (Integer start, Integer count, String langId, String params, String exclude, String responseFields, String attributeSetId, final Response.Listener<ModelResponseAttributeGroupList> responseListener, final Response.ErrorListener errorListener) {
+  public void attributeGroupList (Integer start, Integer count, String attributeSetId, String langId, String responseFields, String params, String exclude, final Response.Listener<ModelResponseAttributeGroupList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1046,11 +1046,11 @@ public class AttributeApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_set_id", attributeSetId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_set_id", attributeSetId));
 
 
     String[] contentTypes = {
@@ -1099,12 +1099,12 @@ public class AttributeApi {
    * @param attributeSetId Attribute set id
    * @param storeId Store Id
    * @param langId Language id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @return AttributeInfo200Response
   */
-  public AttributeInfo200Response attributeInfo (String id, String attributeSetId, String storeId, String langId, String params, String exclude, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AttributeInfo200Response attributeInfo (String id, String attributeSetId, String storeId, String langId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1125,9 +1125,9 @@ public class AttributeApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_set_id", attributeSetId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1170,9 +1170,9 @@ public class AttributeApi {
       /**
    * attribute.info
    * Get information about a specific global attribute by its ID.
-   * @param id Entity id   * @param attributeSetId Attribute set id   * @param storeId Store Id   * @param langId Language id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param id Entity id   * @param attributeSetId Attribute set id   * @param storeId Store Id   * @param langId Language id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void attributeInfo (String id, String attributeSetId, String storeId, String langId, String params, String exclude, String responseFields, final Response.Listener<AttributeInfo200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void attributeInfo (String id, String attributeSetId, String storeId, String langId, String responseFields, String params, String exclude, final Response.Listener<AttributeInfo200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -1195,9 +1195,9 @@ public class AttributeApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_set_id", attributeSetId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
 
 
     String[] contentTypes = {
@@ -1244,20 +1244,20 @@ public class AttributeApi {
   * Get a list of global attributes.
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param type Defines attribute&#39;s type
    * @param attributeIds Filter attributes by ids
    * @param attributeSetId Filter items by attribute set id
    * @param storeId Store Id
    * @param langId Retrieves attributes on specified language id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param type Defines attribute&#39;s type
    * @param visible Filter items by visibility status
    * @param required Defines if the option is required
    * @param system True if attribute is system
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseAttributeList
   */
-  public ModelResponseAttributeList attributeList (Integer start, Integer count, String type, String attributeIds, String attributeSetId, String storeId, String langId, String params, String exclude, String responseFields, Boolean visible, Boolean required, Boolean system) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseAttributeList attributeList (Integer start, Integer count, String attributeIds, String attributeSetId, String storeId, String langId, String type, Boolean visible, Boolean required, Boolean system, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1271,17 +1271,17 @@ public class AttributeApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_ids", attributeIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_set_id", attributeSetId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "visible", visible));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "required", required));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "system", system));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1324,9 +1324,9 @@ public class AttributeApi {
       /**
    * attribute.list
    * Get a list of global attributes.
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param type Defines attribute&#39;s type   * @param attributeIds Filter attributes by ids   * @param attributeSetId Filter items by attribute set id   * @param storeId Store Id   * @param langId Retrieves attributes on specified language id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param visible Filter items by visibility status   * @param required Defines if the option is required   * @param system True if attribute is system
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param attributeIds Filter attributes by ids   * @param attributeSetId Filter items by attribute set id   * @param storeId Store Id   * @param langId Retrieves attributes on specified language id   * @param type Defines attribute&#39;s type   * @param visible Filter items by visibility status   * @param required Defines if the option is required   * @param system True if attribute is system   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void attributeList (Integer start, Integer count, String type, String attributeIds, String attributeSetId, String storeId, String langId, String params, String exclude, String responseFields, Boolean visible, Boolean required, Boolean system, final Response.Listener<ModelResponseAttributeList> responseListener, final Response.ErrorListener errorListener) {
+  public void attributeList (Integer start, Integer count, String attributeIds, String attributeSetId, String storeId, String langId, String type, Boolean visible, Boolean required, Boolean system, String responseFields, String params, String exclude, final Response.Listener<ModelResponseAttributeList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1342,17 +1342,17 @@ public class AttributeApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_ids", attributeIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_set_id", attributeSetId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "visible", visible));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "required", required));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "system", system));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {

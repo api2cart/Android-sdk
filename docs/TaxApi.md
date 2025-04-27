@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## taxClassInfo
 
-> ModelResponseTaxClassInfo taxClassInfo(taxClassId, storeId, langId, params, responseFields, exclude)
+> ModelResponseTaxClassInfo taxClassInfo(taxClassId, storeId, langId, responseFields, params, exclude)
 
 tax.class.info
 
@@ -27,11 +27,11 @@ TaxApi apiInstance = new TaxApi();
 String taxClassId = 9; // String | Retrieves taxes specified by class id
 String storeId = 1; // String | Store Id
 String langId = 3; // String | Language id
-String params = tax_class_id,tax; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String responseFields = {result{id,name,tax,tax_rates{id,countries{id,name,states},cities,address,zip_codes{is_range,range,fields}}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = tax_class_id,tax; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = tax_class_id,tax; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseTaxClassInfo result = apiInstance.taxClassInfo(taxClassId, storeId, langId, params, responseFields, exclude);
+    ModelResponseTaxClassInfo result = apiInstance.taxClassInfo(taxClassId, storeId, langId, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TaxApi#taxClassInfo");
@@ -47,8 +47,8 @@ Name | Type | Description  | Notes
  **taxClassId** | **String**| Retrieves taxes specified by class id | [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to tax_class_id,name,avail]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to tax_class_id,name,avail]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ## taxClassList
 
-> ModelResponseTaxClassList taxClassList(createdTo, createdFrom, modifiedTo, modifiedFrom, findValue, findWhere, storeId, count, pageCursor, responseFields)
+> ModelResponseTaxClassList taxClassList(count, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields)
 
 tax.class.list
 
@@ -80,18 +80,18 @@ Get list of tax classes from your store.
 //import org.openapitools.client.api.TaxApi;
 
 TaxApi apiInstance = new TaxApi();
+Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+String storeId = 1; // String | Store Id
+String findValue = tax; // String | Entity search that is specified by some value
+String findWhere = name; // String | Tax class search that is specified by field
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
-String findValue = tax; // String | Entity search that is specified by some value
-String findWhere = name; // String | Tax class search that is specified by field
-String storeId = 1; // String | Store Id
-Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 String responseFields = {result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 try {
-    ModelResponseTaxClassList result = apiInstance.taxClassList(createdTo, createdFrom, modifiedTo, modifiedFrom, findValue, findWhere, storeId, count, pageCursor, responseFields);
+    ModelResponseTaxClassList result = apiInstance.taxClassList(count, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TaxApi#taxClassList");
@@ -104,15 +104,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
+ **storeId** | **String**| Store Id | [optional] [default to null]
+ **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
+ **findWhere** | **String**| Tax class search that is specified by field | [optional] [default to null]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
- **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
- **findWhere** | **String**| Tax class search that is specified by field | [optional] [default to null]
- **storeId** | **String**| Store Id | [optional] [default to null]
- **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to {return_code,return_message,pagination,result}]
 
 ### Return type

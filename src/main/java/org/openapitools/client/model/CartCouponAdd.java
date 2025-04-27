@@ -20,14 +20,8 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class CartCouponAdd {
   
-  @SerializedName("store_id")
-  private String storeId = null;
   @SerializedName("code")
   private String code = null;
-  @SerializedName("name")
-  private String name = null;
-  @SerializedName("codes")
-  private List<String> codes = null;
   public enum ActionTypeEnum {
      percent,  fixed, 
   };
@@ -45,6 +39,10 @@ public class CartCouponAdd {
   private ActionScopeEnum actionScope = null;
   @SerializedName("action_amount")
   private BigDecimal actionAmount = null;
+  @SerializedName("codes")
+  private List<String> codes = null;
+  @SerializedName("name")
+  private String name = null;
   @SerializedName("date_start")
   private String dateStart = now;
   @SerializedName("date_end")
@@ -63,17 +61,8 @@ public class CartCouponAdd {
   private String actionConditionValue = null;
   @SerializedName("include_tax")
   private Boolean includeTax = false;
-
-  /**
-   * Store Id
-   **/
-  @ApiModelProperty(value = "Store Id")
-  public String getStoreId() {
-    return storeId;
-  }
-  public void setStoreId(String storeId) {
-    this.storeId = storeId;
-  }
+  @SerializedName("store_id")
+  private String storeId = null;
 
   /**
    * Coupon code
@@ -84,28 +73,6 @@ public class CartCouponAdd {
   }
   public void setCode(String code) {
     this.code = code;
-  }
-
-  /**
-   * Coupon name
-   **/
-  @ApiModelProperty(value = "Coupon name")
-  public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /**
-   * Entity codes
-   **/
-  @ApiModelProperty(value = "Entity codes")
-  public List<String> getCodes() {
-    return codes;
-  }
-  public void setCodes(List<String> codes) {
-    this.codes = codes;
   }
 
   /**
@@ -150,6 +117,28 @@ public class CartCouponAdd {
   }
   public void setActionAmount(BigDecimal actionAmount) {
     this.actionAmount = actionAmount;
+  }
+
+  /**
+   * Entity codes
+   **/
+  @ApiModelProperty(value = "Entity codes")
+  public List<String> getCodes() {
+    return codes;
+  }
+  public void setCodes(List<String> codes) {
+    this.codes = codes;
+  }
+
+  /**
+   * Coupon name
+   **/
+  @ApiModelProperty(value = "Coupon name")
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -251,6 +240,17 @@ public class CartCouponAdd {
     this.includeTax = includeTax;
   }
 
+  /**
+   * Store Id
+   **/
+  @ApiModelProperty(value = "Store Id")
+  public String getStoreId() {
+    return storeId;
+  }
+  public void setStoreId(String storeId) {
+    this.storeId = storeId;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -261,14 +261,13 @@ public class CartCouponAdd {
       return false;
     }
     CartCouponAdd cartCouponAdd = (CartCouponAdd) o;
-    return (this.storeId == null ? cartCouponAdd.storeId == null : this.storeId.equals(cartCouponAdd.storeId)) &&
-        (this.code == null ? cartCouponAdd.code == null : this.code.equals(cartCouponAdd.code)) &&
-        (this.name == null ? cartCouponAdd.name == null : this.name.equals(cartCouponAdd.name)) &&
-        (this.codes == null ? cartCouponAdd.codes == null : this.codes.equals(cartCouponAdd.codes)) &&
+    return (this.code == null ? cartCouponAdd.code == null : this.code.equals(cartCouponAdd.code)) &&
         (this.actionType == null ? cartCouponAdd.actionType == null : this.actionType.equals(cartCouponAdd.actionType)) &&
         (this.actionApplyTo == null ? cartCouponAdd.actionApplyTo == null : this.actionApplyTo.equals(cartCouponAdd.actionApplyTo)) &&
         (this.actionScope == null ? cartCouponAdd.actionScope == null : this.actionScope.equals(cartCouponAdd.actionScope)) &&
         (this.actionAmount == null ? cartCouponAdd.actionAmount == null : this.actionAmount.equals(cartCouponAdd.actionAmount)) &&
+        (this.codes == null ? cartCouponAdd.codes == null : this.codes.equals(cartCouponAdd.codes)) &&
+        (this.name == null ? cartCouponAdd.name == null : this.name.equals(cartCouponAdd.name)) &&
         (this.dateStart == null ? cartCouponAdd.dateStart == null : this.dateStart.equals(cartCouponAdd.dateStart)) &&
         (this.dateEnd == null ? cartCouponAdd.dateEnd == null : this.dateEnd.equals(cartCouponAdd.dateEnd)) &&
         (this.usageLimit == null ? cartCouponAdd.usageLimit == null : this.usageLimit.equals(cartCouponAdd.usageLimit)) &&
@@ -277,20 +276,20 @@ public class CartCouponAdd {
         (this.actionConditionKey == null ? cartCouponAdd.actionConditionKey == null : this.actionConditionKey.equals(cartCouponAdd.actionConditionKey)) &&
         (this.actionConditionOperator == null ? cartCouponAdd.actionConditionOperator == null : this.actionConditionOperator.equals(cartCouponAdd.actionConditionOperator)) &&
         (this.actionConditionValue == null ? cartCouponAdd.actionConditionValue == null : this.actionConditionValue.equals(cartCouponAdd.actionConditionValue)) &&
-        (this.includeTax == null ? cartCouponAdd.includeTax == null : this.includeTax.equals(cartCouponAdd.includeTax));
+        (this.includeTax == null ? cartCouponAdd.includeTax == null : this.includeTax.equals(cartCouponAdd.includeTax)) &&
+        (this.storeId == null ? cartCouponAdd.storeId == null : this.storeId.equals(cartCouponAdd.storeId));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.code == null ? 0: this.code.hashCode());
-    result = 31 * result + (this.name == null ? 0: this.name.hashCode());
-    result = 31 * result + (this.codes == null ? 0: this.codes.hashCode());
     result = 31 * result + (this.actionType == null ? 0: this.actionType.hashCode());
     result = 31 * result + (this.actionApplyTo == null ? 0: this.actionApplyTo.hashCode());
     result = 31 * result + (this.actionScope == null ? 0: this.actionScope.hashCode());
     result = 31 * result + (this.actionAmount == null ? 0: this.actionAmount.hashCode());
+    result = 31 * result + (this.codes == null ? 0: this.codes.hashCode());
+    result = 31 * result + (this.name == null ? 0: this.name.hashCode());
     result = 31 * result + (this.dateStart == null ? 0: this.dateStart.hashCode());
     result = 31 * result + (this.dateEnd == null ? 0: this.dateEnd.hashCode());
     result = 31 * result + (this.usageLimit == null ? 0: this.usageLimit.hashCode());
@@ -300,6 +299,7 @@ public class CartCouponAdd {
     result = 31 * result + (this.actionConditionOperator == null ? 0: this.actionConditionOperator.hashCode());
     result = 31 * result + (this.actionConditionValue == null ? 0: this.actionConditionValue.hashCode());
     result = 31 * result + (this.includeTax == null ? 0: this.includeTax.hashCode());
+    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     return result;
   }
 
@@ -308,14 +308,13 @@ public class CartCouponAdd {
     StringBuilder sb = new StringBuilder();
     sb.append("class CartCouponAdd {\n");
     
-    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  code: ").append(code).append("\n");
-    sb.append("  name: ").append(name).append("\n");
-    sb.append("  codes: ").append(codes).append("\n");
     sb.append("  actionType: ").append(actionType).append("\n");
     sb.append("  actionApplyTo: ").append(actionApplyTo).append("\n");
     sb.append("  actionScope: ").append(actionScope).append("\n");
     sb.append("  actionAmount: ").append(actionAmount).append("\n");
+    sb.append("  codes: ").append(codes).append("\n");
+    sb.append("  name: ").append(name).append("\n");
     sb.append("  dateStart: ").append(dateStart).append("\n");
     sb.append("  dateEnd: ").append(dateEnd).append("\n");
     sb.append("  usageLimit: ").append(usageLimit).append("\n");
@@ -325,6 +324,7 @@ public class CartCouponAdd {
     sb.append("  actionConditionOperator: ").append(actionConditionOperator).append("\n");
     sb.append("  actionConditionValue: ").append(actionConditionValue).append("\n");
     sb.append("  includeTax: ").append(includeTax).append("\n");
+    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

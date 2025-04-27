@@ -20,14 +20,14 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class OrderPreestimateShippingList {
   
-  @SerializedName("store_id")
-  private String storeId = null;
   @SerializedName("warehouse_id")
   private String warehouseId = null;
-  @SerializedName("customer_email")
-  private String customerEmail = null;
   @SerializedName("customer_id")
   private String customerId = null;
+  @SerializedName("customer_email")
+  private String customerEmail = null;
+  @SerializedName("store_id")
+  private String storeId = null;
   @SerializedName("shipp_address_1")
   private String shippAddress1 = null;
   @SerializedName("shipp_city")
@@ -46,17 +46,6 @@ public class OrderPreestimateShippingList {
   private List<OrderPreestimateShippingListOrderItemInner> orderItem = null;
 
   /**
-   * Store Id
-   **/
-  @ApiModelProperty(value = "Store Id")
-  public String getStoreId() {
-    return storeId;
-  }
-  public void setStoreId(String storeId) {
-    this.storeId = storeId;
-  }
-
-  /**
    * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
    **/
   @ApiModelProperty(value = "This parameter is used for selecting a warehouse where you need to set/modify a product quantity.")
@@ -65,6 +54,17 @@ public class OrderPreestimateShippingList {
   }
   public void setWarehouseId(String warehouseId) {
     this.warehouseId = warehouseId;
+  }
+
+  /**
+   * Retrieves orders specified by customer id
+   **/
+  @ApiModelProperty(value = "Retrieves orders specified by customer id")
+  public String getCustomerId() {
+    return customerId;
+  }
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
   }
 
   /**
@@ -79,14 +79,14 @@ public class OrderPreestimateShippingList {
   }
 
   /**
-   * Retrieves orders specified by customer id
+   * Store Id
    **/
-  @ApiModelProperty(value = "Retrieves orders specified by customer id")
-  public String getCustomerId() {
-    return customerId;
+  @ApiModelProperty(value = "Store Id")
+  public String getStoreId() {
+    return storeId;
   }
-  public void setCustomerId(String customerId) {
-    this.customerId = customerId;
+  public void setStoreId(String storeId) {
+    this.storeId = storeId;
   }
 
   /**
@@ -186,10 +186,10 @@ public class OrderPreestimateShippingList {
       return false;
     }
     OrderPreestimateShippingList orderPreestimateShippingList = (OrderPreestimateShippingList) o;
-    return (this.storeId == null ? orderPreestimateShippingList.storeId == null : this.storeId.equals(orderPreestimateShippingList.storeId)) &&
-        (this.warehouseId == null ? orderPreestimateShippingList.warehouseId == null : this.warehouseId.equals(orderPreestimateShippingList.warehouseId)) &&
-        (this.customerEmail == null ? orderPreestimateShippingList.customerEmail == null : this.customerEmail.equals(orderPreestimateShippingList.customerEmail)) &&
+    return (this.warehouseId == null ? orderPreestimateShippingList.warehouseId == null : this.warehouseId.equals(orderPreestimateShippingList.warehouseId)) &&
         (this.customerId == null ? orderPreestimateShippingList.customerId == null : this.customerId.equals(orderPreestimateShippingList.customerId)) &&
+        (this.customerEmail == null ? orderPreestimateShippingList.customerEmail == null : this.customerEmail.equals(orderPreestimateShippingList.customerEmail)) &&
+        (this.storeId == null ? orderPreestimateShippingList.storeId == null : this.storeId.equals(orderPreestimateShippingList.storeId)) &&
         (this.shippAddress1 == null ? orderPreestimateShippingList.shippAddress1 == null : this.shippAddress1.equals(orderPreestimateShippingList.shippAddress1)) &&
         (this.shippCity == null ? orderPreestimateShippingList.shippCity == null : this.shippCity.equals(orderPreestimateShippingList.shippCity)) &&
         (this.shippPostcode == null ? orderPreestimateShippingList.shippPostcode == null : this.shippPostcode.equals(orderPreestimateShippingList.shippPostcode)) &&
@@ -203,10 +203,10 @@ public class OrderPreestimateShippingList {
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.warehouseId == null ? 0: this.warehouseId.hashCode());
-    result = 31 * result + (this.customerEmail == null ? 0: this.customerEmail.hashCode());
     result = 31 * result + (this.customerId == null ? 0: this.customerId.hashCode());
+    result = 31 * result + (this.customerEmail == null ? 0: this.customerEmail.hashCode());
+    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.shippAddress1 == null ? 0: this.shippAddress1.hashCode());
     result = 31 * result + (this.shippCity == null ? 0: this.shippCity.hashCode());
     result = 31 * result + (this.shippPostcode == null ? 0: this.shippPostcode.hashCode());
@@ -223,10 +223,10 @@ public class OrderPreestimateShippingList {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderPreestimateShippingList {\n");
     
-    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  warehouseId: ").append(warehouseId).append("\n");
-    sb.append("  customerEmail: ").append(customerEmail).append("\n");
     sb.append("  customerId: ").append(customerId).append("\n");
+    sb.append("  customerEmail: ").append(customerEmail).append("\n");
+    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  shippAddress1: ").append(shippAddress1).append("\n");
     sb.append("  shippCity: ").append(shippCity).append("\n");
     sb.append("  shippPostcode: ").append(shippPostcode).append("\n");

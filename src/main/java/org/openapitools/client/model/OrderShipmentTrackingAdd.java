@@ -18,14 +18,14 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class OrderShipmentTrackingAdd {
   
-  @SerializedName("store_id")
-  private String storeId = null;
   @SerializedName("order_id")
   private String orderId = null;
   @SerializedName("shipment_id")
   private String shipmentId = null;
   @SerializedName("carrier_id")
   private String carrierId = null;
+  @SerializedName("store_id")
+  private String storeId = null;
   @SerializedName("tracking_provider")
   private String trackingProvider = null;
   @SerializedName("tracking_number")
@@ -34,17 +34,6 @@ public class OrderShipmentTrackingAdd {
   private String trackingLink = null;
   @SerializedName("send_notifications")
   private Boolean sendNotifications = false;
-
-  /**
-   * Store Id
-   **/
-  @ApiModelProperty(value = "Store Id")
-  public String getStoreId() {
-    return storeId;
-  }
-  public void setStoreId(String storeId) {
-    this.storeId = storeId;
-  }
 
   /**
    * Defines the order id
@@ -77,6 +66,17 @@ public class OrderShipmentTrackingAdd {
   }
   public void setCarrierId(String carrierId) {
     this.carrierId = carrierId;
+  }
+
+  /**
+   * Store Id
+   **/
+  @ApiModelProperty(value = "Store Id")
+  public String getStoreId() {
+    return storeId;
+  }
+  public void setStoreId(String storeId) {
+    this.storeId = storeId;
   }
 
   /**
@@ -133,10 +133,10 @@ public class OrderShipmentTrackingAdd {
       return false;
     }
     OrderShipmentTrackingAdd orderShipmentTrackingAdd = (OrderShipmentTrackingAdd) o;
-    return (this.storeId == null ? orderShipmentTrackingAdd.storeId == null : this.storeId.equals(orderShipmentTrackingAdd.storeId)) &&
-        (this.orderId == null ? orderShipmentTrackingAdd.orderId == null : this.orderId.equals(orderShipmentTrackingAdd.orderId)) &&
+    return (this.orderId == null ? orderShipmentTrackingAdd.orderId == null : this.orderId.equals(orderShipmentTrackingAdd.orderId)) &&
         (this.shipmentId == null ? orderShipmentTrackingAdd.shipmentId == null : this.shipmentId.equals(orderShipmentTrackingAdd.shipmentId)) &&
         (this.carrierId == null ? orderShipmentTrackingAdd.carrierId == null : this.carrierId.equals(orderShipmentTrackingAdd.carrierId)) &&
+        (this.storeId == null ? orderShipmentTrackingAdd.storeId == null : this.storeId.equals(orderShipmentTrackingAdd.storeId)) &&
         (this.trackingProvider == null ? orderShipmentTrackingAdd.trackingProvider == null : this.trackingProvider.equals(orderShipmentTrackingAdd.trackingProvider)) &&
         (this.trackingNumber == null ? orderShipmentTrackingAdd.trackingNumber == null : this.trackingNumber.equals(orderShipmentTrackingAdd.trackingNumber)) &&
         (this.trackingLink == null ? orderShipmentTrackingAdd.trackingLink == null : this.trackingLink.equals(orderShipmentTrackingAdd.trackingLink)) &&
@@ -146,10 +146,10 @@ public class OrderShipmentTrackingAdd {
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.orderId == null ? 0: this.orderId.hashCode());
     result = 31 * result + (this.shipmentId == null ? 0: this.shipmentId.hashCode());
     result = 31 * result + (this.carrierId == null ? 0: this.carrierId.hashCode());
+    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.trackingProvider == null ? 0: this.trackingProvider.hashCode());
     result = 31 * result + (this.trackingNumber == null ? 0: this.trackingNumber.hashCode());
     result = 31 * result + (this.trackingLink == null ? 0: this.trackingLink.hashCode());
@@ -162,10 +162,10 @@ public class OrderShipmentTrackingAdd {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderShipmentTrackingAdd {\n");
     
-    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  orderId: ").append(orderId).append("\n");
     sb.append("  shipmentId: ").append(shipmentId).append("\n");
     sb.append("  carrierId: ").append(carrierId).append("\n");
+    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  trackingProvider: ").append(trackingProvider).append("\n");
     sb.append("  trackingNumber: ").append(trackingNumber).append("\n");
     sb.append("  trackingLink: ").append(trackingLink).append("\n");

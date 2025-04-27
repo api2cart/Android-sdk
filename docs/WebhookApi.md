@@ -211,7 +211,7 @@ This endpoint does not need any parameter.
 
 ## webhookList
 
-> WebhookList200Response webhookList(params, start, count, entity, action, active, ids)
+> WebhookList200Response webhookList(start, count, entity, action, active, ids, params)
 
 webhook.list
 
@@ -224,15 +224,15 @@ List registered webhook on the store.
 //import org.openapitools.client.api.WebhookApi;
 
 WebhookApi apiInstance = new WebhookApi();
-String params = id,entity,callback,fields; // String | Set this parameter in order to choose which entity fields you want to retrieve
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 String entity = product; // String | The entity you want to filter webhooks by (e.g. order or product)
 String action = add; // String | The action you want to filter webhooks by (e.g. add, update, or delete)
 Boolean active = true; // Boolean | The webhook status you want to filter webhooks by
 String ids = 3,14,25; // String | List of сomma-separated webhook ids
+String params = id,entity,callback,fields; // String | Set this parameter in order to choose which entity fields you want to retrieve
 try {
-    WebhookList200Response result = apiInstance.webhookList(params, start, count, entity, action, active, ids);
+    WebhookList200Response result = apiInstance.webhookList(start, count, entity, action, active, ids, params);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhookApi#webhookList");
@@ -245,13 +245,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,entity,action,callback]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **entity** | **String**| The entity you want to filter webhooks by (e.g. order or product) | [optional] [default to null]
  **action** | **String**| The action you want to filter webhooks by (e.g. add, update, or delete) | [optional] [default to null]
  **active** | **Boolean**| The webhook status you want to filter webhooks by | [optional] [default to null]
  **ids** | **String**| List of сomma-separated webhook ids | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,entity,action,callback]
 
 ### Return type
 

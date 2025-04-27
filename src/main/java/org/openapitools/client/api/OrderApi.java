@@ -88,23 +88,23 @@ public class OrderApi {
   /**
   * order.abandoned.list
   * Get list of orders that were left by customers before completing the order.
+   * @param start This parameter sets the number from which you want to get entities
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param customerId Retrieves orders specified by customer id
    * @param customerEmail Retrieves orders specified by customer email
-   * @param createdTo Retrieve entities to their creation date
-   * @param createdFrom Retrieve entities from their creation date
-   * @param modifiedTo Retrieve entities to their modification date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param skipEmptyEmail Filter empty emails
    * @param storeId Store Id
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param start This parameter sets the number from which you want to get entities
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param createdFrom Retrieve entities from their creation date
+   * @param createdTo Retrieve entities to their creation date
+   * @param modifiedFrom Retrieve entities from their modification date
+   * @param modifiedTo Retrieve entities to their modification date
+   * @param skipEmptyEmail Filter empty emails
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseOrderAbandonedList
   */
-  public ModelResponseOrderAbandonedList orderAbandonedList (String customerId, String customerEmail, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, Boolean skipEmptyEmail, String storeId, String pageCursor, Integer count, Integer start, String params, String responseFields, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseOrderAbandonedList orderAbandonedList (Integer start, Integer count, String pageCursor, String customerId, String customerEmail, String storeId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean skipEmptyEmail, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -116,19 +116,19 @@ public class OrderApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "skip_empty_email", skipEmptyEmail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "skip_empty_email", skipEmptyEmail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
@@ -172,9 +172,9 @@ public class OrderApi {
       /**
    * order.abandoned.list
    * Get list of orders that were left by customers before completing the order.
-   * @param customerId Retrieves orders specified by customer id   * @param customerEmail Retrieves orders specified by customer email   * @param createdTo Retrieve entities to their creation date   * @param createdFrom Retrieve entities from their creation date   * @param modifiedTo Retrieve entities to their modification date   * @param modifiedFrom Retrieve entities from their modification date   * @param skipEmptyEmail Filter empty emails   * @param storeId Store Id   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param start This parameter sets the number from which you want to get entities   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param customerId Retrieves orders specified by customer id   * @param customerEmail Retrieves orders specified by customer email   * @param storeId Store Id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param skipEmptyEmail Filter empty emails   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void orderAbandonedList (String customerId, String customerEmail, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, Boolean skipEmptyEmail, String storeId, String pageCursor, Integer count, Integer start, String params, String responseFields, String exclude, final Response.Listener<ModelResponseOrderAbandonedList> responseListener, final Response.ErrorListener errorListener) {
+  public void orderAbandonedList (Integer start, Integer count, String pageCursor, String customerId, String customerEmail, String storeId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean skipEmptyEmail, String responseFields, String params, String exclude, final Response.Listener<ModelResponseOrderAbandonedList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -188,19 +188,19 @@ public class OrderApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "skip_empty_email", skipEmptyEmail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "skip_empty_email", skipEmptyEmail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
@@ -374,17 +374,13 @@ public class OrderApi {
   /**
   * order.count
   * Count orders in store
+   * @param orderIds Counts orders specified by order ids
+   * @param ids Counts orders specified by ids
    * @param customerId Counts orders quantity specified by customer id
+   * @param storeId Counts orders quantity specified by store id
    * @param customerEmail Counts orders quantity specified by customer email
    * @param orderStatus Counts orders quantity specified by order status
    * @param orderStatusIds Retrieves orders specified by order statuses
-   * @param createdTo Retrieve entities to their creation date
-   * @param createdFrom Retrieve entities from their creation date
-   * @param modifiedTo Retrieve entities to their modification date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param storeId Counts orders quantity specified by store id
-   * @param ids Counts orders specified by ids
-   * @param orderIds Counts orders specified by order ids
    * @param ebayOrderStatus Counts orders quantity specified by order status
    * @param financialStatus Counts orders quantity specified by financial status
    * @param financialStatusIds Retrieves orders count specified by financial status ids
@@ -394,9 +390,13 @@ public class OrderApi {
    * @param deliveryMethod Retrieves order with delivery method
    * @param tags Order tags
    * @param shipNodeType Retrieves order with ship node type
+   * @param createdFrom Retrieve entities from their creation date
+   * @param createdTo Retrieve entities to their creation date
+   * @param modifiedFrom Retrieve entities from their modification date
+   * @param modifiedTo Retrieve entities to their modification date
    * @return OrderCount200Response
   */
-  public OrderCount200Response orderCount (String customerId, String customerEmail, String orderStatus, List<String> orderStatusIds, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String storeId, String ids, String orderIds, String ebayOrderStatus, String financialStatus, List<String> financialStatusIds, String fulfillmentChannel, String fulfillmentStatus, String shippingMethod, String deliveryMethod, String tags, String shipNodeType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrderCount200Response orderCount (String orderIds, String ids, String customerId, String storeId, String customerEmail, String orderStatus, List<String> orderStatusIds, String ebayOrderStatus, String financialStatus, List<String> financialStatusIds, String fulfillmentChannel, String fulfillmentStatus, String shippingMethod, String deliveryMethod, String tags, String shipNodeType, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -408,17 +408,13 @@ public class OrderApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "order_status_ids", orderStatusIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ebay_order_status", ebayOrderStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "financial_status_ids", financialStatusIds));
@@ -428,6 +424,10 @@ public class OrderApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "delivery_method", deliveryMethod));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "tags", tags));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ship_node_type", shipNodeType));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -470,9 +470,9 @@ public class OrderApi {
       /**
    * order.count
    * Count orders in store
-   * @param customerId Counts orders quantity specified by customer id   * @param customerEmail Counts orders quantity specified by customer email   * @param orderStatus Counts orders quantity specified by order status   * @param orderStatusIds Retrieves orders specified by order statuses   * @param createdTo Retrieve entities to their creation date   * @param createdFrom Retrieve entities from their creation date   * @param modifiedTo Retrieve entities to their modification date   * @param modifiedFrom Retrieve entities from their modification date   * @param storeId Counts orders quantity specified by store id   * @param ids Counts orders specified by ids   * @param orderIds Counts orders specified by order ids   * @param ebayOrderStatus Counts orders quantity specified by order status   * @param financialStatus Counts orders quantity specified by financial status   * @param financialStatusIds Retrieves orders count specified by financial status ids   * @param fulfillmentChannel Retrieves order with a fulfillment channel   * @param fulfillmentStatus Create order with fulfillment status   * @param shippingMethod Retrieve entities according to shipping method   * @param deliveryMethod Retrieves order with delivery method   * @param tags Order tags   * @param shipNodeType Retrieves order with ship node type
+   * @param orderIds Counts orders specified by order ids   * @param ids Counts orders specified by ids   * @param customerId Counts orders quantity specified by customer id   * @param storeId Counts orders quantity specified by store id   * @param customerEmail Counts orders quantity specified by customer email   * @param orderStatus Counts orders quantity specified by order status   * @param orderStatusIds Retrieves orders specified by order statuses   * @param ebayOrderStatus Counts orders quantity specified by order status   * @param financialStatus Counts orders quantity specified by financial status   * @param financialStatusIds Retrieves orders count specified by financial status ids   * @param fulfillmentChannel Retrieves order with a fulfillment channel   * @param fulfillmentStatus Create order with fulfillment status   * @param shippingMethod Retrieve entities according to shipping method   * @param deliveryMethod Retrieves order with delivery method   * @param tags Order tags   * @param shipNodeType Retrieves order with ship node type   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date
   */
-  public void orderCount (String customerId, String customerEmail, String orderStatus, List<String> orderStatusIds, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String storeId, String ids, String orderIds, String ebayOrderStatus, String financialStatus, List<String> financialStatusIds, String fulfillmentChannel, String fulfillmentStatus, String shippingMethod, String deliveryMethod, String tags, String shipNodeType, final Response.Listener<OrderCount200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void orderCount (String orderIds, String ids, String customerId, String storeId, String customerEmail, String orderStatus, List<String> orderStatusIds, String ebayOrderStatus, String financialStatus, List<String> financialStatusIds, String fulfillmentChannel, String fulfillmentStatus, String shippingMethod, String deliveryMethod, String tags, String shipNodeType, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, final Response.Listener<OrderCount200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -486,17 +486,13 @@ public class OrderApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "order_status_ids", orderStatusIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ebay_order_status", ebayOrderStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "financial_status_ids", financialStatusIds));
@@ -506,6 +502,10 @@ public class OrderApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "delivery_method", deliveryMethod));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "tags", tags));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ship_node_type", shipNodeType));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
 
 
     String[] contentTypes = {
@@ -666,21 +666,21 @@ public class OrderApi {
   /**
   * order.find
   * This method is deprecated and won&#39;t be supported in the future. Please use \&quot;order.list\&quot; instead.
+   * @param start This parameter sets the number from which you want to get entities
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
    * @param customerId Retrieves orders specified by customer id
    * @param customerEmail Retrieves orders specified by customer email
    * @param orderStatus Retrieves orders specified by order status
-   * @param start This parameter sets the number from which you want to get entities
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param financialStatus Retrieves orders specified by financial status
    * @param createdTo Retrieve entities to their creation date
    * @param createdFrom Retrieve entities from their creation date
    * @param modifiedTo Retrieve entities to their modification date
    * @param modifiedFrom Retrieve entities from their modification date
-   * @param financialStatus Retrieves orders specified by financial status
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return OrderFind200Response
   */
-  public OrderFind200Response orderFind (String customerId, String customerEmail, String orderStatus, Integer start, Integer count, String params, String exclude, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String financialStatus) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrderFind200Response orderFind (Integer start, Integer count, String customerId, String customerEmail, String orderStatus, String financialStatus, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -692,18 +692,18 @@ public class OrderApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -746,9 +746,9 @@ public class OrderApi {
       /**
    * order.find
    * This method is deprecated and won&#39;t be supported in the future. Please use \&quot;order.list\&quot; instead.
-   * @param customerId Retrieves orders specified by customer id   * @param customerEmail Retrieves orders specified by customer email   * @param orderStatus Retrieves orders specified by order status   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param createdTo Retrieve entities to their creation date   * @param createdFrom Retrieve entities from their creation date   * @param modifiedTo Retrieve entities to their modification date   * @param modifiedFrom Retrieve entities from their modification date   * @param financialStatus Retrieves orders specified by financial status
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param customerId Retrieves orders specified by customer id   * @param customerEmail Retrieves orders specified by customer email   * @param orderStatus Retrieves orders specified by order status   * @param financialStatus Retrieves orders specified by financial status   * @param createdTo Retrieve entities to their creation date   * @param createdFrom Retrieve entities from their creation date   * @param modifiedTo Retrieve entities to their modification date   * @param modifiedFrom Retrieve entities from their modification date   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void orderFind (String customerId, String customerEmail, String orderStatus, Integer start, Integer count, String params, String exclude, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String financialStatus, final Response.Listener<OrderFind200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void orderFind (Integer start, Integer count, String customerId, String customerEmail, String orderStatus, String financialStatus, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String params, String exclude, final Response.Listener<OrderFind200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -762,18 +762,18 @@ public class OrderApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {
@@ -937,17 +937,17 @@ public class OrderApi {
   /**
   * order.info
   * Info about a specific order by ID
-   * @param orderId Retrieves order’s info specified by order id
    * @param id Retrieves order info specified by id
+   * @param orderId Retrieves order’s info specified by order id
+   * @param storeId Defines store id where the order should be found
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param storeId Defines store id where the order should be found
    * @param enableCache If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache
    * @param useLatestApiVersion Use the latest platform API version
    * @return OrderInfo200Response
   */
-  public OrderInfo200Response orderInfo (String orderId, String id, String params, String responseFields, String exclude, String storeId, Boolean enableCache, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrderInfo200Response orderInfo (String id, String orderId, String storeId, String params, String responseFields, String exclude, Boolean enableCache, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -959,12 +959,12 @@ public class OrderApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "enable_cache", enableCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
     String[] contentTypes = {
@@ -1009,9 +1009,9 @@ public class OrderApi {
       /**
    * order.info
    * Info about a specific order by ID
-   * @param orderId Retrieves order’s info specified by order id   * @param id Retrieves order info specified by id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param storeId Defines store id where the order should be found   * @param enableCache If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache   * @param useLatestApiVersion Use the latest platform API version
+   * @param id Retrieves order info specified by id   * @param orderId Retrieves order’s info specified by order id   * @param storeId Defines store id where the order should be found   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param enableCache If the value is &#39;true&#39; and order exist in our cache, we will return order.info response from cache   * @param useLatestApiVersion Use the latest platform API version
   */
-  public void orderInfo (String orderId, String id, String params, String responseFields, String exclude, String storeId, Boolean enableCache, Boolean useLatestApiVersion, final Response.Listener<OrderInfo200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void orderInfo (String id, String orderId, String storeId, String params, String responseFields, String exclude, Boolean enableCache, Boolean useLatestApiVersion, final Response.Listener<OrderInfo200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1025,12 +1025,12 @@ public class OrderApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "enable_cache", enableCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
 
@@ -1077,47 +1077,47 @@ public class OrderApi {
   /**
   * order.list
   * Get list of orders from store.
-   * @param customerId Retrieves orders specified by customer id
-   * @param customerEmail Retrieves orders specified by customer email
-   * @param phone Filter orders by customer&#39;s phone number
-   * @param orderStatus Retrieves orders specified by order status
-   * @param orderStatusIds Retrieves orders specified by order statuses
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
    * @param pageCursor Used to retrieve orders via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
+   * @param ids Retrieves orders specified by ids
+   * @param orderIds Retrieves orders specified by order ids
+   * @param sinceId Retrieve entities starting from the specified id.
+   * @param storeId Store Id
+   * @param customerId Retrieves orders specified by customer id
+   * @param customerEmail Retrieves orders specified by customer email
+   * @param basketId Retrieves order’s info specified by basket id.
+   * @param currencyId Currency Id
+   * @param phone Filter orders by customer&#39;s phone number
+   * @param orderStatus Retrieves orders specified by order status
+   * @param orderStatusIds Retrieves orders specified by order statuses
+   * @param ebayOrderStatus Retrieves orders specified by order status
+   * @param financialStatus Retrieves orders specified by financial status
+   * @param financialStatusIds Retrieves orders specified by financial status ids
+   * @param fulfillmentStatus Create order with fulfillment status
+   * @param returnStatus Retrieves orders specified by return status
+   * @param fulfillmentChannel Retrieves order with a fulfillment channel
+   * @param shippingMethod Retrieve entities according to shipping method
+   * @param skipOrderIds Skipped orders by ids
+   * @param isDeleted Filter deleted orders
+   * @param shippingCountryIso3 Retrieve entities according to shipping country
+   * @param deliveryMethod Retrieves order with delivery method
+   * @param shipNodeType Retrieves order with ship node type
+   * @param createdTo Retrieve entities to their creation date
+   * @param createdFrom Retrieve entities from their creation date
+   * @param modifiedTo Retrieve entities to their modification date
+   * @param modifiedFrom Retrieve entities from their modification date
+   * @param tags Order tags
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param createdTo Retrieve entities to their creation date
-   * @param createdFrom Retrieve entities from their creation date
-   * @param modifiedTo Retrieve entities to their modification date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param storeId Store Id
-   * @param ids Retrieves orders specified by ids
-   * @param orderIds Retrieves orders specified by order ids
-   * @param ebayOrderStatus Retrieves orders specified by order status
-   * @param basketId Retrieves order’s info specified by basket id.
-   * @param financialStatus Retrieves orders specified by financial status
-   * @param financialStatusIds Retrieves orders specified by financial status ids
-   * @param fulfillmentStatus Create order with fulfillment status
-   * @param fulfillmentChannel Retrieves order with a fulfillment channel
-   * @param shippingMethod Retrieve entities according to shipping method
-   * @param skipOrderIds Skipped orders by ids
-   * @param sinceId Retrieve entities starting from the specified id.
-   * @param isDeleted Filter deleted orders
-   * @param shippingCountryIso3 Retrieve entities according to shipping country
    * @param enableCache If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)
-   * @param deliveryMethod Retrieves order with delivery method
-   * @param tags Order tags
-   * @param shipNodeType Retrieves order with ship node type
-   * @param currencyId Currency Id
-   * @param returnStatus Retrieves orders specified by return status
    * @param useLatestApiVersion Use the latest platform API version
    * @return ModelResponseOrderList
   */
-  public ModelResponseOrderList orderList (String customerId, String customerEmail, String phone, String orderStatus, List<String> orderStatusIds, Integer start, Integer count, String pageCursor, String sortBy, String sortDirection, String params, String responseFields, String exclude, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String storeId, String ids, String orderIds, String ebayOrderStatus, String basketId, String financialStatus, List<String> financialStatusIds, String fulfillmentStatus, String fulfillmentChannel, String shippingMethod, String skipOrderIds, String sinceId, Boolean isDeleted, String shippingCountryIso3, Boolean enableCache, String deliveryMethod, String tags, String shipNodeType, String currencyId, String returnStatus, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseOrderList orderList (Integer start, Integer count, String pageCursor, String ids, String orderIds, String sinceId, String storeId, String customerId, String customerEmail, String basketId, String currencyId, String phone, String orderStatus, List<String> orderStatusIds, String ebayOrderStatus, String financialStatus, List<String> financialStatusIds, String fulfillmentStatus, String returnStatus, String fulfillmentChannel, String shippingMethod, String skipOrderIds, Boolean isDeleted, String shippingCountryIso3, String deliveryMethod, String shipNodeType, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String tags, String sortBy, String sortDirection, String params, String responseFields, String exclude, Boolean enableCache, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1129,43 +1129,43 @@ public class OrderApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "phone", phone));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("multi", "order_status_ids", orderStatusIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "basket_id", basketId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "phone", phone));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("multi", "order_status_ids", orderStatusIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ebay_order_status", ebayOrderStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("multi", "financial_status_ids", financialStatusIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_status", fulfillmentStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "return_status", returnStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_channel", fulfillmentChannel));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "shipping_method", shippingMethod));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "skip_order_ids", skipOrderIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "is_deleted", isDeleted));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "shipping_country_iso3", shippingCountryIso3));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "delivery_method", deliveryMethod));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ship_node_type", shipNodeType));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "tags", tags));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ebay_order_status", ebayOrderStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "basket_id", basketId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("multi", "financial_status_ids", financialStatusIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_status", fulfillmentStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_channel", fulfillmentChannel));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "shipping_method", shippingMethod));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "skip_order_ids", skipOrderIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "is_deleted", isDeleted));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "shipping_country_iso3", shippingCountryIso3));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "enable_cache", enableCache));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "delivery_method", deliveryMethod));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "tags", tags));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ship_node_type", shipNodeType));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "return_status", returnStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
     String[] contentTypes = {
     };
@@ -1209,9 +1209,9 @@ public class OrderApi {
       /**
    * order.list
    * Get list of orders from store.
-   * @param customerId Retrieves orders specified by customer id   * @param customerEmail Retrieves orders specified by customer email   * @param phone Filter orders by customer&#39;s phone number   * @param orderStatus Retrieves orders specified by order status   * @param orderStatusIds Retrieves orders specified by order statuses   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve orders via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param createdTo Retrieve entities to their creation date   * @param createdFrom Retrieve entities from their creation date   * @param modifiedTo Retrieve entities to their modification date   * @param modifiedFrom Retrieve entities from their modification date   * @param storeId Store Id   * @param ids Retrieves orders specified by ids   * @param orderIds Retrieves orders specified by order ids   * @param ebayOrderStatus Retrieves orders specified by order status   * @param basketId Retrieves order’s info specified by basket id.   * @param financialStatus Retrieves orders specified by financial status   * @param financialStatusIds Retrieves orders specified by financial status ids   * @param fulfillmentStatus Create order with fulfillment status   * @param fulfillmentChannel Retrieves order with a fulfillment channel   * @param shippingMethod Retrieve entities according to shipping method   * @param skipOrderIds Skipped orders by ids   * @param sinceId Retrieve entities starting from the specified id.   * @param isDeleted Filter deleted orders   * @param shippingCountryIso3 Retrieve entities according to shipping country   * @param enableCache If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)   * @param deliveryMethod Retrieves order with delivery method   * @param tags Order tags   * @param shipNodeType Retrieves order with ship node type   * @param currencyId Currency Id   * @param returnStatus Retrieves orders specified by return status   * @param useLatestApiVersion Use the latest platform API version
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve orders via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param ids Retrieves orders specified by ids   * @param orderIds Retrieves orders specified by order ids   * @param sinceId Retrieve entities starting from the specified id.   * @param storeId Store Id   * @param customerId Retrieves orders specified by customer id   * @param customerEmail Retrieves orders specified by customer email   * @param basketId Retrieves order’s info specified by basket id.   * @param currencyId Currency Id   * @param phone Filter orders by customer&#39;s phone number   * @param orderStatus Retrieves orders specified by order status   * @param orderStatusIds Retrieves orders specified by order statuses   * @param ebayOrderStatus Retrieves orders specified by order status   * @param financialStatus Retrieves orders specified by financial status   * @param financialStatusIds Retrieves orders specified by financial status ids   * @param fulfillmentStatus Create order with fulfillment status   * @param returnStatus Retrieves orders specified by return status   * @param fulfillmentChannel Retrieves order with a fulfillment channel   * @param shippingMethod Retrieve entities according to shipping method   * @param skipOrderIds Skipped orders by ids   * @param isDeleted Filter deleted orders   * @param shippingCountryIso3 Retrieve entities according to shipping country   * @param deliveryMethod Retrieves order with delivery method   * @param shipNodeType Retrieves order with ship node type   * @param createdTo Retrieve entities to their creation date   * @param createdFrom Retrieve entities from their creation date   * @param modifiedTo Retrieve entities to their modification date   * @param modifiedFrom Retrieve entities from their modification date   * @param tags Order tags   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param enableCache If the value is &#39;true&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)   * @param useLatestApiVersion Use the latest platform API version
   */
-  public void orderList (String customerId, String customerEmail, String phone, String orderStatus, List<String> orderStatusIds, Integer start, Integer count, String pageCursor, String sortBy, String sortDirection, String params, String responseFields, String exclude, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String storeId, String ids, String orderIds, String ebayOrderStatus, String basketId, String financialStatus, List<String> financialStatusIds, String fulfillmentStatus, String fulfillmentChannel, String shippingMethod, String skipOrderIds, String sinceId, Boolean isDeleted, String shippingCountryIso3, Boolean enableCache, String deliveryMethod, String tags, String shipNodeType, String currencyId, String returnStatus, Boolean useLatestApiVersion, final Response.Listener<ModelResponseOrderList> responseListener, final Response.ErrorListener errorListener) {
+  public void orderList (Integer start, Integer count, String pageCursor, String ids, String orderIds, String sinceId, String storeId, String customerId, String customerEmail, String basketId, String currencyId, String phone, String orderStatus, List<String> orderStatusIds, String ebayOrderStatus, String financialStatus, List<String> financialStatusIds, String fulfillmentStatus, String returnStatus, String fulfillmentChannel, String shippingMethod, String skipOrderIds, Boolean isDeleted, String shippingCountryIso3, String deliveryMethod, String shipNodeType, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String tags, String sortBy, String sortDirection, String params, String responseFields, String exclude, Boolean enableCache, Boolean useLatestApiVersion, final Response.Listener<ModelResponseOrderList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1225,43 +1225,43 @@ public class OrderApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "phone", phone));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("multi", "order_status_ids", orderStatusIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "basket_id", basketId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "phone", phone));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("multi", "order_status_ids", orderStatusIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ebay_order_status", ebayOrderStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("multi", "financial_status_ids", financialStatusIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_status", fulfillmentStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "return_status", returnStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_channel", fulfillmentChannel));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "shipping_method", shippingMethod));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "skip_order_ids", skipOrderIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "is_deleted", isDeleted));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "shipping_country_iso3", shippingCountryIso3));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "delivery_method", deliveryMethod));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ship_node_type", shipNodeType));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "tags", tags));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ebay_order_status", ebayOrderStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "basket_id", basketId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("multi", "financial_status_ids", financialStatusIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_status", fulfillmentStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_channel", fulfillmentChannel));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "shipping_method", shippingMethod));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "skip_order_ids", skipOrderIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "is_deleted", isDeleted));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "shipping_country_iso3", shippingCountryIso3));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "enable_cache", enableCache));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "delivery_method", deliveryMethod));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "tags", tags));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ship_node_type", shipNodeType));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "return_status", returnStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
 
 
@@ -2368,13 +2368,13 @@ public class OrderApi {
    * @param id Entity id
    * @param orderId Defines the order id
    * @param start This parameter sets the number from which you want to get entities
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param storeId Store Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return OrderShipmentInfo200Response
   */
-  public OrderShipmentInfo200Response orderShipmentInfo (String id, String orderId, Integer start, String params, String responseFields, String exclude, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrderShipmentInfo200Response orderShipmentInfo (String id, String orderId, Integer start, String storeId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -2396,13 +2396,13 @@ public class OrderApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -2445,9 +2445,9 @@ public class OrderApi {
       /**
    * order.shipment.info
    * Get information of shipment.
-   * @param id Entity id   * @param orderId Defines the order id   * @param start This parameter sets the number from which you want to get entities   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param storeId Store Id
+   * @param id Entity id   * @param orderId Defines the order id   * @param start This parameter sets the number from which you want to get entities   * @param storeId Store Id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void orderShipmentInfo (String id, String orderId, Integer start, String params, String responseFields, String exclude, String storeId, final Response.Listener<OrderShipmentInfo200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void orderShipmentInfo (String id, String orderId, Integer start, String storeId, String responseFields, String params, String exclude, final Response.Listener<OrderShipmentInfo200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -2471,13 +2471,13 @@ public class OrderApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {
@@ -2523,20 +2523,20 @@ public class OrderApi {
   * order.shipment.list
   * Get list of shipments by orders.
    * @param orderId Retrieves shipments specified by order id
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
+   * @param storeId Store Id
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param storeId Store Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseOrderShipmentList
   */
-  public ModelResponseOrderShipmentList orderShipmentList (String orderId, String pageCursor, Integer start, Integer count, String params, String responseFields, String exclude, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseOrderShipmentList orderShipmentList (String orderId, Integer start, Integer count, String pageCursor, String storeId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'orderId' is set
     if (orderId == null) {
@@ -2553,18 +2553,18 @@ public class OrderApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -2607,9 +2607,9 @@ public class OrderApi {
       /**
    * order.shipment.list
    * Get list of shipments by orders.
-   * @param orderId Retrieves shipments specified by order id   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param storeId Store Id
+   * @param orderId Retrieves shipments specified by order id   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param storeId Store Id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void orderShipmentList (String orderId, String pageCursor, Integer start, Integer count, String params, String responseFields, String exclude, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String storeId, final Response.Listener<ModelResponseOrderShipmentList> responseListener, final Response.ErrorListener errorListener) {
+  public void orderShipmentList (String orderId, Integer start, Integer count, String pageCursor, String storeId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude, final Response.Listener<ModelResponseOrderShipmentList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'orderId' is set
@@ -2628,18 +2628,18 @@ public class OrderApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {
@@ -3067,14 +3067,14 @@ public class OrderApi {
   * Retrieve list of order transaction
    * @param orderIds Retrieves order transactions specified by order ids
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param storeId Store Id
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @return ModelResponseOrderTransactionList
   */
-  public ModelResponseOrderTransactionList orderTransactionList (String orderIds, Integer count, String storeId, String params, String responseFields, String exclude, String pageCursor) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseOrderTransactionList orderTransactionList (String orderIds, Integer count, String pageCursor, String storeId, String params, String responseFields, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'orderIds' is set
     if (orderIds == null) {
@@ -3092,12 +3092,12 @@ public class OrderApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -3140,9 +3140,9 @@ public class OrderApi {
       /**
    * order.transaction.list
    * Retrieve list of order transaction
-   * @param orderIds Retrieves order transactions specified by order ids   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param storeId Store Id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
+   * @param orderIds Retrieves order transactions specified by order ids   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param storeId Store Id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void orderTransactionList (String orderIds, Integer count, String storeId, String params, String responseFields, String exclude, String pageCursor, final Response.Listener<ModelResponseOrderTransactionList> responseListener, final Response.ErrorListener errorListener) {
+  public void orderTransactionList (String orderIds, Integer count, String pageCursor, String storeId, String params, String responseFields, String exclude, final Response.Listener<ModelResponseOrderTransactionList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'orderIds' is set
@@ -3162,12 +3162,12 @@ public class OrderApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
 
 
     String[] contentTypes = {
@@ -3215,22 +3215,22 @@ public class OrderApi {
    * @param orderId Defines the orders specified by order id
    * @param storeId Defines store id where the order should be found
    * @param orderStatus Defines new order&#39;s status
+   * @param financialStatus Update order financial status to specified
+   * @param fulfillmentStatus Create order with fulfillment status
    * @param cancellationReason Defines the cancellation reason when the order will be canceled
+   * @param orderPaymentMethod Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39;
    * @param comment Specifies order comment
    * @param adminComment Specifies admin&#39;s order comment
    * @param adminPrivateComment Specifies private admin&#39;s order comment
+   * @param invoiceAdminComment Specifies admin&#39;s order invoice comment
    * @param dateModified Specifies order&#39;s  modification date
    * @param dateFinished Specifies order&#39;s  finished date
-   * @param financialStatus Update order financial status to specified
-   * @param fulfillmentStatus Create order with fulfillment status
-   * @param orderPaymentMethod Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39;
    * @param sendNotifications Send notifications to customer after order was created
-   * @param origin The source of the order
    * @param createInvoice Determines whether an invoice should be created if it has not already been created
-   * @param invoiceAdminComment Specifies admin&#39;s order invoice comment
+   * @param origin The source of the order
    * @return AccountConfigUpdate200Response
   */
-  public AccountConfigUpdate200Response orderUpdate (String orderId, String storeId, String orderStatus, String cancellationReason, String comment, String adminComment, String adminPrivateComment, String dateModified, String dateFinished, String financialStatus, String fulfillmentStatus, String orderPaymentMethod, Boolean sendNotifications, String origin, Boolean createInvoice, String invoiceAdminComment) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AccountConfigUpdate200Response orderUpdate (String orderId, String storeId, String orderStatus, String financialStatus, String fulfillmentStatus, String cancellationReason, String orderPaymentMethod, String comment, String adminComment, String adminPrivateComment, String invoiceAdminComment, String dateModified, String dateFinished, Boolean sendNotifications, Boolean createInvoice, String origin) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'orderId' is set
     if (orderId == null) {
@@ -3250,19 +3250,19 @@ public class OrderApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_status", fulfillmentStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "cancellation_reason", cancellationReason));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_payment_method", orderPaymentMethod));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "comment", comment));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "admin_comment", adminComment));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "admin_private_comment", adminPrivateComment));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "invoice_admin_comment", invoiceAdminComment));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_modified", dateModified));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_finished", dateFinished));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_status", fulfillmentStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_payment_method", orderPaymentMethod));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "send_notifications", sendNotifications));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "origin", origin));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "create_invoice", createInvoice));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "invoice_admin_comment", invoiceAdminComment));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "origin", origin));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -3305,9 +3305,9 @@ public class OrderApi {
       /**
    * order.update
    * Update existing order.
-   * @param orderId Defines the orders specified by order id   * @param storeId Defines store id where the order should be found   * @param orderStatus Defines new order&#39;s status   * @param cancellationReason Defines the cancellation reason when the order will be canceled   * @param comment Specifies order comment   * @param adminComment Specifies admin&#39;s order comment   * @param adminPrivateComment Specifies private admin&#39;s order comment   * @param dateModified Specifies order&#39;s  modification date   * @param dateFinished Specifies order&#39;s  finished date   * @param financialStatus Update order financial status to specified   * @param fulfillmentStatus Create order with fulfillment status   * @param orderPaymentMethod Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39;   * @param sendNotifications Send notifications to customer after order was created   * @param origin The source of the order   * @param createInvoice Determines whether an invoice should be created if it has not already been created   * @param invoiceAdminComment Specifies admin&#39;s order invoice comment
+   * @param orderId Defines the orders specified by order id   * @param storeId Defines store id where the order should be found   * @param orderStatus Defines new order&#39;s status   * @param financialStatus Update order financial status to specified   * @param fulfillmentStatus Create order with fulfillment status   * @param cancellationReason Defines the cancellation reason when the order will be canceled   * @param orderPaymentMethod Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39;   * @param comment Specifies order comment   * @param adminComment Specifies admin&#39;s order comment   * @param adminPrivateComment Specifies private admin&#39;s order comment   * @param invoiceAdminComment Specifies admin&#39;s order invoice comment   * @param dateModified Specifies order&#39;s  modification date   * @param dateFinished Specifies order&#39;s  finished date   * @param sendNotifications Send notifications to customer after order was created   * @param createInvoice Determines whether an invoice should be created if it has not already been created   * @param origin The source of the order
   */
-  public void orderUpdate (String orderId, String storeId, String orderStatus, String cancellationReason, String comment, String adminComment, String adminPrivateComment, String dateModified, String dateFinished, String financialStatus, String fulfillmentStatus, String orderPaymentMethod, Boolean sendNotifications, String origin, Boolean createInvoice, String invoiceAdminComment, final Response.Listener<AccountConfigUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void orderUpdate (String orderId, String storeId, String orderStatus, String financialStatus, String fulfillmentStatus, String cancellationReason, String orderPaymentMethod, String comment, String adminComment, String adminPrivateComment, String invoiceAdminComment, String dateModified, String dateFinished, Boolean sendNotifications, Boolean createInvoice, String origin, final Response.Listener<AccountConfigUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'orderId' is set
@@ -3329,19 +3329,19 @@ public class OrderApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_status", fulfillmentStatus));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "cancellation_reason", cancellationReason));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_payment_method", orderPaymentMethod));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "comment", comment));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "admin_comment", adminComment));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "admin_private_comment", adminPrivateComment));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "invoice_admin_comment", invoiceAdminComment));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_modified", dateModified));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_finished", dateFinished));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "fulfillment_status", fulfillmentStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_payment_method", orderPaymentMethod));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "send_notifications", sendNotifications));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "origin", origin));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "create_invoice", createInvoice));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "invoice_admin_comment", invoiceAdminComment));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "origin", origin));
 
 
     String[] contentTypes = {

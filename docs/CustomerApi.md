@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ## customerAttributeList
 
-> ModelResponseCustomerAttributeList customerAttributeList(customerId, count, pageCursor, storeId, langId, params, exclude, responseFields)
+> ModelResponseCustomerAttributeList customerAttributeList(customerId, count, pageCursor, storeId, langId, responseFields, params, exclude)
 
 customer.attribute.list
 
@@ -131,11 +131,11 @@ Integer count = 20; // Integer | This parameter sets the entity amount that has 
 String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 String storeId = 1; // String | Store Id
 String langId = 3; // String | Language id
+String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 try {
-    ModelResponseCustomerAttributeList result = apiInstance.customerAttributeList(customerId, count, pageCursor, storeId, langId, params, exclude, responseFields);
+    ModelResponseCustomerAttributeList result = apiInstance.customerAttributeList(customerId, count, pageCursor, storeId, langId, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#customerAttributeList");
@@ -153,9 +153,9 @@ Name | Type | Description  | Notes
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to force_all]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
 
 ### Return type
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ## customerCount
 
-> CustomerCount200Response customerCount(groupId, createdFrom, createdTo, modifiedFrom, modifiedTo, storeId, customerListId, avail, findValue, findWhere, ids, sinceId)
+> CustomerCount200Response customerCount(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo)
 
 customer.count
 
@@ -186,20 +186,20 @@ Get number of customers from store.
 //import org.openapitools.client.api.CustomerApi;
 
 CustomerApi apiInstance = new CustomerApi();
+String ids = 24,25; // String | Counts customers specified by ids
+String sinceId = 56; // String | Retrieve entities starting from the specified id.
+String customerListId = exampleListId; // String | The numeric ID of the customer list in Demandware.
 String groupId = 3; // String | Customer group_id
+String storeId = 1; // String | Counts customer specified by store id
+Boolean avail = false; // Boolean | Defines category's visibility status
+String findValue = mail@gmail.com; // String | Entity search that is specified by some value
+String findWhere = email; // String | Counts customers that are searched specified by field
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-String storeId = 1; // String | Counts customer specified by store id
-String customerListId = exampleListId; // String | The numeric ID of the customer list in Demandware.
-Boolean avail = false; // Boolean | Defines category's visibility status
-String findValue = mail@gmail.com; // String | Entity search that is specified by some value
-String findWhere = email; // String | Counts customers that are searched specified by field
-String ids = 24,25; // String | Counts customers specified by ids
-String sinceId = 56; // String | Retrieve entities starting from the specified id.
 try {
-    CustomerCount200Response result = apiInstance.customerCount(groupId, createdFrom, createdTo, modifiedFrom, modifiedTo, storeId, customerListId, avail, findValue, findWhere, ids, sinceId);
+    CustomerCount200Response result = apiInstance.customerCount(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#customerCount");
@@ -212,18 +212,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **String**| Counts customers specified by ids | [optional] [default to null]
+ **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional] [default to null]
+ **customerListId** | **String**| The numeric ID of the customer list in Demandware. | [optional] [default to null]
  **groupId** | **String**| Customer group_id | [optional] [default to null]
+ **storeId** | **String**| Counts customer specified by store id | [optional] [default to null]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
+ **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
+ **findWhere** | **String**| Counts customers that are searched specified by field | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **storeId** | **String**| Counts customer specified by store id | [optional] [default to null]
- **customerListId** | **String**| The numeric ID of the customer list in Demandware. | [optional] [default to null]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
- **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
- **findWhere** | **String**| Counts customers that are searched specified by field | [optional] [default to null]
- **ids** | **String**| Counts customers specified by ids | [optional] [default to null]
- **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional] [default to null]
 
 ### Return type
 
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 
 ## customerGroupList
 
-> ModelResponseCustomerGroupList customerGroupList(disableCache, pageCursor, start, count, storeId, langId, groupIds, params, exclude, responseFields)
+> ModelResponseCustomerGroupList customerGroupList(start, count, pageCursor, groupIds, storeId, langId, responseFields, params, exclude, disableCache)
 
 customer.group.list
 
@@ -402,18 +402,18 @@ Get list of customers groups.
 //import org.openapitools.client.api.CustomerApi;
 
 CustomerApi apiInstance = new CustomerApi();
-Boolean disableCache = false; // Boolean | Disable cache for current request
-String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+String groupIds = 1,2,3; // String | Groups that will be assigned to a customer
 String storeId = 1; // String | Store Id
 String langId = 3; // String | Language id
-String groupIds = 1,2,3; // String | Groups that will be assigned to a customer
+String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+Boolean disableCache = false; // Boolean | Disable cache for current request
 try {
-    ModelResponseCustomerGroupList result = apiInstance.customerGroupList(disableCache, pageCursor, start, count, storeId, langId, groupIds, params, exclude, responseFields);
+    ModelResponseCustomerGroupList result = apiInstance.customerGroupList(start, count, pageCursor, groupIds, storeId, langId, responseFields, params, exclude, disableCache);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#customerGroupList");
@@ -426,16 +426,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **disableCache** | **Boolean**| Disable cache for current request | [optional] [default to false]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
+ **groupIds** | **String**| Groups that will be assigned to a customer | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
- **groupIds** | **String**| Groups that will be assigned to a customer | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,additional_fields]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **disableCache** | **Boolean**| Disable cache for current request | [optional] [default to false]
 
 ### Return type
 
@@ -453,7 +453,7 @@ Name | Type | Description  | Notes
 
 ## customerInfo
 
-> CustomerInfo200Response customerInfo(id, params, responseFields, exclude, storeId)
+> CustomerInfo200Response customerInfo(id, storeId, responseFields, params, exclude)
 
 customer.info
 
@@ -467,12 +467,12 @@ Get customers&#39; details from store.
 
 CustomerApi apiInstance = new CustomerApi();
 String id = 10; // String | Retrieves customer's info specified by customer id
-String params = id,email; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String responseFields = {result{id,parent_id,sku,upc,images,combination}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = id,email; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String storeId = 1; // String | Retrieves customer info specified by store id
+String responseFields = {result{id,parent_id,sku,upc,images,combination}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,email; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = id,email; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    CustomerInfo200Response result = apiInstance.customerInfo(id, params, responseFields, exclude, storeId);
+    CustomerInfo200Response result = apiInstance.customerInfo(id, storeId, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#customerInfo");
@@ -486,10 +486,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Retrieves customer&#39;s info specified by customer id | [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,email,first_name,last_name]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **storeId** | **String**| Retrieves customer info specified by store id | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,email,first_name,last_name]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
 
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 
 ## customerList
 
-> ModelResponseCustomerList customerList(pageCursor, start, count, createdFrom, createdTo, modifiedFrom, modifiedTo, params, responseFields, exclude, groupId, storeId, customerListId, avail, findValue, findWhere, sortBy, sortDirection, ids, sinceId)
+> ModelResponseCustomerList customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude)
 
 customer.list
 
@@ -520,28 +520,28 @@ Get list of customers from store.
 //import org.openapitools.client.api.CustomerApi;
 
 CustomerApi apiInstance = new CustomerApi();
-String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+String ids = 24,25; // String | Retrieves customers specified by ids
+String sinceId = 56; // String | Retrieve entities starting from the specified id.
+String customerListId = exampleListId; // String | The numeric ID of the customer list in Demandware.
+String groupId = 3; // String | Customer group_id
+String storeId = 1; // String | Retrieves customers specified by store id
+Boolean avail = false; // Boolean | Defines category's visibility status
+String findValue = mail@gmail.com; // String | Entity search that is specified by some value
+String findWhere = email; // String | Customer search that is specified by field
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-String params = id,email; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String responseFields = {result{customer}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = id,email; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String groupId = 3; // String | Customer group_id
-String storeId = 1; // String | Retrieves customers specified by store id
-String customerListId = exampleListId; // String | The numeric ID of the customer list in Demandware.
-Boolean avail = false; // Boolean | Defines category's visibility status
-String findValue = mail@gmail.com; // String | Entity search that is specified by some value
-String findWhere = email; // String | Customer search that is specified by field
 String sortBy = value_id; // String | Set field to sort by
 String sortDirection = asc; // String | Set sorting direction
-String ids = 24,25; // String | Retrieves customers specified by ids
-String sinceId = 56; // String | Retrieve entities starting from the specified id.
+String responseFields = {result{customer}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,email; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = id,email; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseCustomerList result = apiInstance.customerList(pageCursor, start, count, createdFrom, createdTo, modifiedFrom, modifiedTo, params, responseFields, exclude, groupId, storeId, customerListId, avail, findValue, findWhere, sortBy, sortDirection, ids, sinceId);
+    ModelResponseCustomerList result = apiInstance.customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#customerList");
@@ -554,26 +554,26 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
+ **ids** | **String**| Retrieves customers specified by ids | [optional] [default to null]
+ **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional] [default to null]
+ **customerListId** | **String**| The numeric ID of the customer list in Demandware. | [optional] [default to null]
+ **groupId** | **String**| Customer group_id | [optional] [default to null]
+ **storeId** | **String**| Retrieves customers specified by store id | [optional] [default to null]
+ **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
+ **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
+ **findWhere** | **String**| Customer search that is specified by field | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,email,first_name,last_name]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **groupId** | **String**| Customer group_id | [optional] [default to null]
- **storeId** | **String**| Retrieves customers specified by store id | [optional] [default to null]
- **customerListId** | **String**| The numeric ID of the customer list in Demandware. | [optional] [default to null]
- **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
- **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
- **findWhere** | **String**| Customer search that is specified by field | [optional] [default to null]
  **sortBy** | **String**| Set field to sort by | [optional] [default to created_time]
  **sortDirection** | **String**| Set sorting direction | [optional] [default to asc]
- **ids** | **String**| Retrieves customers specified by ids | [optional] [default to null]
- **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,email,first_name,last_name]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
 
@@ -637,7 +637,7 @@ Name | Type | Description  | Notes
 
 ## customerWishlistList
 
-> ModelResponseCustomerWishlistList customerWishlistList(customerId, id, storeId, start, count, pageCursor, responseFields)
+> ModelResponseCustomerWishlistList customerWishlistList(customerId, start, count, pageCursor, id, storeId, responseFields)
 
 customer.wishlist.list
 
@@ -651,14 +651,14 @@ Get a Wish List of customer from the store.
 
 CustomerApi apiInstance = new CustomerApi();
 String customerId = 5; // String | Retrieves orders specified by customer id
-String id = 10; // String | Entity id
-String storeId = 1; // String | Store Id
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+String id = 10; // String | Entity id
+String storeId = 1; // String | Store Id
 String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 try {
-    ModelResponseCustomerWishlistList result = apiInstance.customerWishlistList(customerId, id, storeId, start, count, pageCursor, responseFields);
+    ModelResponseCustomerWishlistList result = apiInstance.customerWishlistList(customerId, start, count, pageCursor, id, storeId, responseFields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#customerWishlistList");
@@ -672,11 +672,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerId** | **String**| Retrieves orders specified by customer id | [default to null]
- **id** | **String**| Entity id | [optional] [default to null]
- **storeId** | **String**| Store Id | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
+ **id** | **String**| Entity id | [optional] [default to null]
+ **storeId** | **String**| Store Id | [optional] [default to null]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to {return_code,return_message,pagination,result}]
 
 ### Return type

@@ -22,6 +22,8 @@ public class ProductVariantImageAdd {
   private String productId = null;
   @SerializedName("product_variant_id")
   private String productVariantId = null;
+  @SerializedName("store_id")
+  private String storeId = null;
   @SerializedName("image_name")
   private String imageName = null;
   public enum TypeEnum {
@@ -39,8 +41,6 @@ public class ProductVariantImageAdd {
   private String mime = null;
   @SerializedName("position")
   private Integer position = 0;
-  @SerializedName("store_id")
-  private String storeId = null;
   @SerializedName("option_id")
   private String optionId = null;
 
@@ -64,6 +64,17 @@ public class ProductVariantImageAdd {
   }
   public void setProductVariantId(String productVariantId) {
     this.productVariantId = productVariantId;
+  }
+
+  /**
+   * Store Id
+   **/
+  @ApiModelProperty(value = "Store Id")
+  public String getStoreId() {
+    return storeId;
+  }
+  public void setStoreId(String storeId) {
+    this.storeId = storeId;
   }
 
   /**
@@ -144,17 +155,6 @@ public class ProductVariantImageAdd {
   }
 
   /**
-   * Store Id
-   **/
-  @ApiModelProperty(value = "Store Id")
-  public String getStoreId() {
-    return storeId;
-  }
-  public void setStoreId(String storeId) {
-    this.storeId = storeId;
-  }
-
-  /**
    * Defines option id of the product variant for which the image will be added
    **/
   @ApiModelProperty(value = "Defines option id of the product variant for which the image will be added")
@@ -177,6 +177,7 @@ public class ProductVariantImageAdd {
     ProductVariantImageAdd productVariantImageAdd = (ProductVariantImageAdd) o;
     return (this.productId == null ? productVariantImageAdd.productId == null : this.productId.equals(productVariantImageAdd.productId)) &&
         (this.productVariantId == null ? productVariantImageAdd.productVariantId == null : this.productVariantId.equals(productVariantImageAdd.productVariantId)) &&
+        (this.storeId == null ? productVariantImageAdd.storeId == null : this.storeId.equals(productVariantImageAdd.storeId)) &&
         (this.imageName == null ? productVariantImageAdd.imageName == null : this.imageName.equals(productVariantImageAdd.imageName)) &&
         (this.type == null ? productVariantImageAdd.type == null : this.type.equals(productVariantImageAdd.type)) &&
         (this.url == null ? productVariantImageAdd.url == null : this.url.equals(productVariantImageAdd.url)) &&
@@ -184,7 +185,6 @@ public class ProductVariantImageAdd {
         (this.label == null ? productVariantImageAdd.label == null : this.label.equals(productVariantImageAdd.label)) &&
         (this.mime == null ? productVariantImageAdd.mime == null : this.mime.equals(productVariantImageAdd.mime)) &&
         (this.position == null ? productVariantImageAdd.position == null : this.position.equals(productVariantImageAdd.position)) &&
-        (this.storeId == null ? productVariantImageAdd.storeId == null : this.storeId.equals(productVariantImageAdd.storeId)) &&
         (this.optionId == null ? productVariantImageAdd.optionId == null : this.optionId.equals(productVariantImageAdd.optionId));
   }
 
@@ -193,6 +193,7 @@ public class ProductVariantImageAdd {
     int result = 17;
     result = 31 * result + (this.productId == null ? 0: this.productId.hashCode());
     result = 31 * result + (this.productVariantId == null ? 0: this.productVariantId.hashCode());
+    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.imageName == null ? 0: this.imageName.hashCode());
     result = 31 * result + (this.type == null ? 0: this.type.hashCode());
     result = 31 * result + (this.url == null ? 0: this.url.hashCode());
@@ -200,7 +201,6 @@ public class ProductVariantImageAdd {
     result = 31 * result + (this.label == null ? 0: this.label.hashCode());
     result = 31 * result + (this.mime == null ? 0: this.mime.hashCode());
     result = 31 * result + (this.position == null ? 0: this.position.hashCode());
-    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.optionId == null ? 0: this.optionId.hashCode());
     return result;
   }
@@ -212,6 +212,7 @@ public class ProductVariantImageAdd {
     
     sb.append("  productId: ").append(productId).append("\n");
     sb.append("  productVariantId: ").append(productVariantId).append("\n");
+    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  imageName: ").append(imageName).append("\n");
     sb.append("  type: ").append(type).append("\n");
     sb.append("  url: ").append(url).append("\n");
@@ -219,7 +220,6 @@ public class ProductVariantImageAdd {
     sb.append("  label: ").append(label).append("\n");
     sb.append("  mime: ").append(mime).append("\n");
     sb.append("  position: ").append(position).append("\n");
-    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  optionId: ").append(optionId).append("\n");
     sb.append("}\n");
     return sb.toString();

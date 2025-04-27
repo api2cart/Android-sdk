@@ -23,28 +23,28 @@ public class OrderShipmentAdd {
   
   @SerializedName("order_id")
   private String orderId = null;
-  @SerializedName("store_id")
-  private String storeId = null;
   @SerializedName("warehouse_id")
   private String warehouseId = null;
+  @SerializedName("store_id")
+  private String storeId = null;
   @SerializedName("shipment_provider")
   private String shipmentProvider = null;
   @SerializedName("shipping_method")
   private String shippingMethod = null;
   @SerializedName("items")
   private List<OrderShipmentAddItemsInner> items = null;
-  @SerializedName("send_notifications")
-  private Boolean sendNotifications = false;
   @SerializedName("tracking_numbers")
   private List<OrderShipmentAddTrackingNumbersInner> trackingNumbers = null;
-  @SerializedName("adjust_stock")
-  private Boolean adjustStock = false;
-  @SerializedName("enable_cache")
-  private Boolean enableCache = false;
   @SerializedName("tracking_link")
   private String trackingLink = null;
   @SerializedName("is_shipped")
   private Boolean isShipped = true;
+  @SerializedName("send_notifications")
+  private Boolean sendNotifications = false;
+  @SerializedName("adjust_stock")
+  private Boolean adjustStock = false;
+  @SerializedName("enable_cache")
+  private Boolean enableCache = false;
   @SerializedName("check_process_status")
   private Boolean checkProcessStatus = false;
   @SerializedName("use_latest_api_version")
@@ -62,17 +62,6 @@ public class OrderShipmentAdd {
   }
 
   /**
-   * Store Id
-   **/
-  @ApiModelProperty(value = "Store Id")
-  public String getStoreId() {
-    return storeId;
-  }
-  public void setStoreId(String storeId) {
-    this.storeId = storeId;
-  }
-
-  /**
    * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
    **/
   @ApiModelProperty(value = "This parameter is used for selecting a warehouse where you need to set/modify a product quantity.")
@@ -81,6 +70,17 @@ public class OrderShipmentAdd {
   }
   public void setWarehouseId(String warehouseId) {
     this.warehouseId = warehouseId;
+  }
+
+  /**
+   * Store Id
+   **/
+  @ApiModelProperty(value = "Store Id")
+  public String getStoreId() {
+    return storeId;
+  }
+  public void setStoreId(String storeId) {
+    this.storeId = storeId;
   }
 
   /**
@@ -117,17 +117,6 @@ public class OrderShipmentAdd {
   }
 
   /**
-   * Send notifications to customer after shipment was created
-   **/
-  @ApiModelProperty(value = "Send notifications to customer after shipment was created")
-  public Boolean getSendNotifications() {
-    return sendNotifications;
-  }
-  public void setSendNotifications(Boolean sendNotifications) {
-    this.sendNotifications = sendNotifications;
-  }
-
-  /**
    * Defines shipment's tracking numbers that have to be added</br> How set tracking numbers to appropriate carrier:<ul><li>tracking_numbers[]=a2c.demo1,a2c.demo2 - set default carrier</li><li>tracking_numbers[<b>carrier_id</b>]=a2c.demo - set appropriate carrier</li></ul>To get the list of carriers IDs that are available in your store, use the <a href = \"https://api2cart.com/docs/#/cart/CartInfo\">cart.info</a > method
    **/
   @ApiModelProperty(value = "Defines shipment's tracking numbers that have to be added</br> How set tracking numbers to appropriate carrier:<ul><li>tracking_numbers[]=a2c.demo1,a2c.demo2 - set default carrier</li><li>tracking_numbers[<b>carrier_id</b>]=a2c.demo - set appropriate carrier</li></ul>To get the list of carriers IDs that are available in your store, use the <a href = \"https://api2cart.com/docs/#/cart/CartInfo\">cart.info</a > method")
@@ -136,28 +125,6 @@ public class OrderShipmentAdd {
   }
   public void setTrackingNumbers(List<OrderShipmentAddTrackingNumbersInner> trackingNumbers) {
     this.trackingNumbers = trackingNumbers;
-  }
-
-  /**
-   * This parameter is used for adjust stock.
-   **/
-  @ApiModelProperty(value = "This parameter is used for adjust stock.")
-  public Boolean getAdjustStock() {
-    return adjustStock;
-  }
-  public void setAdjustStock(Boolean adjustStock) {
-    this.adjustStock = adjustStock;
-  }
-
-  /**
-   * If the value is 'true' and order exist in our cache, we will use order.info from cache to prepare shipment items.
-   **/
-  @ApiModelProperty(value = "If the value is 'true' and order exist in our cache, we will use order.info from cache to prepare shipment items.")
-  public Boolean getEnableCache() {
-    return enableCache;
-  }
-  public void setEnableCache(Boolean enableCache) {
-    this.enableCache = enableCache;
   }
 
   /**
@@ -180,6 +147,39 @@ public class OrderShipmentAdd {
   }
   public void setIsShipped(Boolean isShipped) {
     this.isShipped = isShipped;
+  }
+
+  /**
+   * Send notifications to customer after shipment was created
+   **/
+  @ApiModelProperty(value = "Send notifications to customer after shipment was created")
+  public Boolean getSendNotifications() {
+    return sendNotifications;
+  }
+  public void setSendNotifications(Boolean sendNotifications) {
+    this.sendNotifications = sendNotifications;
+  }
+
+  /**
+   * This parameter is used for adjust stock.
+   **/
+  @ApiModelProperty(value = "This parameter is used for adjust stock.")
+  public Boolean getAdjustStock() {
+    return adjustStock;
+  }
+  public void setAdjustStock(Boolean adjustStock) {
+    this.adjustStock = adjustStock;
+  }
+
+  /**
+   * If the value is 'true' and order exist in our cache, we will use order.info from cache to prepare shipment items.
+   **/
+  @ApiModelProperty(value = "If the value is 'true' and order exist in our cache, we will use order.info from cache to prepare shipment items.")
+  public Boolean getEnableCache() {
+    return enableCache;
+  }
+  public void setEnableCache(Boolean enableCache) {
+    this.enableCache = enableCache;
   }
 
   /**
@@ -215,17 +215,17 @@ public class OrderShipmentAdd {
     }
     OrderShipmentAdd orderShipmentAdd = (OrderShipmentAdd) o;
     return (this.orderId == null ? orderShipmentAdd.orderId == null : this.orderId.equals(orderShipmentAdd.orderId)) &&
-        (this.storeId == null ? orderShipmentAdd.storeId == null : this.storeId.equals(orderShipmentAdd.storeId)) &&
         (this.warehouseId == null ? orderShipmentAdd.warehouseId == null : this.warehouseId.equals(orderShipmentAdd.warehouseId)) &&
+        (this.storeId == null ? orderShipmentAdd.storeId == null : this.storeId.equals(orderShipmentAdd.storeId)) &&
         (this.shipmentProvider == null ? orderShipmentAdd.shipmentProvider == null : this.shipmentProvider.equals(orderShipmentAdd.shipmentProvider)) &&
         (this.shippingMethod == null ? orderShipmentAdd.shippingMethod == null : this.shippingMethod.equals(orderShipmentAdd.shippingMethod)) &&
         (this.items == null ? orderShipmentAdd.items == null : this.items.equals(orderShipmentAdd.items)) &&
-        (this.sendNotifications == null ? orderShipmentAdd.sendNotifications == null : this.sendNotifications.equals(orderShipmentAdd.sendNotifications)) &&
         (this.trackingNumbers == null ? orderShipmentAdd.trackingNumbers == null : this.trackingNumbers.equals(orderShipmentAdd.trackingNumbers)) &&
-        (this.adjustStock == null ? orderShipmentAdd.adjustStock == null : this.adjustStock.equals(orderShipmentAdd.adjustStock)) &&
-        (this.enableCache == null ? orderShipmentAdd.enableCache == null : this.enableCache.equals(orderShipmentAdd.enableCache)) &&
         (this.trackingLink == null ? orderShipmentAdd.trackingLink == null : this.trackingLink.equals(orderShipmentAdd.trackingLink)) &&
         (this.isShipped == null ? orderShipmentAdd.isShipped == null : this.isShipped.equals(orderShipmentAdd.isShipped)) &&
+        (this.sendNotifications == null ? orderShipmentAdd.sendNotifications == null : this.sendNotifications.equals(orderShipmentAdd.sendNotifications)) &&
+        (this.adjustStock == null ? orderShipmentAdd.adjustStock == null : this.adjustStock.equals(orderShipmentAdd.adjustStock)) &&
+        (this.enableCache == null ? orderShipmentAdd.enableCache == null : this.enableCache.equals(orderShipmentAdd.enableCache)) &&
         (this.checkProcessStatus == null ? orderShipmentAdd.checkProcessStatus == null : this.checkProcessStatus.equals(orderShipmentAdd.checkProcessStatus)) &&
         (this.useLatestApiVersion == null ? orderShipmentAdd.useLatestApiVersion == null : this.useLatestApiVersion.equals(orderShipmentAdd.useLatestApiVersion));
   }
@@ -234,17 +234,17 @@ public class OrderShipmentAdd {
   public int hashCode() {
     int result = 17;
     result = 31 * result + (this.orderId == null ? 0: this.orderId.hashCode());
-    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.warehouseId == null ? 0: this.warehouseId.hashCode());
+    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.shipmentProvider == null ? 0: this.shipmentProvider.hashCode());
     result = 31 * result + (this.shippingMethod == null ? 0: this.shippingMethod.hashCode());
     result = 31 * result + (this.items == null ? 0: this.items.hashCode());
-    result = 31 * result + (this.sendNotifications == null ? 0: this.sendNotifications.hashCode());
     result = 31 * result + (this.trackingNumbers == null ? 0: this.trackingNumbers.hashCode());
-    result = 31 * result + (this.adjustStock == null ? 0: this.adjustStock.hashCode());
-    result = 31 * result + (this.enableCache == null ? 0: this.enableCache.hashCode());
     result = 31 * result + (this.trackingLink == null ? 0: this.trackingLink.hashCode());
     result = 31 * result + (this.isShipped == null ? 0: this.isShipped.hashCode());
+    result = 31 * result + (this.sendNotifications == null ? 0: this.sendNotifications.hashCode());
+    result = 31 * result + (this.adjustStock == null ? 0: this.adjustStock.hashCode());
+    result = 31 * result + (this.enableCache == null ? 0: this.enableCache.hashCode());
     result = 31 * result + (this.checkProcessStatus == null ? 0: this.checkProcessStatus.hashCode());
     result = 31 * result + (this.useLatestApiVersion == null ? 0: this.useLatestApiVersion.hashCode());
     return result;
@@ -256,17 +256,17 @@ public class OrderShipmentAdd {
     sb.append("class OrderShipmentAdd {\n");
     
     sb.append("  orderId: ").append(orderId).append("\n");
-    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  warehouseId: ").append(warehouseId).append("\n");
+    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  shipmentProvider: ").append(shipmentProvider).append("\n");
     sb.append("  shippingMethod: ").append(shippingMethod).append("\n");
     sb.append("  items: ").append(items).append("\n");
-    sb.append("  sendNotifications: ").append(sendNotifications).append("\n");
     sb.append("  trackingNumbers: ").append(trackingNumbers).append("\n");
-    sb.append("  adjustStock: ").append(adjustStock).append("\n");
-    sb.append("  enableCache: ").append(enableCache).append("\n");
     sb.append("  trackingLink: ").append(trackingLink).append("\n");
     sb.append("  isShipped: ").append(isShipped).append("\n");
+    sb.append("  sendNotifications: ").append(sendNotifications).append("\n");
+    sb.append("  adjustStock: ").append(adjustStock).append("\n");
+    sb.append("  enableCache: ").append(enableCache).append("\n");
     sb.append("  checkProcessStatus: ").append(checkProcessStatus).append("\n");
     sb.append("  useLatestApiVersion: ").append(useLatestApiVersion).append("\n");
     sb.append("}\n");

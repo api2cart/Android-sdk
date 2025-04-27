@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## productAttributeList
 
-> ModelResponseProductAttributeList productAttributeList(productId, attributeId, variantId, pageCursor, start, count, attributeGroupId, setName, langId, storeId, sortBy, sortDirection, params, responseFields, exclude)
+> ModelResponseProductAttributeList productAttributeList(productId, start, count, pageCursor, attributeId, variantId, attributeGroupId, langId, storeId, setName, sortBy, sortDirection, responseFields, params, exclude)
 
 product.attribute.list
 
@@ -167,22 +167,22 @@ Get list of attributes and values.
 
 ProductApi apiInstance = new ProductApi();
 String productId = 10; // String | Retrieves attributes specified by product id
-String attributeId = 156; // String | Retrieves info for specified attribute_id
-String variantId = 45; // String | Defines product's variants specified by variant id
-String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
+String attributeId = 156; // String | Retrieves info for specified attribute_id
+String variantId = 45; // String | Defines product's variants specified by variant id
 String attributeGroupId = 202; // String | Filter by attribute_group_id
-String setName = Shoes; // String | Retrieves attributes specified by set_name in Magento
 String langId = 3; // String | Retrieves attributes specified by language id
 String storeId = 1; // String | Retrieves attributes specified by store id
+String setName = Shoes; // String | Retrieves attributes specified by set_name in Magento
 String sortBy = value; // String | Set field to sort by
 String sortDirection = asc; // String | Set sorting direction
-String params = attribute_id,name; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String responseFields = {pagination,result{attribute}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = attribute_id,name; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = attribute_id,name; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseProductAttributeList result = apiInstance.productAttributeList(productId, attributeId, variantId, pageCursor, start, count, attributeGroupId, setName, langId, storeId, sortBy, sortDirection, params, responseFields, exclude);
+    ModelResponseProductAttributeList result = apiInstance.productAttributeList(productId, start, count, pageCursor, attributeId, variantId, attributeGroupId, langId, storeId, setName, sortBy, sortDirection, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productAttributeList");
@@ -196,19 +196,19 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String**| Retrieves attributes specified by product id | [default to null]
- **attributeId** | **String**| Retrieves info for specified attribute_id | [optional] [default to null]
- **variantId** | **String**| Defines product&#39;s variants specified by variant id | [optional] [default to null]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
+ **attributeId** | **String**| Retrieves info for specified attribute_id | [optional] [default to null]
+ **variantId** | **String**| Defines product&#39;s variants specified by variant id | [optional] [default to null]
  **attributeGroupId** | **String**| Filter by attribute_group_id | [optional] [default to null]
- **setName** | **String**| Retrieves attributes specified by set_name in Magento | [optional] [default to null]
  **langId** | **String**| Retrieves attributes specified by language id | [optional] [default to null]
  **storeId** | **String**| Retrieves attributes specified by store id | [optional] [default to null]
+ **setName** | **String**| Retrieves attributes specified by set_name in Magento | [optional] [default to null]
  **sortBy** | **String**| Set field to sort by | [optional] [default to attribute_id]
  **sortDirection** | **String**| Set sorting direction | [optional] [default to asc]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to attribute_id,name]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to attribute_id,name]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 
 ## productBrandList
 
-> ModelResponseProductBrandList productBrandList(start, count, pageCursor, params, brandIds, exclude, categoryId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue)
+> ModelResponseProductBrandList productBrandList(start, count, pageCursor, brandIds, categoryId, parentId, storeId, langId, findWhere, findValue, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude)
 
 product.brand.list
 
@@ -359,22 +359,22 @@ ProductApi apiInstance = new ProductApi();
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String brandIds = 4,5; // String | Retrieves brands specified by brand ids
-String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String categoryId = 6; // String | Retrieves product brands specified by category id
+String parentId = 6; // String | Retrieves brands specified by parent id
 String storeId = 1; // String | Store Id
 String langId = 3; // String | Language id
+String findWhere = name; // String | Entity search that is specified by the comma-separated unique fields
+String findValue = Phone; // String | Entity search that is specified by some value
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-String parentId = 6; // String | Retrieves brands specified by parent id
 String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String findWhere = name; // String | Entity search that is specified by the comma-separated unique fields
-String findValue = Phone; // String | Entity search that is specified by some value
+String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseProductBrandList result = apiInstance.productBrandList(start, count, pageCursor, params, brandIds, exclude, categoryId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue);
+    ModelResponseProductBrandList result = apiInstance.productBrandList(start, count, pageCursor, brandIds, categoryId, parentId, storeId, langId, findWhere, findValue, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productBrandList");
@@ -390,20 +390,20 @@ Name | Type | Description  | Notes
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,short_description,active,url]
  **brandIds** | **String**| Retrieves brands specified by brand ids | [optional] [default to null]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **categoryId** | **String**| Retrieves product brands specified by category id | [optional] [default to null]
+ **parentId** | **String**| Retrieves brands specified by parent id | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
+ **findWhere** | **String**| Entity search that is specified by the comma-separated unique fields | [optional] [default to null]
+ **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **parentId** | **String**| Retrieves brands specified by parent id | [optional] [default to null]
  **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
- **findWhere** | **String**| Entity search that is specified by the comma-separated unique fields | [optional] [default to null]
- **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,short_description,active,url]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
 
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 
 ## productChildItemInfo
 
-> ProductChildItemInfo200Response productChildItemInfo(productId, id, params, responseFields, exclude, storeId, langId, currencyId, useLatestApiVersion)
+> ProductChildItemInfo200Response productChildItemInfo(productId, id, storeId, langId, currencyId, responseFields, params, exclude, useLatestApiVersion)
 
 product.child_item.info
 
@@ -488,15 +488,15 @@ Get child for specific product.
 ProductApi apiInstance = new ProductApi();
 String productId = 10; // String | Filter by parent product id
 String id = 10; // String | Entity id
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String responseFields = {result{id,parent_id,sku,upc,images,combination}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String storeId = 1; // String | Store Id
 String langId = 3; // String | Language id
 String currencyId = usd; // String | Currency Id
+String responseFields = {result{id,parent_id,sku,upc,images,combination}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
 try {
-    ProductChildItemInfo200Response result = apiInstance.productChildItemInfo(productId, id, params, responseFields, exclude, storeId, langId, currencyId, useLatestApiVersion);
+    ProductChildItemInfo200Response result = apiInstance.productChildItemInfo(productId, id, storeId, langId, currencyId, responseFields, params, exclude, useLatestApiVersion);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productChildItemInfo");
@@ -511,12 +511,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String**| Filter by parent product id | [default to null]
  **id** | **String**| Entity id | [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to force_all]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
  **currencyId** | **String**| Currency Id | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to force_all]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional] [default to false]
 
 ### Return type
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ## productChildItemList
 
-> ModelResponseProductChildItemList productChildItemList(pageCursor, start, count, params, responseFields, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, productId, productIds, sku, storeId, langId, currencyId, availSale, findValue, findWhere, reportRequestId, disableReportCache, useLatestApiVersion, returnGlobal)
+> ModelResponseProductChildItemList productChildItemList(start, count, pageCursor, productId, productIds, sku, storeId, langId, currencyId, availSale, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, returnGlobal, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion)
 
 product.child_item.list
 
@@ -548,16 +548,9 @@ Get a list of a product&#39;s child items, such as variants or bundle components
 //import org.openapitools.client.api.ProductApi;
 
 ProductApi apiInstance = new ProductApi();
-String pageCursor = ; // String | Used to retrieve products child items via cursor-based pagination (it can't be used with any other filtering parameter)
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String responseFields = {result{children{id,parent_id,sku,upc,images,combination}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
-String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
-String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
-String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
+String pageCursor = ; // String | Used to retrieve products child items via cursor-based pagination (it can't be used with any other filtering parameter)
 String productId = 10; // String | Filter by parent product id
 String productIds = 4,5; // String | Filter by parent product ids
 String sku = bag_01; // String | Filter by products variant's sku
@@ -567,12 +560,19 @@ String currencyId = usd; // String | Currency Id
 Boolean availSale = false; // Boolean | Specifies the set of available/not available products for sale
 String findValue = bundled-item-123-; // String | Entity search that is specified by some value
 String findWhere = sku; // String | Child products search that is specified by field
+String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
+String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
+String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
+String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
+Boolean returnGlobal = false; // Boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
+String responseFields = {result{children{id,parent_id,sku,upc,images,combination}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String reportRequestId = 105245017661; // String | Report request id
 Boolean disableReportCache = false; // Boolean | Disable report cache for current request
 Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
-Boolean returnGlobal = false; // Boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
 try {
-    ModelResponseProductChildItemList result = apiInstance.productChildItemList(pageCursor, start, count, params, responseFields, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, productId, productIds, sku, storeId, langId, currencyId, availSale, findValue, findWhere, reportRequestId, disableReportCache, useLatestApiVersion, returnGlobal);
+    ModelResponseProductChildItemList result = apiInstance.productChildItemList(start, count, pageCursor, productId, productIds, sku, storeId, langId, currencyId, availSale, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, returnGlobal, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productChildItemList");
@@ -585,16 +585,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to force_all]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
- **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
- **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
- **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
+ **pageCursor** | **String**| Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **productId** | **String**| Filter by parent product id | [optional] [default to null]
  **productIds** | **String**| Filter by parent product ids | [optional] [default to null]
  **sku** | **String**| Filter by products variant&#39;s sku | [optional] [default to null]
@@ -604,10 +597,17 @@ Name | Type | Description  | Notes
  **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional] [default to null]
  **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
  **findWhere** | **String**| Child products search that is specified by field | [optional] [default to null]
+ **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
+ **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
+ **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
+ **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
+ **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to force_all]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **reportRequestId** | **String**| Report request id | [optional] [default to null]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional] [default to false]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional] [default to false]
- **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
 
 ### Return type
 
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 
 ## productCount
 
-> ProductCount200Response productCount(categoryId, createdFrom, createdTo, modifiedFrom, modifiedTo, availView, availSale, storeId, langId, productIds, sinceId, reportRequestId, disableReportCache, brandName, productAttributes, status, type, findValue, findWhere, useLatestApiVersion, returnGlobal, categoriesIds)
+> ProductCount200Response productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
 
 product.count
 
@@ -638,30 +638,30 @@ Count products in store.
 //import org.openapitools.client.api.ProductApi;
 
 ProductApi apiInstance = new ProductApi();
+String productIds = 4,5; // String | Counts products specified by product ids
+String sinceId = 56; // String | Retrieve entities starting from the specified id.
+String categoriesIds = 23,56; // String | Defines product add that is specified by comma-separated categories id
 String categoryId = 6; // String | Counts products specified by category id
+String storeId = 1; // String | Counts products specified by store id
+String langId = 3; // String | Counts products specified by language id
+Boolean availView = true; // Boolean | Specifies the set of visible/invisible products
+Boolean availSale = false; // Boolean | Specifies the set of available/not available products for sale
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-Boolean availView = true; // Boolean | Specifies the set of visible/invisible products
-Boolean availSale = false; // Boolean | Specifies the set of available/not available products for sale
-String storeId = 1; // String | Counts products specified by store id
-String langId = 3; // String | Counts products specified by language id
-String productIds = 4,5; // String | Counts products specified by product ids
-String sinceId = 56; // String | Retrieve entities starting from the specified id.
-String reportRequestId = 105245017661; // String | Report request id
-Boolean disableReportCache = false; // Boolean | Disable report cache for current request
 String brandName = Abidas; // String | Retrieves brands specified by brand name
 List<String> productAttributes = product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2; // List<String> | Defines product attributes
 String status = disabled; // String | Defines product's status
 String type = simple; // String | Defines products's type
 String findValue = Phone; // String | Entity search that is specified by some value
 String findWhere = name; // String | Counts products that are searched specified by field
-Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
+String reportRequestId = 105245017661; // String | Report request id
 Boolean returnGlobal = false; // Boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
-String categoriesIds = 23,56; // String | Defines product add that is specified by comma-separated categories id
+Boolean disableReportCache = false; // Boolean | Disable report cache for current request
+Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
 try {
-    ProductCount200Response result = apiInstance.productCount(categoryId, createdFrom, createdTo, modifiedFrom, modifiedTo, availView, availSale, storeId, langId, productIds, sinceId, reportRequestId, disableReportCache, brandName, productAttributes, status, type, findValue, findWhere, useLatestApiVersion, returnGlobal, categoriesIds);
+    ProductCount200Response result = apiInstance.productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productCount");
@@ -674,28 +674,28 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **productIds** | **String**| Counts products specified by product ids | [optional] [default to null]
+ **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional] [default to null]
+ **categoriesIds** | **String**| Defines product add that is specified by comma-separated categories id | [optional] [default to null]
  **categoryId** | **String**| Counts products specified by category id | [optional] [default to null]
+ **storeId** | **String**| Counts products specified by store id | [optional] [default to null]
+ **langId** | **String**| Counts products specified by language id | [optional] [default to null]
+ **availView** | **Boolean**| Specifies the set of visible/invisible products | [optional] [default to null]
+ **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **availView** | **Boolean**| Specifies the set of visible/invisible products | [optional] [default to null]
- **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional] [default to null]
- **storeId** | **String**| Counts products specified by store id | [optional] [default to null]
- **langId** | **String**| Counts products specified by language id | [optional] [default to null]
- **productIds** | **String**| Counts products specified by product ids | [optional] [default to null]
- **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional] [default to null]
- **reportRequestId** | **String**| Report request id | [optional] [default to null]
- **disableReportCache** | **Boolean**| Disable report cache for current request | [optional] [default to false]
  **brandName** | **String**| Retrieves brands specified by brand name | [optional] [default to null]
  **productAttributes** | [**List&lt;String&gt;**](String.md)| Defines product attributes | [optional] [default to null]
  **status** | **String**| Defines product&#39;s status | [optional] [default to null]
  **type** | **String**| Defines products&#39;s type | [optional] [default to null]
  **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
  **findWhere** | **String**| Counts products that are searched specified by field | [optional] [default to null]
- **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional] [default to false]
+ **reportRequestId** | **String**| Report request id | [optional] [default to null]
  **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
- **categoriesIds** | **String**| Defines product add that is specified by comma-separated categories id | [optional] [default to null]
+ **disableReportCache** | **Boolean**| Disable report cache for current request | [optional] [default to false]
+ **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional] [default to false]
 
 ### Return type
 
@@ -771,7 +771,7 @@ Name | Type | Description  | Notes
 
 ## productCurrencyList
 
-> ModelResponseProductCurrencyList productCurrencyList(start, count, params, pageCursor, exclude, responseFields, _default, avail)
+> ModelResponseProductCurrencyList productCurrencyList(start, count, pageCursor, _default, avail, responseFields, params, exclude)
 
 product.currency.list
 
@@ -786,14 +786,14 @@ Get list of currencies
 ProductApi apiInstance = new ProductApi();
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-String params = name,iso3,default,avail; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
-String exclude = name,iso3,default,avail; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {return_message,pagination,result{currency}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 Boolean _default = true; // Boolean | Specifies the set of default/not default currencies
 Boolean avail = false; // Boolean | Specifies the set of available/not available currencies
+String responseFields = {return_message,pagination,result{currency}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = name,iso3,default,avail; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = name,iso3,default,avail; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseProductCurrencyList result = apiInstance.productCurrencyList(start, count, params, pageCursor, exclude, responseFields, _default, avail);
+    ModelResponseProductCurrencyList result = apiInstance.productCurrencyList(start, count, pageCursor, _default, avail, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productCurrencyList");
@@ -808,12 +808,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to name,iso3,default,avail]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **_default** | **Boolean**| Specifies the set of default/not default currencies | [optional] [default to null]
  **avail** | **Boolean**| Specifies the set of available/not available currencies | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to name,iso3,default,avail]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
 
@@ -1119,7 +1119,7 @@ Name | Type | Description  | Notes
 
 ## productImageUpdate
 
-> ProductImageUpdate200Response productImageUpdate(productId, id, variantIds, imageName, type, label, position, storeId, langId, hidden)
+> ProductImageUpdate200Response productImageUpdate(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden)
 
 product.image.update
 
@@ -1135,15 +1135,15 @@ ProductApi apiInstance = new ProductApi();
 String productId = 10; // String | Defines product id where the image should be updated
 String id = 10; // String | Defines image update specified by image id
 String variantIds = 1,2,3,4,5; // String | Defines product's variants ids
+String storeId = 1; // String | Store Id
+String langId = 3; // String | Language id
 String imageName = data/product/main/product_69_bag-gray.png; // String | Defines image's name
 String type = thumbnail; // String | Defines image's types that are specified by comma-separated list
 String label = This cool image; // String | Defines alternative text that has to be attached to the picture
 Integer position = 5; // Integer | Defines image’s position in the list
-String storeId = 1; // String | Store Id
-String langId = 3; // String | Language id
 Boolean hidden = true; // Boolean | Define is hide image
 try {
-    ProductImageUpdate200Response result = apiInstance.productImageUpdate(productId, id, variantIds, imageName, type, label, position, storeId, langId, hidden);
+    ProductImageUpdate200Response result = apiInstance.productImageUpdate(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productImageUpdate");
@@ -1159,12 +1159,12 @@ Name | Type | Description  | Notes
  **productId** | **String**| Defines product id where the image should be updated | [default to null]
  **id** | **String**| Defines image update specified by image id | [default to null]
  **variantIds** | **String**| Defines product&#39;s variants ids | [optional] [default to null]
+ **storeId** | **String**| Store Id | [optional] [default to null]
+ **langId** | **String**| Language id | [optional] [default to null]
  **imageName** | **String**| Defines image&#39;s name | [optional] [default to null]
  **type** | **String**| Defines image&#39;s types that are specified by comma-separated list | [optional] [default to additional]
  **label** | **String**| Defines alternative text that has to be attached to the picture | [optional] [default to null]
  **position** | **Integer**| Defines image’s position in the list | [optional] [default to null]
- **storeId** | **String**| Store Id | [optional] [default to null]
- **langId** | **String**| Language id | [optional] [default to null]
  **hidden** | **Boolean**| Define is hide image | [optional] [default to null]
 
 ### Return type
@@ -1183,7 +1183,7 @@ Name | Type | Description  | Notes
 
 ## productInfo
 
-> ProductInfo200Response productInfo(id, params, responseFields, exclude, storeId, langId, currencyId, reportRequestId, disableReportCache, useLatestApiVersion)
+> ProductInfo200Response productInfo(id, storeId, langId, currencyId, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion)
 
 product.info
 
@@ -1197,17 +1197,17 @@ Get information about a specific product by its ID. In the case of a multistore 
 
 ProductApi apiInstance = new ProductApi();
 String id = 10; // String | Retrieves product's info specified by product id
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String responseFields = {result{id,name,price,images}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String storeId = 1; // String | Retrieves product info specified by store id
 String langId = 3; // String | Retrieves product info specified by language id
 String currencyId = usd; // String | Currency Id
+String responseFields = {result{id,name,price,images}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 String reportRequestId = 105245017661; // String | Report request id
 Boolean disableReportCache = false; // Boolean | Disable report cache for current request
 Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
 try {
-    ProductInfo200Response result = apiInstance.productInfo(id, params, responseFields, exclude, storeId, langId, currencyId, reportRequestId, disableReportCache, useLatestApiVersion);
+    ProductInfo200Response result = apiInstance.productInfo(id, storeId, langId, currencyId, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productInfo");
@@ -1221,12 +1221,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Retrieves product&#39;s info specified by product id | [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description,price,categories_ids]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **storeId** | **String**| Retrieves product info specified by store id | [optional] [default to null]
  **langId** | **String**| Retrieves product info specified by language id | [optional] [default to null]
  **currencyId** | **String**| Currency Id | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description,price,categories_ids]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
  **reportRequestId** | **String**| Report request id | [optional] [default to null]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional] [default to false]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional] [default to false]
@@ -1247,7 +1247,7 @@ Name | Type | Description  | Notes
 
 ## productList
 
-> ModelResponseProductList productList(pageCursor, start, count, params, responseFields, exclude, categoryId, createdFrom, createdTo, modifiedFrom, modifiedTo, availView, availSale, storeId, langId, currencyId, productIds, sinceId, reportRequestId, disableReportCache, sortBy, sortDirection, sku, disableCache, brandName, productAttributes, status, type, findValue, findWhere, useLatestApiVersion, returnGlobal, categoriesIds)
+> ModelResponseProductList productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion)
 
 product.list
 
@@ -1260,41 +1260,41 @@ Get list of products from your store. Returns 10 products by default.
 //import org.openapitools.client.api.ProductApi;
 
 ProductApi apiInstance = new ProductApi();
-String pageCursor = ; // String | Used to retrieve products via cursor-based pagination (it can't be used with any other filtering parameter)
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String responseFields = {return_code,pagination,result{product{id,name,price,images}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+String pageCursor = ; // String | Used to retrieve products via cursor-based pagination (it can't be used with any other filtering parameter)
+String productIds = 4,5; // String | Retrieves products specified by product ids
+String sinceId = 56; // String | Retrieve entities starting from the specified id.
+String categoriesIds = 23,56; // String | Retrieves products specified by categories ids
 String categoryId = 6; // String | Retrieves products specified by category id
+String storeId = 1; // String | Retrieves products specified by store id
+String langId = 3; // String | Retrieves products specified by language id
+String currencyId = usd; // String | Currency Id
+Boolean availView = true; // Boolean | Specifies the set of visible/invisible products
+Boolean availSale = false; // Boolean | Specifies the set of available/not available products for sale
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-Boolean availView = true; // Boolean | Specifies the set of visible/invisible products
-Boolean availSale = false; // Boolean | Specifies the set of available/not available products for sale
-String storeId = 1; // String | Retrieves products specified by store id
-String langId = 3; // String | Retrieves products specified by language id
-String currencyId = usd; // String | Currency Id
-String productIds = 4,5; // String | Retrieves products specified by product ids
-String sinceId = 56; // String | Retrieve entities starting from the specified id.
-String reportRequestId = 105245017661; // String | Report request id
-Boolean disableReportCache = false; // Boolean | Disable report cache for current request
-String sortBy = value_id; // String | Set field to sort by
-String sortDirection = asc; // String | Set sorting direction
 String sku = bag_01; // String | Filter by product's sku
-Boolean disableCache = false; // Boolean | Disable cache for current request
 String brandName = Abidas; // String | Retrieves brands specified by brand name
 List<String> productAttributes = product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2; // List<String> | Defines product attributes
 String status = disabled; // String | Defines product's status
 String type = simple; // String | Defines products's type
 String findValue = Phone; // String | Entity search that is specified by some value
 String findWhere = name; // String | Product search that is specified by field
-Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
 Boolean returnGlobal = false; // Boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
-String categoriesIds = 23,56; // String | Retrieves products specified by categories ids
+String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String responseFields = {return_code,pagination,result{product{id,name,price,images}}}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+String sortBy = value_id; // String | Set field to sort by
+String sortDirection = asc; // String | Set sorting direction
+String reportRequestId = 105245017661; // String | Report request id
+Boolean disableCache = false; // Boolean | Disable cache for current request
+Boolean disableReportCache = false; // Boolean | Disable report cache for current request
+Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
 try {
-    ModelResponseProductList result = apiInstance.productList(pageCursor, start, count, params, responseFields, exclude, categoryId, createdFrom, createdTo, modifiedFrom, modifiedTo, availView, availSale, storeId, langId, currencyId, productIds, sinceId, reportRequestId, disableReportCache, sortBy, sortDirection, sku, disableCache, brandName, productAttributes, status, type, findValue, findWhere, useLatestApiVersion, returnGlobal, categoriesIds);
+    ModelResponseProductList result = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productList");
@@ -1307,39 +1307,39 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | **String**| Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description,price,categories_ids]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
+ **pageCursor** | **String**| Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
+ **productIds** | **String**| Retrieves products specified by product ids | [optional] [default to null]
+ **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional] [default to null]
+ **categoriesIds** | **String**| Retrieves products specified by categories ids | [optional] [default to null]
  **categoryId** | **String**| Retrieves products specified by category id | [optional] [default to null]
+ **storeId** | **String**| Retrieves products specified by store id | [optional] [default to null]
+ **langId** | **String**| Retrieves products specified by language id | [optional] [default to null]
+ **currencyId** | **String**| Currency Id | [optional] [default to null]
+ **availView** | **Boolean**| Specifies the set of visible/invisible products | [optional] [default to null]
+ **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **availView** | **Boolean**| Specifies the set of visible/invisible products | [optional] [default to null]
- **availSale** | **Boolean**| Specifies the set of available/not available products for sale | [optional] [default to null]
- **storeId** | **String**| Retrieves products specified by store id | [optional] [default to null]
- **langId** | **String**| Retrieves products specified by language id | [optional] [default to null]
- **currencyId** | **String**| Currency Id | [optional] [default to null]
- **productIds** | **String**| Retrieves products specified by product ids | [optional] [default to null]
- **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional] [default to null]
- **reportRequestId** | **String**| Report request id | [optional] [default to null]
- **disableReportCache** | **Boolean**| Disable report cache for current request | [optional] [default to false]
- **sortBy** | **String**| Set field to sort by | [optional] [default to id]
- **sortDirection** | **String**| Set sorting direction | [optional] [default to asc]
  **sku** | **String**| Filter by product&#39;s sku | [optional] [default to null]
- **disableCache** | **Boolean**| Disable cache for current request | [optional] [default to false]
  **brandName** | **String**| Retrieves brands specified by brand name | [optional] [default to null]
  **productAttributes** | [**List&lt;String&gt;**](String.md)| Defines product attributes | [optional] [default to null]
  **status** | **String**| Defines product&#39;s status | [optional] [default to null]
  **type** | **String**| Defines products&#39;s type | [optional] [default to null]
  **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
  **findWhere** | **String**| Product search that is specified by field | [optional] [default to null]
- **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional] [default to false]
  **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]
- **categoriesIds** | **String**| Retrieves products specified by categories ids | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description,price,categories_ids]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
+ **sortBy** | **String**| Set field to sort by | [optional] [default to id]
+ **sortDirection** | **String**| Set sorting direction | [optional] [default to asc]
+ **reportRequestId** | **String**| Report request id | [optional] [default to null]
+ **disableCache** | **Boolean**| Disable cache for current request | [optional] [default to false]
+ **disableReportCache** | **Boolean**| Disable report cache for current request | [optional] [default to false]
+ **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional] [default to false]
 
 ### Return type
 
@@ -1559,7 +1559,7 @@ Name | Type | Description  | Notes
 
 ## productOptionList
 
-> ModelResponseProductOptionList productOptionList(start, count, params, exclude, responseFields, productId, langId, storeId)
+> ModelResponseProductOptionList productOptionList(start, count, productId, langId, storeId, responseFields, params, exclude)
 
 product.option.list
 
@@ -1574,14 +1574,14 @@ Get list of options.
 ProductApi apiInstance = new ProductApi();
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-String params = id,name,sort_order; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = id,name,sort_order; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String productId = 10; // String | Retrieves products' options specified by product id
 String langId = 3; // String | Language id
 String storeId = 1; // String | Store Id
+String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String params = id,name,sort_order; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = id,name,sort_order; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseProductOptionList result = apiInstance.productOptionList(start, count, params, exclude, responseFields, productId, langId, storeId);
+    ModelResponseProductOptionList result = apiInstance.productOptionList(start, count, productId, langId, storeId, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productOptionList");
@@ -1596,12 +1596,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **productId** | **String**| Retrieves products&#39; options specified by product id | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
 
@@ -1981,7 +1981,7 @@ Name | Type | Description  | Notes
 
 ## productReviewList
 
-> ModelResponseProductReviewList productReviewList(productId, start, pageCursor, count, ids, storeId, status, params, exclude, responseFields)
+> ModelResponseProductReviewList productReviewList(productId, start, count, pageCursor, ids, storeId, status, responseFields, params, exclude)
 
 product.review.list
 
@@ -1996,16 +1996,16 @@ Get reviews of a specific product.
 ProductApi apiInstance = new ProductApi();
 String productId = 10; // String | Product id
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
-String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
 String ids = 24,25; // String | Retrieves reviews specified by ids
 String storeId = 1; // String | Store Id
 String status = disabled; // String | Defines status
+String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {return_code,return_message,pagination,result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 try {
-    ModelResponseProductReviewList result = apiInstance.productReviewList(productId, start, pageCursor, count, ids, storeId, status, params, exclude, responseFields);
+    ModelResponseProductReviewList result = apiInstance.productReviewList(productId, start, count, pageCursor, ids, storeId, status, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productReviewList");
@@ -2020,14 +2020,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String**| Product id | [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
- **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]
  **ids** | **String**| Retrieves reviews specified by ids | [optional] [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
  **status** | **String**| Defines status | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
 
 ### Return type
 
@@ -2323,7 +2323,7 @@ Name | Type | Description  | Notes
 
 ## productVariantCount
 
-> ProductVariantCount200Response productVariantCount(productId, createdFrom, createdTo, modifiedFrom, modifiedTo, categoryId, storeId)
+> ProductVariantCount200Response productVariantCount(productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo)
 
 product.variant.count
 
@@ -2337,14 +2337,14 @@ Get count variants.
 
 ProductApi apiInstance = new ProductApi();
 String productId = 10; // String | Retrieves products' variants specified by product id
+String categoryId = 6; // String | Counts products’ variants specified by category id
+String storeId = 1; // String | Retrieves variants specified by store id
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-String categoryId = 6; // String | Counts products’ variants specified by category id
-String storeId = 1; // String | Retrieves variants specified by store id
 try {
-    ProductVariantCount200Response result = apiInstance.productVariantCount(productId, createdFrom, createdTo, modifiedFrom, modifiedTo, categoryId, storeId);
+    ProductVariantCount200Response result = apiInstance.productVariantCount(productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productVariantCount");
@@ -2358,12 +2358,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | **String**| Retrieves products&#39; variants specified by product id | [default to null]
+ **categoryId** | **String**| Counts products’ variants specified by category id | [optional] [default to null]
+ **storeId** | **String**| Retrieves variants specified by store id | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **categoryId** | **String**| Counts products’ variants specified by category id | [optional] [default to null]
- **storeId** | **String**| Retrieves variants specified by store id | [optional] [default to null]
 
 ### Return type
 
@@ -2575,7 +2575,7 @@ Name | Type | Description  | Notes
 
 ## productVariantInfo
 
-> ProductInfo200Response productVariantInfo(id, params, exclude, storeId)
+> ProductInfo200Response productVariantInfo(id, storeId, params, exclude)
 
 product.variant.info
 
@@ -2589,11 +2589,11 @@ Get variant info. This method is deprecated, and its development is stopped. Ple
 
 ProductApi apiInstance = new ProductApi();
 String id = 10; // String | Retrieves variant's info specified by variant id
+String storeId = 1; // String | Retrieves variant info specified by store id
 String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String storeId = 1; // String | Retrieves variant info specified by store id
 try {
-    ProductInfo200Response result = apiInstance.productVariantInfo(id, params, exclude, storeId);
+    ProductInfo200Response result = apiInstance.productVariantInfo(id, storeId, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productVariantInfo");
@@ -2607,9 +2607,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Retrieves variant&#39;s info specified by variant id | [default to null]
+ **storeId** | **String**| Retrieves variant info specified by store id | [optional] [default to null]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description,price]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **storeId** | **String**| Retrieves variant info specified by store id | [optional] [default to null]
 
 ### Return type
 
@@ -2627,7 +2627,7 @@ Name | Type | Description  | Notes
 
 ## productVariantList
 
-> ProductVariantList200Response productVariantList(start, count, params, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, categoryId, productId, storeId)
+> ProductVariantList200Response productVariantList(start, count, productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, params, exclude)
 
 product.variant.list
 
@@ -2642,17 +2642,17 @@ Get a list of variants. This method is deprecated, and its development is stoppe
 ProductApi apiInstance = new ProductApi();
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
+String productId = 10; // String | Retrieves products' variants specified by product id
+String categoryId = 6; // String | Retrieves products’ variants specified by category id
+String storeId = 1; // String | Retrieves variants specified by store id
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
 String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-String categoryId = 6; // String | Retrieves products’ variants specified by category id
-String productId = 10; // String | Retrieves products' variants specified by product id
-String storeId = 1; // String | Retrieves variants specified by store id
+String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
+String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ProductVariantList200Response result = apiInstance.productVariantList(start, count, params, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, categoryId, productId, storeId);
+    ProductVariantList200Response result = apiInstance.productVariantList(start, count, productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productVariantList");
@@ -2667,15 +2667,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description,price]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
+ **productId** | **String**| Retrieves products&#39; variants specified by product id | [optional] [default to null]
+ **categoryId** | **String**| Retrieves products’ variants specified by category id | [optional] [default to null]
+ **storeId** | **String**| Retrieves variants specified by store id | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
  **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **categoryId** | **String**| Retrieves products’ variants specified by category id | [optional] [default to null]
- **productId** | **String**| Retrieves products&#39; variants specified by product id | [optional] [default to null]
- **storeId** | **String**| Retrieves variants specified by store id | [optional] [default to null]
+ **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description,price]
+ **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
 
 ### Return type
 

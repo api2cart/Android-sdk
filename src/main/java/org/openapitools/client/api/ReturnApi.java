@@ -331,12 +331,12 @@ public class ReturnApi {
    * @param id Entity id
    * @param orderId Defines the order id
    * @param storeId Store Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @return ReturnInfo200Response
   */
-  public ReturnInfo200Response returnInfo (String id, String orderId, String storeId, String params, String exclude, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ReturnInfo200Response returnInfo (String id, String orderId, String storeId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -356,9 +356,9 @@ public class ReturnApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -401,9 +401,9 @@ public class ReturnApi {
       /**
    * return.info
    * Retrieve return information.
-   * @param id Entity id   * @param orderId Defines the order id   * @param storeId Store Id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param id Entity id   * @param orderId Defines the order id   * @param storeId Store Id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void returnInfo (String id, String orderId, String storeId, String params, String exclude, String responseFields, final Response.Listener<ReturnInfo200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void returnInfo (String id, String orderId, String storeId, String responseFields, String params, String exclude, final Response.Listener<ReturnInfo200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -425,9 +425,9 @@ public class ReturnApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
 
 
     String[] contentTypes = {
@@ -475,9 +475,6 @@ public class ReturnApi {
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param orderId Defines the order id
    * @param orderIds Retrieves return requests specified by order ids
    * @param customerId Retrieves return requests specified by customer id
@@ -488,11 +485,14 @@ public class ReturnApi {
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @return ModelResponseReturnList
   */
-  public ModelResponseReturnList returnList (Integer start, Integer count, String pageCursor, String params, String exclude, String responseFields, String orderId, String orderIds, String customerId, String storeId, String status, String returnType, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String reportRequestId, Boolean disableReportCache) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseReturnList returnList (Integer start, Integer count, String pageCursor, String orderId, String orderIds, String customerId, String storeId, String status, String returnType, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude, String reportRequestId, Boolean disableReportCache) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -507,9 +507,6 @@ public class ReturnApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
@@ -520,6 +517,9 @@ public class ReturnApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
     String[] contentTypes = {
@@ -564,9 +564,9 @@ public class ReturnApi {
       /**
    * return.list
    * Get list of return requests from store.
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param orderId Defines the order id   * @param orderIds Retrieves return requests specified by order ids   * @param customerId Retrieves return requests specified by customer id   * @param storeId Store Id   * @param status Defines status   * @param returnType Retrieves returns specified by return type   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param orderId Defines the order id   * @param orderIds Retrieves return requests specified by order ids   * @param customerId Retrieves return requests specified by customer id   * @param storeId Store Id   * @param status Defines status   * @param returnType Retrieves returns specified by return type   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request
   */
-  public void returnList (Integer start, Integer count, String pageCursor, String params, String exclude, String responseFields, String orderId, String orderIds, String customerId, String storeId, String status, String returnType, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String reportRequestId, Boolean disableReportCache, final Response.Listener<ModelResponseReturnList> responseListener, final Response.ErrorListener errorListener) {
+  public void returnList (Integer start, Integer count, String pageCursor, String orderId, String orderIds, String customerId, String storeId, String status, String returnType, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude, String reportRequestId, Boolean disableReportCache, final Response.Listener<ModelResponseReturnList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -583,9 +583,6 @@ public class ReturnApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_id", orderId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "order_ids", orderIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
@@ -596,6 +593,9 @@ public class ReturnApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
 

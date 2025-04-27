@@ -58,23 +58,23 @@ public class MarketplaceApi {
   /**
   * marketplace.product.find
   * Search product in global catalog.
-   * @param storeId Store Id
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
-   * @param categoriesIds Defines product add that is specified by comma-separated categories id
    * @param keyword Defines search keyword
+   * @param categoriesIds Defines product add that is specified by comma-separated categories id
+   * @param storeId Store Id
    * @param asin Amazon Standard Identification Number.
    * @param ean European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.
    * @param gtin Global Trade Item Number. An GTIN is an identifier for trade items.
    * @param upc Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
    * @param mpn Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
    * @param isbn International Standard Book Number. An ISBN is a unique identifier for books.
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @return ModelResponseMarketplaceProductFind
   */
-  public ModelResponseMarketplaceProductFind marketplaceProductFind (String storeId, Integer count, String pageCursor, String categoriesIds, String keyword, String asin, String ean, String gtin, String upc, String mpn, String isbn, String params, String exclude, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseMarketplaceProductFind marketplaceProductFind (Integer count, String pageCursor, String keyword, String categoriesIds, String storeId, String asin, String ean, String gtin, String upc, String mpn, String isbn, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -86,20 +86,20 @@ public class MarketplaceApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "keyword", keyword));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "asin", asin));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ean", ean));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "gtin", gtin));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "upc", upc));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "mpn", mpn));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "isbn", isbn));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -142,9 +142,9 @@ public class MarketplaceApi {
       /**
    * marketplace.product.find
    * Search product in global catalog.
-   * @param storeId Store Id   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param categoriesIds Defines product add that is specified by comma-separated categories id   * @param keyword Defines search keyword   * @param asin Amazon Standard Identification Number.   * @param ean European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.   * @param gtin Global Trade Item Number. An GTIN is an identifier for trade items.   * @param upc Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.   * @param mpn Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.   * @param isbn International Standard Book Number. An ISBN is a unique identifier for books.   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param keyword Defines search keyword   * @param categoriesIds Defines product add that is specified by comma-separated categories id   * @param storeId Store Id   * @param asin Amazon Standard Identification Number.   * @param ean European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.   * @param gtin Global Trade Item Number. An GTIN is an identifier for trade items.   * @param upc Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.   * @param mpn Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.   * @param isbn International Standard Book Number. An ISBN is a unique identifier for books.   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void marketplaceProductFind (String storeId, Integer count, String pageCursor, String categoriesIds, String keyword, String asin, String ean, String gtin, String upc, String mpn, String isbn, String params, String exclude, String responseFields, final Response.Listener<ModelResponseMarketplaceProductFind> responseListener, final Response.ErrorListener errorListener) {
+  public void marketplaceProductFind (Integer count, String pageCursor, String keyword, String categoriesIds, String storeId, String asin, String ean, String gtin, String upc, String mpn, String isbn, String responseFields, String params, String exclude, final Response.Listener<ModelResponseMarketplaceProductFind> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -158,20 +158,20 @@ public class MarketplaceApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "keyword", keyword));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "asin", asin));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ean", ean));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "gtin", gtin));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "upc", upc));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "mpn", mpn));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "isbn", isbn));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
 
 
     String[] contentTypes = {

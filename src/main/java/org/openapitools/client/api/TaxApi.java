@@ -62,12 +62,12 @@ public class TaxApi {
    * @param taxClassId Retrieves taxes specified by class id
    * @param storeId Store Id
    * @param langId Language id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseTaxClassInfo
   */
-  public ModelResponseTaxClassInfo taxClassInfo (String taxClassId, String storeId, String langId, String params, String responseFields, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseTaxClassInfo taxClassInfo (String taxClassId, String storeId, String langId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'taxClassId' is set
     if (taxClassId == null) {
@@ -87,8 +87,8 @@ public class TaxApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "tax_class_id", taxClassId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
@@ -132,9 +132,9 @@ public class TaxApi {
       /**
    * tax.class.info
    * Use this method to get information about a tax class and its rates. It allows you to calculate the tax percentage for a specific customer&#39;s address. This information contains relatively static data that rarely changes, so API2Cart may cache certain data to reduce the load on the store and speed up request execution. We also recommend that you cache the response of this method on your side to save requests. If you need to clear the cache for a specific store, use the cart.validate method.
-   * @param taxClassId Retrieves taxes specified by class id   * @param storeId Store Id   * @param langId Language id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param taxClassId Retrieves taxes specified by class id   * @param storeId Store Id   * @param langId Language id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void taxClassInfo (String taxClassId, String storeId, String langId, String params, String responseFields, String exclude, final Response.Listener<ModelResponseTaxClassInfo> responseListener, final Response.ErrorListener errorListener) {
+  public void taxClassInfo (String taxClassId, String storeId, String langId, String responseFields, String params, String exclude, final Response.Listener<ModelResponseTaxClassInfo> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'taxClassId' is set
@@ -156,8 +156,8 @@ public class TaxApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "tax_class_id", taxClassId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
@@ -203,19 +203,19 @@ public class TaxApi {
   /**
   * tax.class.list
   * Get list of tax classes from your store.
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
+   * @param storeId Store Id
+   * @param findValue Entity search that is specified by some value
+   * @param findWhere Tax class search that is specified by field
    * @param createdTo Retrieve entities to their creation date
    * @param createdFrom Retrieve entities from their creation date
    * @param modifiedTo Retrieve entities to their modification date
    * @param modifiedFrom Retrieve entities from their modification date
-   * @param findValue Entity search that is specified by some value
-   * @param findWhere Tax class search that is specified by field
-   * @param storeId Store Id
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @return ModelResponseTaxClassList
   */
-  public ModelResponseTaxClassList taxClassList (String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String findValue, String findWhere, String storeId, Integer count, String pageCursor, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseTaxClassList taxClassList (Integer count, String pageCursor, String storeId, String findValue, String findWhere, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -227,15 +227,15 @@ public class TaxApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     String[] contentTypes = {
     };
@@ -279,9 +279,9 @@ public class TaxApi {
       /**
    * tax.class.list
    * Get list of tax classes from your store.
-   * @param createdTo Retrieve entities to their creation date   * @param createdFrom Retrieve entities from their creation date   * @param modifiedTo Retrieve entities to their modification date   * @param modifiedFrom Retrieve entities from their modification date   * @param findValue Entity search that is specified by some value   * @param findWhere Tax class search that is specified by field   * @param storeId Store Id   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param storeId Store Id   * @param findValue Entity search that is specified by some value   * @param findWhere Tax class search that is specified by field   * @param createdTo Retrieve entities to their creation date   * @param createdFrom Retrieve entities from their creation date   * @param modifiedTo Retrieve entities to their modification date   * @param modifiedFrom Retrieve entities from their modification date   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
   */
-  public void taxClassList (String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String findValue, String findWhere, String storeId, Integer count, String pageCursor, String responseFields, final Response.Listener<ModelResponseTaxClassList> responseListener, final Response.ErrorListener errorListener) {
+  public void taxClassList (Integer count, String pageCursor, String storeId, String findValue, String findWhere, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String responseFields, final Response.Listener<ModelResponseTaxClassList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -295,15 +295,15 @@ public class TaxApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
 
 

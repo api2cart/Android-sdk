@@ -18,25 +18,15 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class ProductImageAdd {
   
-  @SerializedName("product_id")
-  private String productId = null;
-  @SerializedName("image_name")
-  private String imageName = null;
   public enum TypeEnum {
      small,  base,  additional,  thumbnail, 
   };
   @SerializedName("type")
   private TypeEnum type = null;
-  @SerializedName("url")
-  private String url = null;
-  @SerializedName("label")
-  private String label = null;
-  @SerializedName("mime")
-  private String mime = null;
-  @SerializedName("position")
-  private Integer position = 0;
-  @SerializedName("content")
-  private String content = null;
+  @SerializedName("image_name")
+  private String imageName = null;
+  @SerializedName("product_id")
+  private String productId = null;
   @SerializedName("product_variant_id")
   private String productVariantId = null;
   @SerializedName("variant_ids")
@@ -47,18 +37,28 @@ public class ProductImageAdd {
   private String storeId = null;
   @SerializedName("lang_id")
   private String langId = null;
+  @SerializedName("url")
+  private String url = null;
+  @SerializedName("content")
+  private String content = null;
+  @SerializedName("label")
+  private String label = null;
+  @SerializedName("mime")
+  private String mime = null;
+  @SerializedName("position")
+  private Integer position = 0;
   @SerializedName("use_latest_api_version")
   private Boolean useLatestApiVersion = false;
 
   /**
-   * Defines product id where the image should be added
+   * Defines image's types that are specified by comma-separated list
    **/
-  @ApiModelProperty(value = "Defines product id where the image should be added")
-  public String getProductId() {
-    return productId;
+  @ApiModelProperty(required = true, value = "Defines image's types that are specified by comma-separated list")
+  public TypeEnum getType() {
+    return type;
   }
-  public void setProductId(String productId) {
-    this.productId = productId;
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
   /**
@@ -73,69 +73,14 @@ public class ProductImageAdd {
   }
 
   /**
-   * Defines image's types that are specified by comma-separated list
+   * Defines product id where the image should be added
    **/
-  @ApiModelProperty(required = true, value = "Defines image's types that are specified by comma-separated list")
-  public TypeEnum getType() {
-    return type;
+  @ApiModelProperty(value = "Defines product id where the image should be added")
+  public String getProductId() {
+    return productId;
   }
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-  /**
-   * Defines URL of the image that has to be added
-   **/
-  @ApiModelProperty(value = "Defines URL of the image that has to be added")
-  public String getUrl() {
-    return url;
-  }
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  /**
-   * Defines alternative text that has to be attached to the picture
-   **/
-  @ApiModelProperty(value = "Defines alternative text that has to be attached to the picture")
-  public String getLabel() {
-    return label;
-  }
-  public void setLabel(String label) {
-    this.label = label;
-  }
-
-  /**
-   * Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
-   **/
-  @ApiModelProperty(value = "Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.")
-  public String getMime() {
-    return mime;
-  }
-  public void setMime(String mime) {
-    this.mime = mime;
-  }
-
-  /**
-   * Defines image’s position in the list
-   **/
-  @ApiModelProperty(value = "Defines image’s position in the list")
-  public Integer getPosition() {
-    return position;
-  }
-  public void setPosition(Integer position) {
-    this.position = position;
-  }
-
-  /**
-   * Content(body) encoded in base64 of image file
-   **/
-  @ApiModelProperty(value = "Content(body) encoded in base64 of image file")
-  public String getContent() {
-    return content;
-  }
-  public void setContent(String content) {
-    this.content = content;
+  public void setProductId(String productId) {
+    this.productId = productId;
   }
 
   /**
@@ -194,6 +139,61 @@ public class ProductImageAdd {
   }
 
   /**
+   * Defines URL of the image that has to be added
+   **/
+  @ApiModelProperty(value = "Defines URL of the image that has to be added")
+  public String getUrl() {
+    return url;
+  }
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  /**
+   * Content(body) encoded in base64 of image file
+   **/
+  @ApiModelProperty(value = "Content(body) encoded in base64 of image file")
+  public String getContent() {
+    return content;
+  }
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  /**
+   * Defines alternative text that has to be attached to the picture
+   **/
+  @ApiModelProperty(value = "Defines alternative text that has to be attached to the picture")
+  public String getLabel() {
+    return label;
+  }
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+  /**
+   * Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
+   **/
+  @ApiModelProperty(value = "Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.")
+  public String getMime() {
+    return mime;
+  }
+  public void setMime(String mime) {
+    this.mime = mime;
+  }
+
+  /**
+   * Defines image’s position in the list
+   **/
+  @ApiModelProperty(value = "Defines image’s position in the list")
+  public Integer getPosition() {
+    return position;
+  }
+  public void setPosition(Integer position) {
+    this.position = position;
+  }
+
+  /**
    * Use the latest platform API version
    **/
   @ApiModelProperty(value = "Use the latest platform API version")
@@ -214,38 +214,38 @@ public class ProductImageAdd {
       return false;
     }
     ProductImageAdd productImageAdd = (ProductImageAdd) o;
-    return (this.productId == null ? productImageAdd.productId == null : this.productId.equals(productImageAdd.productId)) &&
+    return (this.type == null ? productImageAdd.type == null : this.type.equals(productImageAdd.type)) &&
         (this.imageName == null ? productImageAdd.imageName == null : this.imageName.equals(productImageAdd.imageName)) &&
-        (this.type == null ? productImageAdd.type == null : this.type.equals(productImageAdd.type)) &&
-        (this.url == null ? productImageAdd.url == null : this.url.equals(productImageAdd.url)) &&
-        (this.label == null ? productImageAdd.label == null : this.label.equals(productImageAdd.label)) &&
-        (this.mime == null ? productImageAdd.mime == null : this.mime.equals(productImageAdd.mime)) &&
-        (this.position == null ? productImageAdd.position == null : this.position.equals(productImageAdd.position)) &&
-        (this.content == null ? productImageAdd.content == null : this.content.equals(productImageAdd.content)) &&
+        (this.productId == null ? productImageAdd.productId == null : this.productId.equals(productImageAdd.productId)) &&
         (this.productVariantId == null ? productImageAdd.productVariantId == null : this.productVariantId.equals(productImageAdd.productVariantId)) &&
         (this.variantIds == null ? productImageAdd.variantIds == null : this.variantIds.equals(productImageAdd.variantIds)) &&
         (this.optionValueIds == null ? productImageAdd.optionValueIds == null : this.optionValueIds.equals(productImageAdd.optionValueIds)) &&
         (this.storeId == null ? productImageAdd.storeId == null : this.storeId.equals(productImageAdd.storeId)) &&
         (this.langId == null ? productImageAdd.langId == null : this.langId.equals(productImageAdd.langId)) &&
+        (this.url == null ? productImageAdd.url == null : this.url.equals(productImageAdd.url)) &&
+        (this.content == null ? productImageAdd.content == null : this.content.equals(productImageAdd.content)) &&
+        (this.label == null ? productImageAdd.label == null : this.label.equals(productImageAdd.label)) &&
+        (this.mime == null ? productImageAdd.mime == null : this.mime.equals(productImageAdd.mime)) &&
+        (this.position == null ? productImageAdd.position == null : this.position.equals(productImageAdd.position)) &&
         (this.useLatestApiVersion == null ? productImageAdd.useLatestApiVersion == null : this.useLatestApiVersion.equals(productImageAdd.useLatestApiVersion));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.productId == null ? 0: this.productId.hashCode());
-    result = 31 * result + (this.imageName == null ? 0: this.imageName.hashCode());
     result = 31 * result + (this.type == null ? 0: this.type.hashCode());
-    result = 31 * result + (this.url == null ? 0: this.url.hashCode());
-    result = 31 * result + (this.label == null ? 0: this.label.hashCode());
-    result = 31 * result + (this.mime == null ? 0: this.mime.hashCode());
-    result = 31 * result + (this.position == null ? 0: this.position.hashCode());
-    result = 31 * result + (this.content == null ? 0: this.content.hashCode());
+    result = 31 * result + (this.imageName == null ? 0: this.imageName.hashCode());
+    result = 31 * result + (this.productId == null ? 0: this.productId.hashCode());
     result = 31 * result + (this.productVariantId == null ? 0: this.productVariantId.hashCode());
     result = 31 * result + (this.variantIds == null ? 0: this.variantIds.hashCode());
     result = 31 * result + (this.optionValueIds == null ? 0: this.optionValueIds.hashCode());
     result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.langId == null ? 0: this.langId.hashCode());
+    result = 31 * result + (this.url == null ? 0: this.url.hashCode());
+    result = 31 * result + (this.content == null ? 0: this.content.hashCode());
+    result = 31 * result + (this.label == null ? 0: this.label.hashCode());
+    result = 31 * result + (this.mime == null ? 0: this.mime.hashCode());
+    result = 31 * result + (this.position == null ? 0: this.position.hashCode());
     result = 31 * result + (this.useLatestApiVersion == null ? 0: this.useLatestApiVersion.hashCode());
     return result;
   }
@@ -255,19 +255,19 @@ public class ProductImageAdd {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProductImageAdd {\n");
     
-    sb.append("  productId: ").append(productId).append("\n");
-    sb.append("  imageName: ").append(imageName).append("\n");
     sb.append("  type: ").append(type).append("\n");
-    sb.append("  url: ").append(url).append("\n");
-    sb.append("  label: ").append(label).append("\n");
-    sb.append("  mime: ").append(mime).append("\n");
-    sb.append("  position: ").append(position).append("\n");
-    sb.append("  content: ").append(content).append("\n");
+    sb.append("  imageName: ").append(imageName).append("\n");
+    sb.append("  productId: ").append(productId).append("\n");
     sb.append("  productVariantId: ").append(productVariantId).append("\n");
     sb.append("  variantIds: ").append(variantIds).append("\n");
     sb.append("  optionValueIds: ").append(optionValueIds).append("\n");
     sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  langId: ").append(langId).append("\n");
+    sb.append("  url: ").append(url).append("\n");
+    sb.append("  content: ").append(content).append("\n");
+    sb.append("  label: ").append(label).append("\n");
+    sb.append("  mime: ").append(mime).append("\n");
+    sb.append("  position: ").append(position).append("\n");
     sb.append("  useLatestApiVersion: ").append(useLatestApiVersion).append("\n");
     sb.append("}\n");
     return sb.toString();

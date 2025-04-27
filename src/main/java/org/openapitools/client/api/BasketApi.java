@@ -65,12 +65,12 @@ public class BasketApi {
   * Retrieve basket information.
    * @param id Entity id
    * @param storeId Store Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @return BasketInfo200Response
   */
-  public BasketInfo200Response basketInfo (String id, String storeId, String params, String exclude, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BasketInfo200Response basketInfo (String id, String storeId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -89,9 +89,9 @@ public class BasketApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -134,9 +134,9 @@ public class BasketApi {
       /**
    * basket.info
    * Retrieve basket information.
-   * @param id Entity id   * @param storeId Store Id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param id Entity id   * @param storeId Store Id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void basketInfo (String id, String storeId, String params, String exclude, String responseFields, final Response.Listener<BasketInfo200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void basketInfo (String id, String storeId, String responseFields, String params, String exclude, final Response.Listener<BasketInfo200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -157,9 +157,9 @@ public class BasketApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
 
 
     String[] contentTypes = {
@@ -382,9 +382,9 @@ public class BasketApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "name", name));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "callback", callback));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -453,9 +453,9 @@ public class BasketApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "name", name));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "callback", callback));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
 
 
     String[] contentTypes = {
@@ -629,12 +629,12 @@ public class BasketApi {
   /**
   * basket.live_shipping_service.list
   * Retrieve a list of live shipping rate services.
-   * @param storeId Store Id
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param storeId Store Id
    * @return BasketLiveShippingServiceList200Response
   */
-  public BasketLiveShippingServiceList200Response basketLiveShippingServiceList (String storeId, Integer start, Integer count) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BasketLiveShippingServiceList200Response basketLiveShippingServiceList (Integer start, Integer count, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -646,9 +646,9 @@ public class BasketApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -691,9 +691,9 @@ public class BasketApi {
       /**
    * basket.live_shipping_service.list
    * Retrieve a list of live shipping rate services.
-   * @param storeId Store Id   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param storeId Store Id
   */
-  public void basketLiveShippingServiceList (String storeId, Integer start, Integer count, final Response.Listener<BasketLiveShippingServiceList200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void basketLiveShippingServiceList (Integer start, Integer count, String storeId, final Response.Listener<BasketLiveShippingServiceList200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -707,9 +707,9 @@ public class BasketApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
 
 
     String[] contentTypes = {

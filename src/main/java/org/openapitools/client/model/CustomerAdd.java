@@ -33,6 +33,8 @@ public class CustomerAdd {
   private String group = null;
   @SerializedName("group_ids")
   private String groupIds = null;
+  @SerializedName("status")
+  private String status = enabled;
   @SerializedName("created_time")
   private String createdTime = null;
   @SerializedName("modified_time")
@@ -43,18 +45,14 @@ public class CustomerAdd {
   private String lastLogin = null;
   @SerializedName("birth_day")
   private String birthDay = null;
-  @SerializedName("status")
-  private String status = enabled;
   @SerializedName("news_letter_subscription")
-  private Boolean newsLetterSubscription = false;
+  private Boolean newsLetterSubscription = null;
   @SerializedName("consents")
   private List<CustomerAddConsentsInner> consents = null;
   @SerializedName("gender")
   private String gender = null;
   @SerializedName("website")
   private String website = null;
-  @SerializedName("store_id")
-  private String storeId = null;
   @SerializedName("fax")
   private String fax = null;
   @SerializedName("company")
@@ -65,6 +63,8 @@ public class CustomerAdd {
   private String note = null;
   @SerializedName("country")
   private String country = null;
+  @SerializedName("store_id")
+  private String storeId = null;
   @SerializedName("address")
   private List<CustomerAddAddressInner> address = null;
 
@@ -82,7 +82,7 @@ public class CustomerAdd {
   /**
    * Defines customer's first name
    **/
-  @ApiModelProperty(required = true, value = "Defines customer's first name")
+  @ApiModelProperty(value = "Defines customer's first name")
   public String getFirstName() {
     return firstName;
   }
@@ -93,7 +93,7 @@ public class CustomerAdd {
   /**
    * Defines customer's last name
    **/
-  @ApiModelProperty(required = true, value = "Defines customer's last name")
+  @ApiModelProperty(value = "Defines customer's last name")
   public String getLastName() {
     return lastName;
   }
@@ -132,6 +132,17 @@ public class CustomerAdd {
   }
   public void setGroupIds(String groupIds) {
     this.groupIds = groupIds;
+  }
+
+  /**
+   * Defines customer's status
+   **/
+  @ApiModelProperty(value = "Defines customer's status")
+  public String getStatus() {
+    return status;
+  }
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   /**
@@ -190,17 +201,6 @@ public class CustomerAdd {
   }
 
   /**
-   * Defines customer's status
-   **/
-  @ApiModelProperty(value = "Defines customer's status")
-  public String getStatus() {
-    return status;
-  }
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  /**
    * Defines whether the newsletter subscription is available for the user
    **/
   @ApiModelProperty(value = "Defines whether the newsletter subscription is available for the user")
@@ -242,17 +242,6 @@ public class CustomerAdd {
   }
   public void setWebsite(String website) {
     this.website = website;
-  }
-
-  /**
-   * Store Id
-   **/
-  @ApiModelProperty(value = "Store Id")
-  public String getStoreId() {
-    return storeId;
-  }
-  public void setStoreId(String storeId) {
-    this.storeId = storeId;
   }
 
   /**
@@ -311,6 +300,17 @@ public class CustomerAdd {
   }
 
   /**
+   * Store Id
+   **/
+  @ApiModelProperty(value = "Store Id")
+  public String getStoreId() {
+    return storeId;
+  }
+  public void setStoreId(String storeId) {
+    this.storeId = storeId;
+  }
+
+  /**
    **/
   @ApiModelProperty(value = "")
   public List<CustomerAddAddressInner> getAddress() {
@@ -336,22 +336,22 @@ public class CustomerAdd {
         (this.password == null ? customerAdd.password == null : this.password.equals(customerAdd.password)) &&
         (this.group == null ? customerAdd.group == null : this.group.equals(customerAdd.group)) &&
         (this.groupIds == null ? customerAdd.groupIds == null : this.groupIds.equals(customerAdd.groupIds)) &&
+        (this.status == null ? customerAdd.status == null : this.status.equals(customerAdd.status)) &&
         (this.createdTime == null ? customerAdd.createdTime == null : this.createdTime.equals(customerAdd.createdTime)) &&
         (this.modifiedTime == null ? customerAdd.modifiedTime == null : this.modifiedTime.equals(customerAdd.modifiedTime)) &&
         (this.login == null ? customerAdd.login == null : this.login.equals(customerAdd.login)) &&
         (this.lastLogin == null ? customerAdd.lastLogin == null : this.lastLogin.equals(customerAdd.lastLogin)) &&
         (this.birthDay == null ? customerAdd.birthDay == null : this.birthDay.equals(customerAdd.birthDay)) &&
-        (this.status == null ? customerAdd.status == null : this.status.equals(customerAdd.status)) &&
         (this.newsLetterSubscription == null ? customerAdd.newsLetterSubscription == null : this.newsLetterSubscription.equals(customerAdd.newsLetterSubscription)) &&
         (this.consents == null ? customerAdd.consents == null : this.consents.equals(customerAdd.consents)) &&
         (this.gender == null ? customerAdd.gender == null : this.gender.equals(customerAdd.gender)) &&
         (this.website == null ? customerAdd.website == null : this.website.equals(customerAdd.website)) &&
-        (this.storeId == null ? customerAdd.storeId == null : this.storeId.equals(customerAdd.storeId)) &&
         (this.fax == null ? customerAdd.fax == null : this.fax.equals(customerAdd.fax)) &&
         (this.company == null ? customerAdd.company == null : this.company.equals(customerAdd.company)) &&
         (this.phone == null ? customerAdd.phone == null : this.phone.equals(customerAdd.phone)) &&
         (this.note == null ? customerAdd.note == null : this.note.equals(customerAdd.note)) &&
         (this.country == null ? customerAdd.country == null : this.country.equals(customerAdd.country)) &&
+        (this.storeId == null ? customerAdd.storeId == null : this.storeId.equals(customerAdd.storeId)) &&
         (this.address == null ? customerAdd.address == null : this.address.equals(customerAdd.address));
   }
 
@@ -364,22 +364,22 @@ public class CustomerAdd {
     result = 31 * result + (this.password == null ? 0: this.password.hashCode());
     result = 31 * result + (this.group == null ? 0: this.group.hashCode());
     result = 31 * result + (this.groupIds == null ? 0: this.groupIds.hashCode());
+    result = 31 * result + (this.status == null ? 0: this.status.hashCode());
     result = 31 * result + (this.createdTime == null ? 0: this.createdTime.hashCode());
     result = 31 * result + (this.modifiedTime == null ? 0: this.modifiedTime.hashCode());
     result = 31 * result + (this.login == null ? 0: this.login.hashCode());
     result = 31 * result + (this.lastLogin == null ? 0: this.lastLogin.hashCode());
     result = 31 * result + (this.birthDay == null ? 0: this.birthDay.hashCode());
-    result = 31 * result + (this.status == null ? 0: this.status.hashCode());
     result = 31 * result + (this.newsLetterSubscription == null ? 0: this.newsLetterSubscription.hashCode());
     result = 31 * result + (this.consents == null ? 0: this.consents.hashCode());
     result = 31 * result + (this.gender == null ? 0: this.gender.hashCode());
     result = 31 * result + (this.website == null ? 0: this.website.hashCode());
-    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.fax == null ? 0: this.fax.hashCode());
     result = 31 * result + (this.company == null ? 0: this.company.hashCode());
     result = 31 * result + (this.phone == null ? 0: this.phone.hashCode());
     result = 31 * result + (this.note == null ? 0: this.note.hashCode());
     result = 31 * result + (this.country == null ? 0: this.country.hashCode());
+    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.address == null ? 0: this.address.hashCode());
     return result;
   }
@@ -395,22 +395,22 @@ public class CustomerAdd {
     sb.append("  password: ").append(password).append("\n");
     sb.append("  group: ").append(group).append("\n");
     sb.append("  groupIds: ").append(groupIds).append("\n");
+    sb.append("  status: ").append(status).append("\n");
     sb.append("  createdTime: ").append(createdTime).append("\n");
     sb.append("  modifiedTime: ").append(modifiedTime).append("\n");
     sb.append("  login: ").append(login).append("\n");
     sb.append("  lastLogin: ").append(lastLogin).append("\n");
     sb.append("  birthDay: ").append(birthDay).append("\n");
-    sb.append("  status: ").append(status).append("\n");
     sb.append("  newsLetterSubscription: ").append(newsLetterSubscription).append("\n");
     sb.append("  consents: ").append(consents).append("\n");
     sb.append("  gender: ").append(gender).append("\n");
     sb.append("  website: ").append(website).append("\n");
-    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  fax: ").append(fax).append("\n");
     sb.append("  company: ").append(company).append("\n");
     sb.append("  phone: ").append(phone).append("\n");
     sb.append("  note: ").append(note).append("\n");
     sb.append("  country: ").append(country).append("\n");
+    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  address: ").append(address).append("\n");
     sb.append("}\n");
     return sb.toString();

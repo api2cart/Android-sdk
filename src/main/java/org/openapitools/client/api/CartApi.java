@@ -320,16 +320,16 @@ public class CartApi {
   /**
   * cart.catalog_price_rules.list
   * Get cart catalog price rules discounts.
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param ids Retrieves  catalog_price_rules by ids
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseCartCatalogPriceRulesList
   */
-  public ModelResponseCartCatalogPriceRulesList cartCatalogPriceRulesList (String pageCursor, Integer start, Integer count, String ids, String params, String responseFields, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCartCatalogPriceRulesList cartCatalogPriceRulesList (Integer start, Integer count, String pageCursor, String ids, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -341,12 +341,12 @@ public class CartApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
@@ -390,9 +390,9 @@ public class CartApi {
       /**
    * cart.catalog_price_rules.list
    * Get cart catalog price rules discounts.
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param ids Retrieves  catalog_price_rules by ids   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param ids Retrieves  catalog_price_rules by ids   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void cartCatalogPriceRulesList (String pageCursor, Integer start, Integer count, String ids, String params, String responseFields, String exclude, final Response.Listener<ModelResponseCartCatalogPriceRulesList> responseListener, final Response.ErrorListener errorListener) {
+  public void cartCatalogPriceRulesList (Integer start, Integer count, String pageCursor, String ids, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCartCatalogPriceRulesList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -406,12 +406,12 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
@@ -969,13 +969,13 @@ public class CartApi {
    * @param key Defines condition entity attribute key
    * @param operator Defines condition operator
    * @param value Defines condition value, can be comma separated according to the operator.
-   * @param storeId Store Id
    * @param target Defines condition operator
    * @param includeTax Indicates whether to apply a discount for taxes.
    * @param includeShipping Indicates whether to apply a discount for shipping.
+   * @param storeId Store Id
    * @return BasketLiveShippingServiceDelete200Response
   */
-  public BasketLiveShippingServiceDelete200Response cartCouponConditionAdd (String couponId, String entity, String key, String operator, String value, String storeId, String target, Boolean includeTax, Boolean includeShipping) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BasketLiveShippingServiceDelete200Response cartCouponConditionAdd (String couponId, String entity, String key, String operator, String value, String target, Boolean includeTax, Boolean includeShipping, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'couponId' is set
     if (couponId == null) {
@@ -1012,15 +1012,15 @@ public class CartApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "coupon_id", couponId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "target", target));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "key", key));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "operator", operator));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "value", value));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "target", target));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "include_tax", includeTax));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "include_shipping", includeShipping));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1063,9 +1063,9 @@ public class CartApi {
       /**
    * cart.coupon.condition.add
    * Use this method to add additional conditions for coupon application.
-   * @param couponId Coupon Id   * @param entity Defines condition entity type   * @param key Defines condition entity attribute key   * @param operator Defines condition operator   * @param value Defines condition value, can be comma separated according to the operator.   * @param storeId Store Id   * @param target Defines condition operator   * @param includeTax Indicates whether to apply a discount for taxes.   * @param includeShipping Indicates whether to apply a discount for shipping.
+   * @param couponId Coupon Id   * @param entity Defines condition entity type   * @param key Defines condition entity attribute key   * @param operator Defines condition operator   * @param value Defines condition value, can be comma separated according to the operator.   * @param target Defines condition operator   * @param includeTax Indicates whether to apply a discount for taxes.   * @param includeShipping Indicates whether to apply a discount for shipping.   * @param storeId Store Id
   */
-  public void cartCouponConditionAdd (String couponId, String entity, String key, String operator, String value, String storeId, String target, Boolean includeTax, Boolean includeShipping, final Response.Listener<BasketLiveShippingServiceDelete200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void cartCouponConditionAdd (String couponId, String entity, String key, String operator, String value, String target, Boolean includeTax, Boolean includeShipping, String storeId, final Response.Listener<BasketLiveShippingServiceDelete200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'couponId' is set
@@ -1104,15 +1104,15 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "coupon_id", couponId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "target", target));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "key", key));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "operator", operator));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "value", value));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "target", target));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "include_tax", includeTax));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "include_shipping", includeShipping));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
 
 
     String[] contentTypes = {
@@ -1158,14 +1158,14 @@ public class CartApi {
   * cart.coupon.count
   * This method allows you to get the number of coupons. On some platforms, you can filter the coupons by the date they were active.
    * @param storeId Store Id
+   * @param avail Defines category&#39;s visibility status
    * @param dateStartFrom Filter entity by date_start (greater or equal)
    * @param dateStartTo Filter entity by date_start (less or equal)
    * @param dateEndFrom Filter entity by date_end (greater or equal)
    * @param dateEndTo Filter entity by date_end (less or equal)
-   * @param avail Defines category&#39;s visibility status
    * @return CartCouponCount200Response
   */
-  public CartCouponCount200Response cartCouponCount (String storeId, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo, Boolean avail) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CartCouponCount200Response cartCouponCount (String storeId, Boolean avail, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1178,11 +1178,11 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_from", dateStartFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_to", dateStartTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_end_from", dateEndFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_end_to", dateEndTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1225,9 +1225,9 @@ public class CartApi {
       /**
    * cart.coupon.count
    * This method allows you to get the number of coupons. On some platforms, you can filter the coupons by the date they were active.
-   * @param storeId Store Id   * @param dateStartFrom Filter entity by date_start (greater or equal)   * @param dateStartTo Filter entity by date_start (less or equal)   * @param dateEndFrom Filter entity by date_end (greater or equal)   * @param dateEndTo Filter entity by date_end (less or equal)   * @param avail Defines category&#39;s visibility status
+   * @param storeId Store Id   * @param avail Defines category&#39;s visibility status   * @param dateStartFrom Filter entity by date_start (greater or equal)   * @param dateStartTo Filter entity by date_start (less or equal)   * @param dateEndFrom Filter entity by date_end (greater or equal)   * @param dateEndTo Filter entity by date_end (less or equal)
   */
-  public void cartCouponCount (String storeId, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo, Boolean avail, final Response.Listener<CartCouponCount200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void cartCouponCount (String storeId, Boolean avail, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo, final Response.Listener<CartCouponCount200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1242,11 +1242,11 @@ public class CartApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_from", dateStartFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_to", dateStartTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_end_from", dateEndFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_end_to", dateEndTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
 
 
     String[] contentTypes = {
@@ -1423,23 +1423,23 @@ public class CartApi {
   /**
   * cart.coupon.list
   * Get cart coupon discounts.
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param couponsIds Filter coupons by ids
    * @param storeId Filter coupons by store id
+   * @param langId Language id
+   * @param avail Filter coupons by avail status
    * @param dateStartFrom Filter entity by date_start (greater or equal)
    * @param dateStartTo Filter entity by date_start (less or equal)
    * @param dateEndFrom Filter entity by date_end (greater or equal)
    * @param dateEndTo Filter entity by date_end (less or equal)
-   * @param avail Filter coupons by avail status
-   * @param langId Language id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseCartCouponList
   */
-  public ModelResponseCartCouponList cartCouponList (String pageCursor, Integer start, Integer count, String couponsIds, String storeId, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo, Boolean avail, String langId, String params, String responseFields, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCartCouponList cartCouponList (Integer start, Integer count, String pageCursor, String couponsIds, String storeId, String langId, Boolean avail, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1451,19 +1451,19 @@ public class CartApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "coupons_ids", couponsIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_from", dateStartFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_to", dateStartTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_end_from", dateEndFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_end_to", dateEndTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
@@ -1507,9 +1507,9 @@ public class CartApi {
       /**
    * cart.coupon.list
    * Get cart coupon discounts.
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param couponsIds Filter coupons by ids   * @param storeId Filter coupons by store id   * @param dateStartFrom Filter entity by date_start (greater or equal)   * @param dateStartTo Filter entity by date_start (less or equal)   * @param dateEndFrom Filter entity by date_end (greater or equal)   * @param dateEndTo Filter entity by date_end (less or equal)   * @param avail Filter coupons by avail status   * @param langId Language id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param couponsIds Filter coupons by ids   * @param storeId Filter coupons by store id   * @param langId Language id   * @param avail Filter coupons by avail status   * @param dateStartFrom Filter entity by date_start (greater or equal)   * @param dateStartTo Filter entity by date_start (less or equal)   * @param dateEndFrom Filter entity by date_end (greater or equal)   * @param dateEndTo Filter entity by date_end (less or equal)   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void cartCouponList (String pageCursor, Integer start, Integer count, String couponsIds, String storeId, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo, Boolean avail, String langId, String params, String responseFields, String exclude, final Response.Listener<ModelResponseCartCouponList> responseListener, final Response.ErrorListener errorListener) {
+  public void cartCouponList (Integer start, Integer count, String pageCursor, String couponsIds, String storeId, String langId, Boolean avail, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCartCouponList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1523,19 +1523,19 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "coupons_ids", couponsIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_from", dateStartFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_to", dateStartTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_end_from", dateEndFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_end_to", dateEndTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
@@ -2339,16 +2339,16 @@ public class CartApi {
   /**
   * cart.giftcard.list
   * Get gift cards list.
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param storeId Store Id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseCartGiftCardList
   */
-  public ModelResponseCartGiftCardList cartGiftcardList (String pageCursor, Integer start, Integer count, String storeId, String params, String responseFields, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCartGiftCardList cartGiftcardList (Integer start, Integer count, String pageCursor, String storeId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -2360,12 +2360,12 @@ public class CartApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
@@ -2409,9 +2409,9 @@ public class CartApi {
       /**
    * cart.giftcard.list
    * Get gift cards list.
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param storeId Store Id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param storeId Store Id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void cartGiftcardList (String pageCursor, Integer start, Integer count, String storeId, String params, String responseFields, String exclude, final Response.Listener<ModelResponseCartGiftCardList> responseListener, final Response.ErrorListener errorListener) {
+  public void cartGiftcardList (Integer start, Integer count, String pageCursor, String storeId, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCartGiftCardList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -2425,12 +2425,12 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
@@ -2476,13 +2476,13 @@ public class CartApi {
   /**
   * cart.info
   * This method allows you to get various information about the store, including a list of stores (in the case of a multistore configuration), a list of supported languages, currencies, carriers, warehouses, and many other information. This information contains data that is relatively stable and rarely changes, so API2Cart can cache certain data to reduce the load on the store and speed up the execution of the request. We also recommend that you cache the response of this method on your side to save requests. If you need to clear the cache for a specific store, then use the cart.validate method.
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param storeId Store Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return CartInfo200Response
   */
-  public CartInfo200Response cartInfo (String params, String responseFields, String exclude, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CartInfo200Response cartInfo (String storeId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -2494,10 +2494,10 @@ public class CartApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -2540,9 +2540,9 @@ public class CartApi {
       /**
    * cart.info
    * This method allows you to get various information about the store, including a list of stores (in the case of a multistore configuration), a list of supported languages, currencies, carriers, warehouses, and many other information. This information contains data that is relatively stable and rarely changes, so API2Cart can cache certain data to reduce the load on the store and speed up the execution of the request. We also recommend that you cache the response of this method on your side to save requests. If you need to clear the cache for a specific store, then use the cart.validate method.
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param storeId Store Id
+   * @param storeId Store Id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void cartInfo (String params, String responseFields, String exclude, String storeId, final Response.Listener<CartInfo200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void cartInfo (String storeId, String responseFields, String params, String exclude, final Response.Listener<CartInfo200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -2556,10 +2556,10 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {
@@ -2721,18 +2721,18 @@ public class CartApi {
   * cart.meta_data.list
   * Using this method, you can get a list of metadata for various entities (products, options, customers, orders). Usually this is data created by third-party plugins.
    * @param entityId Entity Id
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param entity Entity
    * @param storeId Store Id
    * @param langId Language id
    * @param key Key
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseCartMetaDataList
   */
-  public ModelResponseCartMetaDataList cartMetaDataList (String entityId, String entity, String storeId, String langId, String key, Integer count, String pageCursor, String params, String responseFields, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCartMetaDataList cartMetaDataList (String entityId, Integer count, String pageCursor, String entity, String storeId, String langId, String key, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'entityId' is set
     if (entityId == null) {
@@ -2749,15 +2749,15 @@ public class CartApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity_id", entityId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "key", key));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
@@ -2801,9 +2801,9 @@ public class CartApi {
       /**
    * cart.meta_data.list
    * Using this method, you can get a list of metadata for various entities (products, options, customers, orders). Usually this is data created by third-party plugins.
-   * @param entityId Entity Id   * @param entity Entity   * @param storeId Store Id   * @param langId Language id   * @param key Key   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param entityId Entity Id   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param entity Entity   * @param storeId Store Id   * @param langId Language id   * @param key Key   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void cartMetaDataList (String entityId, String entity, String storeId, String langId, String key, Integer count, String pageCursor, String params, String responseFields, String exclude, final Response.Listener<ModelResponseCartMetaDataList> responseListener, final Response.ErrorListener errorListener) {
+  public void cartMetaDataList (String entityId, Integer count, String pageCursor, String entity, String storeId, String langId, String key, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCartMetaDataList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'entityId' is set
@@ -2822,15 +2822,15 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity_id", entityId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "key", key));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
@@ -2918,12 +2918,12 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity_id", entityId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "key", key));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "value", value));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "namespace", namespace));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -3003,12 +3003,12 @@ public class CartApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity_id", entityId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "key", key));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "value", value));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "namespace", namespace));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
 
 
     String[] contentTypes = {
@@ -3088,10 +3088,10 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity_id", entityId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "key", key));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -3166,10 +3166,10 @@ public class CartApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "entity_id", entityId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "key", key));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "entity", entity));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
 
 
     String[] contentTypes = {
@@ -3330,12 +3330,12 @@ public class CartApi {
   /**
   * cart.plugin.list
   * Get a list of third-party plugins installed on the store.
-   * @param storeId Store Id
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param storeId Store Id
    * @return CartPluginList200Response
   */
-  public CartPluginList200Response cartPluginList (String storeId, Integer start, Integer count) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CartPluginList200Response cartPluginList (Integer start, Integer count, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -3347,9 +3347,9 @@ public class CartApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -3392,9 +3392,9 @@ public class CartApi {
       /**
    * cart.plugin.list
    * Get a list of third-party plugins installed on the store.
-   * @param storeId Store Id   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param storeId Store Id
   */
-  public void cartPluginList (String storeId, Integer start, Integer count, final Response.Listener<CartPluginList200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void cartPluginList (Integer start, Integer count, String storeId, final Response.Listener<CartPluginList200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -3408,9 +3408,9 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
 
 
     String[] contentTypes = {
@@ -3727,21 +3727,21 @@ public class CartApi {
   /**
   * cart.script.list
   * Get scripts installed to the storefront
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
+   * @param scriptIds Retrieves only scripts with specific ids
+   * @param storeId Store Id
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param scriptIds Retrieves only scripts with specific ids
-   * @param storeId Store Id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseCartScriptList
   */
-  public ModelResponseCartScriptList cartScriptList (String pageCursor, Integer start, Integer count, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String scriptIds, String storeId, String params, String responseFields, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCartScriptList cartScriptList (Integer start, Integer count, String pageCursor, String scriptIds, String storeId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -3753,17 +3753,17 @@ public class CartApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "script_ids", scriptIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "script_ids", scriptIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
@@ -3807,9 +3807,9 @@ public class CartApi {
       /**
    * cart.script.list
    * Get scripts installed to the storefront
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param scriptIds Retrieves only scripts with specific ids   * @param storeId Store Id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param scriptIds Retrieves only scripts with specific ids   * @param storeId Store Id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void cartScriptList (String pageCursor, Integer start, Integer count, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String scriptIds, String storeId, String params, String responseFields, String exclude, final Response.Listener<ModelResponseCartScriptList> responseListener, final Response.ErrorListener errorListener) {
+  public void cartScriptList (Integer start, Integer count, String pageCursor, String scriptIds, String storeId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCartScriptList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -3823,17 +3823,17 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "script_ids", scriptIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "script_ids", scriptIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
@@ -3879,15 +3879,15 @@ public class CartApi {
   /**
   * cart.shipping_zones.list
   * Get list of shipping zones
-   * @param storeId Store Id
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param storeId Store Id
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseCartShippingZonesList
   */
-  public ModelResponseCartShippingZonesList cartShippingZonesList (String storeId, Integer start, Integer count, String params, String responseFields, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCartShippingZonesList cartShippingZonesList (Integer start, Integer count, String storeId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -3899,11 +3899,11 @@ public class CartApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
@@ -3947,9 +3947,9 @@ public class CartApi {
       /**
    * cart.shipping_zones.list
    * Get list of shipping zones
-   * @param storeId Store Id   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param storeId Store Id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void cartShippingZonesList (String storeId, Integer start, Integer count, String params, String responseFields, String exclude, final Response.Listener<ModelResponseCartShippingZonesList> responseListener, final Response.ErrorListener errorListener) {
+  public void cartShippingZonesList (Integer start, Integer count, String storeId, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCartShippingZonesList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -3963,11 +3963,11 @@ public class CartApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 

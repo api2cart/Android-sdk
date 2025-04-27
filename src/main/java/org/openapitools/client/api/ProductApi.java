@@ -369,23 +369,23 @@ public class ProductApi {
   * product.attribute.list
   * Get list of attributes and values.
    * @param productId Retrieves attributes specified by product id
-   * @param attributeId Retrieves info for specified attribute_id
-   * @param variantId Defines product&#39;s variants specified by variant id
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
+   * @param attributeId Retrieves info for specified attribute_id
+   * @param variantId Defines product&#39;s variants specified by variant id
    * @param attributeGroupId Filter by attribute_group_id
-   * @param setName Retrieves attributes specified by set_name in Magento
    * @param langId Retrieves attributes specified by language id
    * @param storeId Retrieves attributes specified by store id
+   * @param setName Retrieves attributes specified by set_name in Magento
    * @param sortBy Set field to sort by
    * @param sortDirection Set sorting direction
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseProductAttributeList
   */
-  public ModelResponseProductAttributeList productAttributeList (String productId, String attributeId, String variantId, String pageCursor, Integer start, Integer count, String attributeGroupId, String setName, String langId, String storeId, String sortBy, String sortDirection, String params, String responseFields, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseProductAttributeList productAttributeList (String productId, Integer start, Integer count, String pageCursor, String attributeId, String variantId, String attributeGroupId, String langId, String storeId, String setName, String sortBy, String sortDirection, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'productId' is set
     if (productId == null) {
@@ -402,20 +402,20 @@ public class ProductApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_id", attributeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "variant_id", variantId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_group_id", attributeGroupId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "set_name", setName));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "set_name", setName));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
@@ -459,9 +459,9 @@ public class ProductApi {
       /**
    * product.attribute.list
    * Get list of attributes and values.
-   * @param productId Retrieves attributes specified by product id   * @param attributeId Retrieves info for specified attribute_id   * @param variantId Defines product&#39;s variants specified by variant id   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param attributeGroupId Filter by attribute_group_id   * @param setName Retrieves attributes specified by set_name in Magento   * @param langId Retrieves attributes specified by language id   * @param storeId Retrieves attributes specified by store id   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param productId Retrieves attributes specified by product id   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param attributeId Retrieves info for specified attribute_id   * @param variantId Defines product&#39;s variants specified by variant id   * @param attributeGroupId Filter by attribute_group_id   * @param langId Retrieves attributes specified by language id   * @param storeId Retrieves attributes specified by store id   * @param setName Retrieves attributes specified by set_name in Magento   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void productAttributeList (String productId, String attributeId, String variantId, String pageCursor, Integer start, Integer count, String attributeGroupId, String setName, String langId, String storeId, String sortBy, String sortDirection, String params, String responseFields, String exclude, final Response.Listener<ModelResponseProductAttributeList> responseListener, final Response.ErrorListener errorListener) {
+  public void productAttributeList (String productId, Integer start, Integer count, String pageCursor, String attributeId, String variantId, String attributeGroupId, String langId, String storeId, String setName, String sortBy, String sortDirection, String responseFields, String params, String exclude, final Response.Listener<ModelResponseProductAttributeList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'productId' is set
@@ -480,20 +480,20 @@ public class ProductApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_id", attributeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "variant_id", variantId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "attribute_group_id", attributeGroupId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "set_name", setName));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "set_name", setName));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
@@ -846,23 +846,23 @@ public class ProductApi {
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param brandIds Retrieves brands specified by brand ids
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param categoryId Retrieves product brands specified by category id
+   * @param parentId Retrieves brands specified by parent id
    * @param storeId Store Id
    * @param langId Language id
+   * @param findWhere Entity search that is specified by the comma-separated unique fields
+   * @param findValue Entity search that is specified by some value
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param parentId Retrieves brands specified by parent id
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param findWhere Entity search that is specified by the comma-separated unique fields
-   * @param findValue Entity search that is specified by some value
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseProductBrandList
   */
-  public ModelResponseProductBrandList productBrandList (Integer start, Integer count, String pageCursor, String params, String brandIds, String exclude, String categoryId, String storeId, String langId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String parentId, String responseFields, String findWhere, String findValue) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseProductBrandList productBrandList (Integer start, Integer count, String pageCursor, String brandIds, String categoryId, String parentId, String storeId, String langId, String findWhere, String findValue, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -877,20 +877,20 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_ids", brandIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -933,9 +933,9 @@ public class ProductApi {
       /**
    * product.brand.list
    * Get list of brands from your store.
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param brandIds Retrieves brands specified by brand ids   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param categoryId Retrieves product brands specified by category id   * @param storeId Store Id   * @param langId Language id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param parentId Retrieves brands specified by parent id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param findWhere Entity search that is specified by the comma-separated unique fields   * @param findValue Entity search that is specified by some value
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param brandIds Retrieves brands specified by brand ids   * @param categoryId Retrieves product brands specified by category id   * @param parentId Retrieves brands specified by parent id   * @param storeId Store Id   * @param langId Language id   * @param findWhere Entity search that is specified by the comma-separated unique fields   * @param findValue Entity search that is specified by some value   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void productBrandList (Integer start, Integer count, String pageCursor, String params, String brandIds, String exclude, String categoryId, String storeId, String langId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String parentId, String responseFields, String findWhere, String findValue, final Response.Listener<ModelResponseProductBrandList> responseListener, final Response.ErrorListener errorListener) {
+  public void productBrandList (Integer start, Integer count, String pageCursor, String brandIds, String categoryId, String parentId, String storeId, String langId, String findWhere, String findValue, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude, final Response.Listener<ModelResponseProductBrandList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -952,20 +952,20 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_ids", brandIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {
@@ -1140,16 +1140,16 @@ public class ProductApi {
   * Get child for specific product.
    * @param productId Filter by parent product id
    * @param id Entity id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param storeId Store Id
    * @param langId Language id
    * @param currencyId Currency Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param useLatestApiVersion Use the latest platform API version
    * @return ProductChildItemInfo200Response
   */
-  public ProductChildItemInfo200Response productChildItemInfo (String productId, String id, String params, String responseFields, String exclude, String storeId, String langId, String currencyId, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProductChildItemInfo200Response productChildItemInfo (String productId, String id, String storeId, String langId, String currencyId, String responseFields, String params, String exclude, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'productId' is set
     if (productId == null) {
@@ -1171,14 +1171,14 @@ public class ProductApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
     String[] contentTypes = {
     };
@@ -1222,9 +1222,9 @@ public class ProductApi {
       /**
    * product.child_item.info
    * Get child for specific product.
-   * @param productId Filter by parent product id   * @param id Entity id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param storeId Store Id   * @param langId Language id   * @param currencyId Currency Id   * @param useLatestApiVersion Use the latest platform API version
+   * @param productId Filter by parent product id   * @param id Entity id   * @param storeId Store Id   * @param langId Language id   * @param currencyId Currency Id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param useLatestApiVersion Use the latest platform API version
   */
-  public void productChildItemInfo (String productId, String id, String params, String responseFields, String exclude, String storeId, String langId, String currencyId, Boolean useLatestApiVersion, final Response.Listener<ProductChildItemInfo200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void productChildItemInfo (String productId, String id, String storeId, String langId, String currencyId, String responseFields, String params, String exclude, Boolean useLatestApiVersion, final Response.Listener<ProductChildItemInfo200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'productId' is set
@@ -1248,14 +1248,14 @@ public class ProductApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
 
 
@@ -1301,16 +1301,9 @@ public class ProductApi {
   /**
   * product.child_item.list
   * Get a list of a product&#39;s child items, such as variants or bundle components. The total_count field in the response indicates the total number of items in the context of the current filter.
-   * @param pageCursor Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param createdFrom Retrieve entities from their creation date
-   * @param createdTo Retrieve entities to their creation date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param modifiedTo Retrieve entities to their modification date
+   * @param pageCursor Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param productId Filter by parent product id
    * @param productIds Filter by parent product ids
    * @param sku Filter by products variant&#39;s sku
@@ -1320,13 +1313,20 @@ public class ProductApi {
    * @param availSale Specifies the set of available/not available products for sale
    * @param findValue Entity search that is specified by some value
    * @param findWhere Child products search that is specified by field
+   * @param createdFrom Retrieve entities from their creation date
+   * @param createdTo Retrieve entities to their creation date
+   * @param modifiedFrom Retrieve entities from their modification date
+   * @param modifiedTo Retrieve entities to their modification date
+   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
-   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.
    * @return ModelResponseProductChildItemList
   */
-  public ModelResponseProductChildItemList productChildItemList (String pageCursor, Integer start, Integer count, String params, String responseFields, String exclude, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String productId, String productIds, String sku, String storeId, String langId, String currencyId, Boolean availSale, String findValue, String findWhere, String reportRequestId, Boolean disableReportCache, Boolean useLatestApiVersion, Boolean returnGlobal) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseProductChildItemList productChildItemList (Integer start, Integer count, String pageCursor, String productId, String productIds, String sku, String storeId, String langId, String currencyId, Boolean availSale, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean returnGlobal, String responseFields, String params, String exclude, String reportRequestId, Boolean disableReportCache, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1338,16 +1338,9 @@ public class ProductApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sku", sku));
@@ -1357,10 +1350,17 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_sale", availSale));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "return_global", returnGlobal));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "return_global", returnGlobal));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1403,9 +1403,9 @@ public class ProductApi {
       /**
    * product.child_item.list
    * Get a list of a product&#39;s child items, such as variants or bundle components. The total_count field in the response indicates the total number of items in the context of the current filter.
-   * @param pageCursor Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param productId Filter by parent product id   * @param productIds Filter by parent product ids   * @param sku Filter by products variant&#39;s sku   * @param storeId Store Id   * @param langId Language id   * @param currencyId Currency Id   * @param availSale Specifies the set of available/not available products for sale   * @param findValue Entity search that is specified by some value   * @param findWhere Child products search that is specified by field   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request   * @param useLatestApiVersion Use the latest platform API version   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve products child items via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param productId Filter by parent product id   * @param productIds Filter by parent product ids   * @param sku Filter by products variant&#39;s sku   * @param storeId Store Id   * @param langId Language id   * @param currencyId Currency Id   * @param availSale Specifies the set of available/not available products for sale   * @param findValue Entity search that is specified by some value   * @param findWhere Child products search that is specified by field   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request   * @param useLatestApiVersion Use the latest platform API version
   */
-  public void productChildItemList (String pageCursor, Integer start, Integer count, String params, String responseFields, String exclude, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String productId, String productIds, String sku, String storeId, String langId, String currencyId, Boolean availSale, String findValue, String findWhere, String reportRequestId, Boolean disableReportCache, Boolean useLatestApiVersion, Boolean returnGlobal, final Response.Listener<ModelResponseProductChildItemList> responseListener, final Response.ErrorListener errorListener) {
+  public void productChildItemList (Integer start, Integer count, String pageCursor, String productId, String productIds, String sku, String storeId, String langId, String currencyId, Boolean availSale, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean returnGlobal, String responseFields, String params, String exclude, String reportRequestId, Boolean disableReportCache, Boolean useLatestApiVersion, final Response.Listener<ModelResponseProductChildItemList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1419,16 +1419,9 @@ public class ProductApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sku", sku));
@@ -1438,10 +1431,17 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_sale", availSale));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "return_global", returnGlobal));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "return_global", returnGlobal));
 
 
     String[] contentTypes = {
@@ -1486,31 +1486,31 @@ public class ProductApi {
   /**
   * product.count
   * Count products in store.
+   * @param productIds Counts products specified by product ids
+   * @param sinceId Retrieve entities starting from the specified id.
+   * @param categoriesIds Defines product add that is specified by comma-separated categories id
    * @param categoryId Counts products specified by category id
+   * @param storeId Counts products specified by store id
+   * @param langId Counts products specified by language id
+   * @param availView Specifies the set of visible/invisible products
+   * @param availSale Specifies the set of available/not available products for sale
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param availView Specifies the set of visible/invisible products
-   * @param availSale Specifies the set of available/not available products for sale
-   * @param storeId Counts products specified by store id
-   * @param langId Counts products specified by language id
-   * @param productIds Counts products specified by product ids
-   * @param sinceId Retrieve entities starting from the specified id.
-   * @param reportRequestId Report request id
-   * @param disableReportCache Disable report cache for current request
    * @param brandName Retrieves brands specified by brand name
    * @param productAttributes Defines product attributes
    * @param status Defines product&#39;s status
    * @param type Defines products&#39;s type
    * @param findValue Entity search that is specified by some value
    * @param findWhere Counts products that are searched specified by field
-   * @param useLatestApiVersion Use the latest platform API version
+   * @param reportRequestId Report request id
    * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.
-   * @param categoriesIds Defines product add that is specified by comma-separated categories id
+   * @param disableReportCache Disable report cache for current request
+   * @param useLatestApiVersion Use the latest platform API version
    * @return ProductCount200Response
   */
-  public ProductCount200Response productCount (String categoryId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean availView, Boolean availSale, String storeId, String langId, String productIds, String sinceId, String reportRequestId, Boolean disableReportCache, String brandName, List<String> productAttributes, String status, String type, String findValue, String findWhere, Boolean useLatestApiVersion, Boolean returnGlobal, String categoriesIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProductCount200Response productCount (String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String brandName, List<String> productAttributes, String status, String type, String findValue, String findWhere, String reportRequestId, Boolean returnGlobal, Boolean disableReportCache, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1522,28 +1522,28 @@ public class ProductApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_view", availView));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_sale", availSale));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_view", availView));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_sale", availSale));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_name", brandName));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "product_attributes", productAttributes));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "return_global", returnGlobal));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1586,9 +1586,9 @@ public class ProductApi {
       /**
    * product.count
    * Count products in store.
-   * @param categoryId Counts products specified by category id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param availView Specifies the set of visible/invisible products   * @param availSale Specifies the set of available/not available products for sale   * @param storeId Counts products specified by store id   * @param langId Counts products specified by language id   * @param productIds Counts products specified by product ids   * @param sinceId Retrieve entities starting from the specified id.   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request   * @param brandName Retrieves brands specified by brand name   * @param productAttributes Defines product attributes   * @param status Defines product&#39;s status   * @param type Defines products&#39;s type   * @param findValue Entity search that is specified by some value   * @param findWhere Counts products that are searched specified by field   * @param useLatestApiVersion Use the latest platform API version   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.   * @param categoriesIds Defines product add that is specified by comma-separated categories id
+   * @param productIds Counts products specified by product ids   * @param sinceId Retrieve entities starting from the specified id.   * @param categoriesIds Defines product add that is specified by comma-separated categories id   * @param categoryId Counts products specified by category id   * @param storeId Counts products specified by store id   * @param langId Counts products specified by language id   * @param availView Specifies the set of visible/invisible products   * @param availSale Specifies the set of available/not available products for sale   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param brandName Retrieves brands specified by brand name   * @param productAttributes Defines product attributes   * @param status Defines product&#39;s status   * @param type Defines products&#39;s type   * @param findValue Entity search that is specified by some value   * @param findWhere Counts products that are searched specified by field   * @param reportRequestId Report request id   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.   * @param disableReportCache Disable report cache for current request   * @param useLatestApiVersion Use the latest platform API version
   */
-  public void productCount (String categoryId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean availView, Boolean availSale, String storeId, String langId, String productIds, String sinceId, String reportRequestId, Boolean disableReportCache, String brandName, List<String> productAttributes, String status, String type, String findValue, String findWhere, Boolean useLatestApiVersion, Boolean returnGlobal, String categoriesIds, final Response.Listener<ProductCount200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void productCount (String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String brandName, List<String> productAttributes, String status, String type, String findValue, String findWhere, String reportRequestId, Boolean returnGlobal, Boolean disableReportCache, Boolean useLatestApiVersion, final Response.Listener<ProductCount200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1602,28 +1602,28 @@ public class ProductApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_view", availView));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_sale", availSale));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_view", availView));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_sale", availSale));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_name", brandName));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "product_attributes", productAttributes));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "return_global", returnGlobal));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
 
 
     String[] contentTypes = {
@@ -1827,15 +1827,15 @@ public class ProductApi {
   * Get list of currencies
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param _default Specifies the set of default/not default currencies
    * @param avail Specifies the set of available/not available currencies
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseProductCurrencyList
   */
-  public ModelResponseProductCurrencyList productCurrencyList (Integer start, Integer count, String params, String pageCursor, String exclude, String responseFields, Boolean _default, Boolean avail) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseProductCurrencyList productCurrencyList (Integer start, Integer count, String pageCursor, Boolean _default, Boolean avail, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1849,12 +1849,12 @@ public class ProductApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "default", _default));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1897,9 +1897,9 @@ public class ProductApi {
       /**
    * product.currency.list
    * Get list of currencies
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param _default Specifies the set of default/not default currencies   * @param avail Specifies the set of available/not available currencies
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param _default Specifies the set of default/not default currencies   * @param avail Specifies the set of available/not available currencies   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void productCurrencyList (Integer start, Integer count, String params, String pageCursor, String exclude, String responseFields, Boolean _default, Boolean avail, final Response.Listener<ModelResponseProductCurrencyList> responseListener, final Response.ErrorListener errorListener) {
+  public void productCurrencyList (Integer start, Integer count, String pageCursor, Boolean _default, Boolean avail, String responseFields, String params, String exclude, final Response.Listener<ModelResponseProductCurrencyList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1915,12 +1915,12 @@ public class ProductApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "default", _default));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {
@@ -2761,16 +2761,16 @@ public class ProductApi {
    * @param productId Defines product id where the image should be updated
    * @param id Defines image update specified by image id
    * @param variantIds Defines product&#39;s variants ids
+   * @param storeId Store Id
+   * @param langId Language id
    * @param imageName Defines image&#39;s name
    * @param type Defines image&#39;s types that are specified by comma-separated list
    * @param label Defines alternative text that has to be attached to the picture
    * @param position Defines image’s position in the list
-   * @param storeId Store Id
-   * @param langId Language id
    * @param hidden Define is hide image
    * @return ProductImageUpdate200Response
   */
-  public ProductImageUpdate200Response productImageUpdate (String productId, String id, String variantIds, String imageName, String type, String label, Integer position, String storeId, String langId, Boolean hidden) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProductImageUpdate200Response productImageUpdate (String productId, String id, String variantIds, String storeId, String langId, String imageName, String type, String label, Integer position, Boolean hidden) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'productId' is set
     if (productId == null) {
@@ -2793,14 +2793,14 @@ public class ProductApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "variant_ids", variantIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "image_name", imageName));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "label", label));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "position", position));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "hidden", hidden));
     String[] contentTypes = {
     };
@@ -2844,9 +2844,9 @@ public class ProductApi {
       /**
    * product.image.update
    * Update details of image
-   * @param productId Defines product id where the image should be updated   * @param id Defines image update specified by image id   * @param variantIds Defines product&#39;s variants ids   * @param imageName Defines image&#39;s name   * @param type Defines image&#39;s types that are specified by comma-separated list   * @param label Defines alternative text that has to be attached to the picture   * @param position Defines image’s position in the list   * @param storeId Store Id   * @param langId Language id   * @param hidden Define is hide image
+   * @param productId Defines product id where the image should be updated   * @param id Defines image update specified by image id   * @param variantIds Defines product&#39;s variants ids   * @param storeId Store Id   * @param langId Language id   * @param imageName Defines image&#39;s name   * @param type Defines image&#39;s types that are specified by comma-separated list   * @param label Defines alternative text that has to be attached to the picture   * @param position Defines image’s position in the list   * @param hidden Define is hide image
   */
-  public void productImageUpdate (String productId, String id, String variantIds, String imageName, String type, String label, Integer position, String storeId, String langId, Boolean hidden, final Response.Listener<ProductImageUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void productImageUpdate (String productId, String id, String variantIds, String storeId, String langId, String imageName, String type, String label, Integer position, Boolean hidden, final Response.Listener<ProductImageUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'productId' is set
@@ -2871,14 +2871,14 @@ public class ProductApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "variant_ids", variantIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "image_name", imageName));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "label", label));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "position", position));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "hidden", hidden));
 
 
@@ -2925,18 +2925,18 @@ public class ProductApi {
   * product.info
   * Get information about a specific product by its ID. In the case of a multistore configuration, use the store_id filter to get a response in the context of a specific store.
    * @param id Retrieves product&#39;s info specified by product id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param storeId Retrieves product info specified by store id
    * @param langId Retrieves product info specified by language id
    * @param currencyId Currency Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @param useLatestApiVersion Use the latest platform API version
    * @return ProductInfo200Response
   */
-  public ProductInfo200Response productInfo (String id, String params, String responseFields, String exclude, String storeId, String langId, String currencyId, String reportRequestId, Boolean disableReportCache, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProductInfo200Response productInfo (String id, String storeId, String langId, String currencyId, String responseFields, String params, String exclude, String reportRequestId, Boolean disableReportCache, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -2954,12 +2954,12 @@ public class ProductApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
@@ -3005,9 +3005,9 @@ public class ProductApi {
       /**
    * product.info
    * Get information about a specific product by its ID. In the case of a multistore configuration, use the store_id filter to get a response in the context of a specific store.
-   * @param id Retrieves product&#39;s info specified by product id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param storeId Retrieves product info specified by store id   * @param langId Retrieves product info specified by language id   * @param currencyId Currency Id   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request   * @param useLatestApiVersion Use the latest platform API version
+   * @param id Retrieves product&#39;s info specified by product id   * @param storeId Retrieves product info specified by store id   * @param langId Retrieves product info specified by language id   * @param currencyId Currency Id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request   * @param useLatestApiVersion Use the latest platform API version
   */
-  public void productInfo (String id, String params, String responseFields, String exclude, String storeId, String langId, String currencyId, String reportRequestId, Boolean disableReportCache, Boolean useLatestApiVersion, final Response.Listener<ProductInfo200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void productInfo (String id, String storeId, String langId, String currencyId, String responseFields, String params, String exclude, String reportRequestId, Boolean disableReportCache, Boolean useLatestApiVersion, final Response.Listener<ProductInfo200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -3027,12 +3027,12 @@ public class ProductApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
@@ -3080,42 +3080,42 @@ public class ProductApi {
   /**
   * product.list
   * Get list of products from your store. Returns 10 products by default.
-   * @param pageCursor Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param pageCursor Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
+   * @param productIds Retrieves products specified by product ids
+   * @param sinceId Retrieve entities starting from the specified id.
+   * @param categoriesIds Retrieves products specified by categories ids
    * @param categoryId Retrieves products specified by category id
+   * @param storeId Retrieves products specified by store id
+   * @param langId Retrieves products specified by language id
+   * @param currencyId Currency Id
+   * @param availView Specifies the set of visible/invisible products
+   * @param availSale Specifies the set of available/not available products for sale
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param availView Specifies the set of visible/invisible products
-   * @param availSale Specifies the set of available/not available products for sale
-   * @param storeId Retrieves products specified by store id
-   * @param langId Retrieves products specified by language id
-   * @param currencyId Currency Id
-   * @param productIds Retrieves products specified by product ids
-   * @param sinceId Retrieve entities starting from the specified id.
-   * @param reportRequestId Report request id
-   * @param disableReportCache Disable report cache for current request
-   * @param sortBy Set field to sort by
-   * @param sortDirection Set sorting direction
    * @param sku Filter by product&#39;s sku
-   * @param disableCache Disable cache for current request
    * @param brandName Retrieves brands specified by brand name
    * @param productAttributes Defines product attributes
    * @param status Defines product&#39;s status
    * @param type Defines products&#39;s type
    * @param findValue Entity search that is specified by some value
    * @param findWhere Product search that is specified by field
-   * @param useLatestApiVersion Use the latest platform API version
    * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.
-   * @param categoriesIds Retrieves products specified by categories ids
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param sortBy Set field to sort by
+   * @param sortDirection Set sorting direction
+   * @param reportRequestId Report request id
+   * @param disableCache Disable cache for current request
+   * @param disableReportCache Disable report cache for current request
+   * @param useLatestApiVersion Use the latest platform API version
    * @return ModelResponseProductList
   */
-  public ModelResponseProductList productList (String pageCursor, Integer start, Integer count, String params, String responseFields, String exclude, String categoryId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean availView, Boolean availSale, String storeId, String langId, String currencyId, String productIds, String sinceId, String reportRequestId, Boolean disableReportCache, String sortBy, String sortDirection, String sku, Boolean disableCache, String brandName, List<String> productAttributes, String status, String type, String findValue, String findWhere, Boolean useLatestApiVersion, Boolean returnGlobal, String categoriesIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseProductList productList (Integer start, Integer count, String pageCursor, String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, String currencyId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sku, String brandName, List<String> productAttributes, String status, String type, String findValue, String findWhere, Boolean returnGlobal, String params, String responseFields, String exclude, String sortBy, String sortDirection, String reportRequestId, Boolean disableCache, Boolean disableReportCache, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -3127,39 +3127,39 @@ public class ProductApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_view", availView));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_sale", availSale));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_view", availView));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_sale", availSale));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sku", sku));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_cache", disableCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_name", brandName));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "product_attributes", productAttributes));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "return_global", returnGlobal));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_cache", disableCache));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -3202,9 +3202,9 @@ public class ProductApi {
       /**
    * product.list
    * Get list of products from your store. Returns 10 products by default.
-   * @param pageCursor Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param categoryId Retrieves products specified by category id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param availView Specifies the set of visible/invisible products   * @param availSale Specifies the set of available/not available products for sale   * @param storeId Retrieves products specified by store id   * @param langId Retrieves products specified by language id   * @param currencyId Currency Id   * @param productIds Retrieves products specified by product ids   * @param sinceId Retrieve entities starting from the specified id.   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param sku Filter by product&#39;s sku   * @param disableCache Disable cache for current request   * @param brandName Retrieves brands specified by brand name   * @param productAttributes Defines product attributes   * @param status Defines product&#39;s status   * @param type Defines products&#39;s type   * @param findValue Entity search that is specified by some value   * @param findWhere Product search that is specified by field   * @param useLatestApiVersion Use the latest platform API version   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.   * @param categoriesIds Retrieves products specified by categories ids
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param productIds Retrieves products specified by product ids   * @param sinceId Retrieve entities starting from the specified id.   * @param categoriesIds Retrieves products specified by categories ids   * @param categoryId Retrieves products specified by category id   * @param storeId Retrieves products specified by store id   * @param langId Retrieves products specified by language id   * @param currencyId Currency Id   * @param availView Specifies the set of visible/invisible products   * @param availSale Specifies the set of available/not available products for sale   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param sku Filter by product&#39;s sku   * @param brandName Retrieves brands specified by brand name   * @param productAttributes Defines product attributes   * @param status Defines product&#39;s status   * @param type Defines products&#39;s type   * @param findValue Entity search that is specified by some value   * @param findWhere Product search that is specified by field   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param reportRequestId Report request id   * @param disableCache Disable cache for current request   * @param disableReportCache Disable report cache for current request   * @param useLatestApiVersion Use the latest platform API version
   */
-  public void productList (String pageCursor, Integer start, Integer count, String params, String responseFields, String exclude, String categoryId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean availView, Boolean availSale, String storeId, String langId, String currencyId, String productIds, String sinceId, String reportRequestId, Boolean disableReportCache, String sortBy, String sortDirection, String sku, Boolean disableCache, String brandName, List<String> productAttributes, String status, String type, String findValue, String findWhere, Boolean useLatestApiVersion, Boolean returnGlobal, String categoriesIds, final Response.Listener<ModelResponseProductList> responseListener, final Response.ErrorListener errorListener) {
+  public void productList (Integer start, Integer count, String pageCursor, String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, String currencyId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sku, String brandName, List<String> productAttributes, String status, String type, String findValue, String findWhere, Boolean returnGlobal, String params, String responseFields, String exclude, String sortBy, String sortDirection, String reportRequestId, Boolean disableCache, Boolean disableReportCache, Boolean useLatestApiVersion, final Response.Listener<ModelResponseProductList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -3218,39 +3218,39 @@ public class ProductApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_view", availView));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_sale", availSale));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_view", availView));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail_sale", availSale));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "currency_id", currencyId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sku", sku));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_cache", disableCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_name", brandName));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "product_attributes", productAttributes));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "return_global", returnGlobal));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_cache", disableCache));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "use_latest_api_version", useLatestApiVersion));
 
 
     String[] contentTypes = {
@@ -3869,15 +3869,15 @@ public class ProductApi {
   * Get list of options.
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param productId Retrieves products&#39; options specified by product id
    * @param langId Language id
    * @param storeId Store Id
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseProductOptionList
   */
-  public ModelResponseProductOptionList productOptionList (Integer start, Integer count, String params, String exclude, String responseFields, String productId, String langId, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseProductOptionList productOptionList (Integer start, Integer count, String productId, String langId, String storeId, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -3891,12 +3891,12 @@ public class ProductApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -3939,9 +3939,9 @@ public class ProductApi {
       /**
    * product.option.list
    * Get list of options.
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param productId Retrieves products&#39; options specified by product id   * @param langId Language id   * @param storeId Store Id
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param productId Retrieves products&#39; options specified by product id   * @param langId Language id   * @param storeId Store Id   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void productOptionList (Integer start, Integer count, String params, String exclude, String responseFields, String productId, String langId, String storeId, final Response.Listener<ModelResponseProductOptionList> responseListener, final Response.ErrorListener errorListener) {
+  public void productOptionList (Integer start, Integer count, String productId, String langId, String storeId, String responseFields, String params, String exclude, final Response.Listener<ModelResponseProductOptionList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -3957,12 +3957,12 @@ public class ProductApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {
@@ -5030,17 +5030,17 @@ public class ProductApi {
   * Get reviews of a specific product.
    * @param productId Product id
    * @param start This parameter sets the number from which you want to get entities
-   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param ids Retrieves reviews specified by ids
    * @param storeId Store Id
    * @param status Defines status
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @return ModelResponseProductReviewList
   */
-  public ModelResponseProductReviewList productReviewList (String productId, Integer start, String pageCursor, Integer count, String ids, String storeId, String status, String params, String exclude, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseProductReviewList productReviewList (String productId, Integer start, Integer count, String pageCursor, String ids, String storeId, String status, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'productId' is set
     if (productId == null) {
@@ -5058,15 +5058,15 @@ public class ProductApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -5109,9 +5109,9 @@ public class ProductApi {
       /**
    * product.review.list
    * Get reviews of a specific product.
-   * @param productId Product id   * @param start This parameter sets the number from which you want to get entities   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param ids Retrieves reviews specified by ids   * @param storeId Store Id   * @param status Defines status   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param productId Product id   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param ids Retrieves reviews specified by ids   * @param storeId Store Id   * @param status Defines status   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void productReviewList (String productId, Integer start, String pageCursor, Integer count, String ids, String storeId, String status, String params, String exclude, String responseFields, final Response.Listener<ModelResponseProductReviewList> responseListener, final Response.ErrorListener errorListener) {
+  public void productReviewList (String productId, Integer start, Integer count, String pageCursor, String ids, String storeId, String status, String responseFields, String params, String exclude, final Response.Listener<ModelResponseProductReviewList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'productId' is set
@@ -5131,15 +5131,15 @@ public class ProductApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
 
 
     String[] contentTypes = {
@@ -5967,15 +5967,15 @@ public class ProductApi {
   * product.variant.count
   * Get count variants.
    * @param productId Retrieves products&#39; variants specified by product id
+   * @param categoryId Counts products’ variants specified by category id
+   * @param storeId Retrieves variants specified by store id
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param categoryId Counts products’ variants specified by category id
-   * @param storeId Retrieves variants specified by store id
    * @return ProductVariantCount200Response
   */
-  public ProductVariantCount200Response productVariantCount (String productId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String categoryId, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProductVariantCount200Response productVariantCount (String productId, String categoryId, String storeId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'productId' is set
     if (productId == null) {
@@ -5992,13 +5992,13 @@ public class ProductApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -6041,9 +6041,9 @@ public class ProductApi {
       /**
    * product.variant.count
    * Get count variants.
-   * @param productId Retrieves products&#39; variants specified by product id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param categoryId Counts products’ variants specified by category id   * @param storeId Retrieves variants specified by store id
+   * @param productId Retrieves products&#39; variants specified by product id   * @param categoryId Counts products’ variants specified by category id   * @param storeId Retrieves variants specified by store id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date
   */
-  public void productVariantCount (String productId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String categoryId, String storeId, final Response.Listener<ProductVariantCount200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void productVariantCount (String productId, String categoryId, String storeId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, final Response.Listener<ProductVariantCount200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'productId' is set
@@ -6062,13 +6062,13 @@ public class ProductApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
 
 
     String[] contentTypes = {
@@ -6673,12 +6673,12 @@ public class ProductApi {
   * product.variant.info
   * Get variant info. This method is deprecated, and its development is stopped. Please use \&quot;product.child_item.info\&quot; instead.
    * @param id Retrieves variant&#39;s info specified by variant id
+   * @param storeId Retrieves variant info specified by store id
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @param storeId Retrieves variant info specified by store id
    * @return ProductInfo200Response
   */
-  public ProductInfo200Response productVariantInfo (String id, String params, String exclude, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProductInfo200Response productVariantInfo (String id, String storeId, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -6695,10 +6695,10 @@ public class ProductApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -6741,9 +6741,9 @@ public class ProductApi {
       /**
    * product.variant.info
    * Get variant info. This method is deprecated, and its development is stopped. Please use \&quot;product.child_item.info\&quot; instead.
-   * @param id Retrieves variant&#39;s info specified by variant id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param storeId Retrieves variant info specified by store id
+   * @param id Retrieves variant&#39;s info specified by variant id   * @param storeId Retrieves variant info specified by store id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void productVariantInfo (String id, String params, String exclude, String storeId, final Response.Listener<ProductInfo200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void productVariantInfo (String id, String storeId, String params, String exclude, final Response.Listener<ProductInfo200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -6762,10 +6762,10 @@ public class ProductApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {
@@ -6812,18 +6812,18 @@ public class ProductApi {
   * Get a list of variants. This method is deprecated, and its development is stopped. Please use \&quot;product.child_item.list\&quot; instead.
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param productId Retrieves products&#39; variants specified by product id
+   * @param categoryId Retrieves products’ variants specified by category id
+   * @param storeId Retrieves variants specified by store id
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param categoryId Retrieves products’ variants specified by category id
-   * @param productId Retrieves products&#39; variants specified by product id
-   * @param storeId Retrieves variants specified by store id
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ProductVariantList200Response
   */
-  public ProductVariantList200Response productVariantList (Integer start, Integer count, String params, String exclude, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String categoryId, String productId, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProductVariantList200Response productVariantList (Integer start, Integer count, String productId, String categoryId, String storeId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -6837,15 +6837,15 @@ public class ProductApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -6888,9 +6888,9 @@ public class ProductApi {
       /**
    * product.variant.list
    * Get a list of variants. This method is deprecated, and its development is stopped. Please use \&quot;product.child_item.list\&quot; instead.
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param categoryId Retrieves products’ variants specified by category id   * @param productId Retrieves products&#39; variants specified by product id   * @param storeId Retrieves variants specified by store id
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param productId Retrieves products&#39; variants specified by product id   * @param categoryId Retrieves products’ variants specified by category id   * @param storeId Retrieves variants specified by store id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void productVariantList (Integer start, Integer count, String params, String exclude, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String categoryId, String productId, String storeId, final Response.Listener<ProductVariantList200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void productVariantList (Integer start, Integer count, String productId, String categoryId, String storeId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String params, String exclude, final Response.Listener<ProductVariantList200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -6906,15 +6906,15 @@ public class ProductApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
 
 
     String[] contentTypes = {

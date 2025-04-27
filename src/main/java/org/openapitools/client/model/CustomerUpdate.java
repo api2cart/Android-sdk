@@ -47,12 +47,12 @@ public class CustomerUpdate {
   private String tags = null;
   @SerializedName("gender")
   private String gender = null;
-  @SerializedName("store_id")
-  private String storeId = null;
   @SerializedName("note")
   private String note = null;
   @SerializedName("status")
   private String status = null;
+  @SerializedName("store_id")
+  private String storeId = null;
   @SerializedName("address")
   private List<CustomerUpdateAddressInner> address = null;
 
@@ -200,17 +200,6 @@ public class CustomerUpdate {
   }
 
   /**
-   * Store Id
-   **/
-  @ApiModelProperty(value = "Store Id")
-  public String getStoreId() {
-    return storeId;
-  }
-  public void setStoreId(String storeId) {
-    this.storeId = storeId;
-  }
-
-  /**
    * The customer note.
    **/
   @ApiModelProperty(value = "The customer note.")
@@ -230,6 +219,17 @@ public class CustomerUpdate {
   }
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  /**
+   * Store Id
+   **/
+  @ApiModelProperty(value = "Store Id")
+  public String getStoreId() {
+    return storeId;
+  }
+  public void setStoreId(String storeId) {
+    this.storeId = storeId;
   }
 
   /**
@@ -265,9 +265,9 @@ public class CustomerUpdate {
         (this.consents == null ? customerUpdate.consents == null : this.consents.equals(customerUpdate.consents)) &&
         (this.tags == null ? customerUpdate.tags == null : this.tags.equals(customerUpdate.tags)) &&
         (this.gender == null ? customerUpdate.gender == null : this.gender.equals(customerUpdate.gender)) &&
-        (this.storeId == null ? customerUpdate.storeId == null : this.storeId.equals(customerUpdate.storeId)) &&
         (this.note == null ? customerUpdate.note == null : this.note.equals(customerUpdate.note)) &&
         (this.status == null ? customerUpdate.status == null : this.status.equals(customerUpdate.status)) &&
+        (this.storeId == null ? customerUpdate.storeId == null : this.storeId.equals(customerUpdate.storeId)) &&
         (this.address == null ? customerUpdate.address == null : this.address.equals(customerUpdate.address));
   }
 
@@ -287,9 +287,9 @@ public class CustomerUpdate {
     result = 31 * result + (this.consents == null ? 0: this.consents.hashCode());
     result = 31 * result + (this.tags == null ? 0: this.tags.hashCode());
     result = 31 * result + (this.gender == null ? 0: this.gender.hashCode());
-    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.note == null ? 0: this.note.hashCode());
     result = 31 * result + (this.status == null ? 0: this.status.hashCode());
+    result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.address == null ? 0: this.address.hashCode());
     return result;
   }
@@ -312,9 +312,9 @@ public class CustomerUpdate {
     sb.append("  consents: ").append(consents).append("\n");
     sb.append("  tags: ").append(tags).append("\n");
     sb.append("  gender: ").append(gender).append("\n");
-    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  note: ").append(note).append("\n");
     sb.append("  status: ").append(status).append("\n");
+    sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  address: ").append(address).append("\n");
     sb.append("}\n");
     return sb.toString();

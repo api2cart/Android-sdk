@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## basketInfo
 
-> BasketInfo200Response basketInfo(id, storeId, params, exclude, responseFields)
+> BasketInfo200Response basketInfo(id, storeId, responseFields, params, exclude)
 
 basket.info
 
@@ -29,11 +29,11 @@ Retrieve basket information.
 BasketApi apiInstance = new BasketApi();
 String id = 10; // String | Entity id
 String storeId = 1; // String | Store Id
+String responseFields = {result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-String responseFields = {result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 try {
-    BasketInfo200Response result = apiInstance.basketInfo(id, storeId, params, exclude, responseFields);
+    BasketInfo200Response result = apiInstance.basketInfo(id, storeId, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BasketApi#basketInfo");
@@ -48,9 +48,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Entity id | [default to null]
  **storeId** | **String**| Store Id | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to force_all]
  **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
- **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
 
 ### Return type
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## basketLiveShippingServiceList
 
-> BasketLiveShippingServiceList200Response basketLiveShippingServiceList(storeId, start, count)
+> BasketLiveShippingServiceList200Response basketLiveShippingServiceList(start, count, storeId)
 
 basket.live_shipping_service.list
 
@@ -231,11 +231,11 @@ Retrieve a list of live shipping rate services.
 //import org.openapitools.client.api.BasketApi;
 
 BasketApi apiInstance = new BasketApi();
-String storeId = 1; // String | Store Id
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
+String storeId = 1; // String | Store Id
 try {
-    BasketLiveShippingServiceList200Response result = apiInstance.basketLiveShippingServiceList(storeId, start, count);
+    BasketLiveShippingServiceList200Response result = apiInstance.basketLiveShippingServiceList(start, count, storeId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling BasketApi#basketLiveShippingServiceList");
@@ -248,9 +248,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | **String**| Store Id | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
+ **storeId** | **String**| Store Id | [optional] [default to null]
 
 ### Return type
 

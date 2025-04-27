@@ -70,23 +70,23 @@ public class CategoryApi {
   * category.add
   * Add new category in store
    * @param name Defines category&#39;s name that has to be added
-   * @param parentId Adds categories specified by parent id
-   * @param storesIds Create category in the stores that is specified by comma-separated stores&#39; id
-   * @param storeId Store Id
-   * @param langId Language id
-   * @param avail Defines category&#39;s visibility status
-   * @param sortOrder Sort number in the list
-   * @param createdTime Entity&#39;s date creation
-   * @param modifiedTime Entity&#39;s date modification
    * @param description Defines category&#39;s description
    * @param shortDescription Defines short description
+   * @param parentId Adds categories specified by parent id
+   * @param avail Defines category&#39;s visibility status
+   * @param createdTime Entity&#39;s date creation
+   * @param modifiedTime Entity&#39;s date modification
+   * @param sortOrder Sort number in the list
    * @param metaTitle Defines unique meta title for each entity
    * @param metaDescription Defines unique meta description of a entity
    * @param metaKeywords Defines unique meta keywords for each entity
    * @param seoUrl Defines unique category&#39;s URL for SEO
+   * @param storeId Store Id
+   * @param storesIds Create category in the stores that is specified by comma-separated stores&#39; id
+   * @param langId Language id
    * @return CategoryAdd200Response
   */
-  public CategoryAdd200Response categoryAdd (String name, String parentId, String storesIds, String storeId, String langId, Boolean avail, Integer sortOrder, String createdTime, String modifiedTime, String description, String shortDescription, String metaTitle, String metaDescription, String metaKeywords, String seoUrl) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CategoryAdd200Response categoryAdd (String name, String description, String shortDescription, String parentId, Boolean avail, String createdTime, String modifiedTime, Integer sortOrder, String metaTitle, String metaDescription, String metaKeywords, String seoUrl, String storeId, String storesIds, String langId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'name' is set
     if (name == null) {
@@ -104,20 +104,20 @@ public class CategoryApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "name", name));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "stores_ids", storesIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_order", sortOrder));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_time", createdTime));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_time", modifiedTime));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "description", description));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "short_description", shortDescription));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_time", createdTime));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_time", modifiedTime));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_order", sortOrder));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_title", metaTitle));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_description", metaDescription));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_keywords", metaKeywords));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "seo_url", seoUrl));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "stores_ids", storesIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -160,9 +160,9 @@ public class CategoryApi {
       /**
    * category.add
    * Add new category in store
-   * @param name Defines category&#39;s name that has to be added   * @param parentId Adds categories specified by parent id   * @param storesIds Create category in the stores that is specified by comma-separated stores&#39; id   * @param storeId Store Id   * @param langId Language id   * @param avail Defines category&#39;s visibility status   * @param sortOrder Sort number in the list   * @param createdTime Entity&#39;s date creation   * @param modifiedTime Entity&#39;s date modification   * @param description Defines category&#39;s description   * @param shortDescription Defines short description   * @param metaTitle Defines unique meta title for each entity   * @param metaDescription Defines unique meta description of a entity   * @param metaKeywords Defines unique meta keywords for each entity   * @param seoUrl Defines unique category&#39;s URL for SEO
+   * @param name Defines category&#39;s name that has to be added   * @param description Defines category&#39;s description   * @param shortDescription Defines short description   * @param parentId Adds categories specified by parent id   * @param avail Defines category&#39;s visibility status   * @param createdTime Entity&#39;s date creation   * @param modifiedTime Entity&#39;s date modification   * @param sortOrder Sort number in the list   * @param metaTitle Defines unique meta title for each entity   * @param metaDescription Defines unique meta description of a entity   * @param metaKeywords Defines unique meta keywords for each entity   * @param seoUrl Defines unique category&#39;s URL for SEO   * @param storeId Store Id   * @param storesIds Create category in the stores that is specified by comma-separated stores&#39; id   * @param langId Language id
   */
-  public void categoryAdd (String name, String parentId, String storesIds, String storeId, String langId, Boolean avail, Integer sortOrder, String createdTime, String modifiedTime, String description, String shortDescription, String metaTitle, String metaDescription, String metaKeywords, String seoUrl, final Response.Listener<CategoryAdd200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void categoryAdd (String name, String description, String shortDescription, String parentId, Boolean avail, String createdTime, String modifiedTime, Integer sortOrder, String metaTitle, String metaDescription, String metaKeywords, String seoUrl, String storeId, String storesIds, String langId, final Response.Listener<CategoryAdd200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'name' is set
@@ -182,20 +182,20 @@ public class CategoryApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "name", name));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "stores_ids", storesIds));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_order", sortOrder));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_time", createdTime));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_time", modifiedTime));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "description", description));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "short_description", shortDescription));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_time", createdTime));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_time", modifiedTime));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_order", sortOrder));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_title", metaTitle));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_description", metaDescription));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_keywords", metaKeywords));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "seo_url", seoUrl));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "stores_ids", storesIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
 
 
     String[] contentTypes = {
@@ -368,22 +368,22 @@ public class CategoryApi {
   /**
   * category.assign
   * Assign category to product
-   * @param productId Defines category assign to the product, specified by product id
    * @param categoryId Defines category assign, specified by category id
+   * @param productId Defines category assign to the product, specified by product id
    * @param storeId Store Id
    * @return CartConfigUpdate200Response
   */
-  public CartConfigUpdate200Response categoryAssign (String productId, String categoryId, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CartConfigUpdate200Response categoryAssign (String categoryId, String productId, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'productId' is set
-    if (productId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'productId' when calling categoryAssign",
-        new ApiException(400, "Missing the required parameter 'productId' when calling categoryAssign"));
-    }
     // verify the required parameter 'categoryId' is set
     if (categoryId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'categoryId' when calling categoryAssign",
         new ApiException(400, "Missing the required parameter 'categoryId' when calling categoryAssign"));
+    }
+    // verify the required parameter 'productId' is set
+    if (productId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'productId' when calling categoryAssign",
+        new ApiException(400, "Missing the required parameter 'productId' when calling categoryAssign"));
     }
 
     // create path and map variables
@@ -395,8 +395,8 @@ public class CategoryApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     String[] contentTypes = {
     };
@@ -440,20 +440,20 @@ public class CategoryApi {
       /**
    * category.assign
    * Assign category to product
-   * @param productId Defines category assign to the product, specified by product id   * @param categoryId Defines category assign, specified by category id   * @param storeId Store Id
+   * @param categoryId Defines category assign, specified by category id   * @param productId Defines category assign to the product, specified by product id   * @param storeId Store Id
   */
-  public void categoryAssign (String productId, String categoryId, String storeId, final Response.Listener<CartConfigUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void categoryAssign (String categoryId, String productId, String storeId, final Response.Listener<CartConfigUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'productId' is set
-    if (productId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'productId' when calling categoryAssign",
-        new ApiException(400, "Missing the required parameter 'productId' when calling categoryAssign"));
-    }
     // verify the required parameter 'categoryId' is set
     if (categoryId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'categoryId' when calling categoryAssign",
         new ApiException(400, "Missing the required parameter 'categoryId' when calling categoryAssign"));
+    }
+    // verify the required parameter 'productId' is set
+    if (productId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'productId' when calling categoryAssign",
+        new ApiException(400, "Missing the required parameter 'productId' when calling categoryAssign"));
     }
 
     // create path and map variables
@@ -466,8 +466,8 @@ public class CategoryApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
 
 
@@ -516,11 +516,11 @@ public class CategoryApi {
    * @param parentId Counts categories specified by parent id
    * @param storeId Counts category specified by store id
    * @param langId Counts category specified by language id
+   * @param avail Defines category&#39;s visibility status
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param avail Defines category&#39;s visibility status
    * @param productType A categorization for the product
    * @param findValue Entity search that is specified by some value
    * @param findWhere Counts categories that are searched specified by field
@@ -528,7 +528,7 @@ public class CategoryApi {
    * @param disableReportCache Disable report cache for current request
    * @return CategoryCount200Response
   */
-  public CategoryCount200Response categoryCount (String parentId, String storeId, String langId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean avail, String productType, String findValue, String findWhere, String reportRequestId, Boolean disableReportCache) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CategoryCount200Response categoryCount (String parentId, String storeId, String langId, Boolean avail, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String productType, String findValue, String findWhere, String reportRequestId, Boolean disableReportCache) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -543,11 +543,11 @@ public class CategoryApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_type", productType));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
@@ -595,9 +595,9 @@ public class CategoryApi {
       /**
    * category.count
    * Count categories in store.
-   * @param parentId Counts categories specified by parent id   * @param storeId Counts category specified by store id   * @param langId Counts category specified by language id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param avail Defines category&#39;s visibility status   * @param productType A categorization for the product   * @param findValue Entity search that is specified by some value   * @param findWhere Counts categories that are searched specified by field   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request
+   * @param parentId Counts categories specified by parent id   * @param storeId Counts category specified by store id   * @param langId Counts category specified by language id   * @param avail Defines category&#39;s visibility status   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param productType A categorization for the product   * @param findValue Entity search that is specified by some value   * @param findWhere Counts categories that are searched specified by field   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request
   */
-  public void categoryCount (String parentId, String storeId, String langId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean avail, String productType, String findValue, String findWhere, String reportRequestId, Boolean disableReportCache, final Response.Listener<CategoryCount200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void categoryCount (String parentId, String storeId, String langId, Boolean avail, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String productType, String findValue, String findWhere, String reportRequestId, Boolean disableReportCache, final Response.Listener<CategoryCount200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -614,11 +614,11 @@ public class CategoryApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_type", productType));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
@@ -945,13 +945,13 @@ public class CategoryApi {
    * @param imageName Defines image&#39;s name
    * @param url Defines URL of the image that has to be added
    * @param type Defines image&#39;s types that are specified by comma-separated list
+   * @param storeId Store Id
    * @param label Defines alternative text that has to be attached to the picture
    * @param mime Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
    * @param position Defines image’s position in the list
-   * @param storeId Store Id
    * @return CategoryImageAdd200Response
   */
-  public CategoryImageAdd200Response categoryImageAdd (String categoryId, String imageName, String url, String type, String label, String mime, Integer position, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CategoryImageAdd200Response categoryImageAdd (String categoryId, String imageName, String url, String type, String storeId, String label, String mime, Integer position) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'categoryId' is set
     if (categoryId == null) {
@@ -986,11 +986,11 @@ public class CategoryApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "image_name", imageName));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "url", url));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "label", label));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "mime", mime));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "position", position));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1033,9 +1033,9 @@ public class CategoryApi {
       /**
    * category.image.add
    * Add image to category
-   * @param categoryId Defines category id where the image should be added   * @param imageName Defines image&#39;s name   * @param url Defines URL of the image that has to be added   * @param type Defines image&#39;s types that are specified by comma-separated list   * @param label Defines alternative text that has to be attached to the picture   * @param mime Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.   * @param position Defines image’s position in the list   * @param storeId Store Id
+   * @param categoryId Defines category id where the image should be added   * @param imageName Defines image&#39;s name   * @param url Defines URL of the image that has to be added   * @param type Defines image&#39;s types that are specified by comma-separated list   * @param storeId Store Id   * @param label Defines alternative text that has to be attached to the picture   * @param mime Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.   * @param position Defines image’s position in the list
   */
-  public void categoryImageAdd (String categoryId, String imageName, String url, String type, String label, String mime, Integer position, String storeId, final Response.Listener<CategoryImageAdd200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void categoryImageAdd (String categoryId, String imageName, String url, String type, String storeId, String label, String mime, Integer position, final Response.Listener<CategoryImageAdd200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'categoryId' is set
@@ -1072,11 +1072,11 @@ public class CategoryApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "category_id", categoryId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "image_name", imageName));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "url", url));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "label", label));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "mime", mime));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "position", position));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
 
 
     String[] contentTypes = {
@@ -1267,17 +1267,17 @@ public class CategoryApi {
   * category.info
   * Get category info about category ID*** or specify other category ID.
    * @param id Retrieves category&#39;s info specified by category id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param storeId Retrieves category info  specified by store id
    * @param langId Retrieves category info  specified by language id
    * @param schemaType The name of the requirements set for the provided schema.
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @return CategoryInfo200Response
   */
-  public CategoryInfo200Response categoryInfo (String id, String params, String responseFields, String exclude, String storeId, String langId, String schemaType, String reportRequestId, Boolean disableReportCache) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CategoryInfo200Response categoryInfo (String id, String storeId, String langId, String schemaType, String responseFields, String params, String exclude, String reportRequestId, Boolean disableReportCache) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1295,12 +1295,12 @@ public class CategoryApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "schema_type", schemaType));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
     String[] contentTypes = {
@@ -1345,9 +1345,9 @@ public class CategoryApi {
       /**
    * category.info
    * Get category info about category ID*** or specify other category ID.
-   * @param id Retrieves category&#39;s info specified by category id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param storeId Retrieves category info  specified by store id   * @param langId Retrieves category info  specified by language id   * @param schemaType The name of the requirements set for the provided schema.   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request
+   * @param id Retrieves category&#39;s info specified by category id   * @param storeId Retrieves category info  specified by store id   * @param langId Retrieves category info  specified by language id   * @param schemaType The name of the requirements set for the provided schema.   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request
   */
-  public void categoryInfo (String id, String params, String responseFields, String exclude, String storeId, String langId, String schemaType, String reportRequestId, Boolean disableReportCache, final Response.Listener<CategoryInfo200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void categoryInfo (String id, String storeId, String langId, String schemaType, String responseFields, String params, String exclude, String reportRequestId, Boolean disableReportCache, final Response.Listener<CategoryInfo200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -1367,12 +1367,12 @@ public class CategoryApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "schema_type", schemaType));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
 
@@ -1422,26 +1422,26 @@ public class CategoryApi {
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
-   * @param parentId Retrieves categories specified by parent id
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param storeId Retrieves categories specified by store id
    * @param langId Retrieves categorys specified by language id
+   * @param parentId Retrieves categories specified by parent id
+   * @param avail Defines category&#39;s visibility status
+   * @param productType A categorization for the product
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
-   * @param avail Defines category&#39;s visibility status
-   * @param productType A categorization for the product
    * @param findValue Entity search that is specified by some value
    * @param findWhere Category search that is specified by field
+   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param params Set this parameter in order to choose which entity fields you want to retrieve
+   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @param reportRequestId Report request id
    * @param disableReportCache Disable report cache for current request
    * @param disableCache Disable cache for current request
    * @return ModelResponseCategoryList
   */
-  public ModelResponseCategoryList categoryList (Integer start, Integer count, String pageCursor, String parentId, String params, String responseFields, String exclude, String storeId, String langId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean avail, String productType, String findValue, String findWhere, String reportRequestId, Boolean disableReportCache, Boolean disableCache) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCategoryList categoryList (Integer start, Integer count, String pageCursor, String storeId, String langId, String parentId, Boolean avail, String productType, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String findValue, String findWhere, String responseFields, String params, String exclude, String reportRequestId, Boolean disableReportCache, Boolean disableCache) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1456,20 +1456,20 @@ public class CategoryApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_type", productType));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_type", productType));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_cache", disableCache));
@@ -1515,9 +1515,9 @@ public class CategoryApi {
       /**
    * category.list
    * Get list of categories from store.
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param parentId Retrieves categories specified by parent id   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param storeId Retrieves categories specified by store id   * @param langId Retrieves categorys specified by language id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param avail Defines category&#39;s visibility status   * @param productType A categorization for the product   * @param findValue Entity search that is specified by some value   * @param findWhere Category search that is specified by field   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request   * @param disableCache Disable cache for current request
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param storeId Retrieves categories specified by store id   * @param langId Retrieves categorys specified by language id   * @param parentId Retrieves categories specified by parent id   * @param avail Defines category&#39;s visibility status   * @param productType A categorization for the product   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param findValue Entity search that is specified by some value   * @param findWhere Category search that is specified by field   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param reportRequestId Report request id   * @param disableReportCache Disable report cache for current request   * @param disableCache Disable cache for current request
   */
-  public void categoryList (Integer start, Integer count, String pageCursor, String parentId, String params, String responseFields, String exclude, String storeId, String langId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, Boolean avail, String productType, String findValue, String findWhere, String reportRequestId, Boolean disableReportCache, Boolean disableCache, final Response.Listener<ModelResponseCategoryList> responseListener, final Response.ErrorListener errorListener) {
+  public void categoryList (Integer start, Integer count, String pageCursor, String storeId, String langId, String parentId, Boolean avail, String productType, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String findValue, String findWhere, String responseFields, String params, String exclude, String reportRequestId, Boolean disableReportCache, Boolean disableCache, final Response.Listener<ModelResponseCategoryList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1534,20 +1534,20 @@ public class CategoryApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_type", productType));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "product_type", productType));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "report_request_id", reportRequestId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_report_cache", disableReportCache));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "disable_cache", disableCache));
@@ -1742,22 +1742,22 @@ public class CategoryApi {
   * Update category in store
    * @param id Defines category update specified by category id
    * @param name Defines new category’s name
+   * @param description Defines new category&#39;s description
+   * @param shortDescription Defines short description
    * @param parentId Defines new parent category id
-   * @param storesIds Update category in the stores that is specified by comma-separated stores&#39; id
    * @param avail Defines category&#39;s visibility status
    * @param sortOrder Sort number in the list
    * @param modifiedTime Entity&#39;s date modification
-   * @param description Defines new category&#39;s description
-   * @param shortDescription Defines short description
    * @param metaTitle Defines unique meta title for each entity
    * @param metaDescription Defines unique meta description of a entity
    * @param metaKeywords Defines unique meta keywords for each entity
    * @param seoUrl Defines unique category&#39;s URL for SEO
-   * @param langId Language id
    * @param storeId Store Id
+   * @param storesIds Update category in the stores that is specified by comma-separated stores&#39; id
+   * @param langId Language id
    * @return AccountConfigUpdate200Response
   */
-  public AccountConfigUpdate200Response categoryUpdate (String id, String name, String parentId, String storesIds, Boolean avail, Integer sortOrder, String modifiedTime, String description, String shortDescription, String metaTitle, String metaDescription, String metaKeywords, String seoUrl, String langId, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AccountConfigUpdate200Response categoryUpdate (String id, String name, String description, String shortDescription, String parentId, Boolean avail, Integer sortOrder, String modifiedTime, String metaTitle, String metaDescription, String metaKeywords, String seoUrl, String storeId, String storesIds, String langId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1776,19 +1776,19 @@ public class CategoryApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "name", name));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "description", description));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "short_description", shortDescription));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "stores_ids", storesIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_order", sortOrder));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_time", modifiedTime));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "description", description));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "short_description", shortDescription));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_title", metaTitle));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_description", metaDescription));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_keywords", metaKeywords));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "seo_url", seoUrl));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "stores_ids", storesIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1831,9 +1831,9 @@ public class CategoryApi {
       /**
    * category.update
    * Update category in store
-   * @param id Defines category update specified by category id   * @param name Defines new category’s name   * @param parentId Defines new parent category id   * @param storesIds Update category in the stores that is specified by comma-separated stores&#39; id   * @param avail Defines category&#39;s visibility status   * @param sortOrder Sort number in the list   * @param modifiedTime Entity&#39;s date modification   * @param description Defines new category&#39;s description   * @param shortDescription Defines short description   * @param metaTitle Defines unique meta title for each entity   * @param metaDescription Defines unique meta description of a entity   * @param metaKeywords Defines unique meta keywords for each entity   * @param seoUrl Defines unique category&#39;s URL for SEO   * @param langId Language id   * @param storeId Store Id
+   * @param id Defines category update specified by category id   * @param name Defines new category’s name   * @param description Defines new category&#39;s description   * @param shortDescription Defines short description   * @param parentId Defines new parent category id   * @param avail Defines category&#39;s visibility status   * @param sortOrder Sort number in the list   * @param modifiedTime Entity&#39;s date modification   * @param metaTitle Defines unique meta title for each entity   * @param metaDescription Defines unique meta description of a entity   * @param metaKeywords Defines unique meta keywords for each entity   * @param seoUrl Defines unique category&#39;s URL for SEO   * @param storeId Store Id   * @param storesIds Update category in the stores that is specified by comma-separated stores&#39; id   * @param langId Language id
   */
-  public void categoryUpdate (String id, String name, String parentId, String storesIds, Boolean avail, Integer sortOrder, String modifiedTime, String description, String shortDescription, String metaTitle, String metaDescription, String metaKeywords, String seoUrl, String langId, String storeId, final Response.Listener<AccountConfigUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void categoryUpdate (String id, String name, String description, String shortDescription, String parentId, Boolean avail, Integer sortOrder, String modifiedTime, String metaTitle, String metaDescription, String metaKeywords, String seoUrl, String storeId, String storesIds, String langId, final Response.Listener<AccountConfigUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -1854,19 +1854,19 @@ public class CategoryApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "id", id));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "name", name));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "description", description));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "short_description", shortDescription));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "parent_id", parentId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "stores_ids", storesIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_order", sortOrder));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_time", modifiedTime));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "description", description));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "short_description", shortDescription));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_title", metaTitle));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_description", metaDescription));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_keywords", metaKeywords));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "seo_url", seoUrl));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "stores_ids", storesIds));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
 
 
     String[] contentTypes = {

@@ -169,6 +169,8 @@ public class AccountCartAdd {
   private String shoplineAppKey = null;
   @SerializedName("shopline_app_secret")
   private String shoplineAppSecret = null;
+  @SerializedName("shopline_shared_secret")
+  private String shoplineSharedSecret = null;
   @SerializedName("shopify_access_token")
   private String shopifyAccessToken = null;
   @SerializedName("shopify_api_key")
@@ -1124,6 +1126,17 @@ public class AccountCartAdd {
   }
 
   /**
+   * Shopline Shared Secret
+   **/
+  @ApiModelProperty(value = "Shopline Shared Secret")
+  public String getShoplineSharedSecret() {
+    return shoplineSharedSecret;
+  }
+  public void setShoplineSharedSecret(String shoplineSharedSecret) {
+    this.shoplineSharedSecret = shoplineSharedSecret;
+  }
+
+  /**
    * Access token authorizing the app to access resources on behalf of a user
    **/
   @ApiModelProperty(value = "Access token authorizing the app to access resources on behalf of a user")
@@ -2031,6 +2044,7 @@ public class AccountCartAdd {
         (this.shoplineAccessToken == null ? accountCartAdd.shoplineAccessToken == null : this.shoplineAccessToken.equals(accountCartAdd.shoplineAccessToken)) &&
         (this.shoplineAppKey == null ? accountCartAdd.shoplineAppKey == null : this.shoplineAppKey.equals(accountCartAdd.shoplineAppKey)) &&
         (this.shoplineAppSecret == null ? accountCartAdd.shoplineAppSecret == null : this.shoplineAppSecret.equals(accountCartAdd.shoplineAppSecret)) &&
+        (this.shoplineSharedSecret == null ? accountCartAdd.shoplineSharedSecret == null : this.shoplineSharedSecret.equals(accountCartAdd.shoplineSharedSecret)) &&
         (this.shopifyAccessToken == null ? accountCartAdd.shopifyAccessToken == null : this.shopifyAccessToken.equals(accountCartAdd.shopifyAccessToken)) &&
         (this.shopifyApiKey == null ? accountCartAdd.shopifyApiKey == null : this.shopifyApiKey.equals(accountCartAdd.shopifyApiKey)) &&
         (this.shopifyApiPassword == null ? accountCartAdd.shopifyApiPassword == null : this.shopifyApiPassword.equals(accountCartAdd.shopifyApiPassword)) &&
@@ -2184,6 +2198,7 @@ public class AccountCartAdd {
     result = 31 * result + (this.shoplineAccessToken == null ? 0: this.shoplineAccessToken.hashCode());
     result = 31 * result + (this.shoplineAppKey == null ? 0: this.shoplineAppKey.hashCode());
     result = 31 * result + (this.shoplineAppSecret == null ? 0: this.shoplineAppSecret.hashCode());
+    result = 31 * result + (this.shoplineSharedSecret == null ? 0: this.shoplineSharedSecret.hashCode());
     result = 31 * result + (this.shopifyAccessToken == null ? 0: this.shopifyAccessToken.hashCode());
     result = 31 * result + (this.shopifyApiKey == null ? 0: this.shopifyApiKey.hashCode());
     result = 31 * result + (this.shopifyApiPassword == null ? 0: this.shopifyApiPassword.hashCode());
@@ -2340,6 +2355,7 @@ public class AccountCartAdd {
     sb.append("  shoplineAccessToken: ").append(shoplineAccessToken).append("\n");
     sb.append("  shoplineAppKey: ").append(shoplineAppKey).append("\n");
     sb.append("  shoplineAppSecret: ").append(shoplineAppSecret).append("\n");
+    sb.append("  shoplineSharedSecret: ").append(shoplineSharedSecret).append("\n");
     sb.append("  shopifyAccessToken: ").append(shopifyAccessToken).append("\n");
     sb.append("  shopifyApiKey: ").append(shopifyApiKey).append("\n");
     sb.append("  shopifyApiPassword: ").append(shopifyApiPassword).append("\n");

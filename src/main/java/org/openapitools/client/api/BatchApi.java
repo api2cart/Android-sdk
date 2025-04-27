@@ -61,15 +61,15 @@ public class BatchApi {
   * Get list of recent jobs
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
+   * @param ids Filter batch jobs by ids
    * @param createdFrom Retrieve entities from their creation date
    * @param createdTo Retrieve entities to their creation date
    * @param processedFrom Retrieve entities according to their processing datetime
    * @param processedTo Retrieve entities according to their processing datetime
-   * @param ids Filter batch jobs by ids
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @return ModelResponseBatchJobList
   */
-  public ModelResponseBatchJobList batchJobList (Integer count, String pageCursor, String createdFrom, String createdTo, String processedFrom, String processedTo, String ids, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseBatchJobList batchJobList (Integer count, String pageCursor, String ids, String createdFrom, String createdTo, String processedFrom, String processedTo, String responseFields) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -83,11 +83,11 @@ public class BatchApi {
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "processed_from", processedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "processed_to", processedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     String[] contentTypes = {
     };
@@ -131,9 +131,9 @@ public class BatchApi {
       /**
    * batch.job.list
    * Get list of recent jobs
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param processedFrom Retrieve entities according to their processing datetime   * @param processedTo Retrieve entities according to their processing datetime   * @param ids Filter batch jobs by ids   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param ids Filter batch jobs by ids   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param processedFrom Retrieve entities according to their processing datetime   * @param processedTo Retrieve entities according to their processing datetime   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
   */
-  public void batchJobList (Integer count, String pageCursor, String createdFrom, String createdTo, String processedFrom, String processedTo, String ids, String responseFields, final Response.Listener<ModelResponseBatchJobList> responseListener, final Response.ErrorListener errorListener) {
+  public void batchJobList (Integer count, String pageCursor, String ids, String createdFrom, String createdTo, String processedFrom, String processedTo, String responseFields, final Response.Listener<ModelResponseBatchJobList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -149,11 +149,11 @@ public class BatchApi {
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "processed_from", processedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "processed_to", processedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
 
 

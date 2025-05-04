@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
 public class CartCreate {
   
   public enum CartIdEnum {
-     3DCart,  3DCartApi,  AceShop,  AmazonSP,  AspDotNetStorefront,  BigcommerceApi,  Bol,  CommerceHQ,  Creloaded,  Cscart,  Cubecart,  Demandware,  EBay,  Ecwid,  EtsyAPIv3,  Flipkart,  Gambio,  Hybris,  JooCart,  Lazada,  LightSpeed,  Magento1212,  Magento2Api,  MercadoLibre,  MijoShop,  Miva,  Neto,  Opencart14,  Oscmax2,  Oscommerce22ms2,  Otto,  Oxid,  Pinnacle,  Prestashop,  PrestashopApi,  SSPremium,  Salla,  Shopify,  Shoplazza,  Shopline,  Shopware,  ShopwareApi,  Square,  Squarespace,  Tiendanube,  TikTokShop,  Tomatocart,  Ubercart,  Virtuemart,  Volusion,  WPecommerce,  Walmart,  WebAsyst,  Wix,  Woocommerce,  WoocommerceApi,  Xcart,  Xtcommerce,  XtcommerceVeyton,  Zencart137,  Zid,  Zoey,  Zoho, 
+     3DCart,  3DCartApi,  AceShop,  AmazonSP,  AspDotNetStorefront,  BigCartel,  BigcommerceApi,  Bol,  CommerceHQ,  Creloaded,  Cscart,  Cubecart,  Demandware,  EBay,  Ecwid,  EtsyAPIv3,  Flipkart,  Gambio,  Hybris,  JooCart,  Lazada,  LightSpeed,  Magento1212,  Magento2Api,  MercadoLibre,  MijoShop,  Miva,  Neto,  Opencart14,  Oscmax2,  Oscommerce22ms2,  Otto,  Oxid,  Pinnacle,  Prestashop,  PrestashopApi,  SSPremium,  Salla,  Shopify,  Shoplazza,  Shopline,  Shopware,  ShopwareApi,  Square,  Squarespace,  Tiendanube,  TikTokShop,  Tomatocart,  Ubercart,  Virtuemart,  Volusion,  WPecommerce,  Walmart,  WebAsyst,  Wix,  Woocommerce,  WoocommerceApi,  Xcart,  Xtcommerce,  XtcommerceVeyton,  Zencart137,  Zid,  Zoey,  Zoho, 
   };
   @SerializedName("cart_id")
   private CartIdEnum cartId = null;

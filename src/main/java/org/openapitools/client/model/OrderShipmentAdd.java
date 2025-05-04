@@ -47,6 +47,8 @@ public class OrderShipmentAdd {
   private Boolean enableCache = false;
   @SerializedName("check_process_status")
   private Boolean checkProcessStatus = false;
+  @SerializedName("tracking_provider")
+  private String trackingProvider = null;
   @SerializedName("use_latest_api_version")
   private Boolean useLatestApiVersion = false;
 
@@ -194,6 +196,17 @@ public class OrderShipmentAdd {
   }
 
   /**
+   * Defines name of the company which provides shipment tracking
+   **/
+  @ApiModelProperty(value = "Defines name of the company which provides shipment tracking")
+  public String getTrackingProvider() {
+    return trackingProvider;
+  }
+  public void setTrackingProvider(String trackingProvider) {
+    this.trackingProvider = trackingProvider;
+  }
+
+  /**
    * Use the latest platform API version
    **/
   @ApiModelProperty(value = "Use the latest platform API version")
@@ -227,6 +240,7 @@ public class OrderShipmentAdd {
         (this.adjustStock == null ? orderShipmentAdd.adjustStock == null : this.adjustStock.equals(orderShipmentAdd.adjustStock)) &&
         (this.enableCache == null ? orderShipmentAdd.enableCache == null : this.enableCache.equals(orderShipmentAdd.enableCache)) &&
         (this.checkProcessStatus == null ? orderShipmentAdd.checkProcessStatus == null : this.checkProcessStatus.equals(orderShipmentAdd.checkProcessStatus)) &&
+        (this.trackingProvider == null ? orderShipmentAdd.trackingProvider == null : this.trackingProvider.equals(orderShipmentAdd.trackingProvider)) &&
         (this.useLatestApiVersion == null ? orderShipmentAdd.useLatestApiVersion == null : this.useLatestApiVersion.equals(orderShipmentAdd.useLatestApiVersion));
   }
 
@@ -246,6 +260,7 @@ public class OrderShipmentAdd {
     result = 31 * result + (this.adjustStock == null ? 0: this.adjustStock.hashCode());
     result = 31 * result + (this.enableCache == null ? 0: this.enableCache.hashCode());
     result = 31 * result + (this.checkProcessStatus == null ? 0: this.checkProcessStatus.hashCode());
+    result = 31 * result + (this.trackingProvider == null ? 0: this.trackingProvider.hashCode());
     result = 31 * result + (this.useLatestApiVersion == null ? 0: this.useLatestApiVersion.hashCode());
     return result;
   }
@@ -268,6 +283,7 @@ public class OrderShipmentAdd {
     sb.append("  adjustStock: ").append(adjustStock).append("\n");
     sb.append("  enableCache: ").append(enableCache).append("\n");
     sb.append("  checkProcessStatus: ").append(checkProcessStatus).append("\n");
+    sb.append("  trackingProvider: ").append(trackingProvider).append("\n");
     sb.append("  useLatestApiVersion: ").append(useLatestApiVersion).append("\n");
     sb.append("}\n");
     return sb.toString();

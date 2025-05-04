@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
 public class AccountCartAdd {
   
   public enum CartIdEnum {
-     3DCart,  3DCartApi,  AceShop,  AmazonSP,  AspDotNetStorefront,  BigcommerceApi,  Bol,  CommerceHQ,  Creloaded,  Cscart,  Cubecart,  Demandware,  EBay,  Ecwid,  EtsyAPIv3,  Flipkart,  Gambio,  Hybris,  JooCart,  Lazada,  LightSpeed,  Magento1212,  Magento2Api,  MercadoLibre,  MijoShop,  Miva,  Neto,  Opencart14,  Oscmax2,  Oscommerce22ms2,  Otto,  Oxid,  Pinnacle,  Prestashop,  PrestashopApi,  SSPremium,  Salla,  Shopify,  Shoplazza,  Shopline,  Shopware,  ShopwareApi,  Square,  Squarespace,  Tiendanube,  TikTokShop,  Tomatocart,  Ubercart,  Virtuemart,  Volusion,  WPecommerce,  Walmart,  WebAsyst,  Wix,  Woocommerce,  WoocommerceApi,  Xcart,  Xtcommerce,  XtcommerceVeyton,  Zencart137,  Zid,  Zoey,  Zoho, 
+     3DCart,  3DCartApi,  AceShop,  AmazonSP,  AspDotNetStorefront,  BigCartel,  BigcommerceApi,  Bol,  CommerceHQ,  Creloaded,  Cscart,  Cubecart,  Demandware,  EBay,  Ecwid,  EtsyAPIv3,  Flipkart,  Gambio,  Hybris,  JooCart,  Lazada,  LightSpeed,  Magento1212,  Magento2Api,  MercadoLibre,  MijoShop,  Miva,  Neto,  Opencart14,  Oscmax2,  Oscommerce22ms2,  Otto,  Oxid,  Pinnacle,  Prestashop,  PrestashopApi,  SSPremium,  Salla,  Shopify,  Shoplazza,  Shopline,  Shopware,  ShopwareApi,  Square,  Squarespace,  Tiendanube,  TikTokShop,  Tomatocart,  Ubercart,  Virtuemart,  Volusion,  WPecommerce,  Walmart,  WebAsyst,  Wix,  Woocommerce,  WoocommerceApi,  Xcart,  Xtcommerce,  XtcommerceVeyton,  Zencart137,  Zid,  Zoey,  Zoho, 
   };
   @SerializedName("cart_id")
   private CartIdEnum cartId = null;
@@ -91,6 +91,10 @@ public class AccountCartAdd {
   private String bolApiSecret = null;
   @SerializedName("bol_retailer_id")
   private Integer bolRetailerId = null;
+  @SerializedName("bigcartel_user_name")
+  private String bigcartelUserName = null;
+  @SerializedName("bigcartel_password")
+  private String bigcartelPassword = null;
   @SerializedName("demandware_client_id")
   private String demandwareClientId = null;
   @SerializedName("demandware_api_password")
@@ -694,6 +698,28 @@ public class AccountCartAdd {
   }
   public void setBolRetailerId(Integer bolRetailerId) {
     this.bolRetailerId = bolRetailerId;
+  }
+
+  /**
+   * Subdomain of store
+   **/
+  @ApiModelProperty(required = true, value = "Subdomain of store")
+  public String getBigcartelUserName() {
+    return bigcartelUserName;
+  }
+  public void setBigcartelUserName(String bigcartelUserName) {
+    this.bigcartelUserName = bigcartelUserName;
+  }
+
+  /**
+   * BigCartel account password
+   **/
+  @ApiModelProperty(required = true, value = "BigCartel account password")
+  public String getBigcartelPassword() {
+    return bigcartelPassword;
+  }
+  public void setBigcartelPassword(String bigcartelPassword) {
+    this.bigcartelPassword = bigcartelPassword;
   }
 
   /**
@@ -2005,6 +2031,8 @@ public class AccountCartAdd {
         (this.bolApiKey == null ? accountCartAdd.bolApiKey == null : this.bolApiKey.equals(accountCartAdd.bolApiKey)) &&
         (this.bolApiSecret == null ? accountCartAdd.bolApiSecret == null : this.bolApiSecret.equals(accountCartAdd.bolApiSecret)) &&
         (this.bolRetailerId == null ? accountCartAdd.bolRetailerId == null : this.bolRetailerId.equals(accountCartAdd.bolRetailerId)) &&
+        (this.bigcartelUserName == null ? accountCartAdd.bigcartelUserName == null : this.bigcartelUserName.equals(accountCartAdd.bigcartelUserName)) &&
+        (this.bigcartelPassword == null ? accountCartAdd.bigcartelPassword == null : this.bigcartelPassword.equals(accountCartAdd.bigcartelPassword)) &&
         (this.demandwareClientId == null ? accountCartAdd.demandwareClientId == null : this.demandwareClientId.equals(accountCartAdd.demandwareClientId)) &&
         (this.demandwareApiPassword == null ? accountCartAdd.demandwareApiPassword == null : this.demandwareApiPassword.equals(accountCartAdd.demandwareApiPassword)) &&
         (this.demandwareUserName == null ? accountCartAdd.demandwareUserName == null : this.demandwareUserName.equals(accountCartAdd.demandwareUserName)) &&
@@ -2159,6 +2187,8 @@ public class AccountCartAdd {
     result = 31 * result + (this.bolApiKey == null ? 0: this.bolApiKey.hashCode());
     result = 31 * result + (this.bolApiSecret == null ? 0: this.bolApiSecret.hashCode());
     result = 31 * result + (this.bolRetailerId == null ? 0: this.bolRetailerId.hashCode());
+    result = 31 * result + (this.bigcartelUserName == null ? 0: this.bigcartelUserName.hashCode());
+    result = 31 * result + (this.bigcartelPassword == null ? 0: this.bigcartelPassword.hashCode());
     result = 31 * result + (this.demandwareClientId == null ? 0: this.demandwareClientId.hashCode());
     result = 31 * result + (this.demandwareApiPassword == null ? 0: this.demandwareApiPassword.hashCode());
     result = 31 * result + (this.demandwareUserName == null ? 0: this.demandwareUserName.hashCode());
@@ -2316,6 +2346,8 @@ public class AccountCartAdd {
     sb.append("  bolApiKey: ").append(bolApiKey).append("\n");
     sb.append("  bolApiSecret: ").append(bolApiSecret).append("\n");
     sb.append("  bolRetailerId: ").append(bolRetailerId).append("\n");
+    sb.append("  bigcartelUserName: ").append(bigcartelUserName).append("\n");
+    sb.append("  bigcartelPassword: ").append(bigcartelPassword).append("\n");
     sb.append("  demandwareClientId: ").append(demandwareClientId).append("\n");
     sb.append("  demandwareApiPassword: ").append(demandwareApiPassword).append("\n");
     sb.append("  demandwareUserName: ").append(demandwareUserName).append("\n");

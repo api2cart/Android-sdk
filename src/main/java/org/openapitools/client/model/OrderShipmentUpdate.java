@@ -13,6 +13,7 @@
 package org.openapitools.client.model;
 
 import java.util.*;
+import org.openapitools.client.model.OrderShipmentAddItemsInner;
 import org.openapitools.client.model.OrderShipmentAddTrackingNumbersInner;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -38,6 +39,12 @@ public class OrderShipmentUpdate {
   private String deliveredAt = null;
   @SerializedName("replace")
   private Boolean replace = true;
+  @SerializedName("send_notifications")
+  private Boolean sendNotifications = false;
+  @SerializedName("tracking_provider")
+  private String trackingProvider = null;
+  @SerializedName("items")
+  private List<OrderShipmentAddItemsInner> items = null;
 
   /**
    * Shipment id indicates the number of delivery
@@ -138,6 +145,39 @@ public class OrderShipmentUpdate {
     this.replace = replace;
   }
 
+  /**
+   * Send notifications to customer after order was created
+   **/
+  @ApiModelProperty(value = "Send notifications to customer after order was created")
+  public Boolean getSendNotifications() {
+    return sendNotifications;
+  }
+  public void setSendNotifications(Boolean sendNotifications) {
+    this.sendNotifications = sendNotifications;
+  }
+
+  /**
+   * Defines name of the company which provides shipment tracking
+   **/
+  @ApiModelProperty(value = "Defines name of the company which provides shipment tracking")
+  public String getTrackingProvider() {
+    return trackingProvider;
+  }
+  public void setTrackingProvider(String trackingProvider) {
+    this.trackingProvider = trackingProvider;
+  }
+
+  /**
+   * Defines items in the order that will be shipped
+   **/
+  @ApiModelProperty(value = "Defines items in the order that will be shipped")
+  public List<OrderShipmentAddItemsInner> getItems() {
+    return items;
+  }
+  public void setItems(List<OrderShipmentAddItemsInner> items) {
+    this.items = items;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -156,7 +196,10 @@ public class OrderShipmentUpdate {
         (this.trackingLink == null ? orderShipmentUpdate.trackingLink == null : this.trackingLink.equals(orderShipmentUpdate.trackingLink)) &&
         (this.isShipped == null ? orderShipmentUpdate.isShipped == null : this.isShipped.equals(orderShipmentUpdate.isShipped)) &&
         (this.deliveredAt == null ? orderShipmentUpdate.deliveredAt == null : this.deliveredAt.equals(orderShipmentUpdate.deliveredAt)) &&
-        (this.replace == null ? orderShipmentUpdate.replace == null : this.replace.equals(orderShipmentUpdate.replace));
+        (this.replace == null ? orderShipmentUpdate.replace == null : this.replace.equals(orderShipmentUpdate.replace)) &&
+        (this.sendNotifications == null ? orderShipmentUpdate.sendNotifications == null : this.sendNotifications.equals(orderShipmentUpdate.sendNotifications)) &&
+        (this.trackingProvider == null ? orderShipmentUpdate.trackingProvider == null : this.trackingProvider.equals(orderShipmentUpdate.trackingProvider)) &&
+        (this.items == null ? orderShipmentUpdate.items == null : this.items.equals(orderShipmentUpdate.items));
   }
 
   @Override
@@ -171,6 +214,9 @@ public class OrderShipmentUpdate {
     result = 31 * result + (this.isShipped == null ? 0: this.isShipped.hashCode());
     result = 31 * result + (this.deliveredAt == null ? 0: this.deliveredAt.hashCode());
     result = 31 * result + (this.replace == null ? 0: this.replace.hashCode());
+    result = 31 * result + (this.sendNotifications == null ? 0: this.sendNotifications.hashCode());
+    result = 31 * result + (this.trackingProvider == null ? 0: this.trackingProvider.hashCode());
+    result = 31 * result + (this.items == null ? 0: this.items.hashCode());
     return result;
   }
 
@@ -188,6 +234,9 @@ public class OrderShipmentUpdate {
     sb.append("  isShipped: ").append(isShipped).append("\n");
     sb.append("  deliveredAt: ").append(deliveredAt).append("\n");
     sb.append("  replace: ").append(replace).append("\n");
+    sb.append("  sendNotifications: ").append(sendNotifications).append("\n");
+    sb.append("  trackingProvider: ").append(trackingProvider).append("\n");
+    sb.append("  items: ").append(items).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

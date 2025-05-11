@@ -1153,6 +1153,10 @@ public class JsonUtil {
       return new TypeToken<List<ProductAddPackageDetails>>(){}.getType();
     }
     
+    if ("ProductAddPersonalizationDetails".equalsIgnoreCase(className)) {
+      return new TypeToken<List<ProductAddPersonalizationDetails>>(){}.getType();
+    }
+    
     if ("ProductAddSalesTax".equalsIgnoreCase(className)) {
       return new TypeToken<List<ProductAddSalesTax>>(){}.getType();
     }
@@ -2905,6 +2909,10 @@ public class JsonUtil {
     
     if ("ProductAddPackageDetails".equalsIgnoreCase(className)) {
       return new TypeToken<ProductAddPackageDetails>(){}.getType();
+    }
+    
+    if ("ProductAddPersonalizationDetails".equalsIgnoreCase(className)) {
+      return new TypeToken<ProductAddPersonalizationDetails>(){}.getType();
     }
     
     if ("ProductAddSalesTax".equalsIgnoreCase(className)) {

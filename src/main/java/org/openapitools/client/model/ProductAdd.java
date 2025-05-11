@@ -22,6 +22,7 @@ import org.openapitools.client.model.ProductAddGroupPricesInner;
 import org.openapitools.client.model.ProductAddLogisticInfoInner;
 import org.openapitools.client.model.ProductAddManufacturerInfo;
 import org.openapitools.client.model.ProductAddPackageDetails;
+import org.openapitools.client.model.ProductAddPersonalizationDetails;
 import org.openapitools.client.model.ProductAddSalesTax;
 import org.openapitools.client.model.ProductAddSellerProfiles;
 import org.openapitools.client.model.ProductAddShippingDetailsInner;
@@ -258,6 +259,12 @@ public class ProductAdd {
   private Integer viewedCount = 0;
   @SerializedName("ordered_count")
   private Integer orderedCount = 0;
+  @SerializedName("shop_section_id")
+  private Integer shopSectionId = null;
+  @SerializedName("return_policy_id")
+  private Integer returnPolicyId = null;
+  @SerializedName("personalization_details")
+  private ProductAddPersonalizationDetails personalizationDetails = null;
 
   /**
    * Defines product's name that has to be added
@@ -1485,6 +1492,38 @@ public class ProductAdd {
     this.orderedCount = orderedCount;
   }
 
+  /**
+   * Add Shop Section Id
+   **/
+  @ApiModelProperty(value = "Add Shop Section Id")
+  public Integer getShopSectionId() {
+    return shopSectionId;
+  }
+  public void setShopSectionId(Integer shopSectionId) {
+    this.shopSectionId = shopSectionId;
+  }
+
+  /**
+   * Add Return Policy Id
+   **/
+  @ApiModelProperty(value = "Add Return Policy Id")
+  public Integer getReturnPolicyId() {
+    return returnPolicyId;
+  }
+  public void setReturnPolicyId(Integer returnPolicyId) {
+    this.returnPolicyId = returnPolicyId;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public ProductAddPersonalizationDetails getPersonalizationDetails() {
+    return personalizationDetails;
+  }
+  public void setPersonalizationDetails(ProductAddPersonalizationDetails personalizationDetails) {
+    this.personalizationDetails = personalizationDetails;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -1606,7 +1645,10 @@ public class ProductAdd {
         (this.marketplaceItemProperties == null ? productAdd.marketplaceItemProperties == null : this.marketplaceItemProperties.equals(productAdd.marketplaceItemProperties)) &&
         (this.clearCache == null ? productAdd.clearCache == null : this.clearCache.equals(productAdd.clearCache)) &&
         (this.viewedCount == null ? productAdd.viewedCount == null : this.viewedCount.equals(productAdd.viewedCount)) &&
-        (this.orderedCount == null ? productAdd.orderedCount == null : this.orderedCount.equals(productAdd.orderedCount));
+        (this.orderedCount == null ? productAdd.orderedCount == null : this.orderedCount.equals(productAdd.orderedCount)) &&
+        (this.shopSectionId == null ? productAdd.shopSectionId == null : this.shopSectionId.equals(productAdd.shopSectionId)) &&
+        (this.returnPolicyId == null ? productAdd.returnPolicyId == null : this.returnPolicyId.equals(productAdd.returnPolicyId)) &&
+        (this.personalizationDetails == null ? productAdd.personalizationDetails == null : this.personalizationDetails.equals(productAdd.personalizationDetails));
   }
 
   @Override
@@ -1724,6 +1766,9 @@ public class ProductAdd {
     result = 31 * result + (this.clearCache == null ? 0: this.clearCache.hashCode());
     result = 31 * result + (this.viewedCount == null ? 0: this.viewedCount.hashCode());
     result = 31 * result + (this.orderedCount == null ? 0: this.orderedCount.hashCode());
+    result = 31 * result + (this.shopSectionId == null ? 0: this.shopSectionId.hashCode());
+    result = 31 * result + (this.returnPolicyId == null ? 0: this.returnPolicyId.hashCode());
+    result = 31 * result + (this.personalizationDetails == null ? 0: this.personalizationDetails.hashCode());
     return result;
   }
 
@@ -1844,6 +1889,9 @@ public class ProductAdd {
     sb.append("  clearCache: ").append(clearCache).append("\n");
     sb.append("  viewedCount: ").append(viewedCount).append("\n");
     sb.append("  orderedCount: ").append(orderedCount).append("\n");
+    sb.append("  shopSectionId: ").append(shopSectionId).append("\n");
+    sb.append("  returnPolicyId: ").append(returnPolicyId).append("\n");
+    sb.append("  personalizationDetails: ").append(personalizationDetails).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## subscriberList
 
-> ModelResponseSubscriberList subscriberList(start, count, pageCursor, subscribed, storeId, email, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude)
+> ModelResponseSubscriberList subscriberList(ids, start, count, pageCursor, subscribed, storeId, email, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude)
 
 subscriber.list
 
@@ -23,6 +23,7 @@ Get subscribers list
 //import org.openapitools.client.api.SubscriberApi;
 
 SubscriberApi apiInstance = new SubscriberApi();
+String ids = 24,25; // String | Retrieves subscribers specified by ids
 Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
 Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
 String pageCursor = ; // String | Used to retrieve entities via cursor-based pagination (it can't be used with any other filtering parameter)
@@ -37,7 +38,7 @@ String responseFields = {return_code,return_message,pagination,result}; // Strin
 String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseSubscriberList result = apiInstance.subscriberList(start, count, pageCursor, subscribed, storeId, email, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude);
+    ModelResponseSubscriberList result = apiInstance.subscriberList(ids, start, count, pageCursor, subscribed, storeId, email, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SubscriberApi#subscriberList");
@@ -50,6 +51,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | **String**| Retrieves subscribers specified by ids | [optional] [default to null]
  **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
  **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
  **pageCursor** | **String**| Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter) | [optional] [default to null]

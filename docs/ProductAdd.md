@@ -118,6 +118,9 @@ Name | Type | Description | Notes
 **clearCache** | **Boolean** | Is cache clear required |  [optional]
 **viewedCount** | **Integer** | Specifies the number of product&#39;s reviews |  [optional]
 **orderedCount** | **Integer** | Defines how many times the product was ordered |  [optional]
+**shopSectionId** | **Integer** | Add Shop Section Id |  [optional]
+**returnPolicyId** | **Integer** | Add Return Policy Id |  [optional]
+**personalizationDetails** | [**ProductAddPersonalizationDetails**](ProductAddPersonalizationDetails.md) |  |  [optional]
 
 
 

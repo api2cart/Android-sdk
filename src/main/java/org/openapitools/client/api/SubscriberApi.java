@@ -58,6 +58,7 @@ public class SubscriberApi {
   /**
   * subscriber.list
   * Get subscribers list
+   * @param ids Retrieves subscribers specified by ids
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
@@ -73,7 +74,7 @@ public class SubscriberApi {
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseSubscriberList
   */
-  public ModelResponseSubscriberList subscriberList (Integer start, Integer count, String pageCursor, Boolean subscribed, String storeId, String email, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseSubscriberList subscriberList (String ids, Integer start, Integer count, String pageCursor, Boolean subscribed, String storeId, String email, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -85,6 +86,7 @@ public class SubscriberApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));
@@ -140,9 +142,9 @@ public class SubscriberApi {
       /**
    * subscriber.list
    * Get subscribers list
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param subscribed Filter by subscription status   * @param storeId Store Id   * @param email Filter subscribers by email   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param ids Retrieves subscribers specified by ids   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param subscribed Filter by subscription status   * @param storeId Store Id   * @param email Filter subscribers by email   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void subscriberList (Integer start, Integer count, String pageCursor, Boolean subscribed, String storeId, String email, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude, final Response.Listener<ModelResponseSubscriberList> responseListener, final Response.ErrorListener errorListener) {
+  public void subscriberList (String ids, Integer start, Integer count, String pageCursor, Boolean subscribed, String storeId, String email, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude, final Response.Listener<ModelResponseSubscriberList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -156,6 +158,7 @@ public class SubscriberApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "page_cursor", pageCursor));

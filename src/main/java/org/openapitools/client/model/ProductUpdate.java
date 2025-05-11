@@ -16,6 +16,8 @@ import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.ProductAddManufacturerInfo;
 import org.openapitools.client.model.ProductAddPackageDetails;
+import org.openapitools.client.model.ProductAddPersonalizationDetails;
+import org.openapitools.client.model.ProductAddSpecificsInner;
 import org.openapitools.client.model.ProductAddTierPricesInner;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -187,6 +189,12 @@ public class ProductUpdate {
   private Boolean clearCache = true;
   @SerializedName("check_process_status")
   private Boolean checkProcessStatus = false;
+  @SerializedName("specifics")
+  private List<ProductAddSpecificsInner> specifics = null;
+  @SerializedName("shop_section_id")
+  private Integer shopSectionId = null;
+  @SerializedName("personalization_details")
+  private ProductAddPersonalizationDetails personalizationDetails = null;
 
   /**
    * Defines product id that has to be updated
@@ -1088,6 +1096,38 @@ public class ProductUpdate {
     this.checkProcessStatus = checkProcessStatus;
   }
 
+  /**
+   * An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields->product_specifics).         <b>The structure of the parameter is different for specific platforms.</b>
+   **/
+  @ApiModelProperty(value = "An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields->product_specifics).         <b>The structure of the parameter is different for specific platforms.</b>")
+  public List<ProductAddSpecificsInner> getSpecifics() {
+    return specifics;
+  }
+  public void setSpecifics(List<ProductAddSpecificsInner> specifics) {
+    this.specifics = specifics;
+  }
+
+  /**
+   * Add Shop Section Id
+   **/
+  @ApiModelProperty(value = "Add Shop Section Id")
+  public Integer getShopSectionId() {
+    return shopSectionId;
+  }
+  public void setShopSectionId(Integer shopSectionId) {
+    this.shopSectionId = shopSectionId;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public ProductAddPersonalizationDetails getPersonalizationDetails() {
+    return personalizationDetails;
+  }
+  public void setPersonalizationDetails(ProductAddPersonalizationDetails personalizationDetails) {
+    this.personalizationDetails = personalizationDetails;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -1179,7 +1219,10 @@ public class ProductUpdate {
         (this.disableReportCache == null ? productUpdate.disableReportCache == null : this.disableReportCache.equals(productUpdate.disableReportCache)) &&
         (this.reindex == null ? productUpdate.reindex == null : this.reindex.equals(productUpdate.reindex)) &&
         (this.clearCache == null ? productUpdate.clearCache == null : this.clearCache.equals(productUpdate.clearCache)) &&
-        (this.checkProcessStatus == null ? productUpdate.checkProcessStatus == null : this.checkProcessStatus.equals(productUpdate.checkProcessStatus));
+        (this.checkProcessStatus == null ? productUpdate.checkProcessStatus == null : this.checkProcessStatus.equals(productUpdate.checkProcessStatus)) &&
+        (this.specifics == null ? productUpdate.specifics == null : this.specifics.equals(productUpdate.specifics)) &&
+        (this.shopSectionId == null ? productUpdate.shopSectionId == null : this.shopSectionId.equals(productUpdate.shopSectionId)) &&
+        (this.personalizationDetails == null ? productUpdate.personalizationDetails == null : this.personalizationDetails.equals(productUpdate.personalizationDetails));
   }
 
   @Override
@@ -1267,6 +1310,9 @@ public class ProductUpdate {
     result = 31 * result + (this.reindex == null ? 0: this.reindex.hashCode());
     result = 31 * result + (this.clearCache == null ? 0: this.clearCache.hashCode());
     result = 31 * result + (this.checkProcessStatus == null ? 0: this.checkProcessStatus.hashCode());
+    result = 31 * result + (this.specifics == null ? 0: this.specifics.hashCode());
+    result = 31 * result + (this.shopSectionId == null ? 0: this.shopSectionId.hashCode());
+    result = 31 * result + (this.personalizationDetails == null ? 0: this.personalizationDetails.hashCode());
     return result;
   }
 
@@ -1357,6 +1403,9 @@ public class ProductUpdate {
     sb.append("  reindex: ").append(reindex).append("\n");
     sb.append("  clearCache: ").append(clearCache).append("\n");
     sb.append("  checkProcessStatus: ").append(checkProcessStatus).append("\n");
+    sb.append("  specifics: ").append(specifics).append("\n");
+    sb.append("  shopSectionId: ").append(shopSectionId).append("\n");
+    sb.append("  personalizationDetails: ").append(personalizationDetails).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

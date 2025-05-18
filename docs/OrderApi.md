@@ -1272,7 +1272,7 @@ Name | Type | Description  | Notes
 
 ## orderUpdate
 
-> AccountConfigUpdate200Response orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin)
+> AccountConfigUpdate200Response orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags)
 
 order.update
 
@@ -1301,8 +1301,9 @@ String dateFinished = 2014-06-05 05:05:00; // String | Specifies order's  finish
 Boolean sendNotifications = true; // Boolean | Send notifications to customer after order was created
 Boolean createInvoice = true; // Boolean | Determines whether an invoice should be created if it has not already been created
 String origin = newsletter; // String | The source of the order
+String tags = tag1,tag2; // String | Order tags
 try {
-    AccountConfigUpdate200Response result = apiInstance.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin);
+    AccountConfigUpdate200Response result = apiInstance.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderApi#orderUpdate");
@@ -1331,6 +1332,7 @@ Name | Type | Description  | Notes
  **sendNotifications** | **Boolean**| Send notifications to customer after order was created | [optional] [default to false]
  **createInvoice** | **Boolean**| Determines whether an invoice should be created if it has not already been created | [optional] [default to null]
  **origin** | **String**| The source of the order | [optional] [default to null]
+ **tags** | **String**| Order tags | [optional] [default to null]
 
 ### Return type
 

@@ -3228,9 +3228,10 @@ public class OrderApi {
    * @param sendNotifications Send notifications to customer after order was created
    * @param createInvoice Determines whether an invoice should be created if it has not already been created
    * @param origin The source of the order
+   * @param tags Order tags
    * @return AccountConfigUpdate200Response
   */
-  public AccountConfigUpdate200Response orderUpdate (String orderId, String storeId, String orderStatus, String financialStatus, String fulfillmentStatus, String cancellationReason, String orderPaymentMethod, String comment, String adminComment, String adminPrivateComment, String invoiceAdminComment, String dateModified, String dateFinished, Boolean sendNotifications, Boolean createInvoice, String origin) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AccountConfigUpdate200Response orderUpdate (String orderId, String storeId, String orderStatus, String financialStatus, String fulfillmentStatus, String cancellationReason, String orderPaymentMethod, String comment, String adminComment, String adminPrivateComment, String invoiceAdminComment, String dateModified, String dateFinished, Boolean sendNotifications, Boolean createInvoice, String origin, String tags) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'orderId' is set
     if (orderId == null) {
@@ -3263,6 +3264,7 @@ public class OrderApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "send_notifications", sendNotifications));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "create_invoice", createInvoice));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "origin", origin));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "tags", tags));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -3305,9 +3307,9 @@ public class OrderApi {
       /**
    * order.update
    * Update existing order.
-   * @param orderId Defines the orders specified by order id   * @param storeId Defines store id where the order should be found   * @param orderStatus Defines new order&#39;s status   * @param financialStatus Update order financial status to specified   * @param fulfillmentStatus Create order with fulfillment status   * @param cancellationReason Defines the cancellation reason when the order will be canceled   * @param orderPaymentMethod Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39;   * @param comment Specifies order comment   * @param adminComment Specifies admin&#39;s order comment   * @param adminPrivateComment Specifies private admin&#39;s order comment   * @param invoiceAdminComment Specifies admin&#39;s order invoice comment   * @param dateModified Specifies order&#39;s  modification date   * @param dateFinished Specifies order&#39;s  finished date   * @param sendNotifications Send notifications to customer after order was created   * @param createInvoice Determines whether an invoice should be created if it has not already been created   * @param origin The source of the order
+   * @param orderId Defines the orders specified by order id   * @param storeId Defines store id where the order should be found   * @param orderStatus Defines new order&#39;s status   * @param financialStatus Update order financial status to specified   * @param fulfillmentStatus Create order with fulfillment status   * @param cancellationReason Defines the cancellation reason when the order will be canceled   * @param orderPaymentMethod Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to &#39;paid&#39;   * @param comment Specifies order comment   * @param adminComment Specifies admin&#39;s order comment   * @param adminPrivateComment Specifies private admin&#39;s order comment   * @param invoiceAdminComment Specifies admin&#39;s order invoice comment   * @param dateModified Specifies order&#39;s  modification date   * @param dateFinished Specifies order&#39;s  finished date   * @param sendNotifications Send notifications to customer after order was created   * @param createInvoice Determines whether an invoice should be created if it has not already been created   * @param origin The source of the order   * @param tags Order tags
   */
-  public void orderUpdate (String orderId, String storeId, String orderStatus, String financialStatus, String fulfillmentStatus, String cancellationReason, String orderPaymentMethod, String comment, String adminComment, String adminPrivateComment, String invoiceAdminComment, String dateModified, String dateFinished, Boolean sendNotifications, Boolean createInvoice, String origin, final Response.Listener<AccountConfigUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void orderUpdate (String orderId, String storeId, String orderStatus, String financialStatus, String fulfillmentStatus, String cancellationReason, String orderPaymentMethod, String comment, String adminComment, String adminPrivateComment, String invoiceAdminComment, String dateModified, String dateFinished, Boolean sendNotifications, Boolean createInvoice, String origin, String tags, final Response.Listener<AccountConfigUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'orderId' is set
@@ -3342,6 +3344,7 @@ public class OrderApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "send_notifications", sendNotifications));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "create_invoice", createInvoice));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "origin", origin));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "tags", tags));
 
 
     String[] contentTypes = {

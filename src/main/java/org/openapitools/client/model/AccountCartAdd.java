@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
 public class AccountCartAdd {
   
   public enum CartIdEnum {
-     3DCart,  3DCartApi,  AceShop,  AmazonSP,  AspDotNetStorefront,  BigCartel,  BigcommerceApi,  Bol,  CommerceHQ,  Creloaded,  Cscart,  Cubecart,  Demandware,  EBay,  Ecwid,  EtsyAPIv3,  Flipkart,  Gambio,  Hybris,  JooCart,  Lazada,  LightSpeed,  Magento1212,  Magento2Api,  MercadoLibre,  MijoShop,  Miva,  Neto,  Opencart14,  Oscmax2,  Oscommerce22ms2,  Otto,  Oxid,  Pinnacle,  Prestashop,  PrestashopApi,  SSPremium,  Salla,  Shopify,  Shoplazza,  Shopline,  Shopware,  ShopwareApi,  Square,  Squarespace,  Tiendanube,  TikTokShop,  Tomatocart,  Ubercart,  Virtuemart,  Volusion,  WPecommerce,  Walmart,  WebAsyst,  Wix,  Woocommerce,  WoocommerceApi,  Xcart,  Xtcommerce,  XtcommerceVeyton,  Zencart137,  Zid,  Zoey,  Zoho, 
+     3DCart,  3DCartApi,  AceShop,  AmazonSP,  AspDotNetStorefront,  BigCartel,  BigcommerceApi,  Bol,  CommerceHQ,  Creloaded,  Cscart,  Cubecart,  Demandware,  EBay,  Ecwid,  EtsyAPIv3,  Flipkart,  Gambio,  Hybris,  JooCart,  Lazada,  LightSpeed,  Magento1212,  Magento2Api,  MercadoLibre,  MijoShop,  Miva,  Neto,  Opencart14,  Oscmax2,  Oscommerce22ms2,  Otto,  Oxid,  Pinnacle,  Prestashop,  PrestashopApi,  SSPremium,  Salla,  Shopify,  Shopee,  Shoplazza,  Shopline,  Shopware,  ShopwareApi,  Square,  Squarespace,  Tiendanube,  TikTokShop,  Tomatocart,  Ubercart,  Virtuemart,  Volusion,  WPecommerce,  Walmart,  WebAsyst,  Wix,  Woocommerce,  WoocommerceApi,  Xcart,  Xtcommerce,  XtcommerceVeyton,  Zencart137,  Zid,  Zoey,  Zoho, 
   };
   @SerializedName("cart_id")
   private CartIdEnum cartId = null;
@@ -183,6 +183,18 @@ public class AccountCartAdd {
   private String shopifyApiPassword = null;
   @SerializedName("shopify_shared_secret")
   private String shopifySharedSecret = null;
+  @SerializedName("shopee_partner_id")
+  private String shopeePartnerId = null;
+  @SerializedName("shopee_partner_key")
+  private String shopeePartnerKey = null;
+  @SerializedName("shopee_shop_id")
+  private String shopeeShopId = null;
+  @SerializedName("shopee_refresh_token")
+  private String shopeeRefreshToken = null;
+  @SerializedName("shopee_region")
+  private String shopeeRegion = null;
+  @SerializedName("shopee_environment")
+  private String shopeeEnvironment = production;
   @SerializedName("shoplazza_access_token")
   private String shoplazzaAccessToken = null;
   @SerializedName("shoplazza_shared_secret")
@@ -325,6 +337,14 @@ public class AccountCartAdd {
   private String sallaRefreshToken = null;
   @SerializedName("salla_access_token")
   private String sallaAccessToken = null;
+  @SerializedName("temu_app_key")
+  private String temuAppKey = null;
+  @SerializedName("temu_app_secret")
+  private String temuAppSecret = null;
+  @SerializedName("temu_access_token")
+  private String temuAccessToken = null;
+  @SerializedName("temu_region")
+  private String temuRegion = US;
 
   /**
    * Store’s identifier which you can get from cart_list method
@@ -1207,6 +1227,72 @@ public class AccountCartAdd {
   }
 
   /**
+   * Shopee Partner ID
+   **/
+  @ApiModelProperty(value = "Shopee Partner ID")
+  public String getShopeePartnerId() {
+    return shopeePartnerId;
+  }
+  public void setShopeePartnerId(String shopeePartnerId) {
+    this.shopeePartnerId = shopeePartnerId;
+  }
+
+  /**
+   * Shopee Partner Key
+   **/
+  @ApiModelProperty(value = "Shopee Partner Key")
+  public String getShopeePartnerKey() {
+    return shopeePartnerKey;
+  }
+  public void setShopeePartnerKey(String shopeePartnerKey) {
+    this.shopeePartnerKey = shopeePartnerKey;
+  }
+
+  /**
+   * Shopee SHOP ID
+   **/
+  @ApiModelProperty(value = "Shopee SHOP ID")
+  public String getShopeeShopId() {
+    return shopeeShopId;
+  }
+  public void setShopeeShopId(String shopeeShopId) {
+    this.shopeeShopId = shopeeShopId;
+  }
+
+  /**
+   * Shopee Refresh Token
+   **/
+  @ApiModelProperty(value = "Shopee Refresh Token")
+  public String getShopeeRefreshToken() {
+    return shopeeRefreshToken;
+  }
+  public void setShopeeRefreshToken(String shopeeRefreshToken) {
+    this.shopeeRefreshToken = shopeeRefreshToken;
+  }
+
+  /**
+   * Shopee API endpoint Region. Use for Chinese Mainland or Brazil.
+   **/
+  @ApiModelProperty(value = "Shopee API endpoint Region. Use for Chinese Mainland or Brazil.")
+  public String getShopeeRegion() {
+    return shopeeRegion;
+  }
+  public void setShopeeRegion(String shopeeRegion) {
+    this.shopeeRegion = shopeeRegion;
+  }
+
+  /**
+   * Shopee Environment
+   **/
+  @ApiModelProperty(value = "Shopee Environment")
+  public String getShopeeEnvironment() {
+    return shopeeEnvironment;
+  }
+  public void setShopeeEnvironment(String shopeeEnvironment) {
+    this.shopeeEnvironment = shopeeEnvironment;
+  }
+
+  /**
    * Access token authorizing the app to access resources on behalf of a user
    **/
   @ApiModelProperty(value = "Access token authorizing the app to access resources on behalf of a user")
@@ -1987,6 +2073,50 @@ public class AccountCartAdd {
     this.sallaAccessToken = sallaAccessToken;
   }
 
+  /**
+   * Temu App Key
+   **/
+  @ApiModelProperty(value = "Temu App Key")
+  public String getTemuAppKey() {
+    return temuAppKey;
+  }
+  public void setTemuAppKey(String temuAppKey) {
+    this.temuAppKey = temuAppKey;
+  }
+
+  /**
+   * Temu App Secret
+   **/
+  @ApiModelProperty(value = "Temu App Secret")
+  public String getTemuAppSecret() {
+    return temuAppSecret;
+  }
+  public void setTemuAppSecret(String temuAppSecret) {
+    this.temuAppSecret = temuAppSecret;
+  }
+
+  /**
+   * Temu Access Token
+   **/
+  @ApiModelProperty(required = true, value = "Temu Access Token")
+  public String getTemuAccessToken() {
+    return temuAccessToken;
+  }
+  public void setTemuAccessToken(String temuAccessToken) {
+    this.temuAccessToken = temuAccessToken;
+  }
+
+  /**
+   * Temu API endpoint Region.
+   **/
+  @ApiModelProperty(value = "Temu API endpoint Region.")
+  public String getTemuRegion() {
+    return temuRegion;
+  }
+  public void setTemuRegion(String temuRegion) {
+    this.temuRegion = temuRegion;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -2077,6 +2207,12 @@ public class AccountCartAdd {
         (this.shopifyApiKey == null ? accountCartAdd.shopifyApiKey == null : this.shopifyApiKey.equals(accountCartAdd.shopifyApiKey)) &&
         (this.shopifyApiPassword == null ? accountCartAdd.shopifyApiPassword == null : this.shopifyApiPassword.equals(accountCartAdd.shopifyApiPassword)) &&
         (this.shopifySharedSecret == null ? accountCartAdd.shopifySharedSecret == null : this.shopifySharedSecret.equals(accountCartAdd.shopifySharedSecret)) &&
+        (this.shopeePartnerId == null ? accountCartAdd.shopeePartnerId == null : this.shopeePartnerId.equals(accountCartAdd.shopeePartnerId)) &&
+        (this.shopeePartnerKey == null ? accountCartAdd.shopeePartnerKey == null : this.shopeePartnerKey.equals(accountCartAdd.shopeePartnerKey)) &&
+        (this.shopeeShopId == null ? accountCartAdd.shopeeShopId == null : this.shopeeShopId.equals(accountCartAdd.shopeeShopId)) &&
+        (this.shopeeRefreshToken == null ? accountCartAdd.shopeeRefreshToken == null : this.shopeeRefreshToken.equals(accountCartAdd.shopeeRefreshToken)) &&
+        (this.shopeeRegion == null ? accountCartAdd.shopeeRegion == null : this.shopeeRegion.equals(accountCartAdd.shopeeRegion)) &&
+        (this.shopeeEnvironment == null ? accountCartAdd.shopeeEnvironment == null : this.shopeeEnvironment.equals(accountCartAdd.shopeeEnvironment)) &&
         (this.shoplazzaAccessToken == null ? accountCartAdd.shoplazzaAccessToken == null : this.shoplazzaAccessToken.equals(accountCartAdd.shoplazzaAccessToken)) &&
         (this.shoplazzaSharedSecret == null ? accountCartAdd.shoplazzaSharedSecret == null : this.shoplazzaSharedSecret.equals(accountCartAdd.shoplazzaSharedSecret)) &&
         (this.shopwareAccessKey == null ? accountCartAdd.shopwareAccessKey == null : this.shopwareAccessKey.equals(accountCartAdd.shopwareAccessKey)) &&
@@ -2147,7 +2283,11 @@ public class AccountCartAdd {
         (this.sallaClientId == null ? accountCartAdd.sallaClientId == null : this.sallaClientId.equals(accountCartAdd.sallaClientId)) &&
         (this.sallaClientSecret == null ? accountCartAdd.sallaClientSecret == null : this.sallaClientSecret.equals(accountCartAdd.sallaClientSecret)) &&
         (this.sallaRefreshToken == null ? accountCartAdd.sallaRefreshToken == null : this.sallaRefreshToken.equals(accountCartAdd.sallaRefreshToken)) &&
-        (this.sallaAccessToken == null ? accountCartAdd.sallaAccessToken == null : this.sallaAccessToken.equals(accountCartAdd.sallaAccessToken));
+        (this.sallaAccessToken == null ? accountCartAdd.sallaAccessToken == null : this.sallaAccessToken.equals(accountCartAdd.sallaAccessToken)) &&
+        (this.temuAppKey == null ? accountCartAdd.temuAppKey == null : this.temuAppKey.equals(accountCartAdd.temuAppKey)) &&
+        (this.temuAppSecret == null ? accountCartAdd.temuAppSecret == null : this.temuAppSecret.equals(accountCartAdd.temuAppSecret)) &&
+        (this.temuAccessToken == null ? accountCartAdd.temuAccessToken == null : this.temuAccessToken.equals(accountCartAdd.temuAccessToken)) &&
+        (this.temuRegion == null ? accountCartAdd.temuRegion == null : this.temuRegion.equals(accountCartAdd.temuRegion));
   }
 
   @Override
@@ -2233,6 +2373,12 @@ public class AccountCartAdd {
     result = 31 * result + (this.shopifyApiKey == null ? 0: this.shopifyApiKey.hashCode());
     result = 31 * result + (this.shopifyApiPassword == null ? 0: this.shopifyApiPassword.hashCode());
     result = 31 * result + (this.shopifySharedSecret == null ? 0: this.shopifySharedSecret.hashCode());
+    result = 31 * result + (this.shopeePartnerId == null ? 0: this.shopeePartnerId.hashCode());
+    result = 31 * result + (this.shopeePartnerKey == null ? 0: this.shopeePartnerKey.hashCode());
+    result = 31 * result + (this.shopeeShopId == null ? 0: this.shopeeShopId.hashCode());
+    result = 31 * result + (this.shopeeRefreshToken == null ? 0: this.shopeeRefreshToken.hashCode());
+    result = 31 * result + (this.shopeeRegion == null ? 0: this.shopeeRegion.hashCode());
+    result = 31 * result + (this.shopeeEnvironment == null ? 0: this.shopeeEnvironment.hashCode());
     result = 31 * result + (this.shoplazzaAccessToken == null ? 0: this.shoplazzaAccessToken.hashCode());
     result = 31 * result + (this.shoplazzaSharedSecret == null ? 0: this.shoplazzaSharedSecret.hashCode());
     result = 31 * result + (this.shopwareAccessKey == null ? 0: this.shopwareAccessKey.hashCode());
@@ -2304,6 +2450,10 @@ public class AccountCartAdd {
     result = 31 * result + (this.sallaClientSecret == null ? 0: this.sallaClientSecret.hashCode());
     result = 31 * result + (this.sallaRefreshToken == null ? 0: this.sallaRefreshToken.hashCode());
     result = 31 * result + (this.sallaAccessToken == null ? 0: this.sallaAccessToken.hashCode());
+    result = 31 * result + (this.temuAppKey == null ? 0: this.temuAppKey.hashCode());
+    result = 31 * result + (this.temuAppSecret == null ? 0: this.temuAppSecret.hashCode());
+    result = 31 * result + (this.temuAccessToken == null ? 0: this.temuAccessToken.hashCode());
+    result = 31 * result + (this.temuRegion == null ? 0: this.temuRegion.hashCode());
     return result;
   }
 
@@ -2392,6 +2542,12 @@ public class AccountCartAdd {
     sb.append("  shopifyApiKey: ").append(shopifyApiKey).append("\n");
     sb.append("  shopifyApiPassword: ").append(shopifyApiPassword).append("\n");
     sb.append("  shopifySharedSecret: ").append(shopifySharedSecret).append("\n");
+    sb.append("  shopeePartnerId: ").append(shopeePartnerId).append("\n");
+    sb.append("  shopeePartnerKey: ").append(shopeePartnerKey).append("\n");
+    sb.append("  shopeeShopId: ").append(shopeeShopId).append("\n");
+    sb.append("  shopeeRefreshToken: ").append(shopeeRefreshToken).append("\n");
+    sb.append("  shopeeRegion: ").append(shopeeRegion).append("\n");
+    sb.append("  shopeeEnvironment: ").append(shopeeEnvironment).append("\n");
     sb.append("  shoplazzaAccessToken: ").append(shoplazzaAccessToken).append("\n");
     sb.append("  shoplazzaSharedSecret: ").append(shoplazzaSharedSecret).append("\n");
     sb.append("  shopwareAccessKey: ").append(shopwareAccessKey).append("\n");
@@ -2463,6 +2619,10 @@ public class AccountCartAdd {
     sb.append("  sallaClientSecret: ").append(sallaClientSecret).append("\n");
     sb.append("  sallaRefreshToken: ").append(sallaRefreshToken).append("\n");
     sb.append("  sallaAccessToken: ").append(sallaAccessToken).append("\n");
+    sb.append("  temuAppKey: ").append(temuAppKey).append("\n");
+    sb.append("  temuAppSecret: ").append(temuAppSecret).append("\n");
+    sb.append("  temuAccessToken: ").append(temuAccessToken).append("\n");
+    sb.append("  temuRegion: ").append(temuRegion).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

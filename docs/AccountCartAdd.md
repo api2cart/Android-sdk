@@ -166,10 +166,16 @@ Name | Type | Description | Notes
 **temuAppKey** | **String** | Temu App Key |  [optional]
 **temuAppSecret** | **String** | Temu App Secret |  [optional]
 **temuAccessToken** | **String** | Temu Access Token | 
-**temuRegion** | **String** | Temu API endpoint Region. |  [optional]
+**temuRegion** | [**TemuRegionEnum**](#TemuRegionEnum) | Temu API endpoint Region. | 
 
 
 ## Enum: CartIdEnum
+
+Name | Value
+---- | -----
+
+
+## Enum: TemuRegionEnum
 
 Name | Value
 ---- | -----

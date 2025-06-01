@@ -343,8 +343,11 @@ public class AccountCartAdd {
   private String temuAppSecret = null;
   @SerializedName("temu_access_token")
   private String temuAccessToken = null;
+  public enum TemuRegionEnum {
+     US,  EU,  GLOBAL, 
+  };
   @SerializedName("temu_region")
-  private String temuRegion = US;
+  private TemuRegionEnum temuRegion = null;
 
   /**
    * Store’s identifier which you can get from cart_list method
@@ -2109,11 +2112,11 @@ public class AccountCartAdd {
   /**
    * Temu API endpoint Region.
    **/
-  @ApiModelProperty(value = "Temu API endpoint Region.")
-  public String getTemuRegion() {
+  @ApiModelProperty(required = true, value = "Temu API endpoint Region.")
+  public TemuRegionEnum getTemuRegion() {
     return temuRegion;
   }
-  public void setTemuRegion(String temuRegion) {
+  public void setTemuRegion(TemuRegionEnum temuRegion) {
     this.temuRegion = temuRegion;
   }
 

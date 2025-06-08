@@ -24,6 +24,8 @@ public class Webhook {
   private String label = null;
   @SerializedName("store_id")
   private String storeId = null;
+  @SerializedName("lang_id")
+  private String langId = null;
   @SerializedName("active")
   private Boolean active = null;
   @SerializedName("callback")
@@ -71,6 +73,16 @@ public class Webhook {
   }
   public void setStoreId(String storeId) {
     this.storeId = storeId;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public String getLangId() {
+    return langId;
+  }
+  public void setLangId(String langId) {
+    this.langId = langId;
   }
 
   /**
@@ -176,6 +188,7 @@ public class Webhook {
     return (this.id == null ? webhook.id == null : this.id.equals(webhook.id)) &&
         (this.label == null ? webhook.label == null : this.label.equals(webhook.label)) &&
         (this.storeId == null ? webhook.storeId == null : this.storeId.equals(webhook.storeId)) &&
+        (this.langId == null ? webhook.langId == null : this.langId.equals(webhook.langId)) &&
         (this.active == null ? webhook.active == null : this.active.equals(webhook.active)) &&
         (this.callback == null ? webhook.callback == null : this.callback.equals(webhook.callback)) &&
         (this.fields == null ? webhook.fields == null : this.fields.equals(webhook.fields)) &&
@@ -193,6 +206,7 @@ public class Webhook {
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.label == null ? 0: this.label.hashCode());
     result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
+    result = 31 * result + (this.langId == null ? 0: this.langId.hashCode());
     result = 31 * result + (this.active == null ? 0: this.active.hashCode());
     result = 31 * result + (this.callback == null ? 0: this.callback.hashCode());
     result = 31 * result + (this.fields == null ? 0: this.fields.hashCode());
@@ -213,6 +227,7 @@ public class Webhook {
     sb.append("  id: ").append(id).append("\n");
     sb.append("  label: ").append(label).append("\n");
     sb.append("  storeId: ").append(storeId).append("\n");
+    sb.append("  langId: ").append(langId).append("\n");
     sb.append("  active: ").append(active).append("\n");
     sb.append("  callback: ").append(callback).append("\n");
     sb.append("  fields: ").append(fields).append("\n");

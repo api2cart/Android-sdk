@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ## webhookCreate
 
-> BasketLiveShippingServiceCreate200Response webhookCreate(entity, action, callback, label, fields, active, storeId)
+> BasketLiveShippingServiceCreate200Response webhookCreate(entity, action, callback, label, fields, active, langId, storeId)
 
 webhook.create
 
@@ -84,9 +84,10 @@ String callback = https://example.com/callback; // String | Callback url that re
 String label = Super webhook; // String | The name you give to the webhook
 String fields = id, name, description; // String | Fields the webhook should send
 Boolean active = true; // Boolean | Webhook status
+String langId = 3; // String | Language id
 String storeId = 1; // String | Defines store id where the webhook should be assigned
 try {
-    BasketLiveShippingServiceCreate200Response result = apiInstance.webhookCreate(entity, action, callback, label, fields, active, storeId);
+    BasketLiveShippingServiceCreate200Response result = apiInstance.webhookCreate(entity, action, callback, label, fields, active, langId, storeId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhookApi#webhookCreate");
@@ -105,6 +106,7 @@ Name | Type | Description  | Notes
  **label** | **String**| The name you give to the webhook | [optional] [default to null]
  **fields** | **String**| Fields the webhook should send | [optional] [default to force_all]
  **active** | **Boolean**| Webhook status | [optional] [default to true]
+ **langId** | **String**| Language id | [optional] [default to null]
  **storeId** | **String**| Defines store id where the webhook should be assigned | [optional] [default to null]
 
 ### Return type
@@ -269,7 +271,7 @@ Name | Type | Description  | Notes
 
 ## webhookUpdate
 
-> ProductImageUpdate200Response webhookUpdate(id, callback, label, fields, active)
+> ProductImageUpdate200Response webhookUpdate(id, callback, label, fields, active, langId)
 
 webhook.update
 
@@ -287,8 +289,9 @@ String callback = https://example.com/callback; // String | Callback url that re
 String label = Super webhook; // String | The name you give to the webhook
 String fields = id, name, description; // String | Fields the webhook should send
 Boolean active = true; // Boolean | Webhook status
+String langId = 3; // String | Language id
 try {
-    ProductImageUpdate200Response result = apiInstance.webhookUpdate(id, callback, label, fields, active);
+    ProductImageUpdate200Response result = apiInstance.webhookUpdate(id, callback, label, fields, active, langId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhookApi#webhookUpdate");
@@ -306,6 +309,7 @@ Name | Type | Description  | Notes
  **label** | **String**| The name you give to the webhook | [optional] [default to null]
  **fields** | **String**| Fields the webhook should send | [optional] [default to null]
  **active** | **Boolean**| Webhook status | [optional] [default to null]
+ **langId** | **String**| Language id | [optional] [default to null]
 
 ### Return type
 

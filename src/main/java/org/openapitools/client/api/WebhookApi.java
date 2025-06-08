@@ -194,10 +194,11 @@ public class WebhookApi {
    * @param label The name you give to the webhook
    * @param fields Fields the webhook should send
    * @param active Webhook status
+   * @param langId Language id
    * @param storeId Defines store id where the webhook should be assigned
    * @return BasketLiveShippingServiceCreate200Response
   */
-  public BasketLiveShippingServiceCreate200Response webhookCreate (String entity, String action, String callback, String label, String fields, Boolean active, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BasketLiveShippingServiceCreate200Response webhookCreate (String entity, String action, String callback, String label, String fields, Boolean active, String langId, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'entity' is set
     if (entity == null) {
@@ -225,6 +226,7 @@ public class WebhookApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "label", label));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "fields", fields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "active", active));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     String[] contentTypes = {
     };
@@ -268,9 +270,9 @@ public class WebhookApi {
       /**
    * webhook.create
    * Create webhook on the store and subscribe to it.
-   * @param entity Specify the entity that you want to enable webhooks for (e.g product, order, customer, category)   * @param action Specify what action (event) will trigger the webhook (e.g add, delete, or update)   * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.   * @param label The name you give to the webhook   * @param fields Fields the webhook should send   * @param active Webhook status   * @param storeId Defines store id where the webhook should be assigned
+   * @param entity Specify the entity that you want to enable webhooks for (e.g product, order, customer, category)   * @param action Specify what action (event) will trigger the webhook (e.g add, delete, or update)   * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.   * @param label The name you give to the webhook   * @param fields Fields the webhook should send   * @param active Webhook status   * @param langId Language id   * @param storeId Defines store id where the webhook should be assigned
   */
-  public void webhookCreate (String entity, String action, String callback, String label, String fields, Boolean active, String storeId, final Response.Listener<BasketLiveShippingServiceCreate200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void webhookCreate (String entity, String action, String callback, String label, String fields, Boolean active, String langId, String storeId, final Response.Listener<BasketLiveShippingServiceCreate200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'entity' is set
@@ -300,6 +302,7 @@ public class WebhookApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "label", label));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "fields", fields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "active", active));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
 
 
@@ -732,9 +735,10 @@ public class WebhookApi {
    * @param label The name you give to the webhook
    * @param fields Fields the webhook should send
    * @param active Webhook status
+   * @param langId Language id
    * @return ProductImageUpdate200Response
   */
-  public ProductImageUpdate200Response webhookUpdate (String id, String callback, String label, String fields, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProductImageUpdate200Response webhookUpdate (String id, String callback, String label, String fields, Boolean active, String langId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -756,6 +760,7 @@ public class WebhookApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "label", label));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "fields", fields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "active", active));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -798,9 +803,9 @@ public class WebhookApi {
       /**
    * webhook.update
    * Update Webhooks parameters.
-   * @param id Webhook id   * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.   * @param label The name you give to the webhook   * @param fields Fields the webhook should send   * @param active Webhook status
+   * @param id Webhook id   * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.   * @param label The name you give to the webhook   * @param fields Fields the webhook should send   * @param active Webhook status   * @param langId Language id
   */
-  public void webhookUpdate (String id, String callback, String label, String fields, Boolean active, final Response.Listener<ProductImageUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void webhookUpdate (String id, String callback, String label, String fields, Boolean active, String langId, final Response.Listener<ProductImageUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -824,6 +829,7 @@ public class WebhookApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "label", label));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "fields", fields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "active", active));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
 
 
     String[] contentTypes = {

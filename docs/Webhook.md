@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **id** | **Integer** |  |  [optional]
 **label** | **String** |  |  [optional]
 **storeId** | **String** |  |  [optional]
+**langId** | **String** |  |  [optional]
 **active** | **Boolean** |  |  [optional]
 **callback** | **String** |  |  [optional]
 **fields** | **String** |  |  [optional]

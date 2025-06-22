@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **availForSale** | **Boolean** |  |  [optional]
 **allowBackorders** | **Boolean** |  |  [optional]
 **inStock** | **Boolean** |  |  [optional]
+**onSale** | **Boolean** |  |  [optional]
 **manageStock** | **Boolean** |  |  [optional]
 **inventoryLevel** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **inventory** | [**List&lt;ProductInventory&gt;**](ProductInventory.md) |  |  [optional]

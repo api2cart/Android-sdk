@@ -32,6 +32,8 @@ public class Webhook {
   private String callback = null;
   @SerializedName("fields")
   private String fields = null;
+  @SerializedName("response_fields")
+  private String responseFields = null;
   @SerializedName("created_at")
   private String createdAt = null;
   @SerializedName("updated_at")
@@ -118,6 +120,16 @@ public class Webhook {
   /**
    **/
   @ApiModelProperty(value = "")
+  public String getResponseFields() {
+    return responseFields;
+  }
+  public void setResponseFields(String responseFields) {
+    this.responseFields = responseFields;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -192,6 +204,7 @@ public class Webhook {
         (this.active == null ? webhook.active == null : this.active.equals(webhook.active)) &&
         (this.callback == null ? webhook.callback == null : this.callback.equals(webhook.callback)) &&
         (this.fields == null ? webhook.fields == null : this.fields.equals(webhook.fields)) &&
+        (this.responseFields == null ? webhook.responseFields == null : this.responseFields.equals(webhook.responseFields)) &&
         (this.createdAt == null ? webhook.createdAt == null : this.createdAt.equals(webhook.createdAt)) &&
         (this.updatedAt == null ? webhook.updatedAt == null : this.updatedAt.equals(webhook.updatedAt)) &&
         (this.entity == null ? webhook.entity == null : this.entity.equals(webhook.entity)) &&
@@ -210,6 +223,7 @@ public class Webhook {
     result = 31 * result + (this.active == null ? 0: this.active.hashCode());
     result = 31 * result + (this.callback == null ? 0: this.callback.hashCode());
     result = 31 * result + (this.fields == null ? 0: this.fields.hashCode());
+    result = 31 * result + (this.responseFields == null ? 0: this.responseFields.hashCode());
     result = 31 * result + (this.createdAt == null ? 0: this.createdAt.hashCode());
     result = 31 * result + (this.updatedAt == null ? 0: this.updatedAt.hashCode());
     result = 31 * result + (this.entity == null ? 0: this.entity.hashCode());
@@ -231,6 +245,7 @@ public class Webhook {
     sb.append("  active: ").append(active).append("\n");
     sb.append("  callback: ").append(callback).append("\n");
     sb.append("  fields: ").append(fields).append("\n");
+    sb.append("  responseFields: ").append(responseFields).append("\n");
     sb.append("  createdAt: ").append(createdAt).append("\n");
     sb.append("  updatedAt: ").append(updatedAt).append("\n");
     sb.append("  entity: ").append(entity).append("\n");

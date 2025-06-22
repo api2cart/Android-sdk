@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ## webhookCreate
 
-> BasketLiveShippingServiceCreate200Response webhookCreate(entity, action, callback, label, fields, active, langId, storeId)
+> BasketLiveShippingServiceCreate200Response webhookCreate(entity, action, callback, label, fields, responseFields, active, langId, storeId)
 
 webhook.create
 
@@ -83,11 +83,12 @@ String action = add; // String | Specify what action (event) will trigger the we
 String callback = https://example.com/callback; // String | Callback url that returns shipping rates. It should be able to accept POST requests with json data.
 String label = Super webhook; // String | The name you give to the webhook
 String fields = id, name, description; // String | Fields the webhook should send
+String responseFields = {result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 Boolean active = true; // Boolean | Webhook status
 String langId = 3; // String | Language id
 String storeId = 1; // String | Defines store id where the webhook should be assigned
 try {
-    BasketLiveShippingServiceCreate200Response result = apiInstance.webhookCreate(entity, action, callback, label, fields, active, langId, storeId);
+    BasketLiveShippingServiceCreate200Response result = apiInstance.webhookCreate(entity, action, callback, label, fields, responseFields, active, langId, storeId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhookApi#webhookCreate");
@@ -105,6 +106,7 @@ Name | Type | Description  | Notes
  **callback** | **String**| Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional] [default to null]
  **label** | **String**| The name you give to the webhook | [optional] [default to null]
  **fields** | **String**| Fields the webhook should send | [optional] [default to force_all]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **active** | **Boolean**| Webhook status | [optional] [default to true]
  **langId** | **String**| Language id | [optional] [default to null]
  **storeId** | **String**| Defines store id where the webhook should be assigned | [optional] [default to null]
@@ -271,7 +273,7 @@ Name | Type | Description  | Notes
 
 ## webhookUpdate
 
-> ProductImageUpdate200Response webhookUpdate(id, callback, label, fields, active, langId)
+> ProductImageUpdate200Response webhookUpdate(id, callback, label, fields, responseFields, active, langId)
 
 webhook.update
 
@@ -288,10 +290,11 @@ String id = 25; // String | Webhook id
 String callback = https://example.com/callback; // String | Callback url that returns shipping rates. It should be able to accept POST requests with json data.
 String label = Super webhook; // String | The name you give to the webhook
 String fields = id, name, description; // String | Fields the webhook should send
+String responseFields = {result}; // String | Set this parameter in order to choose which entity fields you want to retrieve
 Boolean active = true; // Boolean | Webhook status
 String langId = 3; // String | Language id
 try {
-    ProductImageUpdate200Response result = apiInstance.webhookUpdate(id, callback, label, fields, active, langId);
+    ProductImageUpdate200Response result = apiInstance.webhookUpdate(id, callback, label, fields, responseFields, active, langId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WebhookApi#webhookUpdate");
@@ -308,6 +311,7 @@ Name | Type | Description  | Notes
  **callback** | **String**| Callback url that returns shipping rates. It should be able to accept POST requests with json data. | [optional] [default to null]
  **label** | **String**| The name you give to the webhook | [optional] [default to null]
  **fields** | **String**| Fields the webhook should send | [optional] [default to null]
+ **responseFields** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to null]
  **active** | **Boolean**| Webhook status | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
 

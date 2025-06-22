@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **active** | **Boolean** |  |  [optional]
 **callback** | **String** |  |  [optional]
 **fields** | **String** |  |  [optional]
+**responseFields** | **String** |  |  [optional]
 **createdAt** | **String** |  |  [optional]
 **updatedAt** | **String** |  |  [optional]
 **entity** | **String** |  |  [optional]

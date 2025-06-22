@@ -80,6 +80,8 @@ public class Child {
   private Boolean allowBackorders = null;
   @SerializedName("in_stock")
   private Boolean inStock = null;
+  @SerializedName("on_sale")
+  private Boolean onSale = null;
   @SerializedName("manage_stock")
   private Boolean manageStock = null;
   @SerializedName("inventory_level")
@@ -392,6 +394,16 @@ public class Child {
   /**
    **/
   @ApiModelProperty(value = "")
+  public Boolean getOnSale() {
+    return onSale;
+  }
+  public void setOnSale(Boolean onSale) {
+    this.onSale = onSale;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public Boolean getManageStock() {
     return manageStock;
   }
@@ -616,6 +628,7 @@ public class Child {
         (this.availForSale == null ? child.availForSale == null : this.availForSale.equals(child.availForSale)) &&
         (this.allowBackorders == null ? child.allowBackorders == null : this.allowBackorders.equals(child.allowBackorders)) &&
         (this.inStock == null ? child.inStock == null : this.inStock.equals(child.inStock)) &&
+        (this.onSale == null ? child.onSale == null : this.onSale.equals(child.onSale)) &&
         (this.manageStock == null ? child.manageStock == null : this.manageStock.equals(child.manageStock)) &&
         (this.inventoryLevel == null ? child.inventoryLevel == null : this.inventoryLevel.equals(child.inventoryLevel)) &&
         (this.inventory == null ? child.inventory == null : this.inventory.equals(child.inventory)) &&
@@ -667,6 +680,7 @@ public class Child {
     result = 31 * result + (this.availForSale == null ? 0: this.availForSale.hashCode());
     result = 31 * result + (this.allowBackorders == null ? 0: this.allowBackorders.hashCode());
     result = 31 * result + (this.inStock == null ? 0: this.inStock.hashCode());
+    result = 31 * result + (this.onSale == null ? 0: this.onSale.hashCode());
     result = 31 * result + (this.manageStock == null ? 0: this.manageStock.hashCode());
     result = 31 * result + (this.inventoryLevel == null ? 0: this.inventoryLevel.hashCode());
     result = 31 * result + (this.inventory == null ? 0: this.inventory.hashCode());
@@ -721,6 +735,7 @@ public class Child {
     sb.append("  availForSale: ").append(availForSale).append("\n");
     sb.append("  allowBackorders: ").append(allowBackorders).append("\n");
     sb.append("  inStock: ").append(inStock).append("\n");
+    sb.append("  onSale: ").append(onSale).append("\n");
     sb.append("  manageStock: ").append(manageStock).append("\n");
     sb.append("  inventoryLevel: ").append(inventoryLevel).append("\n");
     sb.append("  inventory: ").append(inventory).append("\n");

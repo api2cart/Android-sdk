@@ -38,6 +38,8 @@ public class OrderAddOrderItemInner {
   private String orderItemVariantId = null;
   @SerializedName("order_item_tax")
   private BigDecimal orderItemTax = 0;
+  @SerializedName("order_item_tax_class")
+  private String orderItemTaxClass = null;
   @SerializedName("order_item_price_includes_tax")
   private Boolean orderItemPriceIncludesTax = false;
   @SerializedName("order_item_parent")
@@ -142,6 +144,17 @@ public class OrderAddOrderItemInner {
   }
 
   /**
+   * Id of the tax class of product.
+   **/
+  @ApiModelProperty(value = "Id of the tax class of product.")
+  public String getOrderItemTaxClass() {
+    return orderItemTaxClass;
+  }
+  public void setOrderItemTaxClass(String orderItemTaxClass) {
+    this.orderItemTaxClass = orderItemTaxClass;
+  }
+
+  /**
    * Defines if item price includes tax
    **/
   @ApiModelProperty(value = "Defines if item price includes tax")
@@ -234,6 +247,7 @@ public class OrderAddOrderItemInner {
         (this.orderItemWeight == null ? orderAddOrderItemInner.orderItemWeight == null : this.orderItemWeight.equals(orderAddOrderItemInner.orderItemWeight)) &&
         (this.orderItemVariantId == null ? orderAddOrderItemInner.orderItemVariantId == null : this.orderItemVariantId.equals(orderAddOrderItemInner.orderItemVariantId)) &&
         (this.orderItemTax == null ? orderAddOrderItemInner.orderItemTax == null : this.orderItemTax.equals(orderAddOrderItemInner.orderItemTax)) &&
+        (this.orderItemTaxClass == null ? orderAddOrderItemInner.orderItemTaxClass == null : this.orderItemTaxClass.equals(orderAddOrderItemInner.orderItemTaxClass)) &&
         (this.orderItemPriceIncludesTax == null ? orderAddOrderItemInner.orderItemPriceIncludesTax == null : this.orderItemPriceIncludesTax.equals(orderAddOrderItemInner.orderItemPriceIncludesTax)) &&
         (this.orderItemParent == null ? orderAddOrderItemInner.orderItemParent == null : this.orderItemParent.equals(orderAddOrderItemInner.orderItemParent)) &&
         (this.orderItemParentOptionName == null ? orderAddOrderItemInner.orderItemParentOptionName == null : this.orderItemParentOptionName.equals(orderAddOrderItemInner.orderItemParentOptionName)) &&
@@ -254,6 +268,7 @@ public class OrderAddOrderItemInner {
     result = 31 * result + (this.orderItemWeight == null ? 0: this.orderItemWeight.hashCode());
     result = 31 * result + (this.orderItemVariantId == null ? 0: this.orderItemVariantId.hashCode());
     result = 31 * result + (this.orderItemTax == null ? 0: this.orderItemTax.hashCode());
+    result = 31 * result + (this.orderItemTaxClass == null ? 0: this.orderItemTaxClass.hashCode());
     result = 31 * result + (this.orderItemPriceIncludesTax == null ? 0: this.orderItemPriceIncludesTax.hashCode());
     result = 31 * result + (this.orderItemParent == null ? 0: this.orderItemParent.hashCode());
     result = 31 * result + (this.orderItemParentOptionName == null ? 0: this.orderItemParentOptionName.hashCode());
@@ -277,6 +292,7 @@ public class OrderAddOrderItemInner {
     sb.append("  orderItemWeight: ").append(orderItemWeight).append("\n");
     sb.append("  orderItemVariantId: ").append(orderItemVariantId).append("\n");
     sb.append("  orderItemTax: ").append(orderItemTax).append("\n");
+    sb.append("  orderItemTaxClass: ").append(orderItemTaxClass).append("\n");
     sb.append("  orderItemPriceIncludesTax: ").append(orderItemPriceIncludesTax).append("\n");
     sb.append("  orderItemParent: ").append(orderItemParent).append("\n");
     sb.append("  orderItemParentOptionName: ").append(orderItemParentOptionName).append("\n");

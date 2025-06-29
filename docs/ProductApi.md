@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 
 ## productCount
 
-> ProductCount200Response productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
+> ProductCount200Response productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
 
 product.count
 
@@ -654,6 +654,7 @@ String brandName = Abidas; // String | Retrieves brands specified by brand name
 List<String> productAttributes = product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2; // List<String> | Defines product attributes
 String status = disabled; // String | Defines product's status
 String type = simple; // String | Defines products's type
+String visible = everywhere; // String | Filter items by visibility status
 String findValue = Phone; // String | Entity search that is specified by some value
 String findWhere = name; // String | Counts products that are searched specified by field
 String reportRequestId = 105245017661; // String | Report request id
@@ -661,7 +662,7 @@ Boolean returnGlobal = false; // Boolean | Determines the type of products to be
 Boolean disableReportCache = false; // Boolean | Disable report cache for current request
 Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
 try {
-    ProductCount200Response result = apiInstance.productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion);
+    ProductCount200Response result = apiInstance.productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productCount");
@@ -690,6 +691,7 @@ Name | Type | Description  | Notes
  **productAttributes** | [**List&lt;String&gt;**](String.md)| Defines product attributes | [optional] [default to null]
  **status** | **String**| Defines product&#39;s status | [optional] [default to null]
  **type** | **String**| Defines products&#39;s type | [optional] [default to null]
+ **visible** | **String**| Filter items by visibility status | [optional] [default to everywhere]
  **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
  **findWhere** | **String**| Counts products that are searched specified by field | [optional] [default to null]
  **reportRequestId** | **String**| Report request id | [optional] [default to null]
@@ -1247,7 +1249,7 @@ Name | Type | Description  | Notes
 
 ## productList
 
-> ModelResponseProductList productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion)
+> ModelResponseProductList productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion)
 
 product.list
 
@@ -1281,6 +1283,7 @@ String brandName = Abidas; // String | Retrieves brands specified by brand name
 List<String> productAttributes = product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2; // List<String> | Defines product attributes
 String status = disabled; // String | Defines product's status
 String type = simple; // String | Defines products's type
+String visible = everywhere; // String | Filter items by visibility status
 String findValue = Phone; // String | Entity search that is specified by some value
 String findWhere = name; // String | Product search that is specified by field
 Boolean returnGlobal = false; // Boolean | Determines the type of products to be returned. If set to 'true', only global products will be returned; if set to 'false', only local products will be returned.
@@ -1294,7 +1297,7 @@ Boolean disableCache = false; // Boolean | Disable cache for current request
 Boolean disableReportCache = false; // Boolean | Disable report cache for current request
 Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
 try {
-    ModelResponseProductList result = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion);
+    ModelResponseProductList result = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productList");
@@ -1328,6 +1331,7 @@ Name | Type | Description  | Notes
  **productAttributes** | [**List&lt;String&gt;**](String.md)| Defines product attributes | [optional] [default to null]
  **status** | **String**| Defines product&#39;s status | [optional] [default to null]
  **type** | **String**| Defines products&#39;s type | [optional] [default to null]
+ **visible** | **String**| Filter items by visibility status | [optional] [default to everywhere]
  **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
  **findWhere** | **String**| Product search that is specified by field | [optional] [default to null]
  **returnGlobal** | **Boolean**| Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned. | [optional] [default to false]

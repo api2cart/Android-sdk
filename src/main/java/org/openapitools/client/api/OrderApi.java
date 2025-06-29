@@ -2521,7 +2521,7 @@ public class OrderApi {
   }
   /**
   * order.shipment.list
-  * Get list of shipments by orders.
+  * Get list of shipments per order.
    * @param orderId Retrieves shipments specified by order id
    * @param start This parameter sets the number from which you want to get entities
    * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
@@ -2606,7 +2606,7 @@ public class OrderApi {
 
       /**
    * order.shipment.list
-   * Get list of shipments by orders.
+   * Get list of shipments per order.
    * @param orderId Retrieves shipments specified by order id   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param storeId Store Id   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
   public void orderShipmentList (String orderId, Integer start, Integer count, String pageCursor, String storeId, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String responseFields, String params, String exclude, final Response.Listener<ModelResponseOrderShipmentList> responseListener, final Response.ErrorListener errorListener) {

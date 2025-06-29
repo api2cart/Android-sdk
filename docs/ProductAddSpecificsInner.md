@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **values** | **List&lt;String&gt;** |  |  [optional]
 **usedForVariations** | **Boolean** |  |  [optional]
 **scaleId** | **Integer** |  |  [optional]
+**inputValue** | **String** |  |  [optional]
 **foodDetails** | [**ProductAddSpecificsInnerFoodDetails**](ProductAddSpecificsInnerFoodDetails.md) |  |  [optional]
 **groupProductsDetails** | [**List&lt;ProductAddSpecificsInnerGroupProductsDetailsInner&gt;**](ProductAddSpecificsInnerGroupProductsDetailsInner.md) |  |  [optional]
 **bookingDetails** | [**ProductAddSpecificsInnerBookingDetails**](ProductAddSpecificsInnerBookingDetails.md) |  |  [optional]

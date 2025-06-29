@@ -32,6 +32,8 @@ public class ProductAddSpecificsInner {
   private Boolean usedForVariations = false;
   @SerializedName("scale_id")
   private Integer scaleId = null;
+  @SerializedName("input_value")
+  private String inputValue = null;
   @SerializedName("food_details")
   private ProductAddSpecificsInnerFoodDetails foodDetails = null;
   @SerializedName("group_products_details")
@@ -92,6 +94,16 @@ public class ProductAddSpecificsInner {
   /**
    **/
   @ApiModelProperty(value = "")
+  public String getInputValue() {
+    return inputValue;
+  }
+  public void setInputValue(String inputValue) {
+    this.inputValue = inputValue;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public ProductAddSpecificsInnerFoodDetails getFoodDetails() {
     return foodDetails;
   }
@@ -134,6 +146,7 @@ public class ProductAddSpecificsInner {
         (this.values == null ? productAddSpecificsInner.values == null : this.values.equals(productAddSpecificsInner.values)) &&
         (this.usedForVariations == null ? productAddSpecificsInner.usedForVariations == null : this.usedForVariations.equals(productAddSpecificsInner.usedForVariations)) &&
         (this.scaleId == null ? productAddSpecificsInner.scaleId == null : this.scaleId.equals(productAddSpecificsInner.scaleId)) &&
+        (this.inputValue == null ? productAddSpecificsInner.inputValue == null : this.inputValue.equals(productAddSpecificsInner.inputValue)) &&
         (this.foodDetails == null ? productAddSpecificsInner.foodDetails == null : this.foodDetails.equals(productAddSpecificsInner.foodDetails)) &&
         (this.groupProductsDetails == null ? productAddSpecificsInner.groupProductsDetails == null : this.groupProductsDetails.equals(productAddSpecificsInner.groupProductsDetails)) &&
         (this.bookingDetails == null ? productAddSpecificsInner.bookingDetails == null : this.bookingDetails.equals(productAddSpecificsInner.bookingDetails));
@@ -147,6 +160,7 @@ public class ProductAddSpecificsInner {
     result = 31 * result + (this.values == null ? 0: this.values.hashCode());
     result = 31 * result + (this.usedForVariations == null ? 0: this.usedForVariations.hashCode());
     result = 31 * result + (this.scaleId == null ? 0: this.scaleId.hashCode());
+    result = 31 * result + (this.inputValue == null ? 0: this.inputValue.hashCode());
     result = 31 * result + (this.foodDetails == null ? 0: this.foodDetails.hashCode());
     result = 31 * result + (this.groupProductsDetails == null ? 0: this.groupProductsDetails.hashCode());
     result = 31 * result + (this.bookingDetails == null ? 0: this.bookingDetails.hashCode());
@@ -163,6 +177,7 @@ public class ProductAddSpecificsInner {
     sb.append("  values: ").append(values).append("\n");
     sb.append("  usedForVariations: ").append(usedForVariations).append("\n");
     sb.append("  scaleId: ").append(scaleId).append("\n");
+    sb.append("  inputValue: ").append(inputValue).append("\n");
     sb.append("  foodDetails: ").append(foodDetails).append("\n");
     sb.append("  groupProductsDetails: ").append(groupProductsDetails).append("\n");
     sb.append("  bookingDetails: ").append(bookingDetails).append("\n");

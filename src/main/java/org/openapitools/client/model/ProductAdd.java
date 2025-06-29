@@ -241,6 +241,8 @@ public class ProductAdd {
   private String listingDuration = null;
   @SerializedName("listing_type")
   private String listingType = FixedPrice;
+  @SerializedName("category_type")
+  private String categoryType = null;
   @SerializedName("return_accepted")
   private Boolean returnAccepted = null;
   @SerializedName("seller_profiles")
@@ -1396,6 +1398,17 @@ public class ProductAdd {
   }
 
   /**
+   * Specifies the type of category (e.g., apparel or other) for the product being added.
+   **/
+  @ApiModelProperty(value = "Specifies the type of category (e.g., apparel or other) for the product being added.")
+  public String getCategoryType() {
+    return categoryType;
+  }
+  public void setCategoryType(String categoryType) {
+    this.categoryType = categoryType;
+  }
+
+  /**
    * Indicates whether the seller allows the buyer to return the item.
    **/
   @ApiModelProperty(value = "Indicates whether the seller allows the buyer to return the item.")
@@ -1637,6 +1650,7 @@ public class ProductAdd {
         (this.logisticInfo == null ? productAdd.logisticInfo == null : this.logisticInfo.equals(productAdd.logisticInfo)) &&
         (this.listingDuration == null ? productAdd.listingDuration == null : this.listingDuration.equals(productAdd.listingDuration)) &&
         (this.listingType == null ? productAdd.listingType == null : this.listingType.equals(productAdd.listingType)) &&
+        (this.categoryType == null ? productAdd.categoryType == null : this.categoryType.equals(productAdd.categoryType)) &&
         (this.returnAccepted == null ? productAdd.returnAccepted == null : this.returnAccepted.equals(productAdd.returnAccepted)) &&
         (this.sellerProfiles == null ? productAdd.sellerProfiles == null : this.sellerProfiles.equals(productAdd.sellerProfiles)) &&
         (this.auctionConfidentialityLevel == null ? productAdd.auctionConfidentialityLevel == null : this.auctionConfidentialityLevel.equals(productAdd.auctionConfidentialityLevel)) &&
@@ -1757,6 +1771,7 @@ public class ProductAdd {
     result = 31 * result + (this.logisticInfo == null ? 0: this.logisticInfo.hashCode());
     result = 31 * result + (this.listingDuration == null ? 0: this.listingDuration.hashCode());
     result = 31 * result + (this.listingType == null ? 0: this.listingType.hashCode());
+    result = 31 * result + (this.categoryType == null ? 0: this.categoryType.hashCode());
     result = 31 * result + (this.returnAccepted == null ? 0: this.returnAccepted.hashCode());
     result = 31 * result + (this.sellerProfiles == null ? 0: this.sellerProfiles.hashCode());
     result = 31 * result + (this.auctionConfidentialityLevel == null ? 0: this.auctionConfidentialityLevel.hashCode());
@@ -1880,6 +1895,7 @@ public class ProductAdd {
     sb.append("  logisticInfo: ").append(logisticInfo).append("\n");
     sb.append("  listingDuration: ").append(listingDuration).append("\n");
     sb.append("  listingType: ").append(listingType).append("\n");
+    sb.append("  categoryType: ").append(categoryType).append("\n");
     sb.append("  returnAccepted: ").append(returnAccepted).append("\n");
     sb.append("  sellerProfiles: ").append(sellerProfiles).append("\n");
     sb.append("  auctionConfidentialityLevel: ").append(auctionConfidentialityLevel).append("\n");

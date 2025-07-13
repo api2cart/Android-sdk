@@ -484,6 +484,7 @@ public class CustomerApi {
    * @param groupId Customer group_id
    * @param storeId Counts customer specified by store id
    * @param avail Defines category&#39;s visibility status
+   * @param includeGuests Indicates whether to include guest customers in the total count.
    * @param findValue Entity search that is specified by some value
    * @param findWhere Counts customers that are searched specified by field
    * @param createdFrom Retrieve entities from their creation date
@@ -492,7 +493,7 @@ public class CustomerApi {
    * @param modifiedTo Retrieve entities to their modification date
    * @return CustomerCount200Response
   */
-  public CustomerCount200Response customerCount (String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CustomerCount200Response customerCount (String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, Boolean includeGuests, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -510,6 +511,7 @@ public class CustomerApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "group_id", groupId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "include_guests", includeGuests));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
@@ -558,9 +560,9 @@ public class CustomerApi {
       /**
    * customer.count
    * Get number of customers from store.
-   * @param ids Counts customers specified by ids   * @param sinceId Retrieve entities starting from the specified id.   * @param customerListId The numeric ID of the customer list in Demandware.   * @param groupId Customer group_id   * @param storeId Counts customer specified by store id   * @param avail Defines category&#39;s visibility status   * @param findValue Entity search that is specified by some value   * @param findWhere Counts customers that are searched specified by field   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date
+   * @param ids Counts customers specified by ids   * @param sinceId Retrieve entities starting from the specified id.   * @param customerListId The numeric ID of the customer list in Demandware.   * @param groupId Customer group_id   * @param storeId Counts customer specified by store id   * @param avail Defines category&#39;s visibility status   * @param includeGuests Indicates whether to include guest customers in the total count.   * @param findValue Entity search that is specified by some value   * @param findWhere Counts customers that are searched specified by field   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date
   */
-  public void customerCount (String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, final Response.Listener<CustomerCount200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void customerCount (String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, Boolean includeGuests, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, final Response.Listener<CustomerCount200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -580,6 +582,7 @@ public class CustomerApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "group_id", groupId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "include_guests", includeGuests));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
@@ -763,9 +766,10 @@ public class CustomerApi {
    * @param findWhere Entity search that is specified by the comma-separated unique fields
    * @param findParams Entity search that is specified by comma-separated parameters
    * @param storeId Store Id
+   * @param includeGuests Indicates whether to search among guest customers when looking up a customer.
    * @return CustomerFind200Response
   */
-  public CustomerFind200Response customerFind (String findValue, String findWhere, String findParams, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CustomerFind200Response customerFind (String findValue, String findWhere, String findParams, String storeId, Boolean includeGuests) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'findValue' is set
     if (findValue == null) {
@@ -786,6 +790,7 @@ public class CustomerApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_params", findParams));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "include_guests", includeGuests));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -828,9 +833,9 @@ public class CustomerApi {
       /**
    * customer.find
    * Find customers in store.
-   * @param findValue Entity search that is specified by some value   * @param findWhere Entity search that is specified by the comma-separated unique fields   * @param findParams Entity search that is specified by comma-separated parameters   * @param storeId Store Id
+   * @param findValue Entity search that is specified by some value   * @param findWhere Entity search that is specified by the comma-separated unique fields   * @param findParams Entity search that is specified by comma-separated parameters   * @param storeId Store Id   * @param includeGuests Indicates whether to search among guest customers when looking up a customer.
   */
-  public void customerFind (String findValue, String findWhere, String findParams, String storeId, final Response.Listener<CustomerFind200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void customerFind (String findValue, String findWhere, String findParams, String storeId, Boolean includeGuests, final Response.Listener<CustomerFind200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'findValue' is set
@@ -853,6 +858,7 @@ public class CustomerApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_params", findParams));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "include_guests", includeGuests));
 
 
     String[] contentTypes = {
@@ -1328,6 +1334,7 @@ public class CustomerApi {
    * @param groupId Customer group_id
    * @param storeId Retrieves customers specified by store id
    * @param avail Defines category&#39;s visibility status
+   * @param includeGuests Indicates whether to include guest customers in the list results.
    * @param findValue Entity search that is specified by some value
    * @param findWhere Customer search that is specified by field
    * @param createdFrom Retrieve entities from their creation date
@@ -1341,7 +1348,7 @@ public class CustomerApi {
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseCustomerList
   */
-  public ModelResponseCustomerList customerList (Integer start, Integer count, String pageCursor, String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sortBy, String sortDirection, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCustomerList customerList (Integer start, Integer count, String pageCursor, String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, Boolean includeGuests, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sortBy, String sortDirection, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1362,6 +1369,7 @@ public class CustomerApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "group_id", groupId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "include_guests", includeGuests));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
@@ -1415,9 +1423,9 @@ public class CustomerApi {
       /**
    * customer.list
    * Get list of customers from store.
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param ids Retrieves customers specified by ids   * @param sinceId Retrieve entities starting from the specified id.   * @param customerListId The numeric ID of the customer list in Demandware.   * @param groupId Customer group_id   * @param storeId Retrieves customers specified by store id   * @param avail Defines category&#39;s visibility status   * @param findValue Entity search that is specified by some value   * @param findWhere Customer search that is specified by field   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param ids Retrieves customers specified by ids   * @param sinceId Retrieve entities starting from the specified id.   * @param customerListId The numeric ID of the customer list in Demandware.   * @param groupId Customer group_id   * @param storeId Retrieves customers specified by store id   * @param avail Defines category&#39;s visibility status   * @param includeGuests Indicates whether to include guest customers in the list results.   * @param findValue Entity search that is specified by some value   * @param findWhere Customer search that is specified by field   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void customerList (Integer start, Integer count, String pageCursor, String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sortBy, String sortDirection, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCustomerList> responseListener, final Response.ErrorListener errorListener) {
+  public void customerList (Integer start, Integer count, String pageCursor, String ids, String sinceId, String customerListId, String groupId, String storeId, Boolean avail, Boolean includeGuests, String findValue, String findWhere, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sortBy, String sortDirection, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCustomerList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1440,6 +1448,7 @@ public class CustomerApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "group_id", groupId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "include_guests", includeGuests));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_value", findValue));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "find_where", findWhere));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));

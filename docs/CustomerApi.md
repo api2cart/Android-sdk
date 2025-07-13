@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ## customerCount
 
-> CustomerCount200Response customerCount(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo)
+> CustomerCount200Response customerCount(ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo)
 
 customer.count
 
@@ -192,6 +192,7 @@ String customerListId = exampleListId; // String | The numeric ID of the custome
 String groupId = 3; // String | Customer group_id
 String storeId = 1; // String | Counts customer specified by store id
 Boolean avail = false; // Boolean | Defines category's visibility status
+Boolean includeGuests = true; // Boolean | Indicates whether to include guest customers in the total count.
 String findValue = mail@gmail.com; // String | Entity search that is specified by some value
 String findWhere = email; // String | Counts customers that are searched specified by field
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
@@ -199,7 +200,7 @@ String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their c
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
 try {
-    CustomerCount200Response result = apiInstance.customerCount(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo);
+    CustomerCount200Response result = apiInstance.customerCount(ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#customerCount");
@@ -218,6 +219,7 @@ Name | Type | Description  | Notes
  **groupId** | **String**| Customer group_id | [optional] [default to null]
  **storeId** | **String**| Counts customer specified by store id | [optional] [default to null]
  **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
+ **includeGuests** | **Boolean**| Indicates whether to include guest customers in the total count. | [optional] [default to false]
  **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
  **findWhere** | **String**| Counts customers that are searched specified by field | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
@@ -287,7 +289,7 @@ Name | Type | Description  | Notes
 
 ## customerFind
 
-> CustomerFind200Response customerFind(findValue, findWhere, findParams, storeId)
+> CustomerFind200Response customerFind(findValue, findWhere, findParams, storeId, includeGuests)
 
 customer.find
 
@@ -304,8 +306,9 @@ String findValue = mail@gmail.com; // String | Entity search that is specified b
 String findWhere = email; // String | Entity search that is specified by the comma-separated unique fields
 String findParams = regex; // String | Entity search that is specified by comma-separated parameters
 String storeId = 1; // String | Store Id
+Boolean includeGuests = true; // Boolean | Indicates whether to search among guest customers when looking up a customer.
 try {
-    CustomerFind200Response result = apiInstance.customerFind(findValue, findWhere, findParams, storeId);
+    CustomerFind200Response result = apiInstance.customerFind(findValue, findWhere, findParams, storeId, includeGuests);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#customerFind");
@@ -322,6 +325,7 @@ Name | Type | Description  | Notes
  **findWhere** | **String**| Entity search that is specified by the comma-separated unique fields | [optional] [default to email]
  **findParams** | **String**| Entity search that is specified by comma-separated parameters | [optional] [default to whole_words]
  **storeId** | **String**| Store Id | [optional] [default to null]
+ **includeGuests** | **Boolean**| Indicates whether to search among guest customers when looking up a customer. | [optional] [default to false]
 
 ### Return type
 
@@ -507,7 +511,7 @@ Name | Type | Description  | Notes
 
 ## customerList
 
-> ModelResponseCustomerList customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude)
+> ModelResponseCustomerList customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude)
 
 customer.list
 
@@ -529,6 +533,7 @@ String customerListId = exampleListId; // String | The numeric ID of the custome
 String groupId = 3; // String | Customer group_id
 String storeId = 1; // String | Retrieves customers specified by store id
 Boolean avail = false; // Boolean | Defines category's visibility status
+Boolean includeGuests = true; // Boolean | Indicates whether to include guest customers in the list results.
 String findValue = mail@gmail.com; // String | Entity search that is specified by some value
 String findWhere = email; // String | Customer search that is specified by field
 String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
@@ -541,7 +546,7 @@ String responseFields = {result{customer}}; // String | Set this parameter in or
 String params = id,email; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = id,email; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseCustomerList result = apiInstance.customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude);
+    ModelResponseCustomerList result = apiInstance.customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CustomerApi#customerList");
@@ -563,6 +568,7 @@ Name | Type | Description  | Notes
  **groupId** | **String**| Customer group_id | [optional] [default to null]
  **storeId** | **String**| Retrieves customers specified by store id | [optional] [default to null]
  **avail** | **Boolean**| Defines category&#39;s visibility status | [optional] [default to true]
+ **includeGuests** | **Boolean**| Indicates whether to include guest customers in the list results. | [optional] [default to false]
  **findValue** | **String**| Entity search that is specified by some value | [optional] [default to null]
  **findWhere** | **String**| Customer search that is specified by field | [optional] [default to null]
  **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]

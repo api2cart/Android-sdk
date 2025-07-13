@@ -47,6 +47,8 @@ public class Customer {
   private A2CDateTime birthDay = null;
   @SerializedName("status")
   private String status = null;
+  @SerializedName("is_guest")
+  private Boolean isGuest = null;
   @SerializedName("news_letter_subscription")
   private Boolean newsLetterSubscription = null;
   @SerializedName("consents")
@@ -194,6 +196,16 @@ public class Customer {
   }
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public Boolean getIsGuest() {
+    return isGuest;
+  }
+  public void setIsGuest(Boolean isGuest) {
+    this.isGuest = isGuest;
   }
 
   /**
@@ -358,6 +370,7 @@ public class Customer {
         (this.lastLogin == null ? customer.lastLogin == null : this.lastLogin.equals(customer.lastLogin)) &&
         (this.birthDay == null ? customer.birthDay == null : this.birthDay.equals(customer.birthDay)) &&
         (this.status == null ? customer.status == null : this.status.equals(customer.status)) &&
+        (this.isGuest == null ? customer.isGuest == null : this.isGuest.equals(customer.isGuest)) &&
         (this.newsLetterSubscription == null ? customer.newsLetterSubscription == null : this.newsLetterSubscription.equals(customer.newsLetterSubscription)) &&
         (this.consents == null ? customer.consents == null : this.consents.equals(customer.consents)) &&
         (this.gender == null ? customer.gender == null : this.gender.equals(customer.gender)) &&
@@ -389,6 +402,7 @@ public class Customer {
     result = 31 * result + (this.lastLogin == null ? 0: this.lastLogin.hashCode());
     result = 31 * result + (this.birthDay == null ? 0: this.birthDay.hashCode());
     result = 31 * result + (this.status == null ? 0: this.status.hashCode());
+    result = 31 * result + (this.isGuest == null ? 0: this.isGuest.hashCode());
     result = 31 * result + (this.newsLetterSubscription == null ? 0: this.newsLetterSubscription.hashCode());
     result = 31 * result + (this.consents == null ? 0: this.consents.hashCode());
     result = 31 * result + (this.gender == null ? 0: this.gender.hashCode());
@@ -423,6 +437,7 @@ public class Customer {
     sb.append("  lastLogin: ").append(lastLogin).append("\n");
     sb.append("  birthDay: ").append(birthDay).append("\n");
     sb.append("  status: ").append(status).append("\n");
+    sb.append("  isGuest: ").append(isGuest).append("\n");
     sb.append("  newsLetterSubscription: ").append(newsLetterSubscription).append("\n");
     sb.append("  consents: ").append(consents).append("\n");
     sb.append("  gender: ").append(gender).append("\n");

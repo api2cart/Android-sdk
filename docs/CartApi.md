@@ -1,29 +1,22 @@
 # CartApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cartBridge**](CartApi.md#cartBridge) | **GET** /cart.bridge.json | cart.bridge
 [**cartCatalogPriceRulesCount**](CartApi.md#cartCatalogPriceRulesCount) | **GET** /cart.catalog_price_rules.count.json | cart.catalog_price_rules.count
 [**cartCatalogPriceRulesList**](CartApi.md#cartCatalogPriceRulesList) | **GET** /cart.catalog_price_rules.list.json | cart.catalog_price_rules.list
-[**cartClearCache**](CartApi.md#cartClearCache) | **POST** /cart.clear_cache.json | cart.clear_cache
-[**cartConfig**](CartApi.md#cartConfig) | **GET** /cart.config.json | cart.config
-[**cartConfigUpdate**](CartApi.md#cartConfigUpdate) | **PUT** /cart.config.update.json | cart.config.update
 [**cartCouponAdd**](CartApi.md#cartCouponAdd) | **POST** /cart.coupon.add.json | cart.coupon.add
 [**cartCouponConditionAdd**](CartApi.md#cartCouponConditionAdd) | **POST** /cart.coupon.condition.add.json | cart.coupon.condition.add
 [**cartCouponCount**](CartApi.md#cartCouponCount) | **GET** /cart.coupon.count.json | cart.coupon.count
 [**cartCouponDelete**](CartApi.md#cartCouponDelete) | **DELETE** /cart.coupon.delete.json | cart.coupon.delete
 [**cartCouponList**](CartApi.md#cartCouponList) | **GET** /cart.coupon.list.json | cart.coupon.list
-[**cartCreate**](CartApi.md#cartCreate) | **POST** /cart.create.json | cart.create
 [**cartDelete**](CartApi.md#cartDelete) | **DELETE** /cart.delete.json | cart.delete
-[**cartDisconnect**](CartApi.md#cartDisconnect) | **GET** /cart.disconnect.json | cart.disconnect
 [**cartGiftcardAdd**](CartApi.md#cartGiftcardAdd) | **POST** /cart.giftcard.add.json | cart.giftcard.add
 [**cartGiftcardCount**](CartApi.md#cartGiftcardCount) | **GET** /cart.giftcard.count.json | cart.giftcard.count
 [**cartGiftcardDelete**](CartApi.md#cartGiftcardDelete) | **DELETE** /cart.giftcard.delete.json | cart.giftcard.delete
 [**cartGiftcardList**](CartApi.md#cartGiftcardList) | **GET** /cart.giftcard.list.json | cart.giftcard.list
 [**cartInfo**](CartApi.md#cartInfo) | **GET** /cart.info.json | cart.info
-[**cartList**](CartApi.md#cartList) | **GET** /cart.list.json | cart.list
 [**cartMetaDataList**](CartApi.md#cartMetaDataList) | **GET** /cart.meta_data.list.json | cart.meta_data.list
 [**cartMetaDataSet**](CartApi.md#cartMetaDataSet) | **POST** /cart.meta_data.set.json | cart.meta_data.set
 [**cartMetaDataUnset**](CartApi.md#cartMetaDataUnset) | **DELETE** /cart.meta_data.unset.json | cart.meta_data.unset
@@ -35,48 +28,6 @@ Method | HTTP request | Description
 [**cartShippingZonesList**](CartApi.md#cartShippingZonesList) | **GET** /cart.shipping_zones.list.json | cart.shipping_zones.list
 [**cartValidate**](CartApi.md#cartValidate) | **GET** /cart.validate.json | cart.validate
 
-
-
-## cartBridge
-
-> CartBridge200Response cartBridge()
-
-cart.bridge
-
-Get bridge key and store key
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.CartApi;
-
-CartApi apiInstance = new CartApi();
-try {
-    CartBridge200Response result = apiInstance.cartBridge();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CartApi#cartBridge");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CartBridge200Response**](CartBridge200Response.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
 
 
 ## cartCatalogPriceRulesCount
@@ -176,146 +127,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## cartClearCache
-
-> CartClearCache200Response cartClearCache(cacheType)
-
-cart.clear_cache
-
-Clear cache on store.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.CartApi;
-
-CartApi apiInstance = new CartApi();
-String cacheType = storage_cache; // String | Defines which cache should be cleared.
-try {
-    CartClearCache200Response result = apiInstance.cartClearCache(cacheType);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CartApi#cartClearCache");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cacheType** | **String**| Defines which cache should be cleared. | [default to null]
-
-### Return type
-
-[**CartClearCache200Response**](CartClearCache200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## cartConfig
-
-> CartConfig200Response cartConfig(params, exclude)
-
-cart.config
-
-Get list of cart configs
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.CartApi;
-
-CartApi apiInstance = new CartApi();
-String params = store_name,store_url,db_prefix; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = store_name,store_url,db_prefix; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-try {
-    CartConfig200Response result = apiInstance.cartConfig(params, exclude);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CartApi#cartConfig");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to store_name,store_url,db_prefix]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
-
-### Return type
-
-[**CartConfig200Response**](CartConfig200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## cartConfigUpdate
-
-> CartConfigUpdate200Response cartConfigUpdate(cartConfigUpdate)
-
-cart.config.update
-
-Use this API method to update custom data in client database.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.CartApi;
-
-CartApi apiInstance = new CartApi();
-CartConfigUpdate cartConfigUpdate = new CartConfigUpdate(); // CartConfigUpdate | 
-try {
-    CartConfigUpdate200Response result = apiInstance.cartConfigUpdate(cartConfigUpdate);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CartApi#cartConfigUpdate");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cartConfigUpdate** | [**CartConfigUpdate**](CartConfigUpdate.md)|  |
-
-### Return type
-
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -603,52 +414,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## cartCreate
-
-> AccountCartAdd200Response cartCreate(cartCreate)
-
-cart.create
-
-Add store to the account
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.CartApi;
-
-CartApi apiInstance = new CartApi();
-CartCreate cartCreate = new CartCreate(); // CartCreate | 
-try {
-    AccountCartAdd200Response result = apiInstance.cartCreate(cartCreate);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CartApi#cartCreate");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cartCreate** | [**CartCreate**](CartCreate.md)|  |
-
-### Return type
-
-[**AccountCartAdd200Response**](AccountCartAdd200Response.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## cartDelete
 
 > CartDelete200Response cartDelete(deleteBridge)
@@ -684,52 +449,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CartDelete200Response**](CartDelete200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## cartDisconnect
-
-> CartDisconnect200Response cartDisconnect(deleteBridge)
-
-cart.disconnect
-
-Disconnect with the store and clear store session data.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.CartApi;
-
-CartApi apiInstance = new CartApi();
-Boolean deleteBridge = true; // Boolean | Identifies if there is a necessity to delete bridge
-try {
-    CartDisconnect200Response result = apiInstance.cartDisconnect(deleteBridge);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CartApi#cartDisconnect");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **deleteBridge** | **Boolean**| Identifies if there is a necessity to delete bridge | [optional] [default to false]
-
-### Return type
-
-[**CartDisconnect200Response**](CartDisconnect200Response.md)
 
 ### Authorization
 
@@ -992,48 +711,6 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## cartList
-
-> CartList200Response cartList()
-
-cart.list
-
-Get list of supported carts
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.CartApi;
-
-CartApi apiInstance = new CartApi();
-try {
-    CartList200Response result = apiInstance.cartList();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling CartApi#cartList");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CartList200Response**](CartList200Response.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

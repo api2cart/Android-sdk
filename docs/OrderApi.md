@@ -1,6 +1,6 @@
 # OrderApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**orderAdd**](OrderApi.md#orderAdd) | **POST** /order.add.json | order.add
 [**orderCount**](OrderApi.md#orderCount) | **GET** /order.count.json | order.count
 [**orderFinancialStatusList**](OrderApi.md#orderFinancialStatusList) | **GET** /order.financial_status.list.json | order.financial_status.list
-[**orderFind**](OrderApi.md#orderFind) | **GET** /order.find.json | order.find
 [**orderFulfillmentStatusList**](OrderApi.md#orderFulfillmentStatusList) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
 [**orderInfo**](OrderApi.md#orderInfo) | **GET** /order.info.json | order.info
 [**orderList**](OrderApi.md#orderList) | **GET** /order.list.json | order.list
@@ -263,74 +262,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**OrderFinancialStatusList200Response**](OrderFinancialStatusList200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## orderFind
-
-> OrderFind200Response orderFind(start, count, customerId, customerEmail, orderStatus, financialStatus, createdTo, createdFrom, modifiedTo, modifiedFrom, params, exclude)
-
-order.find
-
-This method is deprecated and won&#39;t be supported in the future. Please use \&quot;order.list\&quot; instead.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.OrderApi;
-
-OrderApi apiInstance = new OrderApi();
-Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
-Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-String customerId = 5; // String | Retrieves orders specified by customer id
-String customerEmail = jubari@hannsgroup.com; // String | Retrieves orders specified by customer email
-String orderStatus = Completed; // String | Retrieves orders specified by order status
-String financialStatus = paid; // String | Retrieves orders specified by financial status
-String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
-String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
-String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
-String params = order_id,totals,status; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = order_id,totals,status; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-try {
-    OrderFind200Response result = apiInstance.orderFind(start, count, customerId, customerEmail, orderStatus, financialStatus, createdTo, createdFrom, modifiedTo, modifiedFrom, params, exclude);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrderApi#orderFind");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
- **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **customerId** | **String**| Retrieves orders specified by customer id | [optional] [default to null]
- **customerEmail** | **String**| Retrieves orders specified by customer email | [optional] [default to null]
- **orderStatus** | **String**| Retrieves orders specified by order status | [optional] [default to null]
- **financialStatus** | **String**| Retrieves orders specified by financial status | [optional] [default to null]
- **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
- **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
- **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to order_id,customer,totals,address,items,bundles,status]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
-
-### Return type
-
-[**OrderFind200Response**](OrderFind200Response.md)
 
 ### Authorization
 

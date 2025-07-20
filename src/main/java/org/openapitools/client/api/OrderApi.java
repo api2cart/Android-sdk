@@ -37,7 +37,6 @@ import org.openapitools.client.model.OrderAdd;
 import org.openapitools.client.model.OrderAdd200Response;
 import org.openapitools.client.model.OrderCount200Response;
 import org.openapitools.client.model.OrderFinancialStatusList200Response;
-import org.openapitools.client.model.OrderFind200Response;
 import org.openapitools.client.model.OrderFulfillmentStatusList200Response;
 import org.openapitools.client.model.OrderInfo200Response;
 import org.openapitools.client.model.OrderPreestimateShippingList;
@@ -66,7 +65,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class OrderApi {
-  String basePath = "https://api.api2cart.com/v1.1";
+  String basePath = "https://api.api2cart.local.com/v1.1";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -649,158 +648,6 @@ public class OrderApi {
           public void onResponse(String localVarResponse) {
             try {
               responseListener.onResponse((OrderFinancialStatusList200Response) ApiInvoker.deserialize(localVarResponse,  "", OrderFinancialStatusList200Response.class));
-            } catch (ApiException exception) {
-               errorListener.onErrorResponse(new VolleyError(exception));
-            }
-          }
-      }, new Response.ErrorListener() {
-          @Override
-          public void onErrorResponse(VolleyError error) {
-            errorListener.onErrorResponse(error);
-          }
-      });
-    } catch (ApiException ex) {
-      errorListener.onErrorResponse(new VolleyError(ex));
-    }
-  }
-  /**
-  * order.find
-  * This method is deprecated and won&#39;t be supported in the future. Please use \&quot;order.list\&quot; instead.
-   * @param start This parameter sets the number from which you want to get entities
-   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-   * @param customerId Retrieves orders specified by customer id
-   * @param customerEmail Retrieves orders specified by customer email
-   * @param orderStatus Retrieves orders specified by order status
-   * @param financialStatus Retrieves orders specified by financial status
-   * @param createdTo Retrieve entities to their creation date
-   * @param createdFrom Retrieve entities from their creation date
-   * @param modifiedTo Retrieve entities to their modification date
-   * @param modifiedFrom Retrieve entities from their modification date
-   * @param params Set this parameter in order to choose which entity fields you want to retrieve
-   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-   * @return OrderFind200Response
-  */
-  public OrderFind200Response orderFind (Integer start, Integer count, String customerId, String customerEmail, String orderStatus, String financialStatus, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = null;
-
-    // create path and map variables
-    String path = "/order.find.json";
-
-    // query params
-    List<Pair> queryParams = new ArrayList<Pair>();
-    // header params
-    Map<String, String> headerParams = new HashMap<String, String>();
-    // form params
-    Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-    String[] contentTypes = {
-    };
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if (contentType.startsWith("multipart/form-data")) {
-      // file uploading
-      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      HttpEntity httpEntity = localVarBuilder.build();
-      postBody = httpEntity;
-    } else {
-      // normal form params
-    }
-
-    String[] authNames = new String[] { "StoreKeyAuth", "ApiKeyAuth" };
-
-    try {
-      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
-      if (localVarResponse != null) {
-         return (OrderFind200Response) ApiInvoker.deserialize(localVarResponse, "", OrderFind200Response.class);
-      } else {
-         return null;
-      }
-    } catch (ApiException ex) {
-       throw ex;
-    } catch (InterruptedException ex) {
-       throw ex;
-    } catch (ExecutionException ex) {
-      if (ex.getCause() instanceof VolleyError) {
-        VolleyError volleyError = (VolleyError)ex.getCause();
-        if (volleyError.networkResponse != null) {
-          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-        }
-      }
-      throw ex;
-    } catch (TimeoutException ex) {
-      throw ex;
-    }
-  }
-
-      /**
-   * order.find
-   * This method is deprecated and won&#39;t be supported in the future. Please use \&quot;order.list\&quot; instead.
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param customerId Retrieves orders specified by customer id   * @param customerEmail Retrieves orders specified by customer email   * @param orderStatus Retrieves orders specified by order status   * @param financialStatus Retrieves orders specified by financial status   * @param createdTo Retrieve entities to their creation date   * @param createdFrom Retrieve entities from their creation date   * @param modifiedTo Retrieve entities to their modification date   * @param modifiedFrom Retrieve entities from their modification date   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-  */
-  public void orderFind (Integer start, Integer count, String customerId, String customerEmail, String orderStatus, String financialStatus, String createdTo, String createdFrom, String modifiedTo, String modifiedFrom, String params, String exclude, final Response.Listener<OrderFind200Response> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = null;
-
-
-    // create path and map variables
-    String path = "/order.find.json".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> queryParams = new ArrayList<Pair>();
-    // header params
-    Map<String, String> headerParams = new HashMap<String, String>();
-    // form params
-    Map<String, String> formParams = new HashMap<String, String>();
-
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "start", start));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "count", count));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_email", customerEmail));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "order_status", orderStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "financial_status", financialStatus));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
-
-
-    String[] contentTypes = {
-      
-    };
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if (contentType.startsWith("multipart/form-data")) {
-      // file uploading
-      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      
-
-      HttpEntity httpEntity = localVarBuilder.build();
-      postBody = httpEntity;
-    } else {
-      // normal form params
-          }
-
-    String[] authNames = new String[] { "StoreKeyAuth", "ApiKeyAuth" };
-
-    try {
-      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
-        new Response.Listener<String>() {
-          @Override
-          public void onResponse(String localVarResponse) {
-            try {
-              responseListener.onResponse((OrderFind200Response) ApiInvoker.deserialize(localVarResponse,  "", OrderFind200Response.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

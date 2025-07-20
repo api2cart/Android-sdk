@@ -277,14 +277,6 @@ public class JsonUtil {
       return new TypeToken<List<Cart>>(){}.getType();
     }
     
-    if ("CartBridge200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartBridge200Response>>(){}.getType();
-    }
-    
-    if ("CartBridge200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartBridge200ResponseResult>>(){}.getType();
-    }
-    
     if ("CartCatalogPriceRulesCount200Response".equalsIgnoreCase(className)) {
       return new TypeToken<List<CartCatalogPriceRulesCount200Response>>(){}.getType();
     }
@@ -295,30 +287,6 @@ public class JsonUtil {
     
     if ("CartChannel".equalsIgnoreCase(className)) {
       return new TypeToken<List<CartChannel>>(){}.getType();
-    }
-    
-    if ("CartClearCache200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartClearCache200Response>>(){}.getType();
-    }
-    
-    if ("CartClearCache200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartClearCache200ResponseResult>>(){}.getType();
-    }
-    
-    if ("CartConfig200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartConfig200Response>>(){}.getType();
-    }
-    
-    if ("CartConfig200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartConfig200ResponseResult>>(){}.getType();
-    }
-    
-    if ("CartConfigUpdate".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartConfigUpdate>>(){}.getType();
-    }
-    
-    if ("CartConfigUpdate200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartConfigUpdate200Response>>(){}.getType();
     }
     
     if ("CartCouponAdd".equalsIgnoreCase(className)) {
@@ -341,24 +309,12 @@ public class JsonUtil {
       return new TypeToken<List<CartCouponCount200ResponseResult>>(){}.getType();
     }
     
-    if ("CartCreate".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartCreate>>(){}.getType();
-    }
-    
     if ("CartDelete200Response".equalsIgnoreCase(className)) {
       return new TypeToken<List<CartDelete200Response>>(){}.getType();
     }
     
     if ("CartDelete200ResponseResult".equalsIgnoreCase(className)) {
       return new TypeToken<List<CartDelete200ResponseResult>>(){}.getType();
-    }
-    
-    if ("CartDisconnect200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartDisconnect200Response>>(){}.getType();
-    }
-    
-    if ("CartDisconnect200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartDisconnect200ResponseResult>>(){}.getType();
     }
     
     if ("CartGiftcardAdd200Response".equalsIgnoreCase(className)) {
@@ -379,18 +335,6 @@ public class JsonUtil {
     
     if ("CartInfo200Response".equalsIgnoreCase(className)) {
       return new TypeToken<List<CartInfo200Response>>(){}.getType();
-    }
-    
-    if ("CartList200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartList200Response>>(){}.getType();
-    }
-    
-    if ("CartList200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartList200ResponseResult>>(){}.getType();
-    }
-    
-    if ("CartList200ResponseResultSupportedCartsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CartList200ResponseResultSupportedCartsInner>>(){}.getType();
     }
     
     if ("CartMetaData".equalsIgnoreCase(className)) {
@@ -491,6 +435,10 @@ public class JsonUtil {
     
     if ("CategoryAddBatchPayloadInnerImagesInner".equalsIgnoreCase(className)) {
       return new TypeToken<List<CategoryAddBatchPayloadInnerImagesInner>>(){}.getType();
+    }
+    
+    if ("CategoryAssign200Response".equalsIgnoreCase(className)) {
+      return new TypeToken<List<CategoryAssign200Response>>(){}.getType();
     }
     
     if ("CategoryCount200Response".equalsIgnoreCase(className)) {
@@ -883,14 +831,6 @@ public class JsonUtil {
     
     if ("OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner".equalsIgnoreCase(className)) {
       return new TypeToken<List<OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner>>(){}.getType();
-    }
-    
-    if ("OrderFind200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<OrderFind200Response>>(){}.getType();
-    }
-    
-    if ("OrderFind200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<List<OrderFind200ResponseResult>>(){}.getType();
     }
     
     if ("OrderFulfillmentStatusList200Response".equalsIgnoreCase(className)) {
@@ -1461,14 +1401,6 @@ public class JsonUtil {
       return new TypeToken<List<ProductVariantAddBatchPayloadInnerCombinationInner>>(){}.getType();
     }
     
-    if ("ProductVariantCount200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<ProductVariantCount200Response>>(){}.getType();
-    }
-    
-    if ("ProductVariantCount200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<List<ProductVariantCount200ResponseResult>>(){}.getType();
-    }
-    
     if ("ProductVariantDeleteBatch".equalsIgnoreCase(className)) {
       return new TypeToken<List<ProductVariantDeleteBatch>>(){}.getType();
     }
@@ -1487,14 +1419,6 @@ public class JsonUtil {
     
     if ("ProductVariantImageAdd200ResponseResult".equalsIgnoreCase(className)) {
       return new TypeToken<List<ProductVariantImageAdd200ResponseResult>>(){}.getType();
-    }
-    
-    if ("ProductVariantList200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<List<ProductVariantList200Response>>(){}.getType();
-    }
-    
-    if ("ProductVariantList200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<List<ProductVariantList200ResponseResult>>(){}.getType();
     }
     
     if ("ProductVariantPriceAdd".equalsIgnoreCase(className)) {
@@ -2035,14 +1959,6 @@ public class JsonUtil {
       return new TypeToken<Cart>(){}.getType();
     }
     
-    if ("CartBridge200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<CartBridge200Response>(){}.getType();
-    }
-    
-    if ("CartBridge200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<CartBridge200ResponseResult>(){}.getType();
-    }
-    
     if ("CartCatalogPriceRulesCount200Response".equalsIgnoreCase(className)) {
       return new TypeToken<CartCatalogPriceRulesCount200Response>(){}.getType();
     }
@@ -2053,30 +1969,6 @@ public class JsonUtil {
     
     if ("CartChannel".equalsIgnoreCase(className)) {
       return new TypeToken<CartChannel>(){}.getType();
-    }
-    
-    if ("CartClearCache200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<CartClearCache200Response>(){}.getType();
-    }
-    
-    if ("CartClearCache200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<CartClearCache200ResponseResult>(){}.getType();
-    }
-    
-    if ("CartConfig200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<CartConfig200Response>(){}.getType();
-    }
-    
-    if ("CartConfig200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<CartConfig200ResponseResult>(){}.getType();
-    }
-    
-    if ("CartConfigUpdate".equalsIgnoreCase(className)) {
-      return new TypeToken<CartConfigUpdate>(){}.getType();
-    }
-    
-    if ("CartConfigUpdate200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<CartConfigUpdate200Response>(){}.getType();
     }
     
     if ("CartCouponAdd".equalsIgnoreCase(className)) {
@@ -2099,24 +1991,12 @@ public class JsonUtil {
       return new TypeToken<CartCouponCount200ResponseResult>(){}.getType();
     }
     
-    if ("CartCreate".equalsIgnoreCase(className)) {
-      return new TypeToken<CartCreate>(){}.getType();
-    }
-    
     if ("CartDelete200Response".equalsIgnoreCase(className)) {
       return new TypeToken<CartDelete200Response>(){}.getType();
     }
     
     if ("CartDelete200ResponseResult".equalsIgnoreCase(className)) {
       return new TypeToken<CartDelete200ResponseResult>(){}.getType();
-    }
-    
-    if ("CartDisconnect200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<CartDisconnect200Response>(){}.getType();
-    }
-    
-    if ("CartDisconnect200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<CartDisconnect200ResponseResult>(){}.getType();
     }
     
     if ("CartGiftcardAdd200Response".equalsIgnoreCase(className)) {
@@ -2137,18 +2017,6 @@ public class JsonUtil {
     
     if ("CartInfo200Response".equalsIgnoreCase(className)) {
       return new TypeToken<CartInfo200Response>(){}.getType();
-    }
-    
-    if ("CartList200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<CartList200Response>(){}.getType();
-    }
-    
-    if ("CartList200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<CartList200ResponseResult>(){}.getType();
-    }
-    
-    if ("CartList200ResponseResultSupportedCartsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<CartList200ResponseResultSupportedCartsInner>(){}.getType();
     }
     
     if ("CartMetaData".equalsIgnoreCase(className)) {
@@ -2249,6 +2117,10 @@ public class JsonUtil {
     
     if ("CategoryAddBatchPayloadInnerImagesInner".equalsIgnoreCase(className)) {
       return new TypeToken<CategoryAddBatchPayloadInnerImagesInner>(){}.getType();
+    }
+    
+    if ("CategoryAssign200Response".equalsIgnoreCase(className)) {
+      return new TypeToken<CategoryAssign200Response>(){}.getType();
     }
     
     if ("CategoryCount200Response".equalsIgnoreCase(className)) {
@@ -2641,14 +2513,6 @@ public class JsonUtil {
     
     if ("OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner".equalsIgnoreCase(className)) {
       return new TypeToken<OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner>(){}.getType();
-    }
-    
-    if ("OrderFind200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<OrderFind200Response>(){}.getType();
-    }
-    
-    if ("OrderFind200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<OrderFind200ResponseResult>(){}.getType();
     }
     
     if ("OrderFulfillmentStatusList200Response".equalsIgnoreCase(className)) {
@@ -3219,14 +3083,6 @@ public class JsonUtil {
       return new TypeToken<ProductVariantAddBatchPayloadInnerCombinationInner>(){}.getType();
     }
     
-    if ("ProductVariantCount200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<ProductVariantCount200Response>(){}.getType();
-    }
-    
-    if ("ProductVariantCount200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<ProductVariantCount200ResponseResult>(){}.getType();
-    }
-    
     if ("ProductVariantDeleteBatch".equalsIgnoreCase(className)) {
       return new TypeToken<ProductVariantDeleteBatch>(){}.getType();
     }
@@ -3245,14 +3101,6 @@ public class JsonUtil {
     
     if ("ProductVariantImageAdd200ResponseResult".equalsIgnoreCase(className)) {
       return new TypeToken<ProductVariantImageAdd200ResponseResult>(){}.getType();
-    }
-    
-    if ("ProductVariantList200Response".equalsIgnoreCase(className)) {
-      return new TypeToken<ProductVariantList200Response>(){}.getType();
-    }
-    
-    if ("ProductVariantList200ResponseResult".equalsIgnoreCase(className)) {
-      return new TypeToken<ProductVariantList200ResponseResult>(){}.getType();
     }
     
     if ("ProductVariantPriceAdd".equalsIgnoreCase(className)) {

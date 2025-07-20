@@ -1,6 +1,6 @@
 # ProductApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,6 @@ Method | HTTP request | Description
 [**productCurrencyList**](ProductApi.md#productCurrencyList) | **GET** /product.currency.list.json | product.currency.list
 [**productDelete**](ProductApi.md#productDelete) | **DELETE** /product.delete.json | product.delete
 [**productDeleteBatch**](ProductApi.md#productDeleteBatch) | **POST** /product.delete.batch.json | product.delete.batch
-[**productFields**](ProductApi.md#productFields) | **GET** /product.fields.json | product.fields
 [**productFind**](ProductApi.md#productFind) | **GET** /product.find.json | product.find
 [**productImageAdd**](ProductApi.md#productImageAdd) | **POST** /product.image.add.json | product.image.add
 [**productImageDelete**](ProductApi.md#productImageDelete) | **DELETE** /product.image.delete.json | product.image.delete
@@ -44,13 +43,10 @@ Method | HTTP request | Description
 [**productUpdateBatch**](ProductApi.md#productUpdateBatch) | **POST** /product.update.batch.json | product.update.batch
 [**productVariantAdd**](ProductApi.md#productVariantAdd) | **POST** /product.variant.add.json | product.variant.add
 [**productVariantAddBatch**](ProductApi.md#productVariantAddBatch) | **POST** /product.variant.add.batch.json | product.variant.add.batch
-[**productVariantCount**](ProductApi.md#productVariantCount) | **GET** /product.variant.count.json | product.variant.count
 [**productVariantDelete**](ProductApi.md#productVariantDelete) | **DELETE** /product.variant.delete.json | product.variant.delete
 [**productVariantDeleteBatch**](ProductApi.md#productVariantDeleteBatch) | **POST** /product.variant.delete.batch.json | product.variant.delete.batch
 [**productVariantImageAdd**](ProductApi.md#productVariantImageAdd) | **POST** /product.variant.image.add.json | product.variant.image.add
 [**productVariantImageDelete**](ProductApi.md#productVariantImageDelete) | **DELETE** /product.variant.image.delete.json | product.variant.image.delete
-[**productVariantInfo**](ProductApi.md#productVariantInfo) | **GET** /product.variant.info.json | product.variant.info
-[**productVariantList**](ProductApi.md#productVariantList) | **GET** /product.variant.list.json | product.variant.list
 [**productVariantPriceAdd**](ProductApi.md#productVariantPriceAdd) | **POST** /product.variant.price.add.json | product.variant.price.add
 [**productVariantPriceDelete**](ProductApi.md#productVariantPriceDelete) | **DELETE** /product.variant.price.delete.json | product.variant.price.delete
 [**productVariantPriceUpdate**](ProductApi.md#productVariantPriceUpdate) | **PUT** /product.variant.price.update.json | product.variant.price.update
@@ -922,48 +918,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## productFields
-
-> CartConfigUpdate200Response productFields()
-
-product.fields
-
-Retrieve all available fields for product item in store.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.ProductApi;
-
-ProductApi apiInstance = new ProductApi();
-try {
-    CartConfigUpdate200Response result = apiInstance.productFields();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProductApi#productFields");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -2325,64 +2279,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## productVariantCount
-
-> ProductVariantCount200Response productVariantCount(productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo)
-
-product.variant.count
-
-Get count variants.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.ProductApi;
-
-ProductApi apiInstance = new ProductApi();
-String productId = 10; // String | Retrieves products' variants specified by product id
-String categoryId = 6; // String | Counts products’ variants specified by category id
-String storeId = 1; // String | Retrieves variants specified by store id
-String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
-String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
-String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
-String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-try {
-    ProductVariantCount200Response result = apiInstance.productVariantCount(productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProductApi#productVariantCount");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **productId** | **String**| Retrieves products&#39; variants specified by product id | [default to null]
- **categoryId** | **String**| Counts products’ variants specified by category id | [optional] [default to null]
- **storeId** | **String**| Retrieves variants specified by store id | [optional] [default to null]
- **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
- **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
- **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
- **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
-
-### Return type
-
-[**ProductVariantCount200Response**](ProductVariantCount200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
 ## productVariantDelete
 
 > AttributeValueDelete200Response productVariantDelete(id, productId, storeId)
@@ -2566,124 +2462,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttributeDelete200Response**](AttributeDelete200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## productVariantInfo
-
-> ProductInfo200Response productVariantInfo(id, storeId, params, exclude)
-
-product.variant.info
-
-Get variant info. This method is deprecated, and its development is stopped. Please use \&quot;product.child_item.info\&quot; instead.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.ProductApi;
-
-ProductApi apiInstance = new ProductApi();
-String id = 10; // String | Retrieves variant's info specified by variant id
-String storeId = 1; // String | Retrieves variant info specified by store id
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-try {
-    ProductInfo200Response result = apiInstance.productVariantInfo(id, storeId, params, exclude);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProductApi#productVariantInfo");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| Retrieves variant&#39;s info specified by variant id | [default to null]
- **storeId** | **String**| Retrieves variant info specified by store id | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description,price]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
-
-### Return type
-
-[**ProductInfo200Response**](ProductInfo200Response.md)
-
-### Authorization
-
-[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## productVariantList
-
-> ProductVariantList200Response productVariantList(start, count, productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, params, exclude)
-
-product.variant.list
-
-Get a list of variants. This method is deprecated, and its development is stopped. Please use \&quot;product.child_item.list\&quot; instead.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.ProductApi;
-
-ProductApi apiInstance = new ProductApi();
-Integer start = 0; // Integer | This parameter sets the number from which you want to get entities
-Integer count = 20; // Integer | This parameter sets the entity amount that has to be retrieved. Max allowed count=250
-String productId = 10; // String | Retrieves products' variants specified by product id
-String categoryId = 6; // String | Retrieves products’ variants specified by category id
-String storeId = 1; // String | Retrieves variants specified by store id
-String createdFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their creation date
-String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their creation date
-String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
-String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
-String params = id,model,price,images; // String | Set this parameter in order to choose which entity fields you want to retrieve
-String exclude = false; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
-try {
-    ProductVariantList200Response result = apiInstance.productVariantList(start, count, productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, params, exclude);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ProductApi#productVariantList");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **Integer**| This parameter sets the number from which you want to get entities | [optional] [default to 0]
- **count** | **Integer**| This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | [optional] [default to 10]
- **productId** | **String**| Retrieves products&#39; variants specified by product id | [optional] [default to null]
- **categoryId** | **String**| Retrieves products’ variants specified by category id | [optional] [default to null]
- **storeId** | **String**| Retrieves variants specified by store id | [optional] [default to null]
- **createdFrom** | **String**| Retrieve entities from their creation date | [optional] [default to null]
- **createdTo** | **String**| Retrieve entities to their creation date | [optional] [default to null]
- **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
- **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
- **params** | **String**| Set this parameter in order to choose which entity fields you want to retrieve | [optional] [default to id,name,description,price]
- **exclude** | **String**| Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | [optional] [default to null]
-
-### Return type
-
-[**ProductVariantList200Response**](ProductVariantList200Response.md)
 
 ### Authorization
 

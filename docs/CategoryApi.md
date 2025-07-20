@@ -1,6 +1,6 @@
 # CategoryApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ## categoryAssign
 
-> CartConfigUpdate200Response categoryAssign(categoryId, productId, storeId)
+> CategoryAssign200Response categoryAssign(categoryId, productId, storeId)
 
 category.assign
 
@@ -158,7 +158,7 @@ String categoryId = 6; // String | Defines category assign, specified by categor
 String productId = 10; // String | Defines category assign to the product, specified by product id
 String storeId = 1; // String | Store Id
 try {
-    CartConfigUpdate200Response result = apiInstance.categoryAssign(categoryId, productId, storeId);
+    CategoryAssign200Response result = apiInstance.categoryAssign(categoryId, productId, storeId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoryApi#categoryAssign");
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
+[**CategoryAssign200Response**](CategoryAssign200Response.md)
 
 ### Authorization
 
@@ -619,7 +619,7 @@ Name | Type | Description  | Notes
 
 ## categoryUnassign
 
-> CartConfigUpdate200Response categoryUnassign(categoryId, productId, storeId)
+> CategoryAssign200Response categoryUnassign(categoryId, productId, storeId)
 
 category.unassign
 
@@ -636,7 +636,7 @@ String categoryId = 6; // String | Defines category unassign, specified by categ
 String productId = 10; // String | Defines category unassign to the product, specified by product id
 String storeId = 1; // String | Store Id
 try {
-    CartConfigUpdate200Response result = apiInstance.categoryUnassign(categoryId, productId, storeId);
+    CategoryAssign200Response result = apiInstance.categoryUnassign(categoryId, productId, storeId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CategoryApi#categoryUnassign");
@@ -655,7 +655,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CartConfigUpdate200Response**](CartConfigUpdate200Response.md)
+[**CategoryAssign200Response**](CategoryAssign200Response.md)
 
 ### Authorization
 

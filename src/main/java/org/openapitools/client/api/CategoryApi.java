@@ -25,10 +25,10 @@ import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.AccountConfigUpdate200Response;
 import org.openapitools.client.model.AttributeDelete200Response;
-import org.openapitools.client.model.CartConfigUpdate200Response;
 import org.openapitools.client.model.CategoryAdd200Response;
 import org.openapitools.client.model.CategoryAddBatch;
 import org.openapitools.client.model.CategoryAddBatch200Response;
+import org.openapitools.client.model.CategoryAssign200Response;
 import org.openapitools.client.model.CategoryCount200Response;
 import org.openapitools.client.model.CategoryDelete200Response;
 import org.openapitools.client.model.CategoryFind200Response;
@@ -47,7 +47,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class CategoryApi {
-  String basePath = "https://api.api2cart.com/v1.1";
+  String basePath = "https://api.api2cart.local.com/v1.1";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -371,9 +371,9 @@ public class CategoryApi {
    * @param categoryId Defines category assign, specified by category id
    * @param productId Defines category assign to the product, specified by product id
    * @param storeId Store Id
-   * @return CartConfigUpdate200Response
+   * @return CategoryAssign200Response
   */
-  public CartConfigUpdate200Response categoryAssign (String categoryId, String productId, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CategoryAssign200Response categoryAssign (String categoryId, String productId, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'categoryId' is set
     if (categoryId == null) {
@@ -416,7 +416,7 @@ public class CategoryApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (CartConfigUpdate200Response) ApiInvoker.deserialize(localVarResponse, "", CartConfigUpdate200Response.class);
+         return (CategoryAssign200Response) ApiInvoker.deserialize(localVarResponse, "", CategoryAssign200Response.class);
       } else {
          return null;
       }
@@ -442,7 +442,7 @@ public class CategoryApi {
    * Assign category to product
    * @param categoryId Defines category assign, specified by category id   * @param productId Defines category assign to the product, specified by product id   * @param storeId Store Id
   */
-  public void categoryAssign (String categoryId, String productId, String storeId, final Response.Listener<CartConfigUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void categoryAssign (String categoryId, String productId, String storeId, final Response.Listener<CategoryAssign200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'categoryId' is set
@@ -495,7 +495,7 @@ public class CategoryApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((CartConfigUpdate200Response) ApiInvoker.deserialize(localVarResponse,  "", CartConfigUpdate200Response.class));
+              responseListener.onResponse((CategoryAssign200Response) ApiInvoker.deserialize(localVarResponse,  "", CategoryAssign200Response.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -1598,9 +1598,9 @@ public class CategoryApi {
    * @param categoryId Defines category unassign, specified by category id
    * @param productId Defines category unassign to the product, specified by product id
    * @param storeId Store Id
-   * @return CartConfigUpdate200Response
+   * @return CategoryAssign200Response
   */
-  public CartConfigUpdate200Response categoryUnassign (String categoryId, String productId, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CategoryAssign200Response categoryUnassign (String categoryId, String productId, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'categoryId' is set
     if (categoryId == null) {
@@ -1643,7 +1643,7 @@ public class CategoryApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (CartConfigUpdate200Response) ApiInvoker.deserialize(localVarResponse, "", CartConfigUpdate200Response.class);
+         return (CategoryAssign200Response) ApiInvoker.deserialize(localVarResponse, "", CategoryAssign200Response.class);
       } else {
          return null;
       }
@@ -1669,7 +1669,7 @@ public class CategoryApi {
    * Unassign category to product
    * @param categoryId Defines category unassign, specified by category id   * @param productId Defines category unassign to the product, specified by product id   * @param storeId Store Id
   */
-  public void categoryUnassign (String categoryId, String productId, String storeId, final Response.Listener<CartConfigUpdate200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void categoryUnassign (String categoryId, String productId, String storeId, final Response.Listener<CategoryAssign200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'categoryId' is set
@@ -1722,7 +1722,7 @@ public class CategoryApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((CartConfigUpdate200Response) ApiInvoker.deserialize(localVarResponse,  "", CartConfigUpdate200Response.class));
+              responseListener.onResponse((CategoryAssign200Response) ApiInvoker.deserialize(localVarResponse,  "", CategoryAssign200Response.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

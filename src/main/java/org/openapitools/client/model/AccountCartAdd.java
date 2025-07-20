@@ -95,6 +95,14 @@ public class AccountCartAdd {
   private String bigcartelUserName = null;
   @SerializedName("bigcartel_password")
   private String bigcartelPassword = null;
+  @SerializedName("bricklink_consumer_key")
+  private String bricklinkConsumerKey = null;
+  @SerializedName("bricklink_consumer_secret")
+  private String bricklinkConsumerSecret = null;
+  @SerializedName("bricklink_token")
+  private String bricklinkToken = null;
+  @SerializedName("bricklink_token_secret")
+  private String bricklinkTokenSecret = null;
   @SerializedName("demandware_client_id")
   private String demandwareClientId = null;
   @SerializedName("demandware_api_password")
@@ -743,6 +751,50 @@ public class AccountCartAdd {
   }
   public void setBigcartelPassword(String bigcartelPassword) {
     this.bigcartelPassword = bigcartelPassword;
+  }
+
+  /**
+   * Bricklink Consumer Key
+   **/
+  @ApiModelProperty(required = true, value = "Bricklink Consumer Key")
+  public String getBricklinkConsumerKey() {
+    return bricklinkConsumerKey;
+  }
+  public void setBricklinkConsumerKey(String bricklinkConsumerKey) {
+    this.bricklinkConsumerKey = bricklinkConsumerKey;
+  }
+
+  /**
+   * Bricklink Consumer Secret
+   **/
+  @ApiModelProperty(required = true, value = "Bricklink Consumer Secret")
+  public String getBricklinkConsumerSecret() {
+    return bricklinkConsumerSecret;
+  }
+  public void setBricklinkConsumerSecret(String bricklinkConsumerSecret) {
+    this.bricklinkConsumerSecret = bricklinkConsumerSecret;
+  }
+
+  /**
+   * Bricklink Access Token
+   **/
+  @ApiModelProperty(required = true, value = "Bricklink Access Token")
+  public String getBricklinkToken() {
+    return bricklinkToken;
+  }
+  public void setBricklinkToken(String bricklinkToken) {
+    this.bricklinkToken = bricklinkToken;
+  }
+
+  /**
+   * Bricklink Access Token Secret
+   **/
+  @ApiModelProperty(required = true, value = "Bricklink Access Token Secret")
+  public String getBricklinkTokenSecret() {
+    return bricklinkTokenSecret;
+  }
+  public void setBricklinkTokenSecret(String bricklinkTokenSecret) {
+    this.bricklinkTokenSecret = bricklinkTokenSecret;
   }
 
   /**
@@ -2166,6 +2218,10 @@ public class AccountCartAdd {
         (this.bolRetailerId == null ? accountCartAdd.bolRetailerId == null : this.bolRetailerId.equals(accountCartAdd.bolRetailerId)) &&
         (this.bigcartelUserName == null ? accountCartAdd.bigcartelUserName == null : this.bigcartelUserName.equals(accountCartAdd.bigcartelUserName)) &&
         (this.bigcartelPassword == null ? accountCartAdd.bigcartelPassword == null : this.bigcartelPassword.equals(accountCartAdd.bigcartelPassword)) &&
+        (this.bricklinkConsumerKey == null ? accountCartAdd.bricklinkConsumerKey == null : this.bricklinkConsumerKey.equals(accountCartAdd.bricklinkConsumerKey)) &&
+        (this.bricklinkConsumerSecret == null ? accountCartAdd.bricklinkConsumerSecret == null : this.bricklinkConsumerSecret.equals(accountCartAdd.bricklinkConsumerSecret)) &&
+        (this.bricklinkToken == null ? accountCartAdd.bricklinkToken == null : this.bricklinkToken.equals(accountCartAdd.bricklinkToken)) &&
+        (this.bricklinkTokenSecret == null ? accountCartAdd.bricklinkTokenSecret == null : this.bricklinkTokenSecret.equals(accountCartAdd.bricklinkTokenSecret)) &&
         (this.demandwareClientId == null ? accountCartAdd.demandwareClientId == null : this.demandwareClientId.equals(accountCartAdd.demandwareClientId)) &&
         (this.demandwareApiPassword == null ? accountCartAdd.demandwareApiPassword == null : this.demandwareApiPassword.equals(accountCartAdd.demandwareApiPassword)) &&
         (this.demandwareUserName == null ? accountCartAdd.demandwareUserName == null : this.demandwareUserName.equals(accountCartAdd.demandwareUserName)) &&
@@ -2332,6 +2388,10 @@ public class AccountCartAdd {
     result = 31 * result + (this.bolRetailerId == null ? 0: this.bolRetailerId.hashCode());
     result = 31 * result + (this.bigcartelUserName == null ? 0: this.bigcartelUserName.hashCode());
     result = 31 * result + (this.bigcartelPassword == null ? 0: this.bigcartelPassword.hashCode());
+    result = 31 * result + (this.bricklinkConsumerKey == null ? 0: this.bricklinkConsumerKey.hashCode());
+    result = 31 * result + (this.bricklinkConsumerSecret == null ? 0: this.bricklinkConsumerSecret.hashCode());
+    result = 31 * result + (this.bricklinkToken == null ? 0: this.bricklinkToken.hashCode());
+    result = 31 * result + (this.bricklinkTokenSecret == null ? 0: this.bricklinkTokenSecret.hashCode());
     result = 31 * result + (this.demandwareClientId == null ? 0: this.demandwareClientId.hashCode());
     result = 31 * result + (this.demandwareApiPassword == null ? 0: this.demandwareApiPassword.hashCode());
     result = 31 * result + (this.demandwareUserName == null ? 0: this.demandwareUserName.hashCode());
@@ -2501,6 +2561,10 @@ public class AccountCartAdd {
     sb.append("  bolRetailerId: ").append(bolRetailerId).append("\n");
     sb.append("  bigcartelUserName: ").append(bigcartelUserName).append("\n");
     sb.append("  bigcartelPassword: ").append(bigcartelPassword).append("\n");
+    sb.append("  bricklinkConsumerKey: ").append(bricklinkConsumerKey).append("\n");
+    sb.append("  bricklinkConsumerSecret: ").append(bricklinkConsumerSecret).append("\n");
+    sb.append("  bricklinkToken: ").append(bricklinkToken).append("\n");
+    sb.append("  bricklinkTokenSecret: ").append(bricklinkTokenSecret).append("\n");
     sb.append("  demandwareClientId: ").append(demandwareClientId).append("\n");
     sb.append("  demandwareApiPassword: ").append(demandwareApiPassword).append("\n");
     sb.append("  demandwareUserName: ").append(demandwareUserName).append("\n");

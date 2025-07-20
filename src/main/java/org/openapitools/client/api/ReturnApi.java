@@ -41,7 +41,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ReturnApi {
-  String basePath = "https://api.api2cart.com/v1.1";
+  String basePath = "https://api.api2cart.local.com/v1.1";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {

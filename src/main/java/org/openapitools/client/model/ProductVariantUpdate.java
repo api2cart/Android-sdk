@@ -47,6 +47,8 @@ public class ProductVariantUpdate {
   private String status = null;
   @SerializedName("backorder_status")
   private String backorderStatus = null;
+  @SerializedName("low_stock_threshold")
+  private BigDecimal lowStockThreshold = null;
   @SerializedName("available_for_sale")
   private Boolean availableForSale = true;
   @SerializedName("avail")
@@ -269,6 +271,17 @@ public class ProductVariantUpdate {
   }
   public void setBackorderStatus(String backorderStatus) {
     this.backorderStatus = backorderStatus;
+  }
+
+  /**
+   * Specify the quantity threshold below which the product is considered low in stock
+   **/
+  @ApiModelProperty(value = "Specify the quantity threshold below which the product is considered low in stock")
+  public BigDecimal getLowStockThreshold() {
+    return lowStockThreshold;
+  }
+  public void setLowStockThreshold(BigDecimal lowStockThreshold) {
+    this.lowStockThreshold = lowStockThreshold;
   }
 
   /**
@@ -734,6 +747,7 @@ public class ProductVariantUpdate {
         (this.visible == null ? productVariantUpdate.visible == null : this.visible.equals(productVariantUpdate.visible)) &&
         (this.status == null ? productVariantUpdate.status == null : this.status.equals(productVariantUpdate.status)) &&
         (this.backorderStatus == null ? productVariantUpdate.backorderStatus == null : this.backorderStatus.equals(productVariantUpdate.backorderStatus)) &&
+        (this.lowStockThreshold == null ? productVariantUpdate.lowStockThreshold == null : this.lowStockThreshold.equals(productVariantUpdate.lowStockThreshold)) &&
         (this.availableForSale == null ? productVariantUpdate.availableForSale == null : this.availableForSale.equals(productVariantUpdate.availableForSale)) &&
         (this.avail == null ? productVariantUpdate.avail == null : this.avail.equals(productVariantUpdate.avail)) &&
         (this.isDefault == null ? productVariantUpdate.isDefault == null : this.isDefault.equals(productVariantUpdate.isDefault)) &&
@@ -792,6 +806,7 @@ public class ProductVariantUpdate {
     result = 31 * result + (this.visible == null ? 0: this.visible.hashCode());
     result = 31 * result + (this.status == null ? 0: this.status.hashCode());
     result = 31 * result + (this.backorderStatus == null ? 0: this.backorderStatus.hashCode());
+    result = 31 * result + (this.lowStockThreshold == null ? 0: this.lowStockThreshold.hashCode());
     result = 31 * result + (this.availableForSale == null ? 0: this.availableForSale.hashCode());
     result = 31 * result + (this.avail == null ? 0: this.avail.hashCode());
     result = 31 * result + (this.isDefault == null ? 0: this.isDefault.hashCode());
@@ -853,6 +868,7 @@ public class ProductVariantUpdate {
     sb.append("  visible: ").append(visible).append("\n");
     sb.append("  status: ").append(status).append("\n");
     sb.append("  backorderStatus: ").append(backorderStatus).append("\n");
+    sb.append("  lowStockThreshold: ").append(lowStockThreshold).append("\n");
     sb.append("  availableForSale: ").append(availableForSale).append("\n");
     sb.append("  avail: ").append(avail).append("\n");
     sb.append("  isDefault: ").append(isDefault).append("\n");

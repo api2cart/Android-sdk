@@ -90,6 +90,8 @@ public class Child {
   private List<ProductInventory> inventory = null;
   @SerializedName("min_quantity")
   private BigDecimal minQuantity = null;
+  @SerializedName("low_stock_threshold")
+  private BigDecimal lowStockThreshold = null;
   @SerializedName("default_qty_in_pack")
   private BigDecimal defaultQtyInPack = null;
   @SerializedName("is_qty_in_pack_fixed")
@@ -444,6 +446,16 @@ public class Child {
   /**
    **/
   @ApiModelProperty(value = "")
+  public BigDecimal getLowStockThreshold() {
+    return lowStockThreshold;
+  }
+  public void setLowStockThreshold(BigDecimal lowStockThreshold) {
+    this.lowStockThreshold = lowStockThreshold;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public BigDecimal getDefaultQtyInPack() {
     return defaultQtyInPack;
   }
@@ -633,6 +645,7 @@ public class Child {
         (this.inventoryLevel == null ? child.inventoryLevel == null : this.inventoryLevel.equals(child.inventoryLevel)) &&
         (this.inventory == null ? child.inventory == null : this.inventory.equals(child.inventory)) &&
         (this.minQuantity == null ? child.minQuantity == null : this.minQuantity.equals(child.minQuantity)) &&
+        (this.lowStockThreshold == null ? child.lowStockThreshold == null : this.lowStockThreshold.equals(child.lowStockThreshold)) &&
         (this.defaultQtyInPack == null ? child.defaultQtyInPack == null : this.defaultQtyInPack.equals(child.defaultQtyInPack)) &&
         (this.isQtyInPackFixed == null ? child.isQtyInPackFixed == null : this.isQtyInPackFixed.equals(child.isQtyInPackFixed)) &&
         (this.weightUnit == null ? child.weightUnit == null : this.weightUnit.equals(child.weightUnit)) &&
@@ -685,6 +698,7 @@ public class Child {
     result = 31 * result + (this.inventoryLevel == null ? 0: this.inventoryLevel.hashCode());
     result = 31 * result + (this.inventory == null ? 0: this.inventory.hashCode());
     result = 31 * result + (this.minQuantity == null ? 0: this.minQuantity.hashCode());
+    result = 31 * result + (this.lowStockThreshold == null ? 0: this.lowStockThreshold.hashCode());
     result = 31 * result + (this.defaultQtyInPack == null ? 0: this.defaultQtyInPack.hashCode());
     result = 31 * result + (this.isQtyInPackFixed == null ? 0: this.isQtyInPackFixed.hashCode());
     result = 31 * result + (this.weightUnit == null ? 0: this.weightUnit.hashCode());
@@ -740,6 +754,7 @@ public class Child {
     sb.append("  inventoryLevel: ").append(inventoryLevel).append("\n");
     sb.append("  inventory: ").append(inventory).append("\n");
     sb.append("  minQuantity: ").append(minQuantity).append("\n");
+    sb.append("  lowStockThreshold: ").append(lowStockThreshold).append("\n");
     sb.append("  defaultQtyInPack: ").append(defaultQtyInPack).append("\n");
     sb.append("  isQtyInPackFixed: ").append(isQtyInPackFixed).append("\n");
     sb.append("  weightUnit: ").append(weightUnit).append("\n");

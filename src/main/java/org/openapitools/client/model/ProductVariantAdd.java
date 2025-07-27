@@ -74,6 +74,8 @@ public class ProductVariantAdd {
   private String backorderStatus = null;
   @SerializedName("manage_stock")
   private Boolean manageStock = null;
+  @SerializedName("low_stock_threshold")
+  private BigDecimal lowStockThreshold = null;
   @SerializedName("weight")
   private BigDecimal weight = 0;
   @SerializedName("width")
@@ -414,6 +416,17 @@ public class ProductVariantAdd {
   }
 
   /**
+   * Specify the quantity threshold below which the product is considered low in stock
+   **/
+  @ApiModelProperty(value = "Specify the quantity threshold below which the product is considered low in stock")
+  public BigDecimal getLowStockThreshold() {
+    return lowStockThreshold;
+  }
+  public void setLowStockThreshold(BigDecimal lowStockThreshold) {
+    this.lowStockThreshold = lowStockThreshold;
+  }
+
+  /**
    * Weight
    **/
   @ApiModelProperty(value = "Weight")
@@ -735,6 +748,7 @@ public class ProductVariantAdd {
         (this.inStock == null ? productVariantAdd.inStock == null : this.inStock.equals(productVariantAdd.inStock)) &&
         (this.backorderStatus == null ? productVariantAdd.backorderStatus == null : this.backorderStatus.equals(productVariantAdd.backorderStatus)) &&
         (this.manageStock == null ? productVariantAdd.manageStock == null : this.manageStock.equals(productVariantAdd.manageStock)) &&
+        (this.lowStockThreshold == null ? productVariantAdd.lowStockThreshold == null : this.lowStockThreshold.equals(productVariantAdd.lowStockThreshold)) &&
         (this.weight == null ? productVariantAdd.weight == null : this.weight.equals(productVariantAdd.weight)) &&
         (this.width == null ? productVariantAdd.width == null : this.width.equals(productVariantAdd.width)) &&
         (this.height == null ? productVariantAdd.height == null : this.height.equals(productVariantAdd.height)) &&
@@ -792,6 +806,7 @@ public class ProductVariantAdd {
     result = 31 * result + (this.inStock == null ? 0: this.inStock.hashCode());
     result = 31 * result + (this.backorderStatus == null ? 0: this.backorderStatus.hashCode());
     result = 31 * result + (this.manageStock == null ? 0: this.manageStock.hashCode());
+    result = 31 * result + (this.lowStockThreshold == null ? 0: this.lowStockThreshold.hashCode());
     result = 31 * result + (this.weight == null ? 0: this.weight.hashCode());
     result = 31 * result + (this.width == null ? 0: this.width.hashCode());
     result = 31 * result + (this.height == null ? 0: this.height.hashCode());
@@ -852,6 +867,7 @@ public class ProductVariantAdd {
     sb.append("  inStock: ").append(inStock).append("\n");
     sb.append("  backorderStatus: ").append(backorderStatus).append("\n");
     sb.append("  manageStock: ").append(manageStock).append("\n");
+    sb.append("  lowStockThreshold: ").append(lowStockThreshold).append("\n");
     sb.append("  weight: ").append(weight).append("\n");
     sb.append("  width: ").append(width).append("\n");
     sb.append("  height: ").append(height).append("\n");

@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **inventoryLevel** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **inventory** | [**List&lt;ProductInventory&gt;**](ProductInventory.md) |  |  [optional]
 **minQuantity** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**lowStockThreshold** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **defaultQtyInPack** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **isQtyInPackFixed** | **Boolean** |  |  [optional]
 **weightUnit** | **String** |  |  [optional]

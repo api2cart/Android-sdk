@@ -99,6 +99,8 @@ public class ProductUpdate {
   private BigDecimal increaseQuantity = null;
   @SerializedName("reduce_quantity")
   private BigDecimal reduceQuantity = null;
+  @SerializedName("low_stock_threshold")
+  private BigDecimal lowStockThreshold = null;
   @SerializedName("warehouse_id")
   private String warehouseId = null;
   @SerializedName("weight")
@@ -601,6 +603,17 @@ public class ProductUpdate {
   }
   public void setReduceQuantity(BigDecimal reduceQuantity) {
     this.reduceQuantity = reduceQuantity;
+  }
+
+  /**
+   * Specify the quantity threshold below which the product is considered low in stock
+   **/
+  @ApiModelProperty(value = "Specify the quantity threshold below which the product is considered low in stock")
+  public BigDecimal getLowStockThreshold() {
+    return lowStockThreshold;
+  }
+  public void setLowStockThreshold(BigDecimal lowStockThreshold) {
+    this.lowStockThreshold = lowStockThreshold;
   }
 
   /**
@@ -1175,6 +1188,7 @@ public class ProductUpdate {
         (this.backorderStatus == null ? productUpdate.backorderStatus == null : this.backorderStatus.equals(productUpdate.backorderStatus)) &&
         (this.increaseQuantity == null ? productUpdate.increaseQuantity == null : this.increaseQuantity.equals(productUpdate.increaseQuantity)) &&
         (this.reduceQuantity == null ? productUpdate.reduceQuantity == null : this.reduceQuantity.equals(productUpdate.reduceQuantity)) &&
+        (this.lowStockThreshold == null ? productUpdate.lowStockThreshold == null : this.lowStockThreshold.equals(productUpdate.lowStockThreshold)) &&
         (this.warehouseId == null ? productUpdate.warehouseId == null : this.warehouseId.equals(productUpdate.warehouseId)) &&
         (this.weight == null ? productUpdate.weight == null : this.weight.equals(productUpdate.weight)) &&
         (this.weightUnit == null ? productUpdate.weightUnit == null : this.weightUnit.equals(productUpdate.weightUnit)) &&
@@ -1265,6 +1279,7 @@ public class ProductUpdate {
     result = 31 * result + (this.backorderStatus == null ? 0: this.backorderStatus.hashCode());
     result = 31 * result + (this.increaseQuantity == null ? 0: this.increaseQuantity.hashCode());
     result = 31 * result + (this.reduceQuantity == null ? 0: this.reduceQuantity.hashCode());
+    result = 31 * result + (this.lowStockThreshold == null ? 0: this.lowStockThreshold.hashCode());
     result = 31 * result + (this.warehouseId == null ? 0: this.warehouseId.hashCode());
     result = 31 * result + (this.weight == null ? 0: this.weight.hashCode());
     result = 31 * result + (this.weightUnit == null ? 0: this.weightUnit.hashCode());
@@ -1358,6 +1373,7 @@ public class ProductUpdate {
     sb.append("  backorderStatus: ").append(backorderStatus).append("\n");
     sb.append("  increaseQuantity: ").append(increaseQuantity).append("\n");
     sb.append("  reduceQuantity: ").append(reduceQuantity).append("\n");
+    sb.append("  lowStockThreshold: ").append(lowStockThreshold).append("\n");
     sb.append("  warehouseId: ").append(warehouseId).append("\n");
     sb.append("  weight: ").append(weight).append("\n");
     sb.append("  weightUnit: ").append(weightUnit).append("\n");

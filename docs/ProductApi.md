@@ -1203,7 +1203,7 @@ Name | Type | Description  | Notes
 
 ## productList
 
-> ModelResponseProductList productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion)
+> ModelResponseProductList productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, productType)
 
 product.list
 
@@ -1250,8 +1250,9 @@ String reportRequestId = 105245017661; // String | Report request id
 Boolean disableCache = false; // Boolean | Disable cache for current request
 Boolean disableReportCache = false; // Boolean | Disable report cache for current request
 Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
+String productType = BICYCLE; // String | A categorization for the product
 try {
-    ModelResponseProductList result = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion);
+    ModelResponseProductList result = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, productType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productList");
@@ -1298,6 +1299,7 @@ Name | Type | Description  | Notes
  **disableCache** | **Boolean**| Disable cache for current request | [optional] [default to false]
  **disableReportCache** | **Boolean**| Disable report cache for current request | [optional] [default to false]
  **useLatestApiVersion** | **Boolean**| Use the latest platform API version | [optional] [default to false]
+ **productType** | **String**| A categorization for the product | [optional] [default to null]
 
 ### Return type
 

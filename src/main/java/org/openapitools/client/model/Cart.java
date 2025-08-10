@@ -28,6 +28,8 @@ public class Cart {
   private String url = null;
   @SerializedName("version")
   private String version = null;
+  @SerializedName("bridge_version")
+  private String bridgeVersion = null;
   @SerializedName("db_prefix")
   private String dbPrefix = null;
   @SerializedName("stores_info")
@@ -69,6 +71,16 @@ public class Cart {
   }
   public void setVersion(String version) {
     this.version = version;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public String getBridgeVersion() {
+    return bridgeVersion;
+  }
+  public void setBridgeVersion(String bridgeVersion) {
+    this.bridgeVersion = bridgeVersion;
   }
 
   /**
@@ -144,6 +156,7 @@ public class Cart {
     return (this.name == null ? cart.name == null : this.name.equals(cart.name)) &&
         (this.url == null ? cart.url == null : this.url.equals(cart.url)) &&
         (this.version == null ? cart.version == null : this.version.equals(cart.version)) &&
+        (this.bridgeVersion == null ? cart.bridgeVersion == null : this.bridgeVersion.equals(cart.bridgeVersion)) &&
         (this.dbPrefix == null ? cart.dbPrefix == null : this.dbPrefix.equals(cart.dbPrefix)) &&
         (this.storesInfo == null ? cart.storesInfo == null : this.storesInfo.equals(cart.storesInfo)) &&
         (this.warehouses == null ? cart.warehouses == null : this.warehouses.equals(cart.warehouses)) &&
@@ -158,6 +171,7 @@ public class Cart {
     result = 31 * result + (this.name == null ? 0: this.name.hashCode());
     result = 31 * result + (this.url == null ? 0: this.url.hashCode());
     result = 31 * result + (this.version == null ? 0: this.version.hashCode());
+    result = 31 * result + (this.bridgeVersion == null ? 0: this.bridgeVersion.hashCode());
     result = 31 * result + (this.dbPrefix == null ? 0: this.dbPrefix.hashCode());
     result = 31 * result + (this.storesInfo == null ? 0: this.storesInfo.hashCode());
     result = 31 * result + (this.warehouses == null ? 0: this.warehouses.hashCode());
@@ -175,6 +189,7 @@ public class Cart {
     sb.append("  name: ").append(name).append("\n");
     sb.append("  url: ").append(url).append("\n");
     sb.append("  version: ").append(version).append("\n");
+    sb.append("  bridgeVersion: ").append(bridgeVersion).append("\n");
     sb.append("  dbPrefix: ").append(dbPrefix).append("\n");
     sb.append("  storesInfo: ").append(storesInfo).append("\n");
     sb.append("  warehouses: ").append(warehouses).append("\n");

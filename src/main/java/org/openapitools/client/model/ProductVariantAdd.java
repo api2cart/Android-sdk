@@ -38,6 +38,8 @@ public class ProductVariantAdd {
   private Boolean availableForView = true;
   @SerializedName("available_for_sale")
   private Boolean availableForSale = true;
+  @SerializedName("status")
+  private String status = null;
   @SerializedName("is_virtual")
   private Boolean isVirtual = false;
   @SerializedName("is_default")
@@ -100,6 +102,8 @@ public class ProductVariantAdd {
   private String mpn = null;
   @SerializedName("isbn")
   private String isbn = null;
+  @SerializedName("seo_url")
+  private String seoUrl = null;
   @SerializedName("manufacturer")
   private String manufacturer = null;
   @SerializedName("created_at")
@@ -215,6 +219,17 @@ public class ProductVariantAdd {
   }
   public void setAvailableForSale(Boolean availableForSale) {
     this.availableForSale = availableForSale;
+  }
+
+  /**
+   * Defines status
+   **/
+  @ApiModelProperty(value = "Defines status")
+  public String getStatus() {
+    return status;
+  }
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   /**
@@ -559,6 +574,17 @@ public class ProductVariantAdd {
   }
 
   /**
+   * Defines unique URL for SEO
+   **/
+  @ApiModelProperty(value = "Defines unique URL for SEO")
+  public String getSeoUrl() {
+    return seoUrl;
+  }
+  public void setSeoUrl(String seoUrl) {
+    this.seoUrl = seoUrl;
+  }
+
+  /**
    * Specifies the product variant's manufacturer
    **/
   @ApiModelProperty(value = "Specifies the product variant's manufacturer")
@@ -730,6 +756,7 @@ public class ProductVariantAdd {
         (this.shortDescription == null ? productVariantAdd.shortDescription == null : this.shortDescription.equals(productVariantAdd.shortDescription)) &&
         (this.availableForView == null ? productVariantAdd.availableForView == null : this.availableForView.equals(productVariantAdd.availableForView)) &&
         (this.availableForSale == null ? productVariantAdd.availableForSale == null : this.availableForSale.equals(productVariantAdd.availableForSale)) &&
+        (this.status == null ? productVariantAdd.status == null : this.status.equals(productVariantAdd.status)) &&
         (this.isVirtual == null ? productVariantAdd.isVirtual == null : this.isVirtual.equals(productVariantAdd.isVirtual)) &&
         (this.isDefault == null ? productVariantAdd.isDefault == null : this.isDefault.equals(productVariantAdd.isDefault)) &&
         (this.storeId == null ? productVariantAdd.storeId == null : this.storeId.equals(productVariantAdd.storeId)) &&
@@ -761,6 +788,7 @@ public class ProductVariantAdd {
         (this.ean == null ? productVariantAdd.ean == null : this.ean.equals(productVariantAdd.ean)) &&
         (this.mpn == null ? productVariantAdd.mpn == null : this.mpn.equals(productVariantAdd.mpn)) &&
         (this.isbn == null ? productVariantAdd.isbn == null : this.isbn.equals(productVariantAdd.isbn)) &&
+        (this.seoUrl == null ? productVariantAdd.seoUrl == null : this.seoUrl.equals(productVariantAdd.seoUrl)) &&
         (this.manufacturer == null ? productVariantAdd.manufacturer == null : this.manufacturer.equals(productVariantAdd.manufacturer)) &&
         (this.createdAt == null ? productVariantAdd.createdAt == null : this.createdAt.equals(productVariantAdd.createdAt)) &&
         (this.metaTitle == null ? productVariantAdd.metaTitle == null : this.metaTitle.equals(productVariantAdd.metaTitle)) &&
@@ -788,6 +816,7 @@ public class ProductVariantAdd {
     result = 31 * result + (this.shortDescription == null ? 0: this.shortDescription.hashCode());
     result = 31 * result + (this.availableForView == null ? 0: this.availableForView.hashCode());
     result = 31 * result + (this.availableForSale == null ? 0: this.availableForSale.hashCode());
+    result = 31 * result + (this.status == null ? 0: this.status.hashCode());
     result = 31 * result + (this.isVirtual == null ? 0: this.isVirtual.hashCode());
     result = 31 * result + (this.isDefault == null ? 0: this.isDefault.hashCode());
     result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
@@ -819,6 +848,7 @@ public class ProductVariantAdd {
     result = 31 * result + (this.ean == null ? 0: this.ean.hashCode());
     result = 31 * result + (this.mpn == null ? 0: this.mpn.hashCode());
     result = 31 * result + (this.isbn == null ? 0: this.isbn.hashCode());
+    result = 31 * result + (this.seoUrl == null ? 0: this.seoUrl.hashCode());
     result = 31 * result + (this.manufacturer == null ? 0: this.manufacturer.hashCode());
     result = 31 * result + (this.createdAt == null ? 0: this.createdAt.hashCode());
     result = 31 * result + (this.metaTitle == null ? 0: this.metaTitle.hashCode());
@@ -849,6 +879,7 @@ public class ProductVariantAdd {
     sb.append("  shortDescription: ").append(shortDescription).append("\n");
     sb.append("  availableForView: ").append(availableForView).append("\n");
     sb.append("  availableForSale: ").append(availableForSale).append("\n");
+    sb.append("  status: ").append(status).append("\n");
     sb.append("  isVirtual: ").append(isVirtual).append("\n");
     sb.append("  isDefault: ").append(isDefault).append("\n");
     sb.append("  storeId: ").append(storeId).append("\n");
@@ -880,6 +911,7 @@ public class ProductVariantAdd {
     sb.append("  ean: ").append(ean).append("\n");
     sb.append("  mpn: ").append(mpn).append("\n");
     sb.append("  isbn: ").append(isbn).append("\n");
+    sb.append("  seoUrl: ").append(seoUrl).append("\n");
     sb.append("  manufacturer: ").append(manufacturer).append("\n");
     sb.append("  createdAt: ").append(createdAt).append("\n");
     sb.append("  metaTitle: ").append(metaTitle).append("\n");

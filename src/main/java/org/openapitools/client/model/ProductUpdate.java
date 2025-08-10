@@ -197,6 +197,10 @@ public class ProductUpdate {
   private Integer shopSectionId = null;
   @SerializedName("personalization_details")
   private ProductAddPersonalizationDetails personalizationDetails = null;
+  @SerializedName("marketplace_item_properties")
+  private String marketplaceItemProperties = null;
+  @SerializedName("min_order_quantity")
+  private BigDecimal minOrderQuantity = null;
 
   /**
    * Defines product id that has to be updated
@@ -1141,6 +1145,28 @@ public class ProductUpdate {
     this.personalizationDetails = personalizationDetails;
   }
 
+  /**
+   * String containing the JSON representation of the supplied data
+   **/
+  @ApiModelProperty(value = "String containing the JSON representation of the supplied data")
+  public String getMarketplaceItemProperties() {
+    return marketplaceItemProperties;
+  }
+  public void setMarketplaceItemProperties(String marketplaceItemProperties) {
+    this.marketplaceItemProperties = marketplaceItemProperties;
+  }
+
+  /**
+   * The minimum quantity an order must contain, to be eligible to purchase this product.
+   **/
+  @ApiModelProperty(value = "The minimum quantity an order must contain, to be eligible to purchase this product.")
+  public BigDecimal getMinOrderQuantity() {
+    return minOrderQuantity;
+  }
+  public void setMinOrderQuantity(BigDecimal minOrderQuantity) {
+    this.minOrderQuantity = minOrderQuantity;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -1236,7 +1262,9 @@ public class ProductUpdate {
         (this.checkProcessStatus == null ? productUpdate.checkProcessStatus == null : this.checkProcessStatus.equals(productUpdate.checkProcessStatus)) &&
         (this.specifics == null ? productUpdate.specifics == null : this.specifics.equals(productUpdate.specifics)) &&
         (this.shopSectionId == null ? productUpdate.shopSectionId == null : this.shopSectionId.equals(productUpdate.shopSectionId)) &&
-        (this.personalizationDetails == null ? productUpdate.personalizationDetails == null : this.personalizationDetails.equals(productUpdate.personalizationDetails));
+        (this.personalizationDetails == null ? productUpdate.personalizationDetails == null : this.personalizationDetails.equals(productUpdate.personalizationDetails)) &&
+        (this.marketplaceItemProperties == null ? productUpdate.marketplaceItemProperties == null : this.marketplaceItemProperties.equals(productUpdate.marketplaceItemProperties)) &&
+        (this.minOrderQuantity == null ? productUpdate.minOrderQuantity == null : this.minOrderQuantity.equals(productUpdate.minOrderQuantity));
   }
 
   @Override
@@ -1328,6 +1356,8 @@ public class ProductUpdate {
     result = 31 * result + (this.specifics == null ? 0: this.specifics.hashCode());
     result = 31 * result + (this.shopSectionId == null ? 0: this.shopSectionId.hashCode());
     result = 31 * result + (this.personalizationDetails == null ? 0: this.personalizationDetails.hashCode());
+    result = 31 * result + (this.marketplaceItemProperties == null ? 0: this.marketplaceItemProperties.hashCode());
+    result = 31 * result + (this.minOrderQuantity == null ? 0: this.minOrderQuantity.hashCode());
     return result;
   }
 
@@ -1422,6 +1452,8 @@ public class ProductUpdate {
     sb.append("  specifics: ").append(specifics).append("\n");
     sb.append("  shopSectionId: ").append(shopSectionId).append("\n");
     sb.append("  personalizationDetails: ").append(personalizationDetails).append("\n");
+    sb.append("  marketplaceItemProperties: ").append(marketplaceItemProperties).append("\n");
+    sb.append("  minOrderQuantity: ").append(minOrderQuantity).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

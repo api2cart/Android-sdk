@@ -90,14 +90,14 @@ public class Product {
   private Integer sortOrder = null;
   @SerializedName("in_stock")
   private Boolean inStock = null;
-  @SerializedName("on_sale")
-  private Boolean onSale = null;
   @SerializedName("backorders")
   private String backorders = null;
   @SerializedName("manage_stock")
   private String manageStock = null;
   @SerializedName("is_stock_managed")
   private Boolean isStockManaged = null;
+  @SerializedName("on_sale")
+  private Boolean onSale = null;
   @SerializedName("create_at")
   private A2CDateTime createAt = null;
   @SerializedName("modified_at")
@@ -448,16 +448,6 @@ public class Product {
   /**
    **/
   @ApiModelProperty(value = "")
-  public Boolean getOnSale() {
-    return onSale;
-  }
-  public void setOnSale(Boolean onSale) {
-    this.onSale = onSale;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
   public String getBackorders() {
     return backorders;
   }
@@ -483,6 +473,16 @@ public class Product {
   }
   public void setIsStockManaged(Boolean isStockManaged) {
     this.isStockManaged = isStockManaged;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public Boolean getOnSale() {
+    return onSale;
+  }
+  public void setOnSale(Boolean onSale) {
+    this.onSale = onSale;
   }
 
   /**
@@ -755,10 +755,10 @@ public class Product {
         (this.weightUnit == null ? product.weightUnit == null : this.weightUnit.equals(product.weightUnit)) &&
         (this.sortOrder == null ? product.sortOrder == null : this.sortOrder.equals(product.sortOrder)) &&
         (this.inStock == null ? product.inStock == null : this.inStock.equals(product.inStock)) &&
-        (this.onSale == null ? product.onSale == null : this.onSale.equals(product.onSale)) &&
         (this.backorders == null ? product.backorders == null : this.backorders.equals(product.backorders)) &&
         (this.manageStock == null ? product.manageStock == null : this.manageStock.equals(product.manageStock)) &&
         (this.isStockManaged == null ? product.isStockManaged == null : this.isStockManaged.equals(product.isStockManaged)) &&
+        (this.onSale == null ? product.onSale == null : this.onSale.equals(product.onSale)) &&
         (this.createAt == null ? product.createAt == null : this.createAt.equals(product.createAt)) &&
         (this.modifiedAt == null ? product.modifiedAt == null : this.modifiedAt.equals(product.modifiedAt)) &&
         (this.taxClassId == null ? product.taxClassId == null : this.taxClassId.equals(product.taxClassId)) &&
@@ -817,10 +817,10 @@ public class Product {
     result = 31 * result + (this.weightUnit == null ? 0: this.weightUnit.hashCode());
     result = 31 * result + (this.sortOrder == null ? 0: this.sortOrder.hashCode());
     result = 31 * result + (this.inStock == null ? 0: this.inStock.hashCode());
-    result = 31 * result + (this.onSale == null ? 0: this.onSale.hashCode());
     result = 31 * result + (this.backorders == null ? 0: this.backorders.hashCode());
     result = 31 * result + (this.manageStock == null ? 0: this.manageStock.hashCode());
     result = 31 * result + (this.isStockManaged == null ? 0: this.isStockManaged.hashCode());
+    result = 31 * result + (this.onSale == null ? 0: this.onSale.hashCode());
     result = 31 * result + (this.createAt == null ? 0: this.createAt.hashCode());
     result = 31 * result + (this.modifiedAt == null ? 0: this.modifiedAt.hashCode());
     result = 31 * result + (this.taxClassId == null ? 0: this.taxClassId.hashCode());
@@ -882,10 +882,10 @@ public class Product {
     sb.append("  weightUnit: ").append(weightUnit).append("\n");
     sb.append("  sortOrder: ").append(sortOrder).append("\n");
     sb.append("  inStock: ").append(inStock).append("\n");
-    sb.append("  onSale: ").append(onSale).append("\n");
     sb.append("  backorders: ").append(backorders).append("\n");
     sb.append("  manageStock: ").append(manageStock).append("\n");
     sb.append("  isStockManaged: ").append(isStockManaged).append("\n");
+    sb.append("  onSale: ").append(onSale).append("\n");
     sb.append("  createAt: ").append(createAt).append("\n");
     sb.append("  modifiedAt: ").append(modifiedAt).append("\n");
     sb.append("  taxClassId: ").append(taxClassId).append("\n");

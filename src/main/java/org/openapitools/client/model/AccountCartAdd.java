@@ -351,11 +351,8 @@ public class AccountCartAdd {
   private String temuAppSecret = null;
   @SerializedName("temu_access_token")
   private String temuAccessToken = null;
-  public enum TemuRegionEnum {
-     US,  EU,  GLOBAL, 
-  };
   @SerializedName("temu_region")
-  private TemuRegionEnum temuRegion = null;
+  private String temuRegion = null;
 
   /**
    * Store’s identifier which you can get from cart_list method
@@ -734,7 +731,7 @@ public class AccountCartAdd {
   /**
    * Subdomain of store
    **/
-  @ApiModelProperty(required = true, value = "Subdomain of store")
+  @ApiModelProperty(value = "Subdomain of store")
   public String getBigcartelUserName() {
     return bigcartelUserName;
   }
@@ -745,7 +742,7 @@ public class AccountCartAdd {
   /**
    * BigCartel account password
    **/
-  @ApiModelProperty(required = true, value = "BigCartel account password")
+  @ApiModelProperty(value = "BigCartel account password")
   public String getBigcartelPassword() {
     return bigcartelPassword;
   }
@@ -756,7 +753,7 @@ public class AccountCartAdd {
   /**
    * Bricklink Consumer Key
    **/
-  @ApiModelProperty(required = true, value = "Bricklink Consumer Key")
+  @ApiModelProperty(value = "Bricklink Consumer Key")
   public String getBricklinkConsumerKey() {
     return bricklinkConsumerKey;
   }
@@ -767,7 +764,7 @@ public class AccountCartAdd {
   /**
    * Bricklink Consumer Secret
    **/
-  @ApiModelProperty(required = true, value = "Bricklink Consumer Secret")
+  @ApiModelProperty(value = "Bricklink Consumer Secret")
   public String getBricklinkConsumerSecret() {
     return bricklinkConsumerSecret;
   }
@@ -778,7 +775,7 @@ public class AccountCartAdd {
   /**
    * Bricklink Access Token
    **/
-  @ApiModelProperty(required = true, value = "Bricklink Access Token")
+  @ApiModelProperty(value = "Bricklink Access Token")
   public String getBricklinkToken() {
     return bricklinkToken;
   }
@@ -789,7 +786,7 @@ public class AccountCartAdd {
   /**
    * Bricklink Access Token Secret
    **/
-  @ApiModelProperty(required = true, value = "Bricklink Access Token Secret")
+  @ApiModelProperty(value = "Bricklink Access Token Secret")
   public String getBricklinkTokenSecret() {
     return bricklinkTokenSecret;
   }
@@ -1724,7 +1721,7 @@ public class AccountCartAdd {
   /**
    * Wix App ID
    **/
-  @ApiModelProperty(required = true, value = "Wix App ID")
+  @ApiModelProperty(value = "Wix App ID")
   public String getWixAppId() {
     return wixAppId;
   }
@@ -1735,7 +1732,7 @@ public class AccountCartAdd {
   /**
    * Wix App Secret Key
    **/
-  @ApiModelProperty(required = true, value = "Wix App Secret Key")
+  @ApiModelProperty(value = "Wix App Secret Key")
   public String getWixAppSecretKey() {
     return wixAppSecretKey;
   }
@@ -2153,7 +2150,7 @@ public class AccountCartAdd {
   /**
    * Temu Access Token
    **/
-  @ApiModelProperty(required = true, value = "Temu Access Token")
+  @ApiModelProperty(value = "Temu Access Token")
   public String getTemuAccessToken() {
     return temuAccessToken;
   }
@@ -2164,11 +2161,11 @@ public class AccountCartAdd {
   /**
    * Temu API endpoint Region.
    **/
-  @ApiModelProperty(required = true, value = "Temu API endpoint Region.")
-  public TemuRegionEnum getTemuRegion() {
+  @ApiModelProperty(value = "Temu API endpoint Region.")
+  public String getTemuRegion() {
     return temuRegion;
   }
-  public void setTemuRegion(TemuRegionEnum temuRegion) {
+  public void setTemuRegion(String temuRegion) {
     this.temuRegion = temuRegion;
   }
 

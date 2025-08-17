@@ -926,6 +926,7 @@ public class CartApi {
    * @param storeId Filter coupons by store id
    * @param langId Language id
    * @param avail Filter coupons by avail status
+   * @param status Defines coupon&#39;s status
    * @param dateStartFrom Filter entity by date_start (greater or equal)
    * @param dateStartTo Filter entity by date_start (less or equal)
    * @param dateEndFrom Filter entity by date_end (greater or equal)
@@ -935,7 +936,7 @@ public class CartApi {
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseCartCouponList
   */
-  public ModelResponseCartCouponList cartCouponList (Integer start, Integer count, String pageCursor, String couponsIds, String storeId, String langId, Boolean avail, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseCartCouponList cartCouponList (Integer start, Integer count, String pageCursor, String couponsIds, String storeId, String langId, Boolean avail, String status, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -954,6 +955,7 @@ public class CartApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_from", dateStartFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_to", dateStartTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_end_from", dateEndFrom));
@@ -1003,9 +1005,9 @@ public class CartApi {
       /**
    * cart.coupon.list
    * Get cart coupon discounts.
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param couponsIds Filter coupons by ids   * @param storeId Filter coupons by store id   * @param langId Language id   * @param avail Filter coupons by avail status   * @param dateStartFrom Filter entity by date_start (greater or equal)   * @param dateStartTo Filter entity by date_start (less or equal)   * @param dateEndFrom Filter entity by date_end (greater or equal)   * @param dateEndTo Filter entity by date_end (less or equal)   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param couponsIds Filter coupons by ids   * @param storeId Filter coupons by store id   * @param langId Language id   * @param avail Filter coupons by avail status   * @param status Defines coupon&#39;s status   * @param dateStartFrom Filter entity by date_start (greater or equal)   * @param dateStartTo Filter entity by date_start (less or equal)   * @param dateEndFrom Filter entity by date_end (greater or equal)   * @param dateEndTo Filter entity by date_end (less or equal)   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void cartCouponList (Integer start, Integer count, String pageCursor, String couponsIds, String storeId, String langId, Boolean avail, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCartCouponList> responseListener, final Response.ErrorListener errorListener) {
+  public void cartCouponList (Integer start, Integer count, String pageCursor, String couponsIds, String storeId, String langId, Boolean avail, String status, String dateStartFrom, String dateStartTo, String dateEndFrom, String dateEndTo, String responseFields, String params, String exclude, final Response.Listener<ModelResponseCartCouponList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1026,6 +1028,7 @@ public class CartApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "avail", avail));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_from", dateStartFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_start_to", dateStartTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "date_end_from", dateEndFrom));

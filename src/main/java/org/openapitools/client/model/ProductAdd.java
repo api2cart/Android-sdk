@@ -139,6 +139,8 @@ public class ProductAdd {
   private String asin = null;
   @SerializedName("product_reference")
   private String productReference = null;
+  @SerializedName("external_product_link")
+  private String externalProductLink = null;
   @SerializedName("harmonized_system_code")
   private String harmonizedSystemCode = null;
   @SerializedName("country_of_origin")
@@ -840,6 +842,17 @@ public class ProductAdd {
   }
   public void setProductReference(String productReference) {
     this.productReference = productReference;
+  }
+
+  /**
+   * External product link
+   **/
+  @ApiModelProperty(value = "External product link")
+  public String getExternalProductLink() {
+    return externalProductLink;
+  }
+  public void setExternalProductLink(String externalProductLink) {
+    this.externalProductLink = externalProductLink;
   }
 
   /**
@@ -1612,6 +1625,7 @@ public class ProductAdd {
         (this.mpn == null ? productAdd.mpn == null : this.mpn.equals(productAdd.mpn)) &&
         (this.asin == null ? productAdd.asin == null : this.asin.equals(productAdd.asin)) &&
         (this.productReference == null ? productAdd.productReference == null : this.productReference.equals(productAdd.productReference)) &&
+        (this.externalProductLink == null ? productAdd.externalProductLink == null : this.externalProductLink.equals(productAdd.externalProductLink)) &&
         (this.harmonizedSystemCode == null ? productAdd.harmonizedSystemCode == null : this.harmonizedSystemCode.equals(productAdd.harmonizedSystemCode)) &&
         (this.countryOfOrigin == null ? productAdd.countryOfOrigin == null : this.countryOfOrigin.equals(productAdd.countryOfOrigin)) &&
         (this.manufacturer == null ? productAdd.manufacturer == null : this.manufacturer.equals(productAdd.manufacturer)) &&
@@ -1734,6 +1748,7 @@ public class ProductAdd {
     result = 31 * result + (this.mpn == null ? 0: this.mpn.hashCode());
     result = 31 * result + (this.asin == null ? 0: this.asin.hashCode());
     result = 31 * result + (this.productReference == null ? 0: this.productReference.hashCode());
+    result = 31 * result + (this.externalProductLink == null ? 0: this.externalProductLink.hashCode());
     result = 31 * result + (this.harmonizedSystemCode == null ? 0: this.harmonizedSystemCode.hashCode());
     result = 31 * result + (this.countryOfOrigin == null ? 0: this.countryOfOrigin.hashCode());
     result = 31 * result + (this.manufacturer == null ? 0: this.manufacturer.hashCode());
@@ -1859,6 +1874,7 @@ public class ProductAdd {
     sb.append("  mpn: ").append(mpn).append("\n");
     sb.append("  asin: ").append(asin).append("\n");
     sb.append("  productReference: ").append(productReference).append("\n");
+    sb.append("  externalProductLink: ").append(externalProductLink).append("\n");
     sb.append("  harmonizedSystemCode: ").append(harmonizedSystemCode).append("\n");
     sb.append("  countryOfOrigin: ").append(countryOfOrigin).append("\n");
     sb.append("  manufacturer: ").append(manufacturer).append("\n");

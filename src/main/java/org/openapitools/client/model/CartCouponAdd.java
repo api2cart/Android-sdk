@@ -65,6 +65,8 @@ public class CartCouponAdd {
   private String storeId = null;
   @SerializedName("free_cash_on_delivery")
   private Boolean freeCashOnDelivery = null;
+  @SerializedName("customer_id")
+  private String customerId = null;
 
   /**
    * Coupon code
@@ -264,6 +266,17 @@ public class CartCouponAdd {
     this.freeCashOnDelivery = freeCashOnDelivery;
   }
 
+  /**
+   * Retrieves orders specified by customer id
+   **/
+  @ApiModelProperty(value = "Retrieves orders specified by customer id")
+  public String getCustomerId() {
+    return customerId;
+  }
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -291,7 +304,8 @@ public class CartCouponAdd {
         (this.actionConditionValue == null ? cartCouponAdd.actionConditionValue == null : this.actionConditionValue.equals(cartCouponAdd.actionConditionValue)) &&
         (this.includeTax == null ? cartCouponAdd.includeTax == null : this.includeTax.equals(cartCouponAdd.includeTax)) &&
         (this.storeId == null ? cartCouponAdd.storeId == null : this.storeId.equals(cartCouponAdd.storeId)) &&
-        (this.freeCashOnDelivery == null ? cartCouponAdd.freeCashOnDelivery == null : this.freeCashOnDelivery.equals(cartCouponAdd.freeCashOnDelivery));
+        (this.freeCashOnDelivery == null ? cartCouponAdd.freeCashOnDelivery == null : this.freeCashOnDelivery.equals(cartCouponAdd.freeCashOnDelivery)) &&
+        (this.customerId == null ? cartCouponAdd.customerId == null : this.customerId.equals(cartCouponAdd.customerId));
   }
 
   @Override
@@ -315,6 +329,7 @@ public class CartCouponAdd {
     result = 31 * result + (this.includeTax == null ? 0: this.includeTax.hashCode());
     result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
     result = 31 * result + (this.freeCashOnDelivery == null ? 0: this.freeCashOnDelivery.hashCode());
+    result = 31 * result + (this.customerId == null ? 0: this.customerId.hashCode());
     return result;
   }
 
@@ -341,6 +356,7 @@ public class CartCouponAdd {
     sb.append("  includeTax: ").append(includeTax).append("\n");
     sb.append("  storeId: ").append(storeId).append("\n");
     sb.append("  freeCashOnDelivery: ").append(freeCashOnDelivery).append("\n");
+    sb.append("  customerId: ").append(customerId).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

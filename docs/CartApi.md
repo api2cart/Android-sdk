@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 
 ## cartCouponList
 
-> ModelResponseCartCouponList cartCouponList(start, count, pageCursor, couponsIds, storeId, langId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, responseFields, params, exclude)
+> ModelResponseCartCouponList cartCouponList(start, count, pageCursor, couponsIds, storeId, langId, avail, status, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, responseFields, params, exclude)
 
 cart.coupon.list
 
@@ -364,6 +364,7 @@ String couponsIds = 1,2,3; // String | Filter coupons by ids
 String storeId = 1; // String | Filter coupons by store id
 String langId = 3; // String | Language id
 Boolean avail = false; // Boolean | Filter coupons by avail status
+String status = disabled; // String | Defines coupon's status
 String dateStartFrom = 2016-12-29 16:44:30; // String | Filter entity by date_start (greater or equal)
 String dateStartTo = 2016-12-29 16:44:30; // String | Filter entity by date_start (less or equal)
 String dateEndFrom = 2016-12-29 16:44:30; // String | Filter entity by date_end (greater or equal)
@@ -372,7 +373,7 @@ String responseFields = {pagination,result{coupon_count,coupon{id,code,name,cond
 String params = id,code,type,amount; // String | Set this parameter in order to choose which entity fields you want to retrieve
 String exclude = usage_history,type; // String | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all
 try {
-    ModelResponseCartCouponList result = apiInstance.cartCouponList(start, count, pageCursor, couponsIds, storeId, langId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, responseFields, params, exclude);
+    ModelResponseCartCouponList result = apiInstance.cartCouponList(start, count, pageCursor, couponsIds, storeId, langId, avail, status, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, responseFields, params, exclude);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CartApi#cartCouponList");
@@ -392,6 +393,7 @@ Name | Type | Description  | Notes
  **storeId** | **String**| Filter coupons by store id | [optional] [default to null]
  **langId** | **String**| Language id | [optional] [default to null]
  **avail** | **Boolean**| Filter coupons by avail status | [optional] [default to null]
+ **status** | **String**| Defines coupon&#39;s status | [optional] [default to null]
  **dateStartFrom** | **String**| Filter entity by date_start (greater or equal) | [optional] [default to null]
  **dateStartTo** | **String**| Filter entity by date_start (less or equal) | [optional] [default to null]
  **dateEndFrom** | **String**| Filter entity by date_end (greater or equal) | [optional] [default to null]

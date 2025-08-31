@@ -197,6 +197,8 @@ public class ProductUpdate {
   private Integer shopSectionId = null;
   @SerializedName("personalization_details")
   private ProductAddPersonalizationDetails personalizationDetails = null;
+  @SerializedName("external_product_link")
+  private String externalProductLink = null;
   @SerializedName("marketplace_item_properties")
   private String marketplaceItemProperties = null;
   @SerializedName("min_order_quantity")
@@ -1146,6 +1148,17 @@ public class ProductUpdate {
   }
 
   /**
+   * External product link
+   **/
+  @ApiModelProperty(value = "External product link")
+  public String getExternalProductLink() {
+    return externalProductLink;
+  }
+  public void setExternalProductLink(String externalProductLink) {
+    this.externalProductLink = externalProductLink;
+  }
+
+  /**
    * String containing the JSON representation of the supplied data
    **/
   @ApiModelProperty(value = "String containing the JSON representation of the supplied data")
@@ -1263,6 +1276,7 @@ public class ProductUpdate {
         (this.specifics == null ? productUpdate.specifics == null : this.specifics.equals(productUpdate.specifics)) &&
         (this.shopSectionId == null ? productUpdate.shopSectionId == null : this.shopSectionId.equals(productUpdate.shopSectionId)) &&
         (this.personalizationDetails == null ? productUpdate.personalizationDetails == null : this.personalizationDetails.equals(productUpdate.personalizationDetails)) &&
+        (this.externalProductLink == null ? productUpdate.externalProductLink == null : this.externalProductLink.equals(productUpdate.externalProductLink)) &&
         (this.marketplaceItemProperties == null ? productUpdate.marketplaceItemProperties == null : this.marketplaceItemProperties.equals(productUpdate.marketplaceItemProperties)) &&
         (this.minOrderQuantity == null ? productUpdate.minOrderQuantity == null : this.minOrderQuantity.equals(productUpdate.minOrderQuantity));
   }
@@ -1356,6 +1370,7 @@ public class ProductUpdate {
     result = 31 * result + (this.specifics == null ? 0: this.specifics.hashCode());
     result = 31 * result + (this.shopSectionId == null ? 0: this.shopSectionId.hashCode());
     result = 31 * result + (this.personalizationDetails == null ? 0: this.personalizationDetails.hashCode());
+    result = 31 * result + (this.externalProductLink == null ? 0: this.externalProductLink.hashCode());
     result = 31 * result + (this.marketplaceItemProperties == null ? 0: this.marketplaceItemProperties.hashCode());
     result = 31 * result + (this.minOrderQuantity == null ? 0: this.minOrderQuantity.hashCode());
     return result;
@@ -1452,6 +1467,7 @@ public class ProductUpdate {
     sb.append("  specifics: ").append(specifics).append("\n");
     sb.append("  shopSectionId: ").append(shopSectionId).append("\n");
     sb.append("  personalizationDetails: ").append(personalizationDetails).append("\n");
+    sb.append("  externalProductLink: ").append(externalProductLink).append("\n");
     sb.append("  marketplaceItemProperties: ").append(marketplaceItemProperties).append("\n");
     sb.append("  minOrderQuantity: ").append(minOrderQuantity).append("\n");
     sb.append("}\n");

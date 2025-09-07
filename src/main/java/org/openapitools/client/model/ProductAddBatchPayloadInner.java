@@ -69,6 +69,8 @@ public class ProductAddBatchPayloadInner {
   private String productType = null;
   @SerializedName("marketplace_item_properties")
   private Object marketplaceItemProperties = null;
+  @SerializedName("specifics")
+  private Object specifics = null;
   @SerializedName("is_free_shipping")
   private Boolean isFreeShipping = null;
   @SerializedName("taxable")
@@ -137,6 +139,8 @@ public class ProductAddBatchPayloadInner {
   private String url = null;
   @SerializedName("seo_url")
   private String seoUrl = null;
+  @SerializedName("external_product_link")
+  private String externalProductLink = null;
   @SerializedName("manufacturer")
   private String manufacturer = null;
   @SerializedName("manufacturer_id")
@@ -378,6 +382,16 @@ public class ProductAddBatchPayloadInner {
   }
   public void setMarketplaceItemProperties(Object marketplaceItemProperties) {
     this.marketplaceItemProperties = marketplaceItemProperties;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public Object getSpecifics() {
+    return specifics;
+  }
+  public void setSpecifics(Object specifics) {
+    this.specifics = specifics;
   }
 
   /**
@@ -723,6 +737,16 @@ public class ProductAddBatchPayloadInner {
   /**
    **/
   @ApiModelProperty(value = "")
+  public String getExternalProductLink() {
+    return externalProductLink;
+  }
+  public void setExternalProductLink(String externalProductLink) {
+    this.externalProductLink = externalProductLink;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public String getManufacturer() {
     return manufacturer;
   }
@@ -813,6 +837,7 @@ public class ProductAddBatchPayloadInner {
         (this.manageStock == null ? productAddBatchPayloadInner.manageStock == null : this.manageStock.equals(productAddBatchPayloadInner.manageStock)) &&
         (this.productType == null ? productAddBatchPayloadInner.productType == null : this.productType.equals(productAddBatchPayloadInner.productType)) &&
         (this.marketplaceItemProperties == null ? productAddBatchPayloadInner.marketplaceItemProperties == null : this.marketplaceItemProperties.equals(productAddBatchPayloadInner.marketplaceItemProperties)) &&
+        (this.specifics == null ? productAddBatchPayloadInner.specifics == null : this.specifics.equals(productAddBatchPayloadInner.specifics)) &&
         (this.isFreeShipping == null ? productAddBatchPayloadInner.isFreeShipping == null : this.isFreeShipping.equals(productAddBatchPayloadInner.isFreeShipping)) &&
         (this.taxable == null ? productAddBatchPayloadInner.taxable == null : this.taxable.equals(productAddBatchPayloadInner.taxable)) &&
         (this.status == null ? productAddBatchPayloadInner.status == null : this.status.equals(productAddBatchPayloadInner.status)) &&
@@ -847,6 +872,7 @@ public class ProductAddBatchPayloadInner {
         (this.harmonizedSystemCode == null ? productAddBatchPayloadInner.harmonizedSystemCode == null : this.harmonizedSystemCode.equals(productAddBatchPayloadInner.harmonizedSystemCode)) &&
         (this.url == null ? productAddBatchPayloadInner.url == null : this.url.equals(productAddBatchPayloadInner.url)) &&
         (this.seoUrl == null ? productAddBatchPayloadInner.seoUrl == null : this.seoUrl.equals(productAddBatchPayloadInner.seoUrl)) &&
+        (this.externalProductLink == null ? productAddBatchPayloadInner.externalProductLink == null : this.externalProductLink.equals(productAddBatchPayloadInner.externalProductLink)) &&
         (this.manufacturer == null ? productAddBatchPayloadInner.manufacturer == null : this.manufacturer.equals(productAddBatchPayloadInner.manufacturer)) &&
         (this.manufacturerId == null ? productAddBatchPayloadInner.manufacturerId == null : this.manufacturerId.equals(productAddBatchPayloadInner.manufacturerId)) &&
         (this.backorderStatus == null ? productAddBatchPayloadInner.backorderStatus == null : this.backorderStatus.equals(productAddBatchPayloadInner.backorderStatus)) &&
@@ -881,6 +907,7 @@ public class ProductAddBatchPayloadInner {
     result = 31 * result + (this.manageStock == null ? 0: this.manageStock.hashCode());
     result = 31 * result + (this.productType == null ? 0: this.productType.hashCode());
     result = 31 * result + (this.marketplaceItemProperties == null ? 0: this.marketplaceItemProperties.hashCode());
+    result = 31 * result + (this.specifics == null ? 0: this.specifics.hashCode());
     result = 31 * result + (this.isFreeShipping == null ? 0: this.isFreeShipping.hashCode());
     result = 31 * result + (this.taxable == null ? 0: this.taxable.hashCode());
     result = 31 * result + (this.status == null ? 0: this.status.hashCode());
@@ -915,6 +942,7 @@ public class ProductAddBatchPayloadInner {
     result = 31 * result + (this.harmonizedSystemCode == null ? 0: this.harmonizedSystemCode.hashCode());
     result = 31 * result + (this.url == null ? 0: this.url.hashCode());
     result = 31 * result + (this.seoUrl == null ? 0: this.seoUrl.hashCode());
+    result = 31 * result + (this.externalProductLink == null ? 0: this.externalProductLink.hashCode());
     result = 31 * result + (this.manufacturer == null ? 0: this.manufacturer.hashCode());
     result = 31 * result + (this.manufacturerId == null ? 0: this.manufacturerId.hashCode());
     result = 31 * result + (this.backorderStatus == null ? 0: this.backorderStatus.hashCode());
@@ -952,6 +980,7 @@ public class ProductAddBatchPayloadInner {
     sb.append("  manageStock: ").append(manageStock).append("\n");
     sb.append("  productType: ").append(productType).append("\n");
     sb.append("  marketplaceItemProperties: ").append(marketplaceItemProperties).append("\n");
+    sb.append("  specifics: ").append(specifics).append("\n");
     sb.append("  isFreeShipping: ").append(isFreeShipping).append("\n");
     sb.append("  taxable: ").append(taxable).append("\n");
     sb.append("  status: ").append(status).append("\n");
@@ -986,6 +1015,7 @@ public class ProductAddBatchPayloadInner {
     sb.append("  harmonizedSystemCode: ").append(harmonizedSystemCode).append("\n");
     sb.append("  url: ").append(url).append("\n");
     sb.append("  seoUrl: ").append(seoUrl).append("\n");
+    sb.append("  externalProductLink: ").append(externalProductLink).append("\n");
     sb.append("  manufacturer: ").append(manufacturer).append("\n");
     sb.append("  manufacturerId: ").append(manufacturerId).append("\n");
     sb.append("  backorderStatus: ").append(backorderStatus).append("\n");

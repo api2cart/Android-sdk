@@ -35,6 +35,8 @@ import org.openapitools.client.model.ModelResponseOrderStatusList;
 import org.openapitools.client.model.ModelResponseOrderTransactionList;
 import org.openapitools.client.model.OrderAdd;
 import org.openapitools.client.model.OrderAdd200Response;
+import org.openapitools.client.model.OrderCalculate;
+import org.openapitools.client.model.OrderCalculate200Response;
 import org.openapitools.client.model.OrderCount200Response;
 import org.openapitools.client.model.OrderFinancialStatusList200Response;
 import org.openapitools.client.model.OrderFulfillmentStatusList200Response;
@@ -356,6 +358,134 @@ public class OrderApi {
           public void onResponse(String localVarResponse) {
             try {
               responseListener.onResponse((OrderAdd200Response) ApiInvoker.deserialize(localVarResponse,  "", OrderAdd200Response.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * order.calculate
+  * &lt;p&gt;Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.&lt;/p&gt; &lt;p&gt;Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.&lt;/p&gt;&lt;p&gt;The result of this method can be used when creating an order using the &lt;strong&gt;order.add&lt;/strong&gt; method.&lt;/p&gt;
+   * @param orderCalculate 
+   * @return OrderCalculate200Response
+  */
+  public OrderCalculate200Response orderCalculate (OrderCalculate orderCalculate) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = orderCalculate;
+    // verify the required parameter 'orderCalculate' is set
+    if (orderCalculate == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'orderCalculate' when calling orderCalculate",
+        new ApiException(400, "Missing the required parameter 'orderCalculate' when calling orderCalculate"));
+    }
+
+    // create path and map variables
+    String path = "/order.calculate.json";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "StoreKeyAuth", "ApiKeyAuth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (OrderCalculate200Response) ApiInvoker.deserialize(localVarResponse, "", OrderCalculate200Response.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * order.calculate
+   * &lt;p&gt;Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.&lt;/p&gt; &lt;p&gt;Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.&lt;/p&gt;&lt;p&gt;The result of this method can be used when creating an order using the &lt;strong&gt;order.add&lt;/strong&gt; method.&lt;/p&gt;
+   * @param orderCalculate 
+  */
+  public void orderCalculate (OrderCalculate orderCalculate, final Response.Listener<OrderCalculate200Response> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = orderCalculate;
+
+    // verify the required parameter 'orderCalculate' is set
+    if (orderCalculate == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'orderCalculate' when calling orderCalculate",
+        new ApiException(400, "Missing the required parameter 'orderCalculate' when calling orderCalculate"));
+    }
+
+    // create path and map variables
+    String path = "/order.calculate.json".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "StoreKeyAuth", "ApiKeyAuth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((OrderCalculate200Response) ApiInvoker.deserialize(localVarResponse,  "", OrderCalculate200Response.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

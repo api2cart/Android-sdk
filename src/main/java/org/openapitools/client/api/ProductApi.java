@@ -3188,9 +3188,15 @@ public class ProductApi {
    * @param productId Defines products specified by product id
    * @param manufacturer Defines product’s manufacturer&#39;s name
    * @param storeId Store Id
+   * @param metaTitle Defines unique meta title for each entity
+   * @param metaKeywords Defines unique meta keywords for each entity
+   * @param metaDescription Defines unique meta description of a entity
+   * @param searchKeywords Defines unique search keywords
+   * @param imageUrl Image Url
+   * @param seoUrl Defines unique URL for SEO
    * @return ProductManufacturerAdd200Response
   */
-  public ProductManufacturerAdd200Response productManufacturerAdd (String productId, String manufacturer, String storeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProductManufacturerAdd200Response productManufacturerAdd (String productId, String manufacturer, String storeId, String metaTitle, String metaKeywords, String metaDescription, String searchKeywords, String imageUrl, String seoUrl) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'productId' is set
     if (productId == null) {
@@ -3215,6 +3221,12 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "manufacturer", manufacturer));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_title", metaTitle));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_keywords", metaKeywords));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_description", metaDescription));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "search_keywords", searchKeywords));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "image_url", imageUrl));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "seo_url", seoUrl));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -3257,9 +3269,9 @@ public class ProductApi {
       /**
    * product.manufacturer.add
    * Add manufacturer to store and assign to product
-   * @param productId Defines products specified by product id   * @param manufacturer Defines product’s manufacturer&#39;s name   * @param storeId Store Id
+   * @param productId Defines products specified by product id   * @param manufacturer Defines product’s manufacturer&#39;s name   * @param storeId Store Id   * @param metaTitle Defines unique meta title for each entity   * @param metaKeywords Defines unique meta keywords for each entity   * @param metaDescription Defines unique meta description of a entity   * @param searchKeywords Defines unique search keywords   * @param imageUrl Image Url   * @param seoUrl Defines unique URL for SEO
   */
-  public void productManufacturerAdd (String productId, String manufacturer, String storeId, final Response.Listener<ProductManufacturerAdd200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void productManufacturerAdd (String productId, String manufacturer, String storeId, String metaTitle, String metaKeywords, String metaDescription, String searchKeywords, String imageUrl, String seoUrl, final Response.Listener<ProductManufacturerAdd200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'productId' is set
@@ -3286,6 +3298,12 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "manufacturer", manufacturer));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_title", metaTitle));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_keywords", metaKeywords));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "meta_description", metaDescription));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "search_keywords", searchKeywords));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "image_url", imageUrl));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "seo_url", seoUrl));
 
 
     String[] contentTypes = {
@@ -4924,13 +4942,19 @@ public class ProductApi {
    * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)
    * @param ids Retrieves reviews specified by ids
    * @param storeId Store Id
+   * @param langId Language id
    * @param status Defines status
+   * @param createdFrom Retrieve entities from their creation date
+   * @param createdTo Retrieve entities to their creation date
+   * @param customerId Retrieves orders specified by customer id
+   * @param sortBy Set field to sort by
+   * @param sortDirection Set sorting direction
    * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
    * @param params Set this parameter in order to choose which entity fields you want to retrieve
    * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
    * @return ModelResponseProductReviewList
   */
-  public ModelResponseProductReviewList productReviewList (String productId, Integer start, Integer count, String pageCursor, String ids, String storeId, String status, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseProductReviewList productReviewList (String productId, Integer start, Integer count, String pageCursor, String ids, String storeId, String langId, String status, String createdFrom, String createdTo, String customerId, String sortBy, String sortDirection, String responseFields, String params, String exclude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'productId' is set
     if (productId == null) {
@@ -4953,7 +4977,13 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));
@@ -4999,9 +5029,9 @@ public class ProductApi {
       /**
    * product.review.list
    * Get reviews of a specific product.
-   * @param productId Product id   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param ids Retrieves reviews specified by ids   * @param storeId Store Id   * @param status Defines status   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+   * @param productId Product id   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve entities via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param ids Retrieves reviews specified by ids   * @param storeId Store Id   * @param langId Language id   * @param status Defines status   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param customerId Retrieves orders specified by customer id   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
   */
-  public void productReviewList (String productId, Integer start, Integer count, String pageCursor, String ids, String storeId, String status, String responseFields, String params, String exclude, final Response.Listener<ModelResponseProductReviewList> responseListener, final Response.ErrorListener errorListener) {
+  public void productReviewList (String productId, Integer start, Integer count, String pageCursor, String ids, String storeId, String langId, String status, String createdFrom, String createdTo, String customerId, String sortBy, String sortDirection, String responseFields, String params, String exclude, final Response.Listener<ModelResponseProductReviewList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'productId' is set
@@ -5026,7 +5056,13 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_id", productId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "ids", ids));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "store_id", storeId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lang_id", langId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_from", createdFrom));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "created_to", createdTo));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "customer_id", customerId));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_by", sortBy));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sort_direction", sortDirection));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "response_fields", responseFields));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "params", params));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "exclude", exclude));

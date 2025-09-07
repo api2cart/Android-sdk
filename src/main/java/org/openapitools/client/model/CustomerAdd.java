@@ -31,6 +31,8 @@ public class CustomerAdd {
   private String password = null;
   @SerializedName("group")
   private String group = null;
+  @SerializedName("group_id")
+  private String groupId = null;
   @SerializedName("group_ids")
   private String groupIds = null;
   @SerializedName("status")
@@ -121,6 +123,17 @@ public class CustomerAdd {
   }
   public void setGroup(String group) {
     this.group = group;
+  }
+
+  /**
+   * Customer group_id
+   **/
+  @ApiModelProperty(value = "Customer group_id")
+  public String getGroupId() {
+    return groupId;
+  }
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
   }
 
   /**
@@ -335,6 +348,7 @@ public class CustomerAdd {
         (this.lastName == null ? customerAdd.lastName == null : this.lastName.equals(customerAdd.lastName)) &&
         (this.password == null ? customerAdd.password == null : this.password.equals(customerAdd.password)) &&
         (this.group == null ? customerAdd.group == null : this.group.equals(customerAdd.group)) &&
+        (this.groupId == null ? customerAdd.groupId == null : this.groupId.equals(customerAdd.groupId)) &&
         (this.groupIds == null ? customerAdd.groupIds == null : this.groupIds.equals(customerAdd.groupIds)) &&
         (this.status == null ? customerAdd.status == null : this.status.equals(customerAdd.status)) &&
         (this.createdTime == null ? customerAdd.createdTime == null : this.createdTime.equals(customerAdd.createdTime)) &&
@@ -363,6 +377,7 @@ public class CustomerAdd {
     result = 31 * result + (this.lastName == null ? 0: this.lastName.hashCode());
     result = 31 * result + (this.password == null ? 0: this.password.hashCode());
     result = 31 * result + (this.group == null ? 0: this.group.hashCode());
+    result = 31 * result + (this.groupId == null ? 0: this.groupId.hashCode());
     result = 31 * result + (this.groupIds == null ? 0: this.groupIds.hashCode());
     result = 31 * result + (this.status == null ? 0: this.status.hashCode());
     result = 31 * result + (this.createdTime == null ? 0: this.createdTime.hashCode());
@@ -394,6 +409,7 @@ public class CustomerAdd {
     sb.append("  lastName: ").append(lastName).append("\n");
     sb.append("  password: ").append(password).append("\n");
     sb.append("  group: ").append(group).append("\n");
+    sb.append("  groupId: ").append(groupId).append("\n");
     sb.append("  groupIds: ").append(groupIds).append("\n");
     sb.append("  status: ").append(status).append("\n");
     sb.append("  createdTime: ").append(createdTime).append("\n");

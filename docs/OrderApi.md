@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**orderAbandonedList**](OrderApi.md#orderAbandonedList) | **GET** /order.abandoned.list.json | order.abandoned.list
 [**orderAdd**](OrderApi.md#orderAdd) | **POST** /order.add.json | order.add
+[**orderCalculate**](OrderApi.md#orderCalculate) | **POST** /order.calculate.json | order.calculate
 [**orderCount**](OrderApi.md#orderCount) | **GET** /order.count.json | order.count
 [**orderFinancialStatusList**](OrderApi.md#orderFinancialStatusList) | **GET** /order.financial_status.list.json | order.financial_status.list
 [**orderFulfillmentStatusList**](OrderApi.md#orderFulfillmentStatusList) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
@@ -136,6 +137,52 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OrderAdd200Response**](OrderAdd200Response.md)
+
+### Authorization
+
+[StoreKeyAuth](../README.md#StoreKeyAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## orderCalculate
+
+> OrderCalculate200Response orderCalculate(orderCalculate)
+
+order.calculate
+
+&lt;p&gt;Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.&lt;/p&gt; &lt;p&gt;Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.&lt;/p&gt;&lt;p&gt;The result of this method can be used when creating an order using the &lt;strong&gt;order.add&lt;/strong&gt; method.&lt;/p&gt;
+
+### Example
+
+```java
+// Import classes:
+//import org.openapitools.client.api.OrderApi;
+
+OrderApi apiInstance = new OrderApi();
+OrderCalculate orderCalculate = new OrderCalculate(); // OrderCalculate | 
+try {
+    OrderCalculate200Response result = apiInstance.orderCalculate(orderCalculate);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#orderCalculate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderCalculate** | [**OrderCalculate**](OrderCalculate.md)|  |
+
+### Return type
+
+[**OrderCalculate200Response**](OrderCalculate200Response.md)
 
 ### Authorization
 

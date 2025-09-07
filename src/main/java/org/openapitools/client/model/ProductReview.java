@@ -45,6 +45,8 @@ public class ProductReview {
   private String status = null;
   @SerializedName("created_time")
   private A2CDateTime createdTime = null;
+  @SerializedName("modified_time")
+  private A2CDateTime modifiedTime = null;
   @SerializedName("medias")
   private List<Media> medias = null;
   @SerializedName("additional_fields")
@@ -165,6 +167,16 @@ public class ProductReview {
   /**
    **/
   @ApiModelProperty(value = "")
+  public A2CDateTime getModifiedTime() {
+    return modifiedTime;
+  }
+  public void setModifiedTime(A2CDateTime modifiedTime) {
+    this.modifiedTime = modifiedTime;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public List<Media> getMedias() {
     return medias;
   }
@@ -213,6 +225,7 @@ public class ProductReview {
         (this.ratings == null ? productReview.ratings == null : this.ratings.equals(productReview.ratings)) &&
         (this.status == null ? productReview.status == null : this.status.equals(productReview.status)) &&
         (this.createdTime == null ? productReview.createdTime == null : this.createdTime.equals(productReview.createdTime)) &&
+        (this.modifiedTime == null ? productReview.modifiedTime == null : this.modifiedTime.equals(productReview.modifiedTime)) &&
         (this.medias == null ? productReview.medias == null : this.medias.equals(productReview.medias)) &&
         (this.additionalFields == null ? productReview.additionalFields == null : this.additionalFields.equals(productReview.additionalFields)) &&
         (this.customFields == null ? productReview.customFields == null : this.customFields.equals(productReview.customFields));
@@ -232,6 +245,7 @@ public class ProductReview {
     result = 31 * result + (this.ratings == null ? 0: this.ratings.hashCode());
     result = 31 * result + (this.status == null ? 0: this.status.hashCode());
     result = 31 * result + (this.createdTime == null ? 0: this.createdTime.hashCode());
+    result = 31 * result + (this.modifiedTime == null ? 0: this.modifiedTime.hashCode());
     result = 31 * result + (this.medias == null ? 0: this.medias.hashCode());
     result = 31 * result + (this.additionalFields == null ? 0: this.additionalFields.hashCode());
     result = 31 * result + (this.customFields == null ? 0: this.customFields.hashCode());
@@ -254,6 +268,7 @@ public class ProductReview {
     sb.append("  ratings: ").append(ratings).append("\n");
     sb.append("  status: ").append(status).append("\n");
     sb.append("  createdTime: ").append(createdTime).append("\n");
+    sb.append("  modifiedTime: ").append(modifiedTime).append("\n");
     sb.append("  medias: ").append(medias).append("\n");
     sb.append("  additionalFields: ").append(additionalFields).append("\n");
     sb.append("  customFields: ").append(customFields).append("\n");

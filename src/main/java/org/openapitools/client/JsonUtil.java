@@ -813,6 +813,42 @@ public class JsonUtil {
       return new TypeToken<List<OrderAddOrderItemInnerOrderItemPropertyInner>>(){}.getType();
     }
     
+    if ("OrderCalculate".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCalculate>>(){}.getType();
+    }
+    
+    if ("OrderCalculate200Response".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCalculate200Response>>(){}.getType();
+    }
+    
+    if ("OrderCalculateDiscount".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCalculateDiscount>>(){}.getType();
+    }
+    
+    if ("OrderCalculateItem".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCalculateItem>>(){}.getType();
+    }
+    
+    if ("OrderCalculateOrderItemInner".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCalculateOrderItemInner>>(){}.getType();
+    }
+    
+    if ("OrderCalculateOrderItemInnerOrderItemOptionInner".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCalculateOrderItemInnerOrderItemOptionInner>>(){}.getType();
+    }
+    
+    if ("OrderCalculateShippingRate".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCalculateShippingRate>>(){}.getType();
+    }
+    
+    if ("OrderCalculateSubtotal".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCalculateSubtotal>>(){}.getType();
+    }
+    
+    if ("OrderCalculateTax".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCalculateTax>>(){}.getType();
+    }
+    
     if ("OrderCount200Response".equalsIgnoreCase(className)) {
       return new TypeToken<List<OrderCount200Response>>(){}.getType();
     }
@@ -2493,6 +2529,42 @@ public class JsonUtil {
     
     if ("OrderAddOrderItemInnerOrderItemPropertyInner".equalsIgnoreCase(className)) {
       return new TypeToken<OrderAddOrderItemInnerOrderItemPropertyInner>(){}.getType();
+    }
+    
+    if ("OrderCalculate".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCalculate>(){}.getType();
+    }
+    
+    if ("OrderCalculate200Response".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCalculate200Response>(){}.getType();
+    }
+    
+    if ("OrderCalculateDiscount".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCalculateDiscount>(){}.getType();
+    }
+    
+    if ("OrderCalculateItem".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCalculateItem>(){}.getType();
+    }
+    
+    if ("OrderCalculateOrderItemInner".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCalculateOrderItemInner>(){}.getType();
+    }
+    
+    if ("OrderCalculateOrderItemInnerOrderItemOptionInner".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCalculateOrderItemInnerOrderItemOptionInner>(){}.getType();
+    }
+    
+    if ("OrderCalculateShippingRate".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCalculateShippingRate>(){}.getType();
+    }
+    
+    if ("OrderCalculateSubtotal".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCalculateSubtotal>(){}.getType();
+    }
+    
+    if ("OrderCalculateTax".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCalculateTax>(){}.getType();
     }
     
     if ("OrderCount200Response".equalsIgnoreCase(className)) {

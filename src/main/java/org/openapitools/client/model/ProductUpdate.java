@@ -79,6 +79,8 @@ public class ProductUpdate {
   private String availFrom = null;
   @SerializedName("product_class")
   private String productClass = null;
+  @SerializedName("brand_name")
+  private String brandName = null;
   @SerializedName("available_for_view")
   private Boolean availableForView = null;
   @SerializedName("stores_ids")
@@ -499,6 +501,17 @@ public class ProductUpdate {
   }
   public void setProductClass(String productClass) {
     this.productClass = productClass;
+  }
+
+  /**
+   * Retrieves brands specified by brand name
+   **/
+  @ApiModelProperty(value = "Retrieves brands specified by brand name")
+  public String getBrandName() {
+    return brandName;
+  }
+  public void setBrandName(String brandName) {
+    this.brandName = brandName;
   }
 
   /**
@@ -1217,6 +1230,7 @@ public class ProductUpdate {
         (this.avail == null ? productUpdate.avail == null : this.avail.equals(productUpdate.avail)) &&
         (this.availFrom == null ? productUpdate.availFrom == null : this.availFrom.equals(productUpdate.availFrom)) &&
         (this.productClass == null ? productUpdate.productClass == null : this.productClass.equals(productUpdate.productClass)) &&
+        (this.brandName == null ? productUpdate.brandName == null : this.brandName.equals(productUpdate.brandName)) &&
         (this.availableForView == null ? productUpdate.availableForView == null : this.availableForView.equals(productUpdate.availableForView)) &&
         (this.storesIds == null ? productUpdate.storesIds == null : this.storesIds.equals(productUpdate.storesIds)) &&
         (this.storeId == null ? productUpdate.storeId == null : this.storeId.equals(productUpdate.storeId)) &&
@@ -1311,6 +1325,7 @@ public class ProductUpdate {
     result = 31 * result + (this.avail == null ? 0: this.avail.hashCode());
     result = 31 * result + (this.availFrom == null ? 0: this.availFrom.hashCode());
     result = 31 * result + (this.productClass == null ? 0: this.productClass.hashCode());
+    result = 31 * result + (this.brandName == null ? 0: this.brandName.hashCode());
     result = 31 * result + (this.availableForView == null ? 0: this.availableForView.hashCode());
     result = 31 * result + (this.storesIds == null ? 0: this.storesIds.hashCode());
     result = 31 * result + (this.storeId == null ? 0: this.storeId.hashCode());
@@ -1408,6 +1423,7 @@ public class ProductUpdate {
     sb.append("  avail: ").append(avail).append("\n");
     sb.append("  availFrom: ").append(availFrom).append("\n");
     sb.append("  productClass: ").append(productClass).append("\n");
+    sb.append("  brandName: ").append(brandName).append("\n");
     sb.append("  availableForView: ").append(availableForView).append("\n");
     sb.append("  storesIds: ").append(storesIds).append("\n");
     sb.append("  storeId: ").append(storeId).append("\n");

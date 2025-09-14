@@ -68,6 +68,8 @@ public class ProductUpdateBatchPayloadInner {
   private String type = null;
   @SerializedName("condition")
   private String condition = null;
+  @SerializedName("condition_description")
+  private String conditionDescription = null;
   @SerializedName("visible")
   private String visible = null;
   @SerializedName("available_for_view")
@@ -378,6 +380,16 @@ public class ProductUpdateBatchPayloadInner {
   }
   public void setCondition(String condition) {
     this.condition = condition;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public String getConditionDescription() {
+    return conditionDescription;
+  }
+  public void setConditionDescription(String conditionDescription) {
+    this.conditionDescription = conditionDescription;
   }
 
   /**
@@ -817,6 +829,7 @@ public class ProductUpdateBatchPayloadInner {
         (this.status == null ? productUpdateBatchPayloadInner.status == null : this.status.equals(productUpdateBatchPayloadInner.status)) &&
         (this.type == null ? productUpdateBatchPayloadInner.type == null : this.type.equals(productUpdateBatchPayloadInner.type)) &&
         (this.condition == null ? productUpdateBatchPayloadInner.condition == null : this.condition.equals(productUpdateBatchPayloadInner.condition)) &&
+        (this.conditionDescription == null ? productUpdateBatchPayloadInner.conditionDescription == null : this.conditionDescription.equals(productUpdateBatchPayloadInner.conditionDescription)) &&
         (this.visible == null ? productUpdateBatchPayloadInner.visible == null : this.visible.equals(productUpdateBatchPayloadInner.visible)) &&
         (this.availableForView == null ? productUpdateBatchPayloadInner.availableForView == null : this.availableForView.equals(productUpdateBatchPayloadInner.availableForView)) &&
         (this.availableForSale == null ? productUpdateBatchPayloadInner.availableForSale == null : this.availableForSale.equals(productUpdateBatchPayloadInner.availableForSale)) &&
@@ -885,6 +898,7 @@ public class ProductUpdateBatchPayloadInner {
     result = 31 * result + (this.status == null ? 0: this.status.hashCode());
     result = 31 * result + (this.type == null ? 0: this.type.hashCode());
     result = 31 * result + (this.condition == null ? 0: this.condition.hashCode());
+    result = 31 * result + (this.conditionDescription == null ? 0: this.conditionDescription.hashCode());
     result = 31 * result + (this.visible == null ? 0: this.visible.hashCode());
     result = 31 * result + (this.availableForView == null ? 0: this.availableForView.hashCode());
     result = 31 * result + (this.availableForSale == null ? 0: this.availableForSale.hashCode());
@@ -956,6 +970,7 @@ public class ProductUpdateBatchPayloadInner {
     sb.append("  status: ").append(status).append("\n");
     sb.append("  type: ").append(type).append("\n");
     sb.append("  condition: ").append(condition).append("\n");
+    sb.append("  conditionDescription: ").append(conditionDescription).append("\n");
     sb.append("  visible: ").append(visible).append("\n");
     sb.append("  availableForView: ").append(availableForView).append("\n");
     sb.append("  availableForSale: ").append(availableForSale).append("\n");

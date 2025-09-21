@@ -58,7 +58,7 @@ public class ProductVariantUpdate {
   @SerializedName("is_free_shipping")
   private Boolean isFreeShipping = null;
   @SerializedName("taxable")
-  private Boolean taxable = true;
+  private Boolean taxable = null;
   @SerializedName("tax_class_id")
   private String taxClassId = null;
   @SerializedName("is_virtual")
@@ -125,6 +125,8 @@ public class ProductVariantUpdate {
   private String metaDescription = null;
   @SerializedName("meta_keywords")
   private String metaKeywords = null;
+  @SerializedName("manufacturer")
+  private String manufacturer = null;
   @SerializedName("reindex")
   private Boolean reindex = true;
   @SerializedName("clear_cache")
@@ -703,6 +705,17 @@ public class ProductVariantUpdate {
   }
 
   /**
+   * Specifies the product variant's manufacturer
+   **/
+  @ApiModelProperty(value = "Specifies the product variant's manufacturer")
+  public String getManufacturer() {
+    return manufacturer;
+  }
+  public void setManufacturer(String manufacturer) {
+    this.manufacturer = manufacturer;
+  }
+
+  /**
    * Is reindex required
    **/
   @ApiModelProperty(value = "Is reindex required")
@@ -786,6 +799,7 @@ public class ProductVariantUpdate {
         (this.metaTitle == null ? productVariantUpdate.metaTitle == null : this.metaTitle.equals(productVariantUpdate.metaTitle)) &&
         (this.metaDescription == null ? productVariantUpdate.metaDescription == null : this.metaDescription.equals(productVariantUpdate.metaDescription)) &&
         (this.metaKeywords == null ? productVariantUpdate.metaKeywords == null : this.metaKeywords.equals(productVariantUpdate.metaKeywords)) &&
+        (this.manufacturer == null ? productVariantUpdate.manufacturer == null : this.manufacturer.equals(productVariantUpdate.manufacturer)) &&
         (this.reindex == null ? productVariantUpdate.reindex == null : this.reindex.equals(productVariantUpdate.reindex)) &&
         (this.clearCache == null ? productVariantUpdate.clearCache == null : this.clearCache.equals(productVariantUpdate.clearCache));
   }
@@ -845,6 +859,7 @@ public class ProductVariantUpdate {
     result = 31 * result + (this.metaTitle == null ? 0: this.metaTitle.hashCode());
     result = 31 * result + (this.metaDescription == null ? 0: this.metaDescription.hashCode());
     result = 31 * result + (this.metaKeywords == null ? 0: this.metaKeywords.hashCode());
+    result = 31 * result + (this.manufacturer == null ? 0: this.manufacturer.hashCode());
     result = 31 * result + (this.reindex == null ? 0: this.reindex.hashCode());
     result = 31 * result + (this.clearCache == null ? 0: this.clearCache.hashCode());
     return result;
@@ -907,6 +922,7 @@ public class ProductVariantUpdate {
     sb.append("  metaTitle: ").append(metaTitle).append("\n");
     sb.append("  metaDescription: ").append(metaDescription).append("\n");
     sb.append("  metaKeywords: ").append(metaKeywords).append("\n");
+    sb.append("  manufacturer: ").append(manufacturer).append("\n");
     sb.append("  reindex: ").append(reindex).append("\n");
     sb.append("  clearCache: ").append(clearCache).append("\n");
     sb.append("}\n");

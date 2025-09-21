@@ -209,6 +209,8 @@ public class AccountCartAdd {
   private String shoplazzaSharedSecret = null;
   @SerializedName("shopware_access_key")
   private String shopwareAccessKey = null;
+  @SerializedName("unas_api_key")
+  private String unasApiKey = null;
   @SerializedName("shopware_api_key")
   private String shopwareApiKey = null;
   @SerializedName("shopware_api_secret")
@@ -1378,6 +1380,17 @@ public class AccountCartAdd {
   }
 
   /**
+   * UNAS API Key
+   **/
+  @ApiModelProperty(value = "UNAS API Key")
+  public String getUnasApiKey() {
+    return unasApiKey;
+  }
+  public void setUnasApiKey(String unasApiKey) {
+    this.unasApiKey = unasApiKey;
+  }
+
+  /**
    * Shopware api key
    **/
   @ApiModelProperty(value = "Shopware api key")
@@ -2272,6 +2285,7 @@ public class AccountCartAdd {
         (this.shoplazzaAccessToken == null ? accountCartAdd.shoplazzaAccessToken == null : this.shoplazzaAccessToken.equals(accountCartAdd.shoplazzaAccessToken)) &&
         (this.shoplazzaSharedSecret == null ? accountCartAdd.shoplazzaSharedSecret == null : this.shoplazzaSharedSecret.equals(accountCartAdd.shoplazzaSharedSecret)) &&
         (this.shopwareAccessKey == null ? accountCartAdd.shopwareAccessKey == null : this.shopwareAccessKey.equals(accountCartAdd.shopwareAccessKey)) &&
+        (this.unasApiKey == null ? accountCartAdd.unasApiKey == null : this.unasApiKey.equals(accountCartAdd.unasApiKey)) &&
         (this.shopwareApiKey == null ? accountCartAdd.shopwareApiKey == null : this.shopwareApiKey.equals(accountCartAdd.shopwareApiKey)) &&
         (this.shopwareApiSecret == null ? accountCartAdd.shopwareApiSecret == null : this.shopwareApiSecret.equals(accountCartAdd.shopwareApiSecret)) &&
         (this.mivaAccessToken == null ? accountCartAdd.mivaAccessToken == null : this.mivaAccessToken.equals(accountCartAdd.mivaAccessToken)) &&
@@ -2442,6 +2456,7 @@ public class AccountCartAdd {
     result = 31 * result + (this.shoplazzaAccessToken == null ? 0: this.shoplazzaAccessToken.hashCode());
     result = 31 * result + (this.shoplazzaSharedSecret == null ? 0: this.shoplazzaSharedSecret.hashCode());
     result = 31 * result + (this.shopwareAccessKey == null ? 0: this.shopwareAccessKey.hashCode());
+    result = 31 * result + (this.unasApiKey == null ? 0: this.unasApiKey.hashCode());
     result = 31 * result + (this.shopwareApiKey == null ? 0: this.shopwareApiKey.hashCode());
     result = 31 * result + (this.shopwareApiSecret == null ? 0: this.shopwareApiSecret.hashCode());
     result = 31 * result + (this.mivaAccessToken == null ? 0: this.mivaAccessToken.hashCode());
@@ -2615,6 +2630,7 @@ public class AccountCartAdd {
     sb.append("  shoplazzaAccessToken: ").append(shoplazzaAccessToken).append("\n");
     sb.append("  shoplazzaSharedSecret: ").append(shoplazzaSharedSecret).append("\n");
     sb.append("  shopwareAccessKey: ").append(shopwareAccessKey).append("\n");
+    sb.append("  unasApiKey: ").append(unasApiKey).append("\n");
     sb.append("  shopwareApiKey: ").append(shopwareApiKey).append("\n");
     sb.append("  shopwareApiSecret: ").append(shopwareApiSecret).append("\n");
     sb.append("  mivaAccessToken: ").append(mivaAccessToken).append("\n");

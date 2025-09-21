@@ -60,7 +60,7 @@ public class ProductUpdate {
   @SerializedName("buyitnow_price")
   private BigDecimal buyitnowPrice = null;
   @SerializedName("taxable")
-  private Boolean taxable = true;
+  private Boolean taxable = null;
   @SerializedName("tax_class_id")
   private String taxClassId = null;
   @SerializedName("type")

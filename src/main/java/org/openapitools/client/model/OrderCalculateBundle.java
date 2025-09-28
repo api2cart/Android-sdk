@@ -19,7 +19,7 @@ import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
 @ApiModel(description = "")
-public class OrderCalculateItem {
+public class OrderCalculateBundle {
   
   @SerializedName("product_id")
   private String productId = null;
@@ -45,8 +45,6 @@ public class OrderCalculateItem {
   private String barcode = null;
   @SerializedName("variant_id")
   private String variantId = null;
-  @SerializedName("bundle_product_id")
-  private String bundleProductId = null;
   @SerializedName("options")
   private List<OrderItemOption> options = null;
   @SerializedName("additional_fields")
@@ -177,16 +175,6 @@ public class OrderCalculateItem {
   /**
    **/
   @ApiModelProperty(value = "")
-  public String getBundleProductId() {
-    return bundleProductId;
-  }
-  public void setBundleProductId(String bundleProductId) {
-    this.bundleProductId = bundleProductId;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
   public List<OrderItemOption> getOptions() {
     return options;
   }
@@ -223,23 +211,22 @@ public class OrderCalculateItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrderCalculateItem orderCalculateItem = (OrderCalculateItem) o;
-    return (this.productId == null ? orderCalculateItem.productId == null : this.productId.equals(orderCalculateItem.productId)) &&
-        (this.sku == null ? orderCalculateItem.sku == null : this.sku.equals(orderCalculateItem.sku)) &&
-        (this.name == null ? orderCalculateItem.name == null : this.name.equals(orderCalculateItem.name)) &&
-        (this.quantity == null ? orderCalculateItem.quantity == null : this.quantity.equals(orderCalculateItem.quantity)) &&
-        (this.price == null ? orderCalculateItem.price == null : this.price.equals(orderCalculateItem.price)) &&
-        (this.priceIncTax == null ? orderCalculateItem.priceIncTax == null : this.priceIncTax.equals(orderCalculateItem.priceIncTax)) &&
-        (this.taxRate == null ? orderCalculateItem.taxRate == null : this.taxRate.equals(orderCalculateItem.taxRate)) &&
-        (this.unitDiscount == null ? orderCalculateItem.unitDiscount == null : this.unitDiscount.equals(orderCalculateItem.unitDiscount)) &&
-        (this.weight == null ? orderCalculateItem.weight == null : this.weight.equals(orderCalculateItem.weight)) &&
-        (this.weightUnit == null ? orderCalculateItem.weightUnit == null : this.weightUnit.equals(orderCalculateItem.weightUnit)) &&
-        (this.barcode == null ? orderCalculateItem.barcode == null : this.barcode.equals(orderCalculateItem.barcode)) &&
-        (this.variantId == null ? orderCalculateItem.variantId == null : this.variantId.equals(orderCalculateItem.variantId)) &&
-        (this.bundleProductId == null ? orderCalculateItem.bundleProductId == null : this.bundleProductId.equals(orderCalculateItem.bundleProductId)) &&
-        (this.options == null ? orderCalculateItem.options == null : this.options.equals(orderCalculateItem.options)) &&
-        (this.additionalFields == null ? orderCalculateItem.additionalFields == null : this.additionalFields.equals(orderCalculateItem.additionalFields)) &&
-        (this.customFields == null ? orderCalculateItem.customFields == null : this.customFields.equals(orderCalculateItem.customFields));
+    OrderCalculateBundle orderCalculateBundle = (OrderCalculateBundle) o;
+    return (this.productId == null ? orderCalculateBundle.productId == null : this.productId.equals(orderCalculateBundle.productId)) &&
+        (this.sku == null ? orderCalculateBundle.sku == null : this.sku.equals(orderCalculateBundle.sku)) &&
+        (this.name == null ? orderCalculateBundle.name == null : this.name.equals(orderCalculateBundle.name)) &&
+        (this.quantity == null ? orderCalculateBundle.quantity == null : this.quantity.equals(orderCalculateBundle.quantity)) &&
+        (this.price == null ? orderCalculateBundle.price == null : this.price.equals(orderCalculateBundle.price)) &&
+        (this.priceIncTax == null ? orderCalculateBundle.priceIncTax == null : this.priceIncTax.equals(orderCalculateBundle.priceIncTax)) &&
+        (this.taxRate == null ? orderCalculateBundle.taxRate == null : this.taxRate.equals(orderCalculateBundle.taxRate)) &&
+        (this.unitDiscount == null ? orderCalculateBundle.unitDiscount == null : this.unitDiscount.equals(orderCalculateBundle.unitDiscount)) &&
+        (this.weight == null ? orderCalculateBundle.weight == null : this.weight.equals(orderCalculateBundle.weight)) &&
+        (this.weightUnit == null ? orderCalculateBundle.weightUnit == null : this.weightUnit.equals(orderCalculateBundle.weightUnit)) &&
+        (this.barcode == null ? orderCalculateBundle.barcode == null : this.barcode.equals(orderCalculateBundle.barcode)) &&
+        (this.variantId == null ? orderCalculateBundle.variantId == null : this.variantId.equals(orderCalculateBundle.variantId)) &&
+        (this.options == null ? orderCalculateBundle.options == null : this.options.equals(orderCalculateBundle.options)) &&
+        (this.additionalFields == null ? orderCalculateBundle.additionalFields == null : this.additionalFields.equals(orderCalculateBundle.additionalFields)) &&
+        (this.customFields == null ? orderCalculateBundle.customFields == null : this.customFields.equals(orderCalculateBundle.customFields));
   }
 
   @Override
@@ -257,7 +244,6 @@ public class OrderCalculateItem {
     result = 31 * result + (this.weightUnit == null ? 0: this.weightUnit.hashCode());
     result = 31 * result + (this.barcode == null ? 0: this.barcode.hashCode());
     result = 31 * result + (this.variantId == null ? 0: this.variantId.hashCode());
-    result = 31 * result + (this.bundleProductId == null ? 0: this.bundleProductId.hashCode());
     result = 31 * result + (this.options == null ? 0: this.options.hashCode());
     result = 31 * result + (this.additionalFields == null ? 0: this.additionalFields.hashCode());
     result = 31 * result + (this.customFields == null ? 0: this.customFields.hashCode());
@@ -267,7 +253,7 @@ public class OrderCalculateItem {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrderCalculateItem {\n");
+    sb.append("class OrderCalculateBundle {\n");
     
     sb.append("  productId: ").append(productId).append("\n");
     sb.append("  sku: ").append(sku).append("\n");
@@ -281,7 +267,6 @@ public class OrderCalculateItem {
     sb.append("  weightUnit: ").append(weightUnit).append("\n");
     sb.append("  barcode: ").append(barcode).append("\n");
     sb.append("  variantId: ").append(variantId).append("\n");
-    sb.append("  bundleProductId: ").append(bundleProductId).append("\n");
     sb.append("  options: ").append(options).append("\n");
     sb.append("  additionalFields: ").append(additionalFields).append("\n");
     sb.append("  customFields: ").append(customFields).append("\n");

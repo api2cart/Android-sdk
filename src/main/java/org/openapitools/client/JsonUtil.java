@@ -821,6 +821,10 @@ public class JsonUtil {
       return new TypeToken<List<OrderCalculate200Response>>(){}.getType();
     }
     
+    if ("OrderCalculateBundle".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCalculateBundle>>(){}.getType();
+    }
+    
     if ("OrderCalculateDiscount".equalsIgnoreCase(className)) {
       return new TypeToken<List<OrderCalculateDiscount>>(){}.getType();
     }
@@ -1091,6 +1095,10 @@ public class JsonUtil {
     
     if ("ProductAddBatchPayloadInnerImagesInner".equalsIgnoreCase(className)) {
       return new TypeToken<List<ProductAddBatchPayloadInnerImagesInner>>(){}.getType();
+    }
+    
+    if ("ProductAddBatchPayloadInnerSalesTax".equalsIgnoreCase(className)) {
+      return new TypeToken<List<ProductAddBatchPayloadInnerSalesTax>>(){}.getType();
     }
     
     if ("ProductAddBestOffer".equalsIgnoreCase(className)) {
@@ -2539,6 +2547,10 @@ public class JsonUtil {
       return new TypeToken<OrderCalculate200Response>(){}.getType();
     }
     
+    if ("OrderCalculateBundle".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCalculateBundle>(){}.getType();
+    }
+    
     if ("OrderCalculateDiscount".equalsIgnoreCase(className)) {
       return new TypeToken<OrderCalculateDiscount>(){}.getType();
     }
@@ -2809,6 +2821,10 @@ public class JsonUtil {
     
     if ("ProductAddBatchPayloadInnerImagesInner".equalsIgnoreCase(className)) {
       return new TypeToken<ProductAddBatchPayloadInnerImagesInner>(){}.getType();
+    }
+    
+    if ("ProductAddBatchPayloadInnerSalesTax".equalsIgnoreCase(className)) {
+      return new TypeToken<ProductAddBatchPayloadInnerSalesTax>(){}.getType();
     }
     
     if ("ProductAddBestOffer".equalsIgnoreCase(className)) {

@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.ProductAddBatchPayloadInnerAdvancedPricesInner;
 import org.openapitools.client.model.ProductAddBatchPayloadInnerImagesInner;
+import org.openapitools.client.model.ProductAddBatchPayloadInnerSalesTax;
 import org.openapitools.client.model.ProductAddFilesInner;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -43,6 +44,8 @@ public class ProductAddBatchPayloadInner {
   private String gtin = null;
   @SerializedName("mpn")
   private String mpn = null;
+  @SerializedName("isbn")
+  private String isbn = null;
   @SerializedName("barcode")
   private String barcode = null;
   @SerializedName("price")
@@ -57,10 +60,18 @@ public class ProductAddBatchPayloadInner {
   private String spriceCreate = null;
   @SerializedName("sprice_expire")
   private String spriceExpire = null;
+  @SerializedName("avail_from")
+  private String availFrom = null;
   @SerializedName("advanced_prices")
   private List<ProductAddBatchPayloadInnerAdvancedPricesInner> advancedPrices = null;
   @SerializedName("fixed_cost_shipping_price")
   private BigDecimal fixedCostShippingPrice = null;
+  @SerializedName("buyitnow_price")
+  private BigDecimal buyitnowPrice = null;
+  @SerializedName("reserve_price")
+  private BigDecimal reservePrice = null;
+  @SerializedName("best_offer")
+  private BigDecimal bestOffer = null;
   @SerializedName("quantity")
   private BigDecimal quantity = null;
   @SerializedName("manage_stock")
@@ -79,6 +90,8 @@ public class ProductAddBatchPayloadInner {
   private String status = null;
   @SerializedName("condition")
   private String condition = null;
+  @SerializedName("condition_description")
+  private String conditionDescription = null;
   @SerializedName("visible")
   private String visible = null;
   @SerializedName("available_for_view")
@@ -91,6 +104,10 @@ public class ProductAddBatchPayloadInner {
   private Boolean inStock = null;
   @SerializedName("type")
   private String type = null;
+  @SerializedName("listing_type")
+  private String listingType = null;
+  @SerializedName("listing_duration")
+  private String listingDuration = null;
   @SerializedName("downloadable")
   private Boolean downloadable = null;
   @SerializedName("weight")
@@ -125,6 +142,8 @@ public class ProductAddBatchPayloadInner {
   private List<String> storesIds = null;
   @SerializedName("tax_class_id")
   private String taxClassId = null;
+  @SerializedName("sales_tax")
+  private ProductAddBatchPayloadInnerSalesTax salesTax = null;
   @SerializedName("meta_title")
   private String metaTitle = null;
   @SerializedName("meta_description")
@@ -257,6 +276,16 @@ public class ProductAddBatchPayloadInner {
   /**
    **/
   @ApiModelProperty(value = "")
+  public String getIsbn() {
+    return isbn;
+  }
+  public void setIsbn(String isbn) {
+    this.isbn = isbn;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public String getBarcode() {
     return barcode;
   }
@@ -327,6 +356,16 @@ public class ProductAddBatchPayloadInner {
   /**
    **/
   @ApiModelProperty(value = "")
+  public String getAvailFrom() {
+    return availFrom;
+  }
+  public void setAvailFrom(String availFrom) {
+    this.availFrom = availFrom;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public List<ProductAddBatchPayloadInnerAdvancedPricesInner> getAdvancedPrices() {
     return advancedPrices;
   }
@@ -342,6 +381,36 @@ public class ProductAddBatchPayloadInner {
   }
   public void setFixedCostShippingPrice(BigDecimal fixedCostShippingPrice) {
     this.fixedCostShippingPrice = fixedCostShippingPrice;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getBuyitnowPrice() {
+    return buyitnowPrice;
+  }
+  public void setBuyitnowPrice(BigDecimal buyitnowPrice) {
+    this.buyitnowPrice = buyitnowPrice;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getReservePrice() {
+    return reservePrice;
+  }
+  public void setReservePrice(BigDecimal reservePrice) {
+    this.reservePrice = reservePrice;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getBestOffer() {
+    return bestOffer;
+  }
+  public void setBestOffer(BigDecimal bestOffer) {
+    this.bestOffer = bestOffer;
   }
 
   /**
@@ -437,6 +506,16 @@ public class ProductAddBatchPayloadInner {
   /**
    **/
   @ApiModelProperty(value = "")
+  public String getConditionDescription() {
+    return conditionDescription;
+  }
+  public void setConditionDescription(String conditionDescription) {
+    this.conditionDescription = conditionDescription;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public String getVisible() {
     return visible;
   }
@@ -492,6 +571,26 @@ public class ProductAddBatchPayloadInner {
   }
   public void setType(String type) {
     this.type = type;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public String getListingType() {
+    return listingType;
+  }
+  public void setListingType(String listingType) {
+    this.listingType = listingType;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public String getListingDuration() {
+    return listingDuration;
+  }
+  public void setListingDuration(String listingDuration) {
+    this.listingDuration = listingDuration;
   }
 
   /**
@@ -667,6 +766,16 @@ public class ProductAddBatchPayloadInner {
   /**
    **/
   @ApiModelProperty(value = "")
+  public ProductAddBatchPayloadInnerSalesTax getSalesTax() {
+    return salesTax;
+  }
+  public void setSalesTax(ProductAddBatchPayloadInnerSalesTax salesTax) {
+    this.salesTax = salesTax;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
   public String getMetaTitle() {
     return metaTitle;
   }
@@ -824,6 +933,7 @@ public class ProductAddBatchPayloadInner {
         (this.ean == null ? productAddBatchPayloadInner.ean == null : this.ean.equals(productAddBatchPayloadInner.ean)) &&
         (this.gtin == null ? productAddBatchPayloadInner.gtin == null : this.gtin.equals(productAddBatchPayloadInner.gtin)) &&
         (this.mpn == null ? productAddBatchPayloadInner.mpn == null : this.mpn.equals(productAddBatchPayloadInner.mpn)) &&
+        (this.isbn == null ? productAddBatchPayloadInner.isbn == null : this.isbn.equals(productAddBatchPayloadInner.isbn)) &&
         (this.barcode == null ? productAddBatchPayloadInner.barcode == null : this.barcode.equals(productAddBatchPayloadInner.barcode)) &&
         (this.price == null ? productAddBatchPayloadInner.price == null : this.price.equals(productAddBatchPayloadInner.price)) &&
         (this.oldPrice == null ? productAddBatchPayloadInner.oldPrice == null : this.oldPrice.equals(productAddBatchPayloadInner.oldPrice)) &&
@@ -831,8 +941,12 @@ public class ProductAddBatchPayloadInner {
         (this.specialPrice == null ? productAddBatchPayloadInner.specialPrice == null : this.specialPrice.equals(productAddBatchPayloadInner.specialPrice)) &&
         (this.spriceCreate == null ? productAddBatchPayloadInner.spriceCreate == null : this.spriceCreate.equals(productAddBatchPayloadInner.spriceCreate)) &&
         (this.spriceExpire == null ? productAddBatchPayloadInner.spriceExpire == null : this.spriceExpire.equals(productAddBatchPayloadInner.spriceExpire)) &&
+        (this.availFrom == null ? productAddBatchPayloadInner.availFrom == null : this.availFrom.equals(productAddBatchPayloadInner.availFrom)) &&
         (this.advancedPrices == null ? productAddBatchPayloadInner.advancedPrices == null : this.advancedPrices.equals(productAddBatchPayloadInner.advancedPrices)) &&
         (this.fixedCostShippingPrice == null ? productAddBatchPayloadInner.fixedCostShippingPrice == null : this.fixedCostShippingPrice.equals(productAddBatchPayloadInner.fixedCostShippingPrice)) &&
+        (this.buyitnowPrice == null ? productAddBatchPayloadInner.buyitnowPrice == null : this.buyitnowPrice.equals(productAddBatchPayloadInner.buyitnowPrice)) &&
+        (this.reservePrice == null ? productAddBatchPayloadInner.reservePrice == null : this.reservePrice.equals(productAddBatchPayloadInner.reservePrice)) &&
+        (this.bestOffer == null ? productAddBatchPayloadInner.bestOffer == null : this.bestOffer.equals(productAddBatchPayloadInner.bestOffer)) &&
         (this.quantity == null ? productAddBatchPayloadInner.quantity == null : this.quantity.equals(productAddBatchPayloadInner.quantity)) &&
         (this.manageStock == null ? productAddBatchPayloadInner.manageStock == null : this.manageStock.equals(productAddBatchPayloadInner.manageStock)) &&
         (this.productType == null ? productAddBatchPayloadInner.productType == null : this.productType.equals(productAddBatchPayloadInner.productType)) &&
@@ -842,12 +956,15 @@ public class ProductAddBatchPayloadInner {
         (this.taxable == null ? productAddBatchPayloadInner.taxable == null : this.taxable.equals(productAddBatchPayloadInner.taxable)) &&
         (this.status == null ? productAddBatchPayloadInner.status == null : this.status.equals(productAddBatchPayloadInner.status)) &&
         (this.condition == null ? productAddBatchPayloadInner.condition == null : this.condition.equals(productAddBatchPayloadInner.condition)) &&
+        (this.conditionDescription == null ? productAddBatchPayloadInner.conditionDescription == null : this.conditionDescription.equals(productAddBatchPayloadInner.conditionDescription)) &&
         (this.visible == null ? productAddBatchPayloadInner.visible == null : this.visible.equals(productAddBatchPayloadInner.visible)) &&
         (this.availableForView == null ? productAddBatchPayloadInner.availableForView == null : this.availableForView.equals(productAddBatchPayloadInner.availableForView)) &&
         (this.availableForSale == null ? productAddBatchPayloadInner.availableForSale == null : this.availableForSale.equals(productAddBatchPayloadInner.availableForSale)) &&
         (this.isVirtual == null ? productAddBatchPayloadInner.isVirtual == null : this.isVirtual.equals(productAddBatchPayloadInner.isVirtual)) &&
         (this.inStock == null ? productAddBatchPayloadInner.inStock == null : this.inStock.equals(productAddBatchPayloadInner.inStock)) &&
         (this.type == null ? productAddBatchPayloadInner.type == null : this.type.equals(productAddBatchPayloadInner.type)) &&
+        (this.listingType == null ? productAddBatchPayloadInner.listingType == null : this.listingType.equals(productAddBatchPayloadInner.listingType)) &&
+        (this.listingDuration == null ? productAddBatchPayloadInner.listingDuration == null : this.listingDuration.equals(productAddBatchPayloadInner.listingDuration)) &&
         (this.downloadable == null ? productAddBatchPayloadInner.downloadable == null : this.downloadable.equals(productAddBatchPayloadInner.downloadable)) &&
         (this.weight == null ? productAddBatchPayloadInner.weight == null : this.weight.equals(productAddBatchPayloadInner.weight)) &&
         (this.length == null ? productAddBatchPayloadInner.length == null : this.length.equals(productAddBatchPayloadInner.length)) &&
@@ -865,6 +982,7 @@ public class ProductAddBatchPayloadInner {
         (this.crossSellProductsIds == null ? productAddBatchPayloadInner.crossSellProductsIds == null : this.crossSellProductsIds.equals(productAddBatchPayloadInner.crossSellProductsIds)) &&
         (this.storesIds == null ? productAddBatchPayloadInner.storesIds == null : this.storesIds.equals(productAddBatchPayloadInner.storesIds)) &&
         (this.taxClassId == null ? productAddBatchPayloadInner.taxClassId == null : this.taxClassId.equals(productAddBatchPayloadInner.taxClassId)) &&
+        (this.salesTax == null ? productAddBatchPayloadInner.salesTax == null : this.salesTax.equals(productAddBatchPayloadInner.salesTax)) &&
         (this.metaTitle == null ? productAddBatchPayloadInner.metaTitle == null : this.metaTitle.equals(productAddBatchPayloadInner.metaTitle)) &&
         (this.metaDescription == null ? productAddBatchPayloadInner.metaDescription == null : this.metaDescription.equals(productAddBatchPayloadInner.metaDescription)) &&
         (this.metaKeywords == null ? productAddBatchPayloadInner.metaKeywords == null : this.metaKeywords.equals(productAddBatchPayloadInner.metaKeywords)) &&
@@ -894,6 +1012,7 @@ public class ProductAddBatchPayloadInner {
     result = 31 * result + (this.ean == null ? 0: this.ean.hashCode());
     result = 31 * result + (this.gtin == null ? 0: this.gtin.hashCode());
     result = 31 * result + (this.mpn == null ? 0: this.mpn.hashCode());
+    result = 31 * result + (this.isbn == null ? 0: this.isbn.hashCode());
     result = 31 * result + (this.barcode == null ? 0: this.barcode.hashCode());
     result = 31 * result + (this.price == null ? 0: this.price.hashCode());
     result = 31 * result + (this.oldPrice == null ? 0: this.oldPrice.hashCode());
@@ -901,8 +1020,12 @@ public class ProductAddBatchPayloadInner {
     result = 31 * result + (this.specialPrice == null ? 0: this.specialPrice.hashCode());
     result = 31 * result + (this.spriceCreate == null ? 0: this.spriceCreate.hashCode());
     result = 31 * result + (this.spriceExpire == null ? 0: this.spriceExpire.hashCode());
+    result = 31 * result + (this.availFrom == null ? 0: this.availFrom.hashCode());
     result = 31 * result + (this.advancedPrices == null ? 0: this.advancedPrices.hashCode());
     result = 31 * result + (this.fixedCostShippingPrice == null ? 0: this.fixedCostShippingPrice.hashCode());
+    result = 31 * result + (this.buyitnowPrice == null ? 0: this.buyitnowPrice.hashCode());
+    result = 31 * result + (this.reservePrice == null ? 0: this.reservePrice.hashCode());
+    result = 31 * result + (this.bestOffer == null ? 0: this.bestOffer.hashCode());
     result = 31 * result + (this.quantity == null ? 0: this.quantity.hashCode());
     result = 31 * result + (this.manageStock == null ? 0: this.manageStock.hashCode());
     result = 31 * result + (this.productType == null ? 0: this.productType.hashCode());
@@ -912,12 +1035,15 @@ public class ProductAddBatchPayloadInner {
     result = 31 * result + (this.taxable == null ? 0: this.taxable.hashCode());
     result = 31 * result + (this.status == null ? 0: this.status.hashCode());
     result = 31 * result + (this.condition == null ? 0: this.condition.hashCode());
+    result = 31 * result + (this.conditionDescription == null ? 0: this.conditionDescription.hashCode());
     result = 31 * result + (this.visible == null ? 0: this.visible.hashCode());
     result = 31 * result + (this.availableForView == null ? 0: this.availableForView.hashCode());
     result = 31 * result + (this.availableForSale == null ? 0: this.availableForSale.hashCode());
     result = 31 * result + (this.isVirtual == null ? 0: this.isVirtual.hashCode());
     result = 31 * result + (this.inStock == null ? 0: this.inStock.hashCode());
     result = 31 * result + (this.type == null ? 0: this.type.hashCode());
+    result = 31 * result + (this.listingType == null ? 0: this.listingType.hashCode());
+    result = 31 * result + (this.listingDuration == null ? 0: this.listingDuration.hashCode());
     result = 31 * result + (this.downloadable == null ? 0: this.downloadable.hashCode());
     result = 31 * result + (this.weight == null ? 0: this.weight.hashCode());
     result = 31 * result + (this.length == null ? 0: this.length.hashCode());
@@ -935,6 +1061,7 @@ public class ProductAddBatchPayloadInner {
     result = 31 * result + (this.crossSellProductsIds == null ? 0: this.crossSellProductsIds.hashCode());
     result = 31 * result + (this.storesIds == null ? 0: this.storesIds.hashCode());
     result = 31 * result + (this.taxClassId == null ? 0: this.taxClassId.hashCode());
+    result = 31 * result + (this.salesTax == null ? 0: this.salesTax.hashCode());
     result = 31 * result + (this.metaTitle == null ? 0: this.metaTitle.hashCode());
     result = 31 * result + (this.metaDescription == null ? 0: this.metaDescription.hashCode());
     result = 31 * result + (this.metaKeywords == null ? 0: this.metaKeywords.hashCode());
@@ -967,6 +1094,7 @@ public class ProductAddBatchPayloadInner {
     sb.append("  ean: ").append(ean).append("\n");
     sb.append("  gtin: ").append(gtin).append("\n");
     sb.append("  mpn: ").append(mpn).append("\n");
+    sb.append("  isbn: ").append(isbn).append("\n");
     sb.append("  barcode: ").append(barcode).append("\n");
     sb.append("  price: ").append(price).append("\n");
     sb.append("  oldPrice: ").append(oldPrice).append("\n");
@@ -974,8 +1102,12 @@ public class ProductAddBatchPayloadInner {
     sb.append("  specialPrice: ").append(specialPrice).append("\n");
     sb.append("  spriceCreate: ").append(spriceCreate).append("\n");
     sb.append("  spriceExpire: ").append(spriceExpire).append("\n");
+    sb.append("  availFrom: ").append(availFrom).append("\n");
     sb.append("  advancedPrices: ").append(advancedPrices).append("\n");
     sb.append("  fixedCostShippingPrice: ").append(fixedCostShippingPrice).append("\n");
+    sb.append("  buyitnowPrice: ").append(buyitnowPrice).append("\n");
+    sb.append("  reservePrice: ").append(reservePrice).append("\n");
+    sb.append("  bestOffer: ").append(bestOffer).append("\n");
     sb.append("  quantity: ").append(quantity).append("\n");
     sb.append("  manageStock: ").append(manageStock).append("\n");
     sb.append("  productType: ").append(productType).append("\n");
@@ -985,12 +1117,15 @@ public class ProductAddBatchPayloadInner {
     sb.append("  taxable: ").append(taxable).append("\n");
     sb.append("  status: ").append(status).append("\n");
     sb.append("  condition: ").append(condition).append("\n");
+    sb.append("  conditionDescription: ").append(conditionDescription).append("\n");
     sb.append("  visible: ").append(visible).append("\n");
     sb.append("  availableForView: ").append(availableForView).append("\n");
     sb.append("  availableForSale: ").append(availableForSale).append("\n");
     sb.append("  isVirtual: ").append(isVirtual).append("\n");
     sb.append("  inStock: ").append(inStock).append("\n");
     sb.append("  type: ").append(type).append("\n");
+    sb.append("  listingType: ").append(listingType).append("\n");
+    sb.append("  listingDuration: ").append(listingDuration).append("\n");
     sb.append("  downloadable: ").append(downloadable).append("\n");
     sb.append("  weight: ").append(weight).append("\n");
     sb.append("  length: ").append(length).append("\n");
@@ -1008,6 +1143,7 @@ public class ProductAddBatchPayloadInner {
     sb.append("  crossSellProductsIds: ").append(crossSellProductsIds).append("\n");
     sb.append("  storesIds: ").append(storesIds).append("\n");
     sb.append("  taxClassId: ").append(taxClassId).append("\n");
+    sb.append("  salesTax: ").append(salesTax).append("\n");
     sb.append("  metaTitle: ").append(metaTitle).append("\n");
     sb.append("  metaDescription: ").append(metaDescription).append("\n");
     sb.append("  metaKeywords: ").append(metaKeywords).append("\n");

@@ -26,6 +26,10 @@ public class OrderCalculateOrderItemInner {
   private Integer orderItemQuantity = null;
   @SerializedName("order_item_variant_id")
   private String orderItemVariantId = null;
+  @SerializedName("order_item_parent")
+  private Integer orderItemParent = null;
+  @SerializedName("order_item_parent_option_name")
+  private String orderItemParentOptionName = null;
   @SerializedName("order_item_option")
   private List<OrderCalculateOrderItemInnerOrderItemOptionInner> orderItemOption = null;
 
@@ -63,6 +67,28 @@ public class OrderCalculateOrderItemInner {
   }
 
   /**
+   * Index of the parent grouped/bundle product
+   **/
+  @ApiModelProperty(value = "Index of the parent grouped/bundle product")
+  public Integer getOrderItemParent() {
+    return orderItemParent;
+  }
+  public void setOrderItemParent(Integer orderItemParent) {
+    this.orderItemParent = orderItemParent;
+  }
+
+  /**
+   * Option name of the parent grouped/bundle product
+   **/
+  @ApiModelProperty(value = "Option name of the parent grouped/bundle product")
+  public String getOrderItemParentOptionName() {
+    return orderItemParentOptionName;
+  }
+  public void setOrderItemParentOptionName(String orderItemParentOptionName) {
+    this.orderItemParentOptionName = orderItemParentOptionName;
+  }
+
+  /**
    **/
   @ApiModelProperty(value = "")
   public List<OrderCalculateOrderItemInnerOrderItemOptionInner> getOrderItemOption() {
@@ -85,6 +111,8 @@ public class OrderCalculateOrderItemInner {
     return (this.orderItemId == null ? orderCalculateOrderItemInner.orderItemId == null : this.orderItemId.equals(orderCalculateOrderItemInner.orderItemId)) &&
         (this.orderItemQuantity == null ? orderCalculateOrderItemInner.orderItemQuantity == null : this.orderItemQuantity.equals(orderCalculateOrderItemInner.orderItemQuantity)) &&
         (this.orderItemVariantId == null ? orderCalculateOrderItemInner.orderItemVariantId == null : this.orderItemVariantId.equals(orderCalculateOrderItemInner.orderItemVariantId)) &&
+        (this.orderItemParent == null ? orderCalculateOrderItemInner.orderItemParent == null : this.orderItemParent.equals(orderCalculateOrderItemInner.orderItemParent)) &&
+        (this.orderItemParentOptionName == null ? orderCalculateOrderItemInner.orderItemParentOptionName == null : this.orderItemParentOptionName.equals(orderCalculateOrderItemInner.orderItemParentOptionName)) &&
         (this.orderItemOption == null ? orderCalculateOrderItemInner.orderItemOption == null : this.orderItemOption.equals(orderCalculateOrderItemInner.orderItemOption));
   }
 
@@ -94,6 +122,8 @@ public class OrderCalculateOrderItemInner {
     result = 31 * result + (this.orderItemId == null ? 0: this.orderItemId.hashCode());
     result = 31 * result + (this.orderItemQuantity == null ? 0: this.orderItemQuantity.hashCode());
     result = 31 * result + (this.orderItemVariantId == null ? 0: this.orderItemVariantId.hashCode());
+    result = 31 * result + (this.orderItemParent == null ? 0: this.orderItemParent.hashCode());
+    result = 31 * result + (this.orderItemParentOptionName == null ? 0: this.orderItemParentOptionName.hashCode());
     result = 31 * result + (this.orderItemOption == null ? 0: this.orderItemOption.hashCode());
     return result;
   }
@@ -106,6 +136,8 @@ public class OrderCalculateOrderItemInner {
     sb.append("  orderItemId: ").append(orderItemId).append("\n");
     sb.append("  orderItemQuantity: ").append(orderItemQuantity).append("\n");
     sb.append("  orderItemVariantId: ").append(orderItemVariantId).append("\n");
+    sb.append("  orderItemParent: ").append(orderItemParent).append("\n");
+    sb.append("  orderItemParentOptionName: ").append(orderItemParentOptionName).append("\n");
     sb.append("  orderItemOption: ").append(orderItemOption).append("\n");
     sb.append("}\n");
     return sb.toString();

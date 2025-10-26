@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **url** | **String** |  |  [optional]
 **version** | **String** |  |  [optional]
 **bridgeVersion** | **String** |  |  [optional]
+**defaultRoundingPrecision** | **Integer** |  |  [optional]
 **dbPrefix** | **String** |  |  [optional]
 **storesInfo** | [**List&lt;CartStoreInfo&gt;**](CartStoreInfo.md) |  |  [optional]
 **warehouses** | [**List&lt;CartWarehouse&gt;**](CartWarehouse.md) |  |  [optional]

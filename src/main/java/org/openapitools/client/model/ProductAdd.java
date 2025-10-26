@@ -225,6 +225,8 @@ public class ProductAdd {
   private String paypalEmail = null;
   @SerializedName("shipping_template_id")
   private Integer shippingTemplateId = 0;
+  @SerializedName("processing_profile_id")
+  private Integer processingProfileId = null;
   @SerializedName("shipping_details")
   private List<ProductAddShippingDetailsInner> shippingDetails = null;
   @SerializedName("is_free_shipping")
@@ -1315,6 +1317,17 @@ public class ProductAdd {
   }
 
   /**
+   * The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id.
+   **/
+  @ApiModelProperty(value = "The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id.")
+  public Integer getProcessingProfileId() {
+    return processingProfileId;
+  }
+  public void setProcessingProfileId(Integer processingProfileId) {
+    this.processingProfileId = processingProfileId;
+  }
+
+  /**
    * The shipping details, including flat and calculated shipping costs and shipping insurance costs. Look at cart.info method response for allowed values.<hr><div style=\"font-style:normal\">Param structure:<div style=\"margin-left: 2%;\"><code style=\"padding:0; background-color:#ffffff;font-size:85%;font-family:monospace;\">shipping_details[0][<b>shipping_type</b>] = string </br>shipping_details[0][<b>shipping_service</b>] = string</br>shipping_details[0][<b>shipping_cost</b>] = decimal</br>shipping_details[1][<b>shipping_type</b>] = string </br>shipping_details[1][<b>shipping_service</b>] = string</br>shipping_details[1][<b>shipping_cost</b>] = decimal</br></code></div></div>
    **/
   @ApiModelProperty(value = "The shipping details, including flat and calculated shipping costs and shipping insurance costs. Look at cart.info method response for allowed values.<hr><div style=\"font-style:normal\">Param structure:<div style=\"margin-left: 2%;\"><code style=\"padding:0; background-color:#ffffff;font-size:85%;font-family:monospace;\">shipping_details[0][<b>shipping_type</b>] = string </br>shipping_details[0][<b>shipping_service</b>] = string</br>shipping_details[0][<b>shipping_cost</b>] = decimal</br>shipping_details[1][<b>shipping_type</b>] = string </br>shipping_details[1][<b>shipping_service</b>] = string</br>shipping_details[1][<b>shipping_cost</b>] = decimal</br></code></div></div>")
@@ -1668,6 +1681,7 @@ public class ProductAdd {
         (this.paymentMethods == null ? productAdd.paymentMethods == null : this.paymentMethods.equals(productAdd.paymentMethods)) &&
         (this.paypalEmail == null ? productAdd.paypalEmail == null : this.paypalEmail.equals(productAdd.paypalEmail)) &&
         (this.shippingTemplateId == null ? productAdd.shippingTemplateId == null : this.shippingTemplateId.equals(productAdd.shippingTemplateId)) &&
+        (this.processingProfileId == null ? productAdd.processingProfileId == null : this.processingProfileId.equals(productAdd.processingProfileId)) &&
         (this.shippingDetails == null ? productAdd.shippingDetails == null : this.shippingDetails.equals(productAdd.shippingDetails)) &&
         (this.isFreeShipping == null ? productAdd.isFreeShipping == null : this.isFreeShipping.equals(productAdd.isFreeShipping)) &&
         (this.deliveryCode == null ? productAdd.deliveryCode == null : this.deliveryCode.equals(productAdd.deliveryCode)) &&
@@ -1791,6 +1805,7 @@ public class ProductAdd {
     result = 31 * result + (this.paymentMethods == null ? 0: this.paymentMethods.hashCode());
     result = 31 * result + (this.paypalEmail == null ? 0: this.paypalEmail.hashCode());
     result = 31 * result + (this.shippingTemplateId == null ? 0: this.shippingTemplateId.hashCode());
+    result = 31 * result + (this.processingProfileId == null ? 0: this.processingProfileId.hashCode());
     result = 31 * result + (this.shippingDetails == null ? 0: this.shippingDetails.hashCode());
     result = 31 * result + (this.isFreeShipping == null ? 0: this.isFreeShipping.hashCode());
     result = 31 * result + (this.deliveryCode == null ? 0: this.deliveryCode.hashCode());
@@ -1917,6 +1932,7 @@ public class ProductAdd {
     sb.append("  paymentMethods: ").append(paymentMethods).append("\n");
     sb.append("  paypalEmail: ").append(paypalEmail).append("\n");
     sb.append("  shippingTemplateId: ").append(shippingTemplateId).append("\n");
+    sb.append("  processingProfileId: ").append(processingProfileId).append("\n");
     sb.append("  shippingDetails: ").append(shippingDetails).append("\n");
     sb.append("  isFreeShipping: ").append(isFreeShipping).append("\n");
     sb.append("  deliveryCode: ").append(deliveryCode).append("\n");

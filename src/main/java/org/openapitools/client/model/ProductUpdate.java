@@ -167,6 +167,8 @@ public class ProductUpdate {
   private String harmonizedSystemCode = null;
   @SerializedName("shipping_template_id")
   private Integer shippingTemplateId = 0;
+  @SerializedName("processing_profile_id")
+  private Integer processingProfileId = null;
   @SerializedName("when_made")
   private String whenMade = made_to_order;
   @SerializedName("is_supply")
@@ -987,6 +989,17 @@ public class ProductUpdate {
   }
 
   /**
+   * The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id.
+   **/
+  @ApiModelProperty(value = "The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id.")
+  public Integer getProcessingProfileId() {
+    return processingProfileId;
+  }
+  public void setProcessingProfileId(Integer processingProfileId) {
+    this.processingProfileId = processingProfileId;
+  }
+
+  /**
    * An enumerated string for the era in which the maker made the product.
    **/
   @ApiModelProperty(value = "An enumerated string for the era in which the maker made the product.")
@@ -1274,6 +1287,7 @@ public class ProductUpdate {
         (this.countryOfOrigin == null ? productUpdate.countryOfOrigin == null : this.countryOfOrigin.equals(productUpdate.countryOfOrigin)) &&
         (this.harmonizedSystemCode == null ? productUpdate.harmonizedSystemCode == null : this.harmonizedSystemCode.equals(productUpdate.harmonizedSystemCode)) &&
         (this.shippingTemplateId == null ? productUpdate.shippingTemplateId == null : this.shippingTemplateId.equals(productUpdate.shippingTemplateId)) &&
+        (this.processingProfileId == null ? productUpdate.processingProfileId == null : this.processingProfileId.equals(productUpdate.processingProfileId)) &&
         (this.whenMade == null ? productUpdate.whenMade == null : this.whenMade.equals(productUpdate.whenMade)) &&
         (this.isSupply == null ? productUpdate.isSupply == null : this.isSupply.equals(productUpdate.isSupply)) &&
         (this.downloadable == null ? productUpdate.downloadable == null : this.downloadable.equals(productUpdate.downloadable)) &&
@@ -1369,6 +1383,7 @@ public class ProductUpdate {
     result = 31 * result + (this.countryOfOrigin == null ? 0: this.countryOfOrigin.hashCode());
     result = 31 * result + (this.harmonizedSystemCode == null ? 0: this.harmonizedSystemCode.hashCode());
     result = 31 * result + (this.shippingTemplateId == null ? 0: this.shippingTemplateId.hashCode());
+    result = 31 * result + (this.processingProfileId == null ? 0: this.processingProfileId.hashCode());
     result = 31 * result + (this.whenMade == null ? 0: this.whenMade.hashCode());
     result = 31 * result + (this.isSupply == null ? 0: this.isSupply.hashCode());
     result = 31 * result + (this.downloadable == null ? 0: this.downloadable.hashCode());
@@ -1467,6 +1482,7 @@ public class ProductUpdate {
     sb.append("  countryOfOrigin: ").append(countryOfOrigin).append("\n");
     sb.append("  harmonizedSystemCode: ").append(harmonizedSystemCode).append("\n");
     sb.append("  shippingTemplateId: ").append(shippingTemplateId).append("\n");
+    sb.append("  processingProfileId: ").append(processingProfileId).append("\n");
     sb.append("  whenMade: ").append(whenMade).append("\n");
     sb.append("  isSupply: ").append(isSupply).append("\n");
     sb.append("  downloadable: ").append(downloadable).append("\n");

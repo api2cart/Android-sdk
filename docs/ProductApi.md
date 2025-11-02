@@ -621,7 +621,7 @@ Name | Type | Description  | Notes
 
 ## productCount
 
-> ProductCount200Response productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
+> ProductCount200Response productCount(sku, productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, manufacturerId, productAttributes, status, type, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion)
 
 product.count
 
@@ -634,6 +634,7 @@ Count products in store.
 //import org.openapitools.client.api.ProductApi;
 
 ProductApi apiInstance = new ProductApi();
+String sku = bag_01; // String | Filter by product's sku
 String productIds = 4,5; // String | Counts products specified by product ids
 String sinceId = 56; // String | Retrieve entities starting from the specified id.
 String categoriesIds = 23,56; // String | Defines product add that is specified by comma-separated categories id
@@ -647,6 +648,7 @@ String createdTo = 2100-08-29 13:45:52; // String | Retrieve entities to their c
 String modifiedFrom = 2010-07-29 13:45:52; // String | Retrieve entities from their modification date
 String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their modification date
 String brandName = Abidas; // String | Retrieves brands specified by brand name
+String manufacturerId = 1; // String | Defines product's manufacturer by manufacturer_id
 List<String> productAttributes = product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2; // List<String> | Defines product attributes
 String status = disabled; // String | Defines product's status
 String type = simple; // String | Defines products's type
@@ -658,7 +660,7 @@ Boolean returnGlobal = false; // Boolean | Determines the type of products to be
 Boolean disableReportCache = false; // Boolean | Disable report cache for current request
 Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
 try {
-    ProductCount200Response result = apiInstance.productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion);
+    ProductCount200Response result = apiInstance.productCount(sku, productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, manufacturerId, productAttributes, status, type, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productCount");
@@ -671,6 +673,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sku** | **String**| Filter by product&#39;s sku | [optional] [default to null]
  **productIds** | **String**| Counts products specified by product ids | [optional] [default to null]
  **sinceId** | **String**| Retrieve entities starting from the specified id. | [optional] [default to null]
  **categoriesIds** | **String**| Defines product add that is specified by comma-separated categories id | [optional] [default to null]
@@ -684,6 +687,7 @@ Name | Type | Description  | Notes
  **modifiedFrom** | **String**| Retrieve entities from their modification date | [optional] [default to null]
  **modifiedTo** | **String**| Retrieve entities to their modification date | [optional] [default to null]
  **brandName** | **String**| Retrieves brands specified by brand name | [optional] [default to null]
+ **manufacturerId** | **String**| Defines product&#39;s manufacturer by manufacturer_id | [optional] [default to null]
  **productAttributes** | [**List&lt;String&gt;**](String.md)| Defines product attributes | [optional] [default to null]
  **status** | **String**| Defines product&#39;s status | [optional] [default to null]
  **type** | **String**| Defines products&#39;s type | [optional] [default to null]
@@ -1203,7 +1207,7 @@ Name | Type | Description  | Notes
 
 ## productList
 
-> ModelResponseProductList productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, productType)
+> ModelResponseProductList productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, manufacturerId, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, productType)
 
 product.list
 
@@ -1235,6 +1239,7 @@ String modifiedTo = 2100-08-29 13:45:52; // String | Retrieve entities to their 
 String sku = bag_01; // String | Filter by product's sku
 String brandName = Abidas; // String | Retrieves brands specified by brand name
 List<String> productAttributes = product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2; // List<String> | Defines product attributes
+String manufacturerId = 1; // String | Defines product's manufacturer by manufacturer_id
 String status = disabled; // String | Defines product's status
 String type = simple; // String | Defines products's type
 String visible = everywhere; // String | Filter items by visibility status
@@ -1252,7 +1257,7 @@ Boolean disableReportCache = false; // Boolean | Disable report cache for curren
 Boolean useLatestApiVersion = true; // Boolean | Use the latest platform API version
 String productType = BICYCLE; // String | A categorization for the product
 try {
-    ModelResponseProductList result = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, productType);
+    ModelResponseProductList result = apiInstance.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, manufacturerId, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, productType);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductApi#productList");
@@ -1284,6 +1289,7 @@ Name | Type | Description  | Notes
  **sku** | **String**| Filter by product&#39;s sku | [optional] [default to null]
  **brandName** | **String**| Retrieves brands specified by brand name | [optional] [default to null]
  **productAttributes** | [**List&lt;String&gt;**](String.md)| Defines product attributes | [optional] [default to null]
+ **manufacturerId** | **String**| Defines product&#39;s manufacturer by manufacturer_id | [optional] [default to null]
  **status** | **String**| Defines product&#39;s status | [optional] [default to null]
  **type** | **String**| Defines products&#39;s type | [optional] [default to null]
  **visible** | **String**| Filter items by visibility status | [optional] [default to everywhere]

@@ -160,6 +160,8 @@ public class OrderAdd {
   private Boolean clearCache = true;
   @SerializedName("origin")
   private String origin = null;
+  @SerializedName("fee_price")
+  private BigDecimal feePrice = null;
   @SerializedName("order_item")
   private List<OrderAddOrderItemInner> orderItem = null;
 
@@ -923,6 +925,17 @@ public class OrderAdd {
   }
 
   /**
+   * Specifies refund's fee price
+   **/
+  @ApiModelProperty(value = "Specifies refund's fee price")
+  public BigDecimal getFeePrice() {
+    return feePrice;
+  }
+  public void setFeePrice(BigDecimal feePrice) {
+    this.feePrice = feePrice;
+  }
+
+  /**
    **/
   @ApiModelProperty(required = true, value = "")
   public List<OrderAddOrderItemInner> getOrderItem() {
@@ -1011,6 +1024,7 @@ public class OrderAdd {
         (this.noteAttributes == null ? orderAdd.noteAttributes == null : this.noteAttributes.equals(orderAdd.noteAttributes)) &&
         (this.clearCache == null ? orderAdd.clearCache == null : this.clearCache.equals(orderAdd.clearCache)) &&
         (this.origin == null ? orderAdd.origin == null : this.origin.equals(orderAdd.origin)) &&
+        (this.feePrice == null ? orderAdd.feePrice == null : this.feePrice.equals(orderAdd.feePrice)) &&
         (this.orderItem == null ? orderAdd.orderItem == null : this.orderItem.equals(orderAdd.orderItem));
   }
 
@@ -1086,6 +1100,7 @@ public class OrderAdd {
     result = 31 * result + (this.noteAttributes == null ? 0: this.noteAttributes.hashCode());
     result = 31 * result + (this.clearCache == null ? 0: this.clearCache.hashCode());
     result = 31 * result + (this.origin == null ? 0: this.origin.hashCode());
+    result = 31 * result + (this.feePrice == null ? 0: this.feePrice.hashCode());
     result = 31 * result + (this.orderItem == null ? 0: this.orderItem.hashCode());
     return result;
   }
@@ -1164,6 +1179,7 @@ public class OrderAdd {
     sb.append("  noteAttributes: ").append(noteAttributes).append("\n");
     sb.append("  clearCache: ").append(clearCache).append("\n");
     sb.append("  origin: ").append(origin).append("\n");
+    sb.append("  feePrice: ").append(feePrice).append("\n");
     sb.append("  orderItem: ").append(orderItem).append("\n");
     sb.append("}\n");
     return sb.toString();

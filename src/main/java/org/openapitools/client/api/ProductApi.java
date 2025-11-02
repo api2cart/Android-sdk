@@ -1483,6 +1483,7 @@ public class ProductApi {
   /**
   * product.count
   * Count products in store.
+   * @param sku Filter by product&#39;s sku
    * @param productIds Counts products specified by product ids
    * @param sinceId Retrieve entities starting from the specified id.
    * @param categoriesIds Defines product add that is specified by comma-separated categories id
@@ -1496,6 +1497,7 @@ public class ProductApi {
    * @param modifiedFrom Retrieve entities from their modification date
    * @param modifiedTo Retrieve entities to their modification date
    * @param brandName Retrieves brands specified by brand name
+   * @param manufacturerId Defines product&#39;s manufacturer by manufacturer_id
    * @param productAttributes Defines product attributes
    * @param status Defines product&#39;s status
    * @param type Defines products&#39;s type
@@ -1508,7 +1510,7 @@ public class ProductApi {
    * @param useLatestApiVersion Use the latest platform API version
    * @return ProductCount200Response
   */
-  public ProductCount200Response productCount (String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String brandName, List<String> productAttributes, String status, String type, String visible, String findValue, String findWhere, String reportRequestId, Boolean returnGlobal, Boolean disableReportCache, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProductCount200Response productCount (String sku, String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String brandName, String manufacturerId, List<String> productAttributes, String status, String type, String visible, String findValue, String findWhere, String reportRequestId, Boolean returnGlobal, Boolean disableReportCache, Boolean useLatestApiVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -1520,6 +1522,7 @@ public class ProductApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sku", sku));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
@@ -1533,6 +1536,7 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_name", brandName));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "manufacturer_id", manufacturerId));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "product_attributes", productAttributes));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
@@ -1585,9 +1589,9 @@ public class ProductApi {
       /**
    * product.count
    * Count products in store.
-   * @param productIds Counts products specified by product ids   * @param sinceId Retrieve entities starting from the specified id.   * @param categoriesIds Defines product add that is specified by comma-separated categories id   * @param categoryId Counts products specified by category id   * @param storeId Counts products specified by store id   * @param langId Counts products specified by language id   * @param availView Specifies the set of visible/invisible products   * @param availSale Specifies the set of available/not available products for sale   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param brandName Retrieves brands specified by brand name   * @param productAttributes Defines product attributes   * @param status Defines product&#39;s status   * @param type Defines products&#39;s type   * @param visible Filter items by visibility status   * @param findValue Entity search that is specified by some value   * @param findWhere Counts products that are searched specified by field   * @param reportRequestId Report request id   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.   * @param disableReportCache Disable report cache for current request   * @param useLatestApiVersion Use the latest platform API version
+   * @param sku Filter by product&#39;s sku   * @param productIds Counts products specified by product ids   * @param sinceId Retrieve entities starting from the specified id.   * @param categoriesIds Defines product add that is specified by comma-separated categories id   * @param categoryId Counts products specified by category id   * @param storeId Counts products specified by store id   * @param langId Counts products specified by language id   * @param availView Specifies the set of visible/invisible products   * @param availSale Specifies the set of available/not available products for sale   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param brandName Retrieves brands specified by brand name   * @param manufacturerId Defines product&#39;s manufacturer by manufacturer_id   * @param productAttributes Defines product attributes   * @param status Defines product&#39;s status   * @param type Defines products&#39;s type   * @param visible Filter items by visibility status   * @param findValue Entity search that is specified by some value   * @param findWhere Counts products that are searched specified by field   * @param reportRequestId Report request id   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.   * @param disableReportCache Disable report cache for current request   * @param useLatestApiVersion Use the latest platform API version
   */
-  public void productCount (String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String brandName, List<String> productAttributes, String status, String type, String visible, String findValue, String findWhere, String reportRequestId, Boolean returnGlobal, Boolean disableReportCache, Boolean useLatestApiVersion, final Response.Listener<ProductCount200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void productCount (String sku, String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String brandName, String manufacturerId, List<String> productAttributes, String status, String type, String visible, String findValue, String findWhere, String reportRequestId, Boolean returnGlobal, Boolean disableReportCache, Boolean useLatestApiVersion, final Response.Listener<ProductCount200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -1601,6 +1605,7 @@ public class ProductApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "sku", sku));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "product_ids", productIds));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "since_id", sinceId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "categories_ids", categoriesIds));
@@ -1614,6 +1619,7 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_from", modifiedFrom));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "modified_to", modifiedTo));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_name", brandName));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "manufacturer_id", manufacturerId));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "product_attributes", productAttributes));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
@@ -2983,6 +2989,7 @@ public class ProductApi {
    * @param sku Filter by product&#39;s sku
    * @param brandName Retrieves brands specified by brand name
    * @param productAttributes Defines product attributes
+   * @param manufacturerId Defines product&#39;s manufacturer by manufacturer_id
    * @param status Defines product&#39;s status
    * @param type Defines products&#39;s type
    * @param visible Filter items by visibility status
@@ -3001,7 +3008,7 @@ public class ProductApi {
    * @param productType A categorization for the product
    * @return ModelResponseProductList
   */
-  public ModelResponseProductList productList (Integer start, Integer count, String pageCursor, String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, String currencyId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sku, String brandName, List<String> productAttributes, String status, String type, String visible, String findValue, String findWhere, Boolean returnGlobal, String params, String responseFields, String exclude, String sortBy, String sortDirection, String reportRequestId, Boolean disableCache, Boolean disableReportCache, Boolean useLatestApiVersion, String productType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ModelResponseProductList productList (Integer start, Integer count, String pageCursor, String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, String currencyId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sku, String brandName, List<String> productAttributes, String manufacturerId, String status, String type, String visible, String findValue, String findWhere, Boolean returnGlobal, String params, String responseFields, String exclude, String sortBy, String sortDirection, String reportRequestId, Boolean disableCache, Boolean disableReportCache, Boolean useLatestApiVersion, String productType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -3032,6 +3039,7 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sku", sku));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_name", brandName));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "product_attributes", productAttributes));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "manufacturer_id", manufacturerId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "visible", visible));
@@ -3090,9 +3098,9 @@ public class ProductApi {
       /**
    * product.list
    * Get list of products from your store. Returns 10 products by default.
-   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param productIds Retrieves products specified by product ids   * @param sinceId Retrieve entities starting from the specified id.   * @param categoriesIds Retrieves products specified by categories ids   * @param categoryId Retrieves products specified by category id   * @param storeId Retrieves products specified by store id   * @param langId Retrieves products specified by language id   * @param currencyId Currency Id   * @param availView Specifies the set of visible/invisible products   * @param availSale Specifies the set of available/not available products for sale   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param sku Filter by product&#39;s sku   * @param brandName Retrieves brands specified by brand name   * @param productAttributes Defines product attributes   * @param status Defines product&#39;s status   * @param type Defines products&#39;s type   * @param visible Filter items by visibility status   * @param findValue Entity search that is specified by some value   * @param findWhere Product search that is specified by field   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param reportRequestId Report request id   * @param disableCache Disable cache for current request   * @param disableReportCache Disable report cache for current request   * @param useLatestApiVersion Use the latest platform API version   * @param productType A categorization for the product
+   * @param start This parameter sets the number from which you want to get entities   * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250   * @param pageCursor Used to retrieve products via cursor-based pagination (it can&#39;t be used with any other filtering parameter)   * @param productIds Retrieves products specified by product ids   * @param sinceId Retrieve entities starting from the specified id.   * @param categoriesIds Retrieves products specified by categories ids   * @param categoryId Retrieves products specified by category id   * @param storeId Retrieves products specified by store id   * @param langId Retrieves products specified by language id   * @param currencyId Currency Id   * @param availView Specifies the set of visible/invisible products   * @param availSale Specifies the set of available/not available products for sale   * @param createdFrom Retrieve entities from their creation date   * @param createdTo Retrieve entities to their creation date   * @param modifiedFrom Retrieve entities from their modification date   * @param modifiedTo Retrieve entities to their modification date   * @param sku Filter by product&#39;s sku   * @param brandName Retrieves brands specified by brand name   * @param productAttributes Defines product attributes   * @param manufacturerId Defines product&#39;s manufacturer by manufacturer_id   * @param status Defines product&#39;s status   * @param type Defines products&#39;s type   * @param visible Filter items by visibility status   * @param findValue Entity search that is specified by some value   * @param findWhere Product search that is specified by field   * @param returnGlobal Determines the type of products to be returned. If set to &#39;true&#39;, only global products will be returned; if set to &#39;false&#39;, only local products will be returned.   * @param params Set this parameter in order to choose which entity fields you want to retrieve   * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve   * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all   * @param sortBy Set field to sort by   * @param sortDirection Set sorting direction   * @param reportRequestId Report request id   * @param disableCache Disable cache for current request   * @param disableReportCache Disable report cache for current request   * @param useLatestApiVersion Use the latest platform API version   * @param productType A categorization for the product
   */
-  public void productList (Integer start, Integer count, String pageCursor, String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, String currencyId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sku, String brandName, List<String> productAttributes, String status, String type, String visible, String findValue, String findWhere, Boolean returnGlobal, String params, String responseFields, String exclude, String sortBy, String sortDirection, String reportRequestId, Boolean disableCache, Boolean disableReportCache, Boolean useLatestApiVersion, String productType, final Response.Listener<ModelResponseProductList> responseListener, final Response.ErrorListener errorListener) {
+  public void productList (Integer start, Integer count, String pageCursor, String productIds, String sinceId, String categoriesIds, String categoryId, String storeId, String langId, String currencyId, Boolean availView, Boolean availSale, String createdFrom, String createdTo, String modifiedFrom, String modifiedTo, String sku, String brandName, List<String> productAttributes, String manufacturerId, String status, String type, String visible, String findValue, String findWhere, Boolean returnGlobal, String params, String responseFields, String exclude, String sortBy, String sortDirection, String reportRequestId, Boolean disableCache, Boolean disableReportCache, Boolean useLatestApiVersion, String productType, final Response.Listener<ModelResponseProductList> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -3125,6 +3133,7 @@ public class ProductApi {
     queryParams.addAll(ApiInvoker.parameterToPairs("", "sku", sku));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "brand_name", brandName));
     queryParams.addAll(ApiInvoker.parameterToPairs("multi", "product_attributes", productAttributes));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "manufacturer_id", manufacturerId));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "status", status));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "visible", visible));
